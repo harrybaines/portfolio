@@ -1,6 +1,19 @@
 import Image from "next/image";
 
-export default function ExperienceItem({ job, minimal }) {
+interface ExperienceItemProps {
+  job: {
+    title: string;
+    companyName: string;
+    companyURL: string;
+    companyLogo: string;
+    date: string;
+    description: string;
+    skills: string[];
+  };
+  minimal?: boolean;
+}
+
+export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
   if (minimal) {
     return (
       <>

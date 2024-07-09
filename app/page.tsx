@@ -193,7 +193,7 @@ export default function Home() {
                   <p className="mb-2 text-sm leading-6">
                     {project.description}
                   </p>
-                  <div className="relative group borderw-fit">
+                  {/* <div className="relative group borderw-fit">
                     {project.link && (
                       <a
                         href="/work"
@@ -204,7 +204,7 @@ export default function Home() {
                         <div className="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                       </a>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               );
             })}
