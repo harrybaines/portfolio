@@ -10,7 +10,7 @@ const AboutPage = () => {
 
       {/* Intro */}
       <p className="mb-4">
-        Hi, I'm Harry. I build custom software applications for large companies.
+        Hi, I&apos;m Harry. I build custom software applications for large companies.
         Reach out if you would like to chat!
       </p>
 
@@ -43,7 +43,7 @@ const AboutPage = () => {
         that leads us to today!
       </p>
       <p className="mb-4">
-        When I'm not working I enjoy running, going to the gym, playing Dead by
+        When I&apos;m not working I enjoy running, going to the gym, playing Dead by
         Daylight, or working on a side project :)
       </p>
 

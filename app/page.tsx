@@ -149,7 +149,7 @@ export default function Home() {
           <h1 className="text-gray-600 mb-2">Connect with me:</h1>
           <div className="flex flex-row gap-3">
             {socialLinks.map((link) => (
-              <SocialLink label={link.name} href={link.link} icon={link.icon} />
+              <SocialLink key={link.name} label={link.name} href={link.link} icon={link.icon} />
             ))}
           </div>
 
@@ -214,7 +214,7 @@ export default function Home() {
           <h2 className="text-xl font-bold mb-2">
             Do you need bespoke software for your business?
           </h2>
-          <p className="mb-4">I'll build an <span className="font-bold text-gray-900">exceptional</span> solution for you.</p>
+          <p className="mb-4">I&apos;ll build an <span className="font-bold text-gray-900">exceptional</span> solution for you.</p>
           <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-4 py-2 rounded-full">
             Lets chat
           </a>
