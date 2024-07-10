@@ -124,7 +124,7 @@ export default function Home() {
         <div className="flex items-center gap-6 my-8 text-sm animate-from-bottom" style={{ "--index": 1 } as React.CSSProperties}>
           <div className="relative group">
             <Link
-              href="/work"
+              href="/"
               className="flex items-center gap-2 relative z-10"
             >
               Work
@@ -134,7 +134,7 @@ export default function Home() {
           </div>
           <div className="relative group">
             <Link
-              href="/about"
+              href="/"
               className="flex items-center gap-2 relative z-10"
             >
               About Me
