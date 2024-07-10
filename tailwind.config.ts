@@ -22,8 +22,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-instrument-sans)"],
-        mono: ["var(--font-space-grotesk)"],
+        sans: ["var(--font-figtree)"],
+        mono: ["var(--font-spaceGrotesk)"],
       },
       colors: {
         primary: "#1c1c22",
