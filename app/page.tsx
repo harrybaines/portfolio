@@ -70,7 +70,7 @@ export default function Home() {
       <div className="container mx-auto h-full">
         {/* Intro */}
         <div className="flex flex-col xl:flex-row items-center justify-between">
-          <div className="text-center max-w-4xl xl:text-left">
+          <div className="text-left max-w-4xl">
             {/* Available for work */}
             <Badge className="text-green-700 bg-green-100 mb-6 animate-from-bottom py-0" style={{ "--index": 3 } as React.CSSProperties}>
               <div className="flex items-center gap-2 text-xs">
@@ -99,18 +99,18 @@ export default function Home() {
         </div>
         {/* Contact links */}
         <div className="mb-16 animate-from-bottom" style={{ "--index": 2 } as React.CSSProperties}>
-          <div className="flex items-center gap-6">
-            <h1 className="text-gray-600">Connect with me:</h1>
-            {socialLinks.map((socialLink, index) => {
-              return (
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+            <h1 className="text-gray-600 sm:mb-0">Connect with me:</h1>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              {socialLinks.map((socialLink, index) => (
                 <SocialLink
                   key={index}
                   label={socialLink.name}
                   href={socialLink.link}
                   icon={socialLink.icon}
                 />
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
         {/* Main projects */}
