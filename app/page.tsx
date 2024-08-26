@@ -37,7 +37,7 @@ const socialLinks = [
 
 const mainProjects = [
   {
-    title: "archbase",
+    title: "archtms",
     date: "January 1st, 2023",
     status: "In Progress",
     logoUrl: "/assets/archbase.png",
@@ -66,7 +66,7 @@ const sideProjects = [
 
 export default function Home() {
   return (
-    <section className="h-full py-16">
+    <section className="h-full py-24">
       <div className="container mx-auto h-full">
         {/* Intro */}
         <div className="flex flex-col xl:flex-row items-center justify-between">
@@ -81,13 +81,13 @@ export default function Home() {
                 Available for work
               </div>
             </Badge>
-            <p className="text-4xl mb-4 font-semibold animate-from-bottom leading-snug">
-              Software engineer and freelancer building scalable web applications.
+            <p className="text-3xl mb-4 font-bold animate-from-bottom leading-snug">
+              Hi, I&apos;m Harry 👋
             </p>
-            <p className="dark:text-white/80 text-gray-700 animate-from-bottom text-lg" style={{ "--index": 1 } as React.CSSProperties}>
-              6+ years experience as a full-stack software engineer from the 🇬🇧 UK.
-              I specialise in web development, automations and developer tooling.
-              I&apos;m the founder of archbase, an architect management system for timesheets, projects, fees and holiday requests.
+            <p className="dark:text-white/80 text-gray-700 animate-from-bottom text-md" style={{ "--index": 1 } as React.CSSProperties}>
+              Full-stack software engineer and freelancer with 5 years experience from the 🇬🇧 UK.
+              I specialise in web development, AI and developer tooling.
+              I&apos;m the founder of <a href="#" className="underline underline-offset-4">archtms</a>, an architect management system for timesheets, projects, fees and holiday requests.
             </p>
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className="mt-36 animate-from-bottom" style={{ "--index": 4 } as React.CSSProperties}>
+        {/* <div className="mt-36 animate-from-bottom" style={{ "--index": 4 } as React.CSSProperties}>
           <p className="text-2xl font-semibold mb-4 leading-snug">
             Need bespoke software for your business?
           </p>
@@ -199,7 +199,7 @@ export default function Home() {
           <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-6 py-3 font-semibold rounded-full">
             Lets chat
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const AboutPage = () => {
       </div>
       <div className="col-span-2">
         <p className="mb-4">
-          Hi! I&apos;m Harry, a software engineer from the UK with 6+ years experience.
+          Hi! I&apos;m Harry, a software engineer from the UK with 5 years experience.
         </p>
         <p className="mb-4">
           In 2014 I took A-level Computing and received an award for achieving the highest
