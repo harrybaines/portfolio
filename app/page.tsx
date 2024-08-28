@@ -1,6 +1,5 @@
 "use client";
 
-import SocialLink from "@/components/SocialLink";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import {
@@ -66,11 +65,11 @@ const sideProjects = [
 
 export default function Home() {
   return (
-    <section className="h-full py-16 lg:py-24">
+    <section className="h-full py-16 lg:py-20">
       <div className="container mx-auto h-full">
         {/* Intro */}
         <div className="flex flex-col xl:flex-row items-center justify-between">
-          <div className="text-left max-w-4xl">
+          <div className="text-left">
             {/* Available for work */}
             <Badge className="text-green-700 bg-green-100 mb-6 animate-from-bottom py-0" style={{ "--index": 3 } as React.CSSProperties}>
               <div className="flex items-center gap-2 text-xs">
@@ -81,31 +80,33 @@ export default function Home() {
                 Available for work
               </div>
             </Badge>
-            <p className="text-3xl mb-4 font-bold animate-from-bottom leading-snug">
-              Software engineer and freelancer
+            <p className="text-4xl mb-4 font-bold animate-from-bottom leading-snug">
+              Software engineer building things for the web.
             </p>
-            <p className="dark:text-white/80 text-gray-700 animate-from-bottom text-md" style={{ "--index": 1 } as React.CSSProperties}>
-              Full-stack software engineer and freelancer with 5 years experience from the 🇬🇧 UK.
+            <p className="dark:text-white/80 text-gray-600 animate-from-bottom text-lg mb-1.5" style={{ "--index": 1 } as React.CSSProperties}>
+              Full-stack software engineer with 5 years experience from the 🇬🇧 UK.
               I specialise in web development, AI and developer tooling.
+            </p>
+            <p className="dark:text-white/80 text-gray-600 animate-from-bottom text-lg" style={{ "--index": 2 } as React.CSSProperties}>
               I&apos;m the founder of <a href="#" className="underline underline-offset-4">archtms</a>, an architect management system for timesheets, projects, fees and holiday requests.
             </p>
             {/* Open to work text */}
-            <p className="text-gray-500 animate-from-bottom text-md mt-4" style={{ "--index": 2 } as React.CSSProperties}>
+            <p className="text-gray-500 animate-from-bottom font-semibold text-lg mt-4" style={{ "--index": 2 } as React.CSSProperties}>
               Need bespoke software for your business?
             </p>
             {/* Lets chat */}
             <div className="mt-4 animate-from-bottom" style={{ "--index": 5 } as React.CSSProperties}>
-              <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-4 py-2 font-semibold rounded-full">
+              <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-4 py-1.5 font-semibold rounded-full">
                 Lets chat
               </a>
             </div>
           </div>
         </div>
         {/* Contact links */}
-        <div className="mb-16 mt-10 animate-from-bottom" style={{ "--index": 2 } as React.CSSProperties}>
-          <div className="flex flex-col sm:flex-col gap-6">
-            {/* <h1 className="text-gray-600 sm:mb-0">Connect with me:</h1> */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+        {/* <div className="mb-16 mt-10 animate-from-bottom" style={{ "--index": 2 } as React.CSSProperties}> */}
+        {/* <div className="flex flex-col sm:flex-col gap-6"> */}
+        {/* <h1 className="text-gray-600 sm:mb-0">Connect with me:</h1> */}
+        {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               {socialLinks.map((socialLink, index) => (
                 <SocialLink
                   key={index}
@@ -114,12 +115,12 @@ export default function Home() {
                   icon={socialLink.icon}
                 />
               ))}
-            </div>
-          </div>
-        </div>
+            </div> */}
+        {/* </div> */}
+        {/* </div> */}
         {/* Main projects */}
-        <div className="mb-16 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
-          <h1 className="font-semibold mb-4 text-gray-500">My Work</h1>
+        <div className="my-16 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
+          <h1 className="font-semibold mb-4 text-gray-400 font-mono">~/My Work</h1>
           <div>
             {mainProjects.map((project) => {
               return (
@@ -139,17 +140,16 @@ export default function Home() {
                     <p className="text-2xl font-semibold leading-snug">
                       Architect management system
                     </p>
-                    <p className="text-md text-gray-500 mt-1">
+                    <p className="text-md text-gray-500 mt-0.5">
                       to manage timesheets and monitor project profitability
                     </p>
                   </div>
-                  <div className="flex gap-3 my-4">
+                  <div className="flex gap-3 my-3">
                     <p className="text-sm text-gray-500">{project.date}</p>
                     <div className="w-px h-3 bg-gray-300 my-auto"></div>
                     <p className="text-sm text-gray-500">{project.status}</p>
                   </div>
                   <div>
-                    <p>Includes:</p>
                     <ul className="list-disc list-inside">
                       <li>Project dashboards and fee forecasting</li>
                       <li>Holiday request system</li>
@@ -165,8 +165,8 @@ export default function Home() {
         </div>
         {/* Side projects */}
         <div className="mb-16 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
-          <h1 className="font-semibold mb-4 text-gray-500">Side Projects</h1>
-          <div className="grid grid-cols-1  md:grid-cols-2 gap-10">
+          <h1 className="font-semibold mb-4 text-gray-400">~/Side Projects</h1>
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-10">
             {sideProjects.map((project) => {
               return (
                 <div key={project.title}>

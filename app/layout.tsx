@@ -15,6 +15,11 @@ const satoshiFont = localFont({
   display: 'swap',
 })
 
+const sourceSans = localFont({
+  src: './fonts/Source-Sans-3.ttf',
+  display: 'swap',
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,9 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cn("antialiased max-w-3xl lg:mx-auto", satoshiFont.className)}`}>
+      <body className={`${cn("antialiased max-w-2xl lg:mx-auto", sourceSans.className)}`}>
         <Header />
-        <main className="flex-auto  min-w-0 mt-6 flex flex-col px-2 md:px-0">
+        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           {children}
         </main>
         <footer className="py-20 text-center text-gray-500 text-sm">

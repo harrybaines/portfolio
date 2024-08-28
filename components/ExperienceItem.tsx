@@ -49,10 +49,10 @@ export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
         <a href={job.companyURL} className="font-semibold hover:underline">
           {job.title} - {job.companyName}
         </a>
-        <p className="mt-1 text-gray-600 dark:text-gray-400 max-w-2xl">
+        <p className="mt-1 text-gray-600 dark:text-gray-400">
           {job.description}
         </p>
-        <div className="flex flex-wrap mt-4 gap-y-3 max-w-2xl">
+        <div className="flex flex-wrap mt-4 gap-y-3">
           {job.skills.map((skill, index) => (
             <div key={skill} className="flex items-center">
               <span className="text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-xl px-2 text-sm">

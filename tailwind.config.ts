@@ -33,7 +33,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Satoshi Variable"],
+        // sans: ["Satoshi Variable"],
+        sans: ["var(--font-sourceSans)"],
         mono: ["var(--font-spaceGrotesk)"],
       },
       colors: {
