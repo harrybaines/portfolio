@@ -66,7 +66,7 @@ const sideProjects = [
 
 export default function Home() {
   return (
-    <section className="h-full py-24">
+    <section className="h-full py-16 lg:py-24">
       <div className="container mx-auto h-full">
         {/* Intro */}
         <div className="flex flex-col xl:flex-row items-center justify-between">
@@ -82,25 +82,29 @@ export default function Home() {
               </div>
             </Badge>
             <p className="text-3xl mb-4 font-bold animate-from-bottom leading-snug">
-              Hi, I&apos;m Harry 👋
+              Software engineer and freelancer
             </p>
             <p className="dark:text-white/80 text-gray-700 animate-from-bottom text-md" style={{ "--index": 1 } as React.CSSProperties}>
               Full-stack software engineer and freelancer with 5 years experience from the 🇬🇧 UK.
               I specialise in web development, AI and developer tooling.
               I&apos;m the founder of <a href="#" className="underline underline-offset-4">archtms</a>, an architect management system for timesheets, projects, fees and holiday requests.
             </p>
+            {/* Open to work text */}
+            <p className="text-gray-500 animate-from-bottom text-md mt-4" style={{ "--index": 2 } as React.CSSProperties}>
+              Need bespoke software for your business?
+            </p>
+            {/* Lets chat */}
+            <div className="mt-4 animate-from-bottom" style={{ "--index": 5 } as React.CSSProperties}>
+              <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-4 py-2 font-semibold rounded-full">
+                Lets chat
+              </a>
+            </div>
           </div>
         </div>
-        {/* Lets chat */}
-        <div className="my-8 animate-from-bottom" style={{ "--index": 5 } as React.CSSProperties}>
-          <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-5 py-2.5 font-semibold rounded-full">
-            Lets chat
-          </a>
-        </div>
         {/* Contact links */}
-        <div className="mb-16 animate-from-bottom" style={{ "--index": 2 } as React.CSSProperties}>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-            <h1 className="text-gray-600 sm:mb-0">Connect with me:</h1>
+        <div className="mb-16 mt-10 animate-from-bottom" style={{ "--index": 2 } as React.CSSProperties}>
+          <div className="flex flex-col sm:flex-col gap-6">
+            {/* <h1 className="text-gray-600 sm:mb-0">Connect with me:</h1> */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               {socialLinks.map((socialLink, index) => (
                 <SocialLink
@@ -133,7 +137,10 @@ export default function Home() {
                   </div>
                   <div className="max-w-lg">
                     <p className="text-2xl font-semibold leading-snug">
-                      Architect management system to manage timesheets and monitor project profitability
+                      Architect management system
+                    </p>
+                    <p className="text-md text-gray-500 mt-1">
+                      to manage timesheets and monitor project profitability
                     </p>
                   </div>
                   <div className="flex gap-3 my-4">
