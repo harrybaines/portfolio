@@ -2,44 +2,24 @@
 
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import {
-  BsEnvelope,
-  BsGithub,
-  BsLinkedin,
-  BsTwitter
-} from "react-icons/bs";
 
-const nameVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 10,
-    },
-  },
-};
-
-const socialLinks = [
-  { name: "Email", icon: BsEnvelope, link: "mailto:harryb0905@googlemail.com" },
-  { name: "X/Twitter", icon: BsTwitter, link: "https://x.com/HarryIsCoding" },
-  { name: "GitHub", icon: BsGithub, link: "https://github.com/harrybaines" },
-  {
-    name: "LinkedIn",
-    icon: BsLinkedin,
-    link: "https://www.linkedin.com/in/harryb0905/",
-  },
-];
+// const socialLinks = [
+//   { name: "Email", icon: BsEnvelope, link: "mailto:harryb0905@googlemail.com" },
+//   { name: "X/Twitter", icon: BsTwitter, link: "https://x.com/HarryIsCoding" },
+//   { name: "GitHub", icon: BsGithub, link: "https://github.com/harrybaines" },
+//   {
+//     name: "LinkedIn",
+//     icon: BsLinkedin,
+//     link: "https://www.linkedin.com/in/harryb0905/",
+//   },
+// ];
 
 const mainProjects = [
   {
     title: "archtms",
     date: "January 1st, 2023",
     status: "In Progress",
-    logoUrl: "/assets/archbase.png",
+    logoUrl: "/assets/archtms.png",
     description:
       "Architect management system: timesheets, projects, fees and holiday requests.",
   },
@@ -47,28 +27,51 @@ const mainProjects = [
 
 const sideProjects = [
   {
-    title: 'microstarter',
-    date: 'June 6th, 2024',
-    status: 'In Progress',
-    logoUrl: '/assets/microstarter.png',
-    description: 'A starter template builder for developers to build micro apps faster.'
-  },
-  {
     title: "BrewKit",
-    date: "June 6th, 2024",
+    date: "Jun, 2024",
     status: "In Progress",
     logoUrl: "/assets/brewkit.png",
     description:
-      "Boilerplate template for developers to ship their startup for the price of a coffee. ",
+      "Boilerplate template to ship an AI startup for the price of a coffee.",
   },
+  {
+    title: 'TorchGPT',
+    date: "Aug, 2023",
+    status: "Completed",
+    // logoUrl: "/assets/torchgpt.png",
+    description:
+      "Generate PyTorch code from input prompts using OpenAI's text-davinci-3 model.",
+  },
+  {
+    title: 'AI Avatars',
+    date: "Jan, 2023",
+    status: "Completed",
+    // logoUrl: "/assets/avatars.png",
+    description:
+      "Personalised AI avatars using stable diffusion, accessible through Next.js interface.",
+  }
+  ,
+  {
+    title: 'Tic Tac Toe solver using AI',
+    date: "Jun, 2022",
+    status: "Completed",
+    // logoUrl: "/assets/tic-tac-toe.png",
+    description:
+      "Solving Tic-Tac-Toe using Monte Carlo Tree Search.",
+  },
+];
+
+const osContributions = [
+  { project: "Ivy", link: "https://github.com/ivy-llc/ivy", contribution: "Added JAX to numpy function conversions", date: "July 25, 2023" },
+  { project: "Buildspace", link: "https://github.com/buildspace/buildspace-projects", contribution: "Added enhancements to AI avatar tutorial project", date: "Jan 19, 2023" },
 ];
 
 export default function Home() {
   return (
-    <section className="h-full py-16 lg:py-20">
+    <section className="h-full">
       <div className="container mx-auto h-full">
         {/* Intro */}
-        <div className="flex flex-col xl:flex-row items-center justify-between">
+        <div className="flex flex-col xl:flex-row items-center justify-between my-16 lg:my-32">
           <div className="text-left">
             {/* Available for work */}
             <Badge className="text-green-700 bg-green-100 mb-6 animate-from-bottom py-0" style={{ "--index": 3 } as React.CSSProperties}>
@@ -81,7 +84,7 @@ export default function Home() {
               </div>
             </Badge>
             <p className="text-4xl mb-4 font-bold animate-from-bottom leading-snug">
-              Software engineer building things for the web.
+              Software engineer building stuff for the web.
             </p>
             <p className="dark:text-white/80 text-gray-600 animate-from-bottom text-lg mb-1.5" style={{ "--index": 1 } as React.CSSProperties}>
               Full-stack software engineer with 5 years experience from the 🇬🇧 UK.
@@ -102,24 +105,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* Contact links */}
-        {/* <div className="mb-16 mt-10 animate-from-bottom" style={{ "--index": 2 } as React.CSSProperties}> */}
-        {/* <div className="flex flex-col sm:flex-col gap-6"> */}
-        {/* <h1 className="text-gray-600 sm:mb-0">Connect with me:</h1> */}
-        {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              {socialLinks.map((socialLink, index) => (
-                <SocialLink
-                  key={index}
-                  label={socialLink.name}
-                  href={socialLink.link}
-                  icon={socialLink.icon}
-                />
-              ))}
-            </div> */}
-        {/* </div> */}
-        {/* </div> */}
         {/* Main projects */}
-        <div className="my-16 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
+        <div className="mb-20 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
           <h1 className="font-semibold mb-4 text-gray-400 font-mono">~/My Work</h1>
           <div>
             {mainProjects.map((project) => {
@@ -140,7 +127,7 @@ export default function Home() {
                     <p className="text-2xl font-semibold leading-snug">
                       Architect management system
                     </p>
-                    <p className="text-md text-gray-500 mt-0.5">
+                    <p className="text-lg text-gray-500 mt-0.5">
                       to manage timesheets and monitor project profitability
                     </p>
                   </div>
@@ -164,49 +151,66 @@ export default function Home() {
           </div>
         </div>
         {/* Side projects */}
-        <div className="mb-16 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
+        <div className="mb-20 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
           <h1 className="font-semibold mb-4 text-gray-400">~/Side Projects</h1>
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-10">
-            {sideProjects.map((project) => {
+          <div className="space-y-0 ">
+            {sideProjects.map((project, index) => {
               return (
                 <div key={project.title}>
-                  <div className="flex items-center gap-4 mb-3">
-                    <Image
-                      src={project.logoUrl}
-                      alt={project.title}
-                      width={40}
-                      height={40}
-                    />
-                    <div>
-                      <h2 className="font-semibold">
-                        {project.title}
-                      </h2>
-                      <div className="flex gap-4">
+                  <div className="flex items-start gap-4 py-3">
+                    <div className="flex-shrink-0 mt-1">
+                      {project.logoUrl ? (
+                        <Image
+                          src={project.logoUrl}
+                          alt={project.title}
+                          width={32}
+                          height={32}
+                        />
+                      ) : (
+                        <div className="w-8 h-8 bg-gray-50 rounded-md flex items-center justify-center">
+                          <span role="img" aria-label="pencil" className="text-sm">👨‍💻</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex-grow leading-snug">
+                      <div className="flex justify-between items-baseline">
+                        <h2 className="font-semibold text-base">
+                          {project.title}
+                        </h2>
                         <p className="text-sm text-gray-500">{project.date}</p>
-                        <div className="w-px h-3 bg-gray-300 my-auto"></div>
-                        <p className="text-sm text-gray-500">{project.status}</p>
                       </div>
+                      <p className="text-sm text-gray-700 mt-1">
+                        {project.description}
+                      </p>
                     </div>
                   </div>
-                  <p className="mb-2 text-md">
-                    {project.description}
-                  </p>
+                  {index < sideProjects.length - 1 && <hr className="my-3 border-gray-100" />}
                 </div>
               );
             })}
           </div>
         </div>
-        {/* <div className="mt-36 animate-from-bottom" style={{ "--index": 4 } as React.CSSProperties}>
-          <p className="text-2xl font-semibold mb-4 leading-snug">
-            Need bespoke software for your business?
-          </p>
-          <p className="mb-6 text-lg">
-            I&apos;ll build you an MVP for free. Only pay when you&apos;re happy.
-          </p>
-          <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-6 py-3 font-semibold rounded-full">
-            Lets chat
-          </a>
-        </div> */}
+        {/* OS Contributions */}
+        <div className="mb-20 animate-from-bottom" style={{ "--index": 4 } as React.CSSProperties}>
+          <h1 className="font-semibold mb-4 text-gray-400 font-mono">~/OS Contributions</h1>
+          <div className="flex flex-col">
+            {osContributions.map((contribution, index) => (
+              <div key={index}>
+                <div className="flex flex-wrap justify-between items-center py-3">
+                  <div className="flex-grow mr-4">
+                    <a href={contribution.link} className="font-semibold hover:underline" target="_blank" rel="noopener noreferrer">
+                      {contribution.project}
+                    </a>
+                    <span className="mx-2">-</span>
+                    <span className="text-gray-700 dark:text-gray-300">{contribution.contribution}</span>
+                  </div>
+                  <span className="text-sm text-gray-500 text-right">{contribution.date}</span>
+                </div>
+                {index < osContributions.length - 1 && <hr className="border-gray-200 dark:border-gray-700" />}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

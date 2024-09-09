@@ -1,25 +1,28 @@
 import ExperienceItem from "@/components/ExperienceItem";
 import { workData } from "@/content/workData";
+import BikeImage from "@/public/assets/bike.jpeg";
 import Image from "next/image";
-import PencilSketch from '/public/assets/pencil-sketch.png';
-import Running from '/public/assets/running.jpeg';
-import Suit from '/public/assets/suit.jpg';
 
 const AboutPage = () => {
   return (
-    <section className="container">
-      <h3 className="h3 my-8">About</h3>
+    <section className="container mt-16">
+      <h2 className="h2">Hello 👋</h2>
+      <p className="my-4 text-xl">
+        I&apos;m Harry, a software engineer from the UK with 5+ years experience.
+      </p>
+
+      <div className="my-10">
+        <Image src={BikeImage} alt="Me on my bike" layout="responsive" className="rounded-lg shadow-md" />
+        <p className="text-sm text-gray-500 mt-2 text-center">Maldives September 2018</p>
+      </div>
 
       {/* 3 column grid */}
-      <div className="grid grid-cols-3 gap-x-12 my-10">
+      {/* <div className="grid grid-cols-3 gap-x-12 my-10">
         <Image src={Suit} alt="Me in a suit" width={1000} className="rounded-lg rotate-1 shadow-md" />
         <Image src={Running} alt="Running" width={1000} className="rounded-lg -rotate-1 shadow-md" />
         <Image src={PencilSketch} alt="Pencil sketch" width={1000} className="rounded-lg rotate-1 shadow-md" />
-      </div>
+      </div> */}
       <div className="col-span-2">
-        <p className="mb-4">
-          Hi! I&apos;m Harry, a software engineer from the UK with 5 years experience.
-        </p>
         <p className="mb-4">
           In 2014 I took A-level Computing and received an award for achieving the highest
           coursework grade. During the summer of my A-levels, I enrolled in a web
@@ -38,7 +41,7 @@ const AboutPage = () => {
       <p className="mb-4">And from 2022 to today, I have scaled my time management system into a complete project management system using a modern tech stack.</p>
       <p className="mb-4">
         When I&apos;m not working I enjoy running, going to the gym, playing Dead by
-        Daylight, or working on a side project :)
+        Daylight, or working on a side project 👨‍💻
       </p>
 
       {/* Desk setup */}

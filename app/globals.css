@@ -7,7 +7,7 @@
     @apply font-sans dark:bg-primary dark:text-white leading-loose;
   }
   p {
-    @apply text-gray-800;
+    @apply text-lg text-gray-800;
   }
   .h1 {
     @apply text-[48px] xl:text-[60px] leading-[1.1] font-semibold;
