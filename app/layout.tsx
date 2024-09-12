@@ -20,6 +20,14 @@ const sourceSans = localFont({
   display: 'swap',
 })
 
+import { Figtree } from 'next/font/google';
+
+const figtree = Figtree({
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cn("antialiased max-w-3xl lg:mx-auto", sourceSans.className)}`}>
+      <body className={`${cn("antialiased max-w-3xl lg:mx-auto", figtree.className)}`}>
         <Header />
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           {children}

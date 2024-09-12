@@ -94,12 +94,12 @@ export default function Home() {
               I&apos;m the founder of <a href="#" className="underline underline-offset-4">archtms</a>, an architect management system for timesheets, projects, fees and holiday requests.
             </p>
             {/* Open to work text */}
-            <p className="text-gray-500 animate-from-bottom font-semibold text-lg mt-4" style={{ "--index": 2 } as React.CSSProperties}>
+            <p className="text-gray-500 animate-from-bottom text-lg mt-4" style={{ "--index": 2 } as React.CSSProperties}>
               Need bespoke software for your business?
             </p>
             {/* Lets chat */}
             <div className="mt-4 animate-from-bottom" style={{ "--index": 5 } as React.CSSProperties}>
-              <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-4 py-1.5 font-semibold rounded-full">
+              <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-4 py-2 font-semibold rounded-full">
                 Lets chat
               </a>
             </div>

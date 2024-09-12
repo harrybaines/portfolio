@@ -34,7 +34,7 @@ const config = {
     extend: {
       fontFamily: {
         // sans: ["Satoshi Variable"],
-        sans: ["var(--font-sourceSans)"],
+        sans: ["Figtree"],
         mono: ["var(--font-spaceGrotesk)"],
       },
       colors: {
