@@ -84,25 +84,26 @@ export default function Home() {
               </div>
             </Badge>
             <p className="text-4xl mb-4 font-bold animate-from-bottom leading-snug">
-              Software engineer building stuff for the web.
+              Hello! I&apos;m Harry 👋
+            </p>
+            <p className="text-xl mb-4 font-semibold text-gray-500 animate-from-bottom">
+              A full-stack software engineer with 5 years experience from the 🇬🇧 UK. I specialise in web development, AI and developer tooling.
             </p>
             <p className="dark:text-white/80 text-gray-600 animate-from-bottom text-lg mb-1.5" style={{ "--index": 1 } as React.CSSProperties}>
-              Full-stack software engineer with 5 years experience from the 🇬🇧 UK.
-              I specialise in web development, AI and developer tooling.
             </p>
             <p className="dark:text-white/80 text-gray-600 animate-from-bottom text-lg" style={{ "--index": 2 } as React.CSSProperties}>
-              I&apos;m the founder of <a href="#" className="underline underline-offset-4">archtms</a>, an architect management system for timesheets, projects, fees and holiday requests.
+              I&apos;m the founder of <a href="#" className="underline underline-offset-4">archtms</a>, a complete architect management system.
             </p>
             {/* Open to work text */}
-            <p className="text-gray-500 animate-from-bottom text-lg mt-4" style={{ "--index": 2 } as React.CSSProperties}>
-              Need bespoke software for your business?
+            <p className="dark:text-white/80 text-gray-600 animate-from-bottom text-lg mt-4" style={{ "--index": 2 } as React.CSSProperties}>
+              I'm open to work, so if you need bespoke software for your business let&apos;s chat!
             </p>
             {/* Lets chat */}
-            <div className="mt-4 animate-from-bottom" style={{ "--index": 5 } as React.CSSProperties}>
+            {/* <div className="mt-4 animate-from-bottom" style={{ "--index": 5 } as React.CSSProperties}>
               <a href="https://www.cal.com/harrybaines/" className="bg-gray-900 text-white px-4 py-2 font-semibold rounded-full">
                 Lets chat
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* Main projects */}

@@ -6,8 +6,8 @@ import Image from "next/image";
 const AboutPage = () => {
   return (
     <section className="container mt-16">
-      <h2 className="h2">Hello 👋</h2>
-      <p className="my-4 text-xl">
+      <p className="text-4xl font-bold">Hello 👋</p>
+      <p className="my-0 text-xl">
         I&apos;m Harry, a software engineer from the UK with 5+ years experience.
       </p>
 
