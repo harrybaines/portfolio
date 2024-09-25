@@ -29,3 +29,13 @@
 .animate-from-bottom {
   animation-delay: calc(var(--index) * 140ms);
 }
+
+.type::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 1.25em;
+  background-color: #cccccc;
+  margin-left: 0.1em;
+  vertical-align: -0.25em;
+}

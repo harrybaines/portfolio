@@ -12,13 +12,9 @@ const links = [
     name: "about",
     path: "/about",
   },
-  // {
-  //   name: "work",
-  //   path: "/work",
-  // },
 ];
 
-const Nav = () => {
+export default function Nav() {
   const pathname = usePathname();
   return (
     <nav className="flex gap-8">
@@ -39,4 +35,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+

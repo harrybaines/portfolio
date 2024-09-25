@@ -1,90 +1,69 @@
-import ExperienceItem from "@/components/ExperienceItem";
+import BikeImageContainer from "@/components/bike-image-container";
+import ExperienceItem from "@/components/experience-item";
+import TerminalHeading from "@/components/terminal-heading";
 import { workData } from "@/content/workData";
-import BikeImage from "@/public/assets/bike.jpeg";
-import Image from "next/image";
 
 const AboutPage = () => {
   return (
-    <section className="container mt-16">
-      <h2 className="h2">Hello 👋</h2>
-      <p className="my-4 text-xl">
-        I&apos;m Harry, a software engineer from the UK with 5+ years experience.
-      </p>
+    <section className="container mt-24">
+      <h2 className="text-3xl font-bold mb-8">Hello, World! 👋</h2>
 
-      <div className="my-10">
-        <Image src={BikeImage} alt="Me on my bike" layout="responsive" className="rounded-lg shadow-md" />
+      <div className="mb-12">
+        <TerminalHeading command="whoami" />
+        <p className="mt-4">
+          I&apos;m Harry, a software engineer from the UK with 5+ years of experience. I&apos;m passionate about learning new technologies and building software that provides real value. I&apos;m open to full-time opportunities and part-time work,
+          feel free to give me a call and we can have a chat!
+        </p>
+      </div>
+
+      <div className="mb-12">
+        <BikeImageContainer />
         <p className="text-sm text-gray-500 mt-2 text-center">Maldives September 2018</p>
       </div>
 
-      {/* 3 column grid */}
-      {/* <div className="grid grid-cols-3 gap-x-12 my-10">
-        <Image src={Suit} alt="Me in a suit" width={1000} className="rounded-lg rotate-1 shadow-md" />
-        <Image src={Running} alt="Running" width={1000} className="rounded-lg -rotate-1 shadow-md" />
-        <Image src={PencilSketch} alt="Pencil sketch" width={1000} className="rounded-lg rotate-1 shadow-md" />
-      </div> */}
-      <div className="col-span-2">
-        <p className="mb-4">
-          In 2014 I took A-level Computing and received an award for achieving the highest
-          coursework grade. During the summer of my A-levels, I enrolled in a web
-          developer bootcamp course. This is when I discovered building software
-          could provide real value.
-        </p>
+      <div className="mb-12">
+        <TerminalHeading command="cat skills.txt" />
+        <pre className="bg-gray-100 p-5 rounded-md mt-4 text-wrap">
+          {`Languages: TypeScript, Python, Go, SQL
+Frameworks: React, Next.js, Express.js, Astro, Django, Flask, FastAPI, Celery, Selenium
+Databases: Postgres, MySQL, Redis, sqlite, Firebase, supabase
+Tools: Git, GitHub, Docker, Heroku, Vercel, Jupyter Notebooks`}
+        </pre>
       </div>
-      <p className="mb-4">
-        In 2018 during the summer of my second
-        year at university, I developed and sold a{" "}
-        {/* <Link className="underline underline-offset-4" href="/work/timesheets"> */}
-        {/* </Link>{" "} */}
-        timesheet system to a large architecture practice.
-      </p>
-      <p className="mb-4">In 2020 I started working as a hybrid Software Engineer/Data Scientist for a large chemical consultancy for 2 years.</p>
-      <p className="mb-4">And from 2022 to today, I have scaled my time management system into a complete project management system using a modern tech stack.</p>
-      <p className="mb-4">
-        When I&apos;m not working I enjoy running, going to the gym, playing Dead by
-        Daylight, or working on a side project 👨‍💻
-      </p>
 
-      {/* Desk setup */}
-      {/* <h3 className="h3 my-8 text-gray-600">My Setup</h3>
-      <div className="mb-8 flex justify-center">
-        <div>
-          <Image
-            src="/assets/desk.png"
-            alt="Desk setup"
-            width={1000}
-            height={400}
-          />
-          <p className="text-gray-500 text-center mt-2">My desk setup</p>
-        </div>
-      </div> */}
+      <div className="mb-12">
+        <TerminalHeading command="cat hobbies.txt" />
+        <p className="mt-4">
+          When I&apos;m not coding, you can find me:
+        </p>
+        <ul className="list-disc list-inside mt-2">
+          <li>Running or hitting the gym 🏃‍♂️💪</li>
+          <li>Playing Dead by Daylight 🎮</li>
+          <li>Working on a side project 👨‍💻</li>
+        </ul>
+      </div>
 
-      <section className="my-16">
-        <h2 className="text-2xl font-semibold my-6">Experience</h2>
-        <div className="grid grid-cols-5 gap-y-10">
+      <div className="mb-12">
+        <TerminalHeading command="history" />
+        <ul className="list-disc list-inside space-y-2 mt-4">
+          <li>2014: Took A-level Computing, received award for highest coursework grade</li>
+          <li>2016: Began studying computer science at Lancaster University</li>
+          <li>2018: Developed and sold a timesheet system to a large architecture practice</li>
+          <li>2019: Completed computer science degree and began data science masters</li>
+          <li>2020-2022: Worked as a hybrid Software Engineer/Data Scientist for a chemical consultancy</li>
+          <li>2022-present: Scaled time management system into a complete project management system</li>
+        </ul>
+      </div>
+
+      <div className="mb-12">
+        <TerminalHeading command="ls experience/" />
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-y-10 mt-4">
           {workData.map((job) => (
             <ExperienceItem key={job.id} minimal={false} job={job} />
           ))}
         </div>
-      </section>
-
-      {/* I mostly
-              work with <span className="font-semibold">Next.js</span>, <span className="font-semibold">TypeScript</span> and <span className="font-semibold">Python</span>. */}
-      {/* I also contribute to
-              open source (
-              <a
-                href={"https://unify.ai/"}
-                className="font-semibold underline underline-offset-4"
-              >
-                UnifyAI
-              </a>{" "}
-              and{" "}
-              <a
-                href={"https://github.com/buildspace/buildspace-projects"}
-                className="font-semibold underline underline-offset-4"
-              >
-                Buildspace
-              </a>). */}
-    </section >
+      </div>
+    </section>
   );
 };
 
