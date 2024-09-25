@@ -1,32 +1,18 @@
+import Header from "@/components/header";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import localFont from 'next/font/local';
+import { Figtree } from 'next/font/google';
 import "./globals.css";
-
-import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Harry Baines",
   description: "Portfolio site",
 };
 
-const satoshiFont = localFont({
-  src: './fonts/Satoshi-Variable.ttf',
-  display: 'swap',
-})
-
-const sourceSans = localFont({
-  src: './fonts/Source-Sans-3.ttf',
-  display: 'swap',
-})
-
-import { Figtree } from 'next/font/google';
-
 const figtree = Figtree({
   subsets: ['latin'],
   display: 'swap',
 });
-
 
 export default function RootLayout({
   children,
@@ -35,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={`${cn("antialiased max-w-3xl lg:mx-auto", figtree.className)}`}>
         <Header />
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">

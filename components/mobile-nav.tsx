@@ -14,13 +14,9 @@ const links = [
     name: "about",
     path: "/about",
   },
-  // {
-  //   name: "work",
-  //   path: "/work",
-  // },
 ];
 
-const MobileNav = () => {
+export default function MobileNav() {
   const pathname = usePathname();
   return (
     <Sheet>
@@ -55,5 +51,3 @@ const MobileNav = () => {
     </Sheet>
   );
 };
-
-export default MobileNav;

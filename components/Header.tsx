@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import MobileNav from "./MobileNav";
-import Nav from "./Nav";
+import MobileNav from "./mobile-nav";
+import Nav from "./nav";
 import { Button } from "./ui/button";
 import ProfileImg from "/public/assets/me.jpg";
 
-
-const Header = () => {
+export default function Header() {
   return (
     <div className="mt-8">
       <div className="container mx-auto flex justify-between items-center">
@@ -33,5 +32,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;
