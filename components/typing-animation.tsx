@@ -20,7 +20,7 @@ export default function TypingAnimation() {
             sequence={[
               `Harry is a full-stack software engineer with 5+ years experience from the 🇬🇧 UK. He specialises in web development, AI and developer tooling. He is the founder of archtms, an architect management system for timesheets, projects, fees and holiday requests.`,
               200,
-              (el) => el.classList.remove('type')
+              (el) => el?.classList.remove('type')
             ]}
             wrapper="p"
             cursor={false}
