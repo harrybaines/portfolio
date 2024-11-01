@@ -1,6 +1,3 @@
-import CALogo from "../public/assets/c+a.svg";
-import YordasLogo from "../public/assets/yordas.svg";
-
 export const workData = [
   {
     id: 1,
@@ -8,7 +5,7 @@ export const workData = [
     title: "Full Stack Software Engineer",
     companyName: "Cassidy and Ashton",
     companyURL: "https://cassidyashton.co.uk",
-    companyLogo: CALogo,
+    // companyLogo: CALogo,
     skills: [
       "React",
       "TypeScript",
@@ -30,7 +27,7 @@ export const workData = [
     title: "Software Engineer / Data Scientist",
     companyName: "Yordas Digital",
     companyURL: "https://www.yordasgroup.com/",
-    companyLogo: YordasLogo,
+    // companyLogo: YordasLogo,
     skills: [
       "Django",
       "Flask",
@@ -50,7 +47,7 @@ export const workData = [
     title: "Data Scientist Internship",
     companyName: "Yordas Digital",
     companyURL: "https://www.yordasgroup.com/",
-    companyLogo: YordasLogo,
+    // companyLogo: YordasLogo,
     skills: [
       "Python",
       "NLTK",
@@ -72,7 +69,7 @@ export const workData = [
     title: "Part-Time Software Engineer",
     companyName: "Cassidy and Ashton",
     companyURL: "https://cassidyashton.co.uk",
-    companyLogo: CALogo,
+    // companyLogo: CALogo,
     skills: [
       "React",
       "Redux",

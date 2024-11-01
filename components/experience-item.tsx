@@ -1,11 +1,9 @@
-import Image from "next/image";
 
 interface ExperienceItemProps {
   job: {
     title: string;
     companyName: string;
     companyURL: string;
-    companyLogo: string;
     date: string;
     description: string;
     skills: string[];
@@ -17,13 +15,6 @@ export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
   if (minimal) {
     return (
       <>
-        <div className="col-span-1 flex items-center justify-center">
-          <Image
-            src={job.companyLogo}
-            alt="cassidy and ashton logo"
-            className="rounded-full bg-gray-50 dark:bg-gray-200"
-          />
-        </div>
         <div className="col-span-7 flex items-center">
           <div>
             <p className="font-medium">{job.title}</p>{" "}
@@ -42,7 +33,7 @@ export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
   }
   return (
     <>
-      <div className="col-span-1 text-gray-500 dark:text-gray-400">
+      <div className="col-span-1 text-sm text-gray-500 dark:text-gray-400">
         {job.date}
       </div>
       <div className="col-span-4">
