@@ -1,67 +1,98 @@
-import SideProjectsList from "@/components/side-projects-list";
-import Image from "next/image";
+interface Project {
+  title: string;
+  date: string;
+  status: string;
+  logoUrl?: string;
+  description: string;
+  technologies: string[];
+  type: "main" | "side";
+  link?: string;
+}
 
-const mainProjects = [
+const projects: Project[] = [
   {
     title: "archtms",
-    date: "January 1st, 2023",
+    date: "2023",
     status: "In Progress",
     logoUrl: "/assets/archtms.png",
-    description:
-      "Architect management system: timesheets, projects, fees and holiday requests.",
+    description: "Architect management system: timesheets, projects, fees and holiday requests.",
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    type: "main",
+    link: "https://archtms.com"
   },
-]
+  {
+    title: "BrewKit",
+    date: "2024",
+    status: "In Progress",
+    logoUrl: "/assets/brewkit.png",
+    description: "Monorepo boilerplate to ship a startup for the price of a coffee.",
+    technologies: ["Next.js", "TypeScript", "tRPC", "Prisma"],
+    type: "side",
+    link: "https://github.com/harrybaines/brewkit"
+  },
+  {
+    title: "TorchGPT",
+    date: "2023",
+    status: "Completed",
+    description: "Generate PyTorch code from input prompts using OpenAI's text-davinci-3 model.",
+    technologies: ["Python", "OpenAI", "PyTorch"],
+    type: "side",
+    link: "https://github.com/harrybaines/torchgpt"
+  },
+  {
+    title: "AI Avatars",
+    date: "2023",
+    status: "Completed",
+    description: "Personalised AI avatars using stable diffusion, accessible through Next.js interface.",
+    technologies: ["Next.js", "Python", "Stable Diffusion"],
+    type: "side",
+    link: "https://github.com/harrybaines/ai-avatar-generator"
+  }
+];
 
 export default function ProjectsList() {
   return (
-    <div className="mb-20 animate-from-bottom" style={{ "--index": 3 } as React.CSSProperties}>
-      <div className="mb-12">
-        <h1 className="font-semibold mb-4 text-gray-400 font-mono">~/My Work</h1>
-        <div>
-          {mainProjects.map((project) => {
-            return (
-              <div key={project.title}>
-                <div className="flex items-center gap-3 mb-6 mt-6">
-                  <Image
-                    src={project.logoUrl}
-                    alt={project.title}
-                    width={40}
-                    height={40}
-                  />
-                  <h2 className="font-semibold">
-                    {project.title}
-                  </h2>
-                </div>
-                <div className="max-w-lg">
-                  <p className="text-2xl font-semibold leading-snug">
-                    Architect management system
-                  </p>
-                  <p className="text-lg text-gray-500 mt-0.5">
-                    to manage timesheets and monitor project profitability
-                  </p>
-                </div>
-                <div className="flex gap-3 my-3">
-                  <p className="text-sm text-gray-500">{project.date}</p>
-                  <div className="w-px h-3 bg-gray-300 my-auto"></div>
-                  <p className="text-sm text-gray-500">{project.status}</p>
-                </div>
-                <div>
-                  <ul className="list-disc list-inside">
-                    <li>Project dashboards and fee forecasting</li>
-                    <li>Holiday request system</li>
-                    <li>Timesheet entry and management</li>
-                    <li>Client management</li>
-                    <li>Automated emails</li>
-                  </ul>
-                </div>
+    <div className="space-y-6">
+      <h2 className="text-lg font-mono font-bold tracking-tight">
+        <span className="text-emerald-500">~/</span>
+        Projects
+      </h2>
+      <div className="grid gap-4">
+        {projects.map((project) => (
+          <a
+            key={project.title}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group p-4 border border-zinc-800 hover:border-emerald-500/50 transition-all hover:bg-[#232323]"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-3">
+                <h3 className="font-medium group-hover:text-emerald-500 transition-colors">
+                  {project.title}
+                </h3>
+                {project.type === "side" && (
+                  <span className="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">
+                    Side Project
+                  </span>
+                )}
               </div>
-            )
-          })}
-        </div>
-      </div>
-      <div>
-        <SideProjectsList />
+              <span className="text-xs text-zinc-500 font-mono">{project.date}</span>
+            </div>
+            <p className="text-zinc-400 text-sm mb-3">{project.description}</p>
+            <div className="flex gap-2 flex-wrap">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2 py-0.5 bg-[#252525] rounded text-xs text-emerald-500/70"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </a>
+        ))}
       </div>
     </div>
-  )
+  );
 }

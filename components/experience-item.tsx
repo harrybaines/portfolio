@@ -33,7 +33,7 @@ export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
   }
   return (
     <>
-      <div className="col-span-1 text-gray-500 dark:text-gray-400">
+      <div className="col-span-1 text-sm text-gray-500 dark:text-gray-400">
         {job.date}
       </div>
       <div className="col-span-4">

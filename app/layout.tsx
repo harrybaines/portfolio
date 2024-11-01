@@ -1,18 +1,13 @@
-import Header from "@/components/header";
 import { cn } from "@/lib/utils";
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from "next";
-import { Figtree } from 'next/font/google';
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Harry Baines",
   description: "Portfolio site",
 };
-
-const figtree = Figtree({
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export default function RootLayout({
   children,
@@ -24,18 +19,20 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={`${cn("antialiased max-w-3xl lg:mx-auto", figtree.className)}`}>
-        <Header />
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      <body className={cn(
+        "antialiased min-h-screen flex flex-col items-center",
+        GeistSans.className,
+        GeistMono.className
+      )}>
+        <main className="flex-auto w-full max-w-2xl px-4">
           {children}
         </main>
-        <footer className="py-24 text-center">
-          <p className="text-base  text-gray-500">
-            &copy; {new Date().getFullYear()}{" "}
-            Harry Baines
+        <footer className="w-full max-w-2xl px-4 py-20 text-center mt-20">
+          <p className="text-sm text-zinc-400 font-mono">
+            &copy; {new Date().getFullYear()} Harry Baines
           </p>
         </footer>
       </body>
-    </html >
+    </html>
   );
 }

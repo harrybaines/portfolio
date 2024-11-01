@@ -1,5 +1,3 @@
-import React from 'react';
-
 const osContributions = [
   { project: "Ivy", link: "https://github.com/ivy-llc/ivy", contribution: "Added JAX to numpy function conversions", date: "July 25, 2023" },
   { project: "Buildspace", link: "https://github.com/buildspace/buildspace-projects", contribution: "Added enhancements to AI avatar tutorial project", date: "Jan 19, 2023" },
@@ -7,25 +5,29 @@ const osContributions = [
 
 export default function OsContributions() {
   return (
-    <div className="mb-20 animate-from-bottom" style={{ "--index": 4 } as React.CSSProperties}>
-      <h1 className="font-semibold mb-4 text-gray-400 font-mono">~/OS Contributions</h1>
-      <div className="flex flex-col">
+    <div className="space-y-6">
+      <h2 className="text-lg font-mono font-bold tracking-tight">
+        <span className="text-emerald-500">~/</span>
+        Open Source
+      </h2>
+      <div className="divide-y divide-zinc-800">
         {osContributions.map((contribution, index) => (
-          <div key={index}>
-            <div className="flex flex-wrap justify-between items-center py-3">
-              <div className="flex-grow mr-4">
-                <a href={contribution.link} className="font-semibold hover:underline" target="_blank" rel="noopener noreferrer">
-                  {contribution.project}
-                </a>
-                <span className="mx-2">-</span>
-                <span className="text-gray-700 dark:text-gray-300">{contribution.contribution}</span>
-              </div>
-              <span className="text-sm text-gray-500 text-right">{contribution.date}</span>
+          <div key={index} className="py-4 first:pt-0 last:pb-0">
+            <div className="flex items-center justify-between">
+              <a
+                href={contribution.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-100 hover:text-emerald-500 transition-colors"
+              >
+                {contribution.project}
+              </a>
+              <span className="text-xs text-zinc-500 font-mono">{contribution.date}</span>
             </div>
-            {index < osContributions.length - 1 && <hr className="border-gray-200 dark:border-gray-700" />}
+            <p className="text-sm text-zinc-400 mt-1">{contribution.contribution}</p>
           </div>
         ))}
       </div>
-    </div >
-  )
+    </div>
+  );
 }
