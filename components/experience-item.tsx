@@ -1,4 +1,3 @@
-
 interface ExperienceItemProps {
   job: {
     title: string;
@@ -32,30 +31,30 @@ export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
     );
   }
   return (
-    <>
-      <div className="col-span-1 text-sm text-gray-500 dark:text-gray-400">
+    <div className="grid grid-cols-1 sm:grid-cols-5 gap-y-2 sm:gap-x-4">
+      <div className="text-sm text-emerald-500">
         {job.date}
       </div>
       <div className="col-span-4">
         <a href={job.companyURL} className="font-semibold hover:underline">
           {job.title} - {job.companyName}
         </a>
-        <p className="mt-1 text-gray-600 dark:text-gray-400">
+        <p className="mt-1 text-zinc-400">
           {job.description}
         </p>
         <div className="flex flex-wrap mt-4 gap-y-3">
           {job.skills.map((skill, index) => (
             <div key={skill} className="flex items-center">
-              <span className="text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-xl px-2 text-sm">
+              <span className="text-zinc-400 bg-zinc-800/50 rounded-xl px-2 text-sm">
                 {skill}
               </span>
               {index < job.skills.length - 1 && (
-                <span className="text-gray-500 mx-1">•</span>
+                <span className="text-zinc-500 mx-1">•</span>
               )}
             </div>
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

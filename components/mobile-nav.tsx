@@ -14,6 +14,10 @@ const links = [
     name: "about",
     path: "/about",
   },
+  {
+    name: "blog",
+    path: "/blog",
+  },
 ];
 
 export default function MobileNav() {
@@ -21,9 +25,9 @@ export default function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger className="flex justify-center items-center">
-        <CiMenuFries className="text-[32px] text-accent" />
+        <CiMenuFries className="text-[32px] text-zinc-400 hover:text-zinc-200 transition-colors" />
       </SheetTrigger>
-      <SheetContent className="flex flex-col">
+      <SheetContent className="flex flex-col bg-[#1B1B1B] border-l border-zinc-800">
         {/* logo */}
         <div className="mt-32 mb-40 text-center text-2xl">
           <Link href={"/"}>
@@ -38,9 +42,10 @@ export default function MobileNav() {
               <Link
                 href={link.path}
                 key={index}
-                className={`${link.path === pathname &&
-                  "text-accent border-b-2 border-accent"
-                  } text-xl capitalize hover:text-accent transition-all`}
+                className={`${link.path === pathname
+                  ? "text-emerald-500 border-b-2 border-emerald-500"
+                  : "text-zinc-400 hover:text-zinc-200"
+                  } text-xl capitalize transition-all`}
               >
                 {link.name}
               </Link>
@@ -50,4 +55,4 @@ export default function MobileNav() {
       </SheetContent>
     </Sheet>
   );
-};
+}

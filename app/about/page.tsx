@@ -1,8 +1,7 @@
 import BikeImageContainer from "@/components/bike-image-container";
 import ExperienceItem from "@/components/experience-item";
 import { workData } from "@/content/workData";
-import Link from "next/link";
-import { BsArrowLeft, BsArrowUpRight } from "react-icons/bs";
+import { BsArrowUpRight } from "react-icons/bs";
 
 const skills = {
   languages: ["TypeScript", "Python", "Go", "SQL"],
@@ -42,14 +41,7 @@ const AboutPage = () => {
   return (
     <section className="min-h-screen">
       <div className="h-[5vh]" />
-      <div className="container mx-auto max-w-2xl px-4">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-emerald-500 transition-colors mb-16 mt-8"
-        >
-          <BsArrowLeft className="text-md" />
-          Back
-        </Link>
+      <div className="w-full">
         <div className="space-y-16">
           <div className="space-y-4">
             <h2 className="text-2xl font-medium">Hello, World! 👋</h2>
@@ -86,21 +78,23 @@ const AboutPage = () => {
             <p className="text-sm text-zinc-500 text-center">Maldives September 2018</p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             <h3 className="text-lg font-medium text-zinc-400">Skills</h3>
             <div className="grid gap-4">
               <div className="p-4 border border-zinc-800 rounded-lg space-y-4">
                 {Object.entries(skills).map(([category, items]) => (
                   <div key={category}>
                     <h4 className="text-sm text-zinc-500 mb-2 capitalize">{category}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((item) => (
-                        <span
-                          key={item}
-                          className="px-2 py-0.5 bg-[#252525] rounded text-xs text-emerald-500/70"
-                        >
-                          {item}
-                        </span>
+                    <div className="flex flex-wrap gap-y-3">
+                      {items.map((item, index) => (
+                        <div key={item} className="flex items-center">
+                          <span className="text-zinc-400 bg-gray-800 rounded-xl px-2 text-sm">
+                            {item}
+                          </span>
+                          {index < items.length - 1 && (
+                            <span className="text-zinc-500 mx-1">•</span>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -109,7 +103,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             <h3 className="text-lg font-medium text-zinc-400">Beyond Code</h3>
             <div className="grid gap-4">
               {interests.map((interest) => (
@@ -124,25 +118,27 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-lg font-medium text-zinc-400">Timeline</h3>
-            <div className="border border-zinc-800 rounded-lg divide-y divide-zinc-800">
-              {timeline.map((item) => (
-                <div key={item.year} className="p-4 flex gap-6">
-                  <div className="w-28 flex-shrink-0">
-                    <span className="text-sm font-mono text-emerald-500">{item.year}</span>
-                  </div>
-                  <p className="text-sm text-zinc-300">{item.event}</p>
-                </div>
+          <div className="space-y-8">
+            <h3 className="text-lg font-medium text-zinc-400">Experience</h3>
+            <div className="grid grid-cols-1 gap-y-10">
+              {workData.map((job) => (
+                <ExperienceItem key={job.id} minimal={false} job={job} />
               ))}
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-zinc-400">Experience</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-y-10">
-              {workData.map((job) => (
-                <ExperienceItem key={job.id} minimal={false} job={job} />
+          <div className="space-y-8">
+            <h3 className="text-lg font-medium text-zinc-400">Timeline</h3>
+            <div className="border border-zinc-800 rounded-lg divide-y divide-zinc-800">
+              {timeline.map((item) => (
+                <div key={item.year} className="p-4">
+                  <div className="flex flex-col sm:flex-row sm:gap-6">
+                    <div className="sm:w-28 flex-shrink-0 mb-1 sm:mb-0">
+                      <span className="text-sm text-emerald-500">{item.year}</span>
+                    </div>
+                    <p className="text-sm text-zinc-300">{item.event}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

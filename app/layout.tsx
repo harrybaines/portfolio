@@ -1,3 +1,4 @@
+import Header from "@/components/header";
 import { cn } from "@/lib/utils";
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
@@ -24,11 +25,12 @@ export default function RootLayout({
         GeistSans.className,
         GeistMono.className
       )}>
-        <main className="flex-auto w-full max-w-2xl px-4">
+        <Header />
+        <main className="flex-auto w-[85vw] max-w-2xl px-2">
           {children}
         </main>
-        <footer className="w-full max-w-2xl px-4 py-20 text-center mt-20">
-          <p className="text-sm text-zinc-400 font-mono">
+        <footer className="w-[85vw] max-w-2xl py-16 text-center mt-20">
+          <p className="text-sm text-zinc-400">
             &copy; {new Date().getFullYear()} Harry Baines
           </p>
         </footer>

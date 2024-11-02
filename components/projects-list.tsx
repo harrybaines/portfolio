@@ -1,3 +1,5 @@
+import HomeSectionHeader from "@/components/home-section-header";
+
 interface Project {
   title: string;
   date: string;
@@ -53,42 +55,43 @@ const projects: Project[] = [
 export default function ProjectsList() {
   return (
     <div className="space-y-6">
-      <h2 className="text-lg font-mono font-bold tracking-tight">
-        <span className="text-emerald-500">~/</span>
-        Projects
-      </h2>
-      <div className="grid gap-4">
+      <HomeSectionHeader title="Projects" />
+      <div className="space-y-4">
         {projects.map((project) => (
           <a
             key={project.title}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-4 border border-zinc-800 hover:border-emerald-500/50 transition-all hover:bg-[#232323]"
+            className="block p-6 border border-zinc-800 rounded-xl group hover:border-emerald-500/20 transition-colors"
           >
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-3">
-                <h3 className="font-medium group-hover:text-emerald-500 transition-colors">
-                  {project.title}
-                </h3>
-                {project.type === "side" && (
-                  <span className="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">
-                    Side Project
-                  </span>
-                )}
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <h3 className="font-medium text-zinc-100 group-hover:text-emerald-500 transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.type === "side" && (
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-zinc-800/50 text-zinc-400">
+                      Side Project
+                    </span>
+                  )}
+                </div>
+                <p className="text-zinc-400 text-sm leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs text-zinc-400 bg-zinc-800/50 rounded-full px-2.5 py-0.5"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <span className="text-xs text-zinc-500 font-mono">{project.date}</span>
-            </div>
-            <p className="text-zinc-400 text-sm mb-3">{project.description}</p>
-            <div className="flex gap-2 flex-wrap">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-0.5 bg-[#252525] rounded text-xs text-emerald-500/70"
-                >
-                  {tech}
-                </span>
-              ))}
+              <div className="sm:text-right">
+                <span className="text-xs text-zinc-500">{project.date}</span>
+              </div>
             </div>
           </a>
         ))}
