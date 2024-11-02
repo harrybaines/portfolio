@@ -65,6 +65,7 @@ export const workData = [
       "Implemented and deployed a smart search engine using NLP techniques to search across a database of 20K+ complex chemical phrases.",
   },
   {
+    id: 4,
     date: "2018 - 2020",
     title: "Part-Time Software Engineer",
     companyName: "Cassidy and Ashton",

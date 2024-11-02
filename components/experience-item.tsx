@@ -13,7 +13,7 @@ interface ExperienceItemProps {
 export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
   if (minimal) {
     return (
-      <>
+      <span key={job.title}>
         <div className="col-span-7 flex items-center">
           <div>
             <p className="font-medium">{job.title}</p>{" "}
@@ -27,11 +27,11 @@ export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
             {job.date}
           </p>
         </div>
-      </>
+      </span>
     );
   }
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-5 gap-y-2 sm:gap-x-4">
+    <div key={job.title} className="grid grid-cols-1 sm:grid-cols-5 gap-y-2 sm:gap-x-4">
       <div className="text-sm text-emerald-500">
         {job.date}
       </div>
@@ -44,7 +44,7 @@ export default function ExperienceItem({ job, minimal }: ExperienceItemProps) {
         </p>
         <div className="flex flex-wrap mt-4 gap-y-3">
           {job.skills.map((skill, index) => (
-            <div key={skill} className="flex items-center">
+            <div key={`${skill}-${index}`} className="flex items-center">
               <span className="text-zinc-400 bg-zinc-800/50 rounded-xl px-2 text-sm">
                 {skill}
               </span>
