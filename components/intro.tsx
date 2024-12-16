@@ -22,7 +22,7 @@ const socialLinks = [
 export default function Intro() {
   return (
     <div className="space-y-8">
-      <div className="space-y-2">
+      <div>
         {/* <div className="inline-flex items-center rounded-full border border-gray-800 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-500 mb-6">
           <span className="relative flex h-2 w-2 mr-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -30,8 +30,8 @@ export default function Intro() {
           </span>
           Available for work
         </div> */}
-        <p className="text-emerald-500 font-mono">Hi, my name is</p>
-        <h1 className="text-4xl font-sans font-bold tracking-normal">
+        <p className="text-emerald-500 font-mono mb-1">Hi, my name is</p>
+        <h1 className="text-4xl font-sans font-bold tracking-normal mb-2">
           Harry Baines
         </h1>
         <p className="text-zinc-400 font-mono text-xl pt-1">

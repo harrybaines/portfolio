@@ -3,13 +3,6 @@ import ExperienceItem from "@/components/experience-item";
 import { workData } from "@/content/workData";
 import { BsArrowUpRight } from "react-icons/bs";
 
-const skills = {
-  languages: ["TypeScript", "Python", "Go", "SQL"],
-  frameworks: ["React", "Next.js", "Express.js", "Astro", "Django", "Flask", "FastAPI", "Celery", "Selenium"],
-  databases: ["Postgres", "MySQL", "Redis", "sqlite", "Firebase", "supabase"],
-  tools: ["Git", "GitHub", "Docker", "Heroku", "Vercel", "Jupyter Notebooks"]
-};
-
 const timeline = [
   { year: "2022-present", event: "Scaled time management system into a complete project management system" },
   { year: "2020-2022", event: "Worked as a hybrid Software Engineer/Data Scientist for a chemical consultancy" },
@@ -22,18 +15,23 @@ const timeline = [
 const interests = [
   {
     title: "Fitness Enthusiast",
-    description: "Regular gym-goer and runner, always pushing for new personal bests",
+    description: "Regular gym-goer and runner, currently hybrid training",
     emoji: "🏃‍♂️"
   },
   {
-    title: "Gaming",
-    description: "Avid Dead by Daylight player in my downtime",
-    emoji: "🎮"
+    title: "LFC Fan",
+    description: "Pround Liverpool supporter since 2008",
+    emoji: "⚽️"
   },
   {
     title: "Side Projects",
-    description: "Always working on new ideas and learning new technologies",
+    description: "Always working on new ideas and trying new technologies",
     emoji: "👨‍💻"
+  },
+  {
+    title: "Continuous Learner",
+    description: "Currently learning Neovim, CLI tools and Rust programming",
+    emoji: "📚"
   }
 ];
 
@@ -62,7 +60,7 @@ const AboutPage = () => {
             </p>
             <div className="pt-2">
               <a
-                href="https://kit.co/harrybaines"
+                href="https://kit.co/harryb0905/my-setup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-emerald-500 transition-colors"
@@ -79,35 +77,10 @@ const AboutPage = () => {
           </div>
 
           <div className="space-y-8">
-            <h3 className="text-lg font-medium text-zinc-400">Skills</h3>
-            <div className="grid gap-4">
-              <div className="p-4 border border-zinc-800 rounded-lg space-y-4">
-                {Object.entries(skills).map(([category, items]) => (
-                  <div key={category}>
-                    <h4 className="text-sm text-zinc-500 mb-2 capitalize">{category}</h4>
-                    <div className="flex flex-wrap gap-y-3">
-                      {items.map((item, index) => (
-                        <div key={item} className="flex items-center">
-                          <span className="text-zinc-400 bg-gray-800 rounded-xl px-2 text-sm">
-                            {item}
-                          </span>
-                          {index < items.length - 1 && (
-                            <span className="text-zinc-500 mx-1">•</span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-8">
-            <h3 className="text-lg font-medium text-zinc-400">Beyond Code</h3>
-            <div className="grid gap-4">
+            <h3 className="text-lg font-medium text-zinc-400">Hobbies and Interests</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {interests.map((interest) => (
-                <div key={interest.title} className="p-4 border border-zinc-800 rounded-lg">
+                <div key={interest.title} className="p-6 border border-zinc-800 rounded-lg">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">{interest.emoji}</span>
                     <h4 className="font-medium">{interest.title}</h4>
@@ -127,21 +100,6 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="space-y-8">
-            <h3 className="text-lg font-medium text-zinc-400">Timeline</h3>
-            <div className="border border-zinc-800 rounded-lg divide-y divide-zinc-800">
-              {timeline.map((item) => (
-                <div key={item.year} className="p-4">
-                  <div className="flex flex-col sm:flex-row sm:gap-6">
-                    <div className="sm:w-28 flex-shrink-0 mb-1 sm:mb-0">
-                      <span className="text-sm text-emerald-500">{item.year}</span>
-                    </div>
-                    <p className="text-sm text-zinc-300">{item.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

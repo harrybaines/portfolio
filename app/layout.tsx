@@ -29,7 +29,7 @@ export default function RootLayout({
         <main className="flex-auto w-[85vw] max-w-2xl px-2">
           {children}
         </main>
-        <footer className="w-[85vw] max-w-2xl py-16 text-center mt-20">
+        <footer className="w-[85vw] max-w-2xl py-20 text-center mt-10 lg:mt-0">
           <p className="text-sm text-zinc-400">
             &copy; {new Date().getFullYear()} Harry Baines
           </p>
