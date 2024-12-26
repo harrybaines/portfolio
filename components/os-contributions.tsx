@@ -8,26 +8,28 @@ const osContributions = [
 export default function OsContributions() {
   return (
     <div className="space-y-6">
-      <HomeSectionHeader title='OS Contibutions' />
-      <div className="divide-y divide-zinc-800">
+      <div className="space-y-2">
+        <HomeSectionHeader title='OS Contributions' />
+      </div>
+      <div className="divide-y divide-[#3c3836]">
         {osContributions.map((contribution, index) => (
-          <div key={index} className="py-2.5 first:pt-0 last:pb-0">
+          <div key={index} className="py-3 first:pt-0 last:pb-0">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between">
               <div className="flex items-center">
                 <a
                   href={contribution.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-100 hover:text-emerald-500 transition-colors"
+                  className="text-[#ebdbb2] hover:text-[#b8bb26] transition-colors"
                 >
                   {contribution.project}
                 </a>
-                <span className="hidden sm:inline text-zinc-400 mx-2">—</span>
-                <p className="text-sm text-zinc-400 hidden sm:block">{contribution.contribution}</p>
+                <span className="hidden sm:inline text-[#928374] mx-2">—</span>
+                <p className="text-sm text-[#928374] hidden sm:block">{contribution.contribution}</p>
               </div>
-              <span className="text-xs text-zinc-500">{contribution.date}</span>
+              <span className="text-xs text-[#928374]">{contribution.date}</span>
             </div>
-            <p className="text-sm text-zinc-400 mt-1 sm:hidden">{contribution.contribution}</p>
+            <p className="text-sm text-[#928374] mt-1 sm:hidden">{contribution.contribution}</p>
           </div>
         ))}
       </div>

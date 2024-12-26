@@ -1,5 +1,7 @@
 'use client'
 
+import ProfileImage from "@/public/assets/me.jpg";
+import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight, BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { MdAlternateEmail } from "react-icons/md";
@@ -23,65 +25,77 @@ export default function Intro() {
   return (
     <div className="space-y-8">
       <div>
-        {/* <div className="inline-flex items-center rounded-full border border-gray-800 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-500 mb-6">
+        <div className="inline-flex items-center rounded-full border border-[#3c3836] bg-[#32302f] px-3 py-1 text-xs font-medium text-[#b8bb26] mb-10">
           <span className="relative flex h-2 w-2 mr-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#b8bb26] opacity-30"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#b8bb26]"></span>
           </span>
           Available for work
-        </div> */}
-        <p className="text-emerald-500 font-mono mb-1">Hi, my name is</p>
-        <h1 className="text-4xl font-sans font-bold tracking-normal mb-2">
-          Harry Baines
-        </h1>
-        <p className="text-zinc-400 font-mono text-xl pt-1">
-          <TypeAnimation
-            sequence={[
-              'Software Engineer',
-            ]}
-            wrapper="span"
-            cursor={false}
-            repeat={0}
-            speed={60}
-          />
-        </p>
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="space-y-2">
+            <p className="text-[#b8bb26] font-mono mb-2">Hi, my name is</p>
+            <h1 className="font-sans font-bold text-3xl text-[#ebdbb2]">
+              <TypeAnimation
+                sequence={[
+                  'Harry Baines',
+                ]}
+                wrapper="span"
+                cursor={false}
+                repeat={0}
+                speed={60}
+              />
+            </h1>
+          </div>
+          <div className="relative h-20 w-20 rounded-full overflow-hidden border-2 border-[#504945] flex-shrink-0">
+            <Image src={ProfileImage} alt="Harry Baines" className="object-cover" />
+          </div>
+        </div>
       </div>
       <div className="space-y-4">
-        <p className="text-zinc-300 leading-relaxed max-w-2xl">
-          I build elegant solutions to complex problems. Focused on creating efficient,
-          scalable applications with clean code and exceptional user experiences.
+        <p className="text-[#d5c4a1] leading-relaxed max-w-2xl">
+          Focused on building elegant software solutions. Currently developing{" "}
+          <a
+            href="https://archtms.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-b border-dashed border-[#504945] hover:border-[#b8bb26] transition-colors"
+          >
+            archtms
+          </a>
+          , a complete architect management system.
         </p>
         <div className="flex items-center gap-6">
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-emerald-500 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[#928374] hover:text-[#b8bb26] transition-colors"
           >
             About me
             <BsArrowRight className="text-md" />
           </Link>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-emerald-500 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[#928374] hover:text-[#b8bb26] transition-colors"
           >
             Blog
             <BsArrowRight className="text-md" />
           </Link>
-          <Link
+          {/* <Link
             href="https://ko-fi.com/harrybaines"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-emerald-500 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[#928374] hover:text-[#b8bb26] transition-colors"
           >
             Buy me a coffee
             <BsArrowRight className="text-md" />
-          </Link>
+          </Link> */}
         </div>
-        <div className="flex items-center gap-4 pt-4">
+        <div className="flex items-center gap-6 pt-4">
           {socialLinks.map((social) => {
             const Icon = iconMap[social.name as keyof typeof iconMap];
             return (
               <a
                 key={social.name}
                 href={social.link}
-                className="text-zinc-400 hover:text-emerald-500 transition-colors"
+                className="text-[#928374] hover:text-[#b8bb26] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >

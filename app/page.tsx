@@ -7,13 +7,13 @@ import ProjectsList from "@/components/projects-list";
 
 export default function Home() {
   return (
-    <section className="min-h-screen">
+    <section>
       <div className="mx-auto w-[85vw] max-w-2xl">
-        <div className="space-y-32 mt-20 lg:mt-32">
+        <div className="space-y-20 mt-32 lg:mt-48">
           <FadeIn>
             <Intro />
           </FadeIn>
-          <div className="space-y-20">
+          <div className="space-y-24">
             <FadeIn delay={0.1}>
               <ProjectsList />
             </FadeIn>

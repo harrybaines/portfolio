@@ -19,16 +19,31 @@ interface BlogPostProps {
 
 export default function BlogPost({ post }: BlogPostProps) {
   return (
-    <section className="min-h-screen">
-      <div className="h-[5vh]" />
-      <div className="w-full">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-emerald-500 transition-colors mb-10"
-        >
-          <BsArrowLeft className="text-md" />
-          Back to blog
-        </Link>
+    <section className="min-h-screen max-w-4xl mx-auto px-6 py-32">
+      <div className="space-y-16">
+        <div>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm text-[#928374] hover:text-[#b8bb26] transition-colors mb-16"
+          >
+            <BsArrowLeft className="text-md" />
+            Back to blog
+          </Link>
+
+          <div className="space-y-4">
+            <h1 className="text-2xl font-medium text-[#ebdbb2] tracking-tighter">
+              {post.metadata.title}
+            </h1>
+            <p className="text-sm text-[#928374]">
+              {formatDate(post.metadata.publishedAt)}
+            </p>
+          </div>
+        </div>
+
+        <article className="prose prose-invert max-w-none">
+          <CustomMDX source={post.content} />
+        </article>
+
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -51,17 +66,6 @@ export default function BlogPost({ post }: BlogPostProps) {
             }),
           }}
         />
-        <h1 className="title font-semibold text-2xl tracking-tighter">
-          {post.metadata.title}
-        </h1>
-        <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
-        </div>
-        <article className="prose prose-invert prose-emerald max-w-none">
-          <CustomMDX source={post.content} />
-        </article>
       </div>
     </section>
   )

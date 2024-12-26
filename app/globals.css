@@ -4,37 +4,39 @@
 
 @layer base {
   body {
-    @apply bg-[#1B1B1B] text-zinc-100 antialiased;
+    @apply bg-[#282828] text-[#ebdbb2] antialiased;
   }
 
   .font-mono {
-    font-family: var(--font-geist-mono);
+    font-family: "JetBrains Mono", var(--font-geist-mono);
   }
 }
 
 ::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
+  background-color: #d65d0e;
+  color: #ebdbb2;
 }
 
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
+  --gruvbox-bg: #282828;
+  --gruvbox-fg: #ebdbb2;
+  --sh-class: #b8bb26;
+  --sh-identifier: #ebdbb2;
+  --sh-sign: #928374;
+  --sh-string: #98971a;
+  --sh-keyword: #fb4934;
+  --sh-comment: #928374;
+  --sh-jsxliterals: #d3869b;
+  --sh-property: #fe8019;
+  --sh-entity: #fe8019;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
+    --sh-class: #b8bb26;
+    --sh-identifier: #ebdbb2;
+    --sh-keyword: #fb4934;
+    --sh-string: #98971a;
   }
   html {
     color-scheme: dark;
