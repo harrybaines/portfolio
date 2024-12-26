@@ -9,7 +9,6 @@ export const gruvbox = {
     purple: "#d3869b",
     aqua: "#8ec07c",
     yellow: "#fabd2f",
-    border: "#504945",
     softBg: "#32302f",
     text: {
       primary: "#fbf1c7",
