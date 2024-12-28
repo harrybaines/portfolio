@@ -19,8 +19,8 @@ interface BlogPostProps {
 
 export default function BlogPost({ post }: BlogPostProps) {
   return (
-    <main className="min-h-screen flex flex-col md:justify-center px-6 sm:px-8 max-w-2xl mx-auto pt-16 md:pt-0">
-      <div className="space-y-16">
+    <main className="min-h-screen flex flex-col md:justify-center px-6 sm:px-8 max-w-2xl mx-auto py-24 md:py-16">
+      <div className="space-y-8">
         {/* Header */}
         <div className="space-y-10">
           <Link
@@ -45,7 +45,7 @@ export default function BlogPost({ post }: BlogPostProps) {
         </div>
 
         {/* Content */}
-        <article className="prose prose-invert max-w-none prose-p:font-sans prose-p:text-sonokai-text prose-headings:font-sans prose-headings:text-sonokai-text">
+        <article className="prose prose-invert max-w-none prose-p:font-sans prose-p:text-sonokai-text prose-headings:font-sans prose-headings:text-sonokai-text prose-p:mt-4 prose-headings:mt-6 prose-h1:text-xl prose-h2:text-lg prose-h3:text-base">
           <CustomMDX source={post.content} />
         </article>
 

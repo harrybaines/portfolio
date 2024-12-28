@@ -21,7 +21,22 @@ module.exports = {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
         mono: ["JetBrains Mono", "var(--font-geist-mono)", ...fontFamily.mono],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            "p, li": {
+              fontFamily: "var(--font-geist-sans)",
+            },
+            "--tw-prose-body": "#e2e2e3",
+            "--tw-prose-headings": "#e2e2e3",
+            "--tw-prose-links": "#9ed072",
+            "--tw-prose-bold": "#e2e2e3",
+            "--tw-prose-code": "#e2e2e3",
+            "--tw-prose-quotes": "#e2e2e3",
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
