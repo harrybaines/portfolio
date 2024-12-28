@@ -4,26 +4,25 @@ import { BsArrowLeft } from "react-icons/bs";
 
 export default function BlogPage() {
   return (
-    <section className="min-h-screen max-w-4xl mx-auto px-6 py-32">
+    <main className="min-h-screen flex flex-col md:justify-center px-6 sm:px-8 max-w-2xl mx-auto pt-16 md:pt-0">
       <div className="space-y-16">
-        <div>
+        {/* Header */}
+        <div className="space-y-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-[#928374] hover:text-[#b8bb26] transition-colors mb-16"
+            className="inline-flex items-center gap-2 text-sm text-sonokai-text-muted hover:text-sonokai-green transition-colors font-mono -mt-6 md:mt-0"
           >
-            <BsArrowLeft className="text-md" />
+            <BsArrowLeft className="text-xs" />
             Back to home
           </Link>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-medium text-[#ebdbb2]">Blog</h2>
-            <p className="text-[#d5c4a1] leading-relaxed">
-              Thoughts on software development, tech, and my personal experiences.
-            </p>
-          </div>
         </div>
-        <BlogPosts />
+
+        {/* Posts */}
+        <div className="space-y-3">
+          <p className="font-mono text-sm text-sonokai-green">~/Posts</p>
+          <BlogPosts />
+        </div>
       </div>
-    </section>
-  )
+    </main>
+  );
 }

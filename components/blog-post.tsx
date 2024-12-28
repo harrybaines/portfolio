@@ -19,28 +19,33 @@ interface BlogPostProps {
 
 export default function BlogPost({ post }: BlogPostProps) {
   return (
-    <section className="min-h-screen max-w-4xl mx-auto px-6 py-32">
+    <main className="min-h-screen flex flex-col md:justify-center px-6 sm:px-8 max-w-2xl mx-auto pt-16 md:pt-0">
       <div className="space-y-16">
-        <div>
+        {/* Header */}
+        <div className="space-y-10">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-[#928374] hover:text-[#b8bb26] transition-colors mb-16"
+            className="inline-flex items-center gap-2 text-sm text-sonokai-text-muted hover:text-sonokai-green transition-colors font-mono -mt-6 md:mt-0"
           >
-            <BsArrowLeft className="text-md" />
+            <BsArrowLeft className="text-xs" />
             Back to blog
           </Link>
 
           <div className="space-y-4">
-            <h1 className="text-2xl font-medium text-[#ebdbb2] tracking-tighter">
-              {post.metadata.title}
-            </h1>
-            <p className="text-sm text-[#928374]">
-              {formatDate(post.metadata.publishedAt)}
-            </p>
+            <p className="font-mono text-sm text-sonokai-green">~/Post</p>
+            <div className="space-y-2">
+              <h1 className="font-sans text-xl font-semibold text-sonokai-text">
+                {post.metadata.title}
+              </h1>
+              <p className="font-mono text-sm text-sonokai-text-muted">
+                {formatDate(post.metadata.publishedAt)}
+              </p>
+            </div>
           </div>
         </div>
 
-        <article className="prose prose-invert max-w-none">
+        {/* Content */}
+        <article className="prose prose-invert max-w-none prose-p:font-sans prose-p:text-sonokai-text prose-headings:font-sans prose-headings:text-sonokai-text">
           <CustomMDX source={post.content} />
         </article>
 
@@ -67,6 +72,6 @@ export default function BlogPost({ post }: BlogPostProps) {
           }}
         />
       </div>
-    </section>
+    </main>
   )
 }

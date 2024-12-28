@@ -1,28 +1,25 @@
-const { gruvbox } = require("./lib/theme");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        gruvbox: {
-          text: {
-            primary: gruvbox.colors.text.primary,
-            secondary: gruvbox.colors.text.secondary,
-            muted: gruvbox.colors.text.muted,
-          },
-          border: {
-            default: gruvbox.colors.border.default,
-            hover: gruvbox.colors.border.hover,
-            muted: gruvbox.colors.border.muted,
-          },
-          background: {
-            default: gruvbox.colors.background.default,
-            soft: gruvbox.colors.background.soft,
-            softer: gruvbox.colors.background.softer,
-          },
+        sonokai: {
+          bg: "#2c2e34",
+          text: "#e2e2e3",
+          "text-muted": "#9699a3",
+          green: "#9ed072",
+          red: "#fc5d7c",
+          orange: "#f39660",
+          yellow: "#e7c664",
+          purple: "#b39df3",
+          blue: "#76cce0",
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        mono: ["JetBrains Mono", "var(--font-geist-mono)", ...fontFamily.mono],
       },
     },
   },
