@@ -8,7 +8,7 @@ import { BsArrowLeft } from "react-icons/bs";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen flex flex-col px-6 sm:px-8 max-w-2xl mx-auto py-32">
+    <main className="min-h-screen flex flex-col px-10 sm:px-8 max-w-2xl mx-auto py-32">
       <div className="space-y-24">
         {/* Header */}
         <div className="space-y-10">
