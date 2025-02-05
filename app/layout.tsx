@@ -1,12 +1,24 @@
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from "next";
 import "./globals.css";
+
+import { JetBrains_Mono, Noto_Serif } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: "Harry Baines",
   description: "Software Engineer",
 };
+
+const font_sans = Noto_Serif({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+const font_mono = JetBrains_Mono({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-mono',
+})
 
 export default function RootLayout({
   children,
@@ -17,9 +29,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`${font_sans.className} ${font_mono.variable}`}>
         {children}
       </body>
     </html>

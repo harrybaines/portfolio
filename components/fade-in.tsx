@@ -7,6 +7,7 @@ interface FadeInProps {
   delay?: number;
 }
 
+// Not in use but handy
 export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   return (
     <motion.div

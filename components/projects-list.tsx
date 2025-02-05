@@ -1,125 +1,75 @@
-import HomeSectionHeader from "@/components/home-section-header";
-import Image from "next/image";
-
-interface Project {
-  title: string;
-  date: string;
-  status: string;
-  logoUrl?: string;
-  description: string;
-  technologies: string[];
-  type: "main" | "side";
-  link?: string;
-}
+import { BsArrowRight } from "react-icons/bs";
+import SectionHeader from "./section-header";
 
 const projects: Project[] = [
+  { name: "archtms", description: "architect management system", link: "https://archtms.com", date: "2023—Current" },
+  { name: "brewkit", description: "startup boilerplate", link: "https://github.com/harrybaines/brewkit", date: "2025" },
+  { name: "wallpapers", description: "weekly AI-generated phone wallpapers", link: "#", date: "2025" },
+  { name: "torchgpt", description: "pytorch code generator", link: "https://github.com/harrybaines/torchgpt", date: "2022" },
+
   {
-    title: "archtms",
+    name: 'ai avatars',
+    description:
+      "Personalised AI avatars using stable diffusion",
+    link: "https://github.com/harrybaines/ai-avatar-generator",
     date: "2023",
-    status: "In Progress",
-    logoUrl: "/assets/archtms.png",
-    description: "Architect management system: timesheets, projects, fees and holiday requests.",
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    type: "main",
-    link: "https://archtms.com"
   },
-  {
-    title: "brewkit",
-    date: "2024",
-    status: "In Progress",
-    logoUrl: "/assets/brewkit.png",
-    description: "Monorepo boilerplate template for developers",
-    technologies: ["Next.js", "TypeScript", "tRPC", "Prisma"],
-    type: "main",
-    link: "https://github.com/harrybaines/brewkit"
-  },
-  {
-    title: "TorchGPT",
-    date: "2023",
-    status: "Completed",
-    description: "Generate PyTorch code using OpenAI's text-davinci-3 model",
-    technologies: ["Python", "OpenAI", "PyTorch"],
-    type: "side",
-    link: "https://github.com/harrybaines/torchgpt"
-  },
-  {
-    title: "AI Avatars",
-    date: "2023",
-    status: "Completed",
-    description: "Personalised AI avatars using stable diffusion",
-    technologies: ["Next.js", "Python", "Stable Diffusion"],
-    type: "side",
-    link: "https://github.com/harrybaines/ai-avatar-generator"
-  }
+  // {
+  //   name: 'YouTube transcriber using OpenAI Whisper',
+  //   description:
+  //     "Transcribe YouTube videos to text",
+  //   link: "https://github.com/harrybaines/gradio-whisper",
+  //   date: "Jan, 2023",
+  // },
+  // {
+  //   name: 'Tic Tac Toe solver using AI',
+  //   description:
+  //     "Solving Tic-Tac-Toe using Monte Carlo Tree Search.",
+  //   link: "https://github.com/harrybaines/tic-tac-toe-ai",
+  //   date: "Jun, 2022",
+  // },
+  // {
+  //   name: 'Smart contract management application using Golang',
+  //   description:
+  //     "Management system for declarative smart contracts on blockchains",
+  //   link: "https://github.com/harrybaines/CommitmentManager---FYP",
+  //   date: "Mar, 2019",
+  // },
 ];
 
+interface Project {
+  name: string;
+  description: string;
+  date: string;
+  link: string;
+}
+
 export default function ProjectsList() {
-  const featuredProjects = projects.filter(p => p.type === "main");
-  const otherProjects = projects.filter(p => !featuredProjects.includes(p));
-
   return (
-    <div>
-      <div className="space-y-2 mb-6">
-        <HomeSectionHeader title="Projects" />
-      </div>
-
-      {/* Featured Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-        {featuredProjects.map((project) => (
+    <div className="space-y-2">
+      <SectionHeader>Projects</SectionHeader>
+      <div className="group/list">
+        {projects.map((project) => (
           <a
-            key={project.title}
+            key={project.name}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block p-4 border border-gruvbox-border-default rounded-lg transition-colors hover:border-gruvbox-border-hover bg-gruvbox-background-soft"
+            className="block group/item py-2"
           >
-            <div className="space-y-4">
-              {project.logoUrl && (
-                <div className="h-32 bg-gruvbox-background-default rounded-lg flex items-center justify-center">
-                  <div className="relative w-12 h-12">
-                    <Image
-                      src={project.logoUrl}
-                      alt={project.title}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
+            <div className="space-y-1 transition-opacity duration-200 group-hover/list:opacity-50 group-hover/item:!opacity-100">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-md text-text">{project.name}</span>
+                  <span className="font-mono text-sm text-text-muted opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">
+                    {project.date}
+                  </span>
                 </div>
-              )}
-              <div className="space-y-1.5">
-                <h3 className="text-gruvbox-text-primary font-medium">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gruvbox-text-secondary">
-                  {project.description}
-                </p>
+                <BsArrowRight className="text-xs text-text-muted group-hover/item:text-primary transition-colors" />
               </div>
+              <p className="font-sans text-sm text-text-muted">{project.description}</p>
             </div>
           </a>
-        ))}
-      </div>
-
-      {/* Other Projects */}
-      <div className="divide-y divide-gruvbox-border-default">
-        {otherProjects.map((project) => (
-          <div key={project.title} className="py-3 first:pt-0 last:pb-0">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between">
-              <div className="flex items-center">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gruvbox-text-primary hover:text-gruvbox-border-hover transition-colors"
-                >
-                  {project.title}
-                </a>
-                <span className="hidden sm:inline text-gruvbox-text-muted mx-2">—</span>
-                <p className="text-sm text-gruvbox-text-muted hidden sm:block">{project.description}</p>
-              </div>
-              <span className="text-xs text-gruvbox-text-muted">{project.date}</span>
-            </div>
-            <p className="text-sm text-gruvbox-text-muted mt-1 sm:hidden">{project.description}</p>
-          </div>
         ))}
       </div>
     </div>

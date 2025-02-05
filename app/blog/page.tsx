@@ -10,7 +10,7 @@ export default function BlogPage() {
         <div className="space-y-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-sonokai-text-muted hover:text-sonokai-green transition-colors font-mono -mt-6 md:mt-0"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-green transition-colors font-mono -mt-6 md:mt-0"
           >
             <BsArrowLeft className="text-xs" />
             Back to home
@@ -19,7 +19,7 @@ export default function BlogPage() {
 
         {/* Posts */}
         <div className="space-y-3">
-          <p className="font-mono text-sm text-sonokai-green">~/Posts</p>
+          <p className="font-mono text-sm text-primary">~/Posts</p>
           <BlogPosts />
         </div>
       </div>

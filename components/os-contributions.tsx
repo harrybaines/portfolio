@@ -1,32 +1,57 @@
 import { BsArrowRight } from "react-icons/bs";
+import SectionHeader from "./section-header";
 
 const osContributions = [
-  { project: "Ivy", link: "https://github.com/ivy-llc/ivy", contribution: "Added JAX to numpy function conversions", date: "July 25, 2023" },
-  { project: "Buildspace", link: "https://github.com/buildspace/buildspace-projects", contribution: "Added enhancements to AI avatar tutorial project", date: "Jan 19, 2023" },
+  { project: "Ivy", link: "https://github.com/ivy-llc/ivy", description: "Added JAX to numpy function conversions", date: "July 25, 2023" },
+  { project: "Buildspace", link: "https://github.com/buildspace/buildspace-projects", description: "Added enhancements to AI avatar tutorial project", date: "Jan 19, 2023" },
 ];
+
+interface ProjectItemProps {
+  name: string;
+  description: string;
+  date: string;
+  link: string;
+}
+
+function ProjectItem({ name, description, date, link }: ProjectItemProps) {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group/item py-2"
+    >
+      <div className="space-y-1 transition-opacity duration-200 group-hover/list:opacity-50 group-hover/item:!opacity-100">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-md text-text">{name}</span>
+            <span className="font-mono text-sm text-text-muted opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">
+              {date}
+            </span>
+          </div>
+          <BsArrowRight className="text-xs text-text-muted group-hover/item:text-primary transition-colors" />
+        </div>
+        <p className="font-sans text-sm text-text-muted">{description}</p>
+      </div>
+    </a>
+  );
+}
 
 export default function OsContributions() {
   return (
-    <div className="space-y-1">
-      {osContributions.map((contribution, index) => (
-        <div key={index}>
-          <a
-            href={contribution.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-between group py-1.5"
-          >
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-sm text-sonokai-text">{contribution.project}</span>
-              <span className="font-mono text-xs text-sonokai-text-muted">{contribution.contribution}</span>
-            </div>
-            <BsArrowRight className="text-xs text-sonokai-text-muted group-hover:text-sonokai-green transition-colors" />
-          </a>
-          {index < osContributions.length - 1 && (
-            <div className="h-[1px] bg-sonokai-text-muted/10 mt-1" />
-          )}
-        </div>
-      ))}
+    <div className="space-y-2">
+      <SectionHeader>Open Source</SectionHeader>
+      <div className="group/list">
+        {osContributions.map((contribution) => (
+          <ProjectItem
+            key={contribution.project}
+            name={contribution.project}
+            description={contribution.description}
+            date={contribution.date}
+            link={contribution.link}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { getBlogPosts } from '@/app/blog/utils'
 import Link from 'next/link'
 import { BsArrowRight } from 'react-icons/bs'
 
+// Not in use yet
 export function BlogPosts() {
   let allBlogs = getBlogPosts()
 
@@ -20,11 +21,13 @@ export function BlogPosts() {
               href={`/blog/${post.slug}`}
               className="flex items-center justify-between group py-1.5"
             >
-              <span className="font-mono text-sm text-sonokai-text">{post.metadata.title}</span>
-              <BsArrowRight className="text-xs text-sonokai-text-muted group-hover:text-sonokai-green transition-colors" />
+              <div className="flex items-center justify-between gap-3">
+                <span className="font-mono text-md text-text">{post.metadata.title}</span>
+                <BsArrowRight className="text-xs text-text-muted group-hover:text-primary transition-colors" />
+              </div>
             </Link>
             {index < allBlogs.length - 1 && (
-              <div className="h-[1px] bg-sonokai-text-muted/10 mt-1" />
+              <div className="h-[1px] text-muted/10 mt-1" />
             )}
           </div>
         ))}

@@ -4,12 +4,17 @@
 
 @layer base {
   body {
-    @apply bg-sonokai-bg text-sonokai-text antialiased;
+    @apply bg-background text-gray-300 antialiased;
+  }
+
+  /* Enhanced link styles */
+  a[class*="border-b"] {
+    @apply border-b-[1.5px] border-muted/40 hover:border-primary hover:border-b-2;
   }
 }
 
 ::selection {
-  @apply bg-sonokai-purple/30 text-sonokai-text;
+  @apply bg-info/30 text-gray-300;
 }
 
 html {
