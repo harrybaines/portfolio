@@ -1,18 +1,42 @@
+import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import SectionHeader from "./section-header";
 
 const projects: Project[] = [
-  { name: "archtms", description: "architect management system", link: "https://archtms.com", date: "2023—Current" },
-  { name: "brewkit", description: "startup boilerplate", link: "https://github.com/harrybaines/brewkit", date: "2025" },
-  { name: "wallpapers", description: "weekly AI-generated phone wallpapers", link: "#", date: "2025" },
-  { name: "torchgpt", description: "pytorch code generator", link: "https://github.com/harrybaines/torchgpt", date: "2022" },
-
+  {
+    name: "archtms",
+    description: "architect management system",
+    link: "/projects/archtms",
+    date: "2023—Current",
+    isExternal: false
+  },
+  {
+    name: "brewkit",
+    description: "startup boilerplate",
+    link: "/projects/brewkit",
+    date: "2025",
+    isExternal: false
+  },
+  {
+    name: "wallpapers",
+    description: "weekly AI-generated phone wallpapers",
+    link: "/projects/wallpapers",
+    date: "2025",
+    isExternal: false
+  },
   {
     name: 'ai avatars',
-    description:
-      "Personalised AI avatars using stable diffusion",
+    description: "Personalised AI avatars using stable diffusion",
     link: "https://github.com/harrybaines/ai-avatar-generator",
     date: "2023",
+    isExternal: true
+  },
+  {
+    name: "torchgpt",
+    description: "pytorch code generator",
+    link: "https://github.com/harrybaines/torchgpt",
+    date: "2022",
+    isExternal: true
   },
   // {
   //   name: 'YouTube transcriber using OpenAI Whisper',
@@ -42,6 +66,7 @@ interface Project {
   description: string;
   date: string;
   link: string;
+  isExternal: boolean;
 }
 
 export default function ProjectsList() {
@@ -49,28 +74,35 @@ export default function ProjectsList() {
     <div className="space-y-2">
       <SectionHeader>Projects</SectionHeader>
       <div className="group/list">
-        {projects.map((project) => (
-          <a
-            key={project.name}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group/item py-2"
-          >
-            <div className="space-y-1 transition-opacity duration-200 group-hover/list:opacity-50 group-hover/item:!opacity-100">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-md text-text">{project.name}</span>
-                  <span className="font-mono text-sm text-text-muted opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">
-                    {project.date}
-                  </span>
+        {projects.map((project) => {
+          const ProjectLink = project.isExternal ? 'a' : Link;
+          const linkProps = project.isExternal ? {
+            target: "_blank",
+            rel: "noopener noreferrer",
+          } : {};
+
+          return (
+            <ProjectLink
+              key={project.name}
+              href={project.link}
+              {...linkProps}
+              className="block group/item py-2"
+            >
+              <div className="space-y-1 transition-opacity duration-200 group-hover/list:opacity-50 group-hover/item:!opacity-100">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-md text-text">{project.name}</span>
+                    <span className="font-mono text-sm text-text-muted opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">
+                      {project.date}
+                    </span>
+                  </div>
+                  <BsArrowRight className="text-xs text-text-muted group-hover/item:text-primary transition-colors" />
                 </div>
-                <BsArrowRight className="text-xs text-text-muted group-hover/item:text-primary transition-colors" />
+                <p className="font-sans text-sm text-text-muted">{project.description}</p>
               </div>
-              <p className="font-sans text-sm text-text-muted">{project.description}</p>
-            </div>
-          </a>
-        ))}
+            </ProjectLink>
+          );
+        })}
       </div>
     </div>
   );
