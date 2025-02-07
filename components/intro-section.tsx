@@ -6,12 +6,12 @@ import HoverLink from "./hover-link";
 const SOCIAL_LINKS = {
   email: {
     text: "email",
-    href: "mailto:harryb0905@googlemail.com"
+    href: "mailto:harryb0905@googlemail.com",
   },
   github: {
     text: "Github",
-    href: "https://github.com/harrybaines"
-  }
+    href: "https://github.com/harrybaines",
+  },
 } as const;
 
 export default function IntroSection() {
@@ -25,18 +25,23 @@ export default function IntroSection() {
           </h1>
         </div>
         <div className="relative h-20 w-20 rounded-full overflow-hidden border border-muted/20 flex-shrink-0">
-          <Image src={ProfileImage} alt="Harry Baines" className="object-cover" />
+          <Image
+            src={ProfileImage}
+            alt="Harry Baines"
+            className="object-cover"
+          />
         </div>
       </div>
 
       <div className="space-y-3">
         <p className="font-sans text-gray-300 leading-relaxed">
-          Currently developing{" "}
-          <HoverLink href="https://archtms.com">archtms</HoverLink>
-          , a complete architect management system. Previously worked as a software engineer at{" "}
-          <HoverLink href="https://www.yordasgroup.com/">Yordas Digital</HoverLink>
-          {" "}and{" "}
-          <HoverLink href="https://www.cassidyashton.co.uk/">Cassidy and Ashton</HoverLink>
+          Currently building{" "}
+          <HoverLink href="/projects/archtms">archtms</HoverLink>, a complete
+          architect management system. Previously a software engineer/data
+          scientist at{" "}
+          <HoverLink href="https://www.yordasgroup.com/">
+            Yordas Digital
+          </HoverLink>
           . Proud Liverpool fan and coffee aficionado.
         </p>
         <p className="font-sans text-muted leading-relaxed">
@@ -48,11 +53,17 @@ export default function IntroSection() {
             about me
           </Link>
           . get in touch via{" "}
-          <HoverLink href={SOCIAL_LINKS.email.href}>{SOCIAL_LINKS.email.text}</HoverLink>
+          <HoverLink href={SOCIAL_LINKS.email.href}>
+            {SOCIAL_LINKS.email.text}
+          </HoverLink>
           , check out my{" "}
-          <HoverLink href={SOCIAL_LINKS.github.href}>{SOCIAL_LINKS.github.text}</HoverLink>.
+          <HoverLink href={SOCIAL_LINKS.github.href}>
+            {SOCIAL_LINKS.github.text}
+          </HoverLink>
+          .
         </p>
       </div>
     </div>
   );
 }
+
