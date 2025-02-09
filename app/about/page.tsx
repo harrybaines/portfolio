@@ -131,14 +131,14 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-mono text-sm text-text">Football</h3>
+              <h3 className="font-mono text-md text-text">Football</h3>
               <TextParagraph>
                 Proud Liverpool supporter since 2008, and an avid Fantasy Premier League player since 2015.
               </TextParagraph>
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-mono text-sm text-text">Learning & Development</h3>
+              <h3 className="font-mono text-md text-text">Learning & Development</h3>
               <TextParagraph>
                 Learning Rust for systems programming and exploring Neovim for a more efficient coding workflow.
                 Building my command-line expertise through CLI tools and shell scripting.
@@ -155,7 +155,7 @@ export default function AboutPage() {
             {workData.map((job) => (
               <div key={job.id} className="space-y-4">
                 <div className="space-y-2">
-                  <h3 className="font-mono text-sm text-text">
+                  <h3 className="font-mono text-md text-text">
                     <a
                       href={job.companyURL}
                       target="_blank"
