@@ -18,7 +18,7 @@ export default function IntroSection() {
       <div className="flex items-center justify-between">
         <div className="space-y-1.5">
           <p className="font-mono text-md text-green">Hi, my name is</p>
-          <h1 className="font-sans text-2xl text-primary">
+          <h1 className="font-sans font-semibold text-3xl text-primary">
             Harry Baines
           </h1>
         </div>

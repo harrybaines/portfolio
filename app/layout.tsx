@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { JetBrains_Mono, Noto_Serif } from 'next/font/google';
+import { JetBrains_Mono, Rubik } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: "Harry Baines",
   description: "Software Engineer",
 };
 
-const font_sans = Noto_Serif({
+const font_sans = Rubik({
   weight: ['400', '600'],
   subsets: ['latin'],
   variable: '--font-sans',

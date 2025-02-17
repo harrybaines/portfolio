@@ -10,7 +10,7 @@ interface ProjectPostProps {
 
 export default function ProjectPost({ project }: ProjectPostProps) {
   return (
-    <main className="min-h-screen flex flex-col md:justify-center px-6 sm:px-8 max-w-3xl mx-auto py-24 md:py-40">
+    <main className="min-h-screen flex flex-col md:justify-center px-6 sm:px-8 max-w-2xl mx-auto py-10 md:py-20">
       <div className="space-y-8">
         {/* Header */}
         <div className="space-y-10">
@@ -24,7 +24,7 @@ export default function ProjectPost({ project }: ProjectPostProps) {
 
           <div className="space-y-4">
             <p className="font-mono text-md text-green">~/Project</p>
-            <div className="space-y-3">
+            <div className="space-y-1.5">
               <h1 className="font-sans text-xl font-semibold text-primary">
                 {project.metadata.title}
               </h1>

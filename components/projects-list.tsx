@@ -18,13 +18,6 @@ const projects: Project[] = [
     isExternal: false
   },
   {
-    name: "wallpapers",
-    description: "weekly AI-generated phone wallpapers",
-    link: "/projects/wallpapers",
-    date: "2025",
-    isExternal: false
-  },
-  {
     name: 'ai avatars',
     description: "Personalised AI avatars using stable diffusion",
     link: "https://github.com/harrybaines/ai-avatar-generator",
@@ -37,6 +30,13 @@ const projects: Project[] = [
     link: "https://github.com/harrybaines/torchgpt",
     date: "2022",
     isExternal: true
+  },
+  {
+    name: "wallpapers",
+    description: "weekly AI-generated phone wallpapers",
+    link: "/projects/wallpapers",
+    date: "2025",
+    isExternal: false
   },
   // {
   //   name: 'YouTube transcriber using OpenAI Whisper',
