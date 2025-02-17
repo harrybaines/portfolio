@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import colors from "tailwindcss/colors";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
@@ -11,42 +10,38 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: colors.lime[500],
-        muted: colors.zinc[400],
-        background: "#0D0B0E",
-        danger: colors.red[500],
-        warning: colors.orange[500],
-        success: colors.yellow[500],
-        info: colors.purple[500],
-        highlight: colors.sky[500],
+        // Base colors
+        background: "var(--color-bg)",
+        surface: "var(--color-surface)",
+        overlay: "var(--color-overlay)",
+
+        // Text colors
+        primary: "var(--color-text-primary)",
+        secondary: "var(--color-text-secondary)",
+        muted: "var(--color-text-muted)",
+        subtle: "var(--color-text-subtle)",
+
+        // Accent colors
+        red: "var(--color-red)",
+        green: "var(--color-green)",
+        yellow: "var(--color-yellow)",
+        blue: "var(--color-blue)",
+        purple: "var(--color-purple)",
+        aqua: "var(--color-aqua)",
+        orange: "var(--color-orange)",
+
+        // Highlight colors
+        "highlight-low": "var(--color-highlight-low)",
+        "highlight-med": "var(--color-highlight-med)",
+        "highlight-high": "var(--color-highlight-high)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         mono: ["var(--font-mono)", ...fontFamily.mono],
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            "p, li": {
-              fontFamily: "var(--font-sans)",
-            },
-            "--tw-prose-body": colors.gray[200],
-            "--tw-prose-headings": colors.gray[200],
-            "--tw-prose-links": colors.lime[500],
-            "--tw-prose-bold": colors.gray[200],
-            "--tw-prose-code": colors.gray[200],
-            "--tw-prose-quotes": colors.gray[200],
-            "code::before": {
-              content: '""',
-            },
-            "code::after": {
-              content: '""',
-            },
-          },
-        },
-      },
     },
   },
+  darkMode: "class", // Enable dark mode via class
   plugins: [require("@tailwindcss/typography")],
 };
 

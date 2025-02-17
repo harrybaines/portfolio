@@ -5,8 +5,8 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ children, className = "" }: SectionHeaderProps) {
   return (
-    <p className={`font-mono text-md text-primary ${className}`}>
+    <h3 className={`font-mono ${className}`}>
       ~/{children}
-    </p>
+    </h3>
   );
 }

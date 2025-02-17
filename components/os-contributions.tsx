@@ -24,14 +24,14 @@ function ProjectItem({ name, description, date, link }: ProjectItemProps) {
       <div className="space-y-1 transition-opacity duration-200 group-hover/list:opacity-50 group-hover/item:!opacity-100">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-md text-text">{name}</span>
-            <span className="font-mono text-sm text-text-muted opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">
+            <span className="font-mono text-md text-primary">{name}</span>
+            <span className="font-mono text-sm text-muted opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">
               {date}
             </span>
           </div>
-          <BsArrowRight className="text-xs text-text-muted group-hover/item:text-primary transition-colors" />
+          <BsArrowRight className="text-xs text-muted group-hover/item:text-green transition-colors" />
         </div>
-        <p className="font-sans text-sm text-text-muted">{description}</p>
+        <p className="font-sans text-sm text-muted">{description}</p>
       </div>
     </a>
   );

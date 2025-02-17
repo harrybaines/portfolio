@@ -3,20 +3,60 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-background text-gray-300 antialiased;
+  h1 {
+    color: var(--color-green);
+    font-weight: bold;
   }
 
-  /* Enhanced link styles */
-  a[class*="border-b"] {
-    @apply border-b-[1.5px] border-muted/40 hover:border-primary hover:border-b-2;
+  h2 {
+    color: var(--color-green);
+    font-weight: 600;
+  }
+
+  h3 {
+    color: var(--color-green);
+    font-weight: 500;
+  }
+
+  h4 {
+    color: var(--color-green);
+  }
+
+  h5 {
+    color: var(--color-purple);
+  }
+
+  h6 {
+    color: var(--color-aqua);
   }
 }
 
-::selection {
-  @apply bg-info/30 text-gray-300;
+:root {
+  --color-bg: #282828;
+  --color-surface: #32302f;
+  --color-overlay: #3c3836;
+  --color-muted: #7c6f64;
+  --color-subtle: #928374;
+
+  --color-text-primary: #d4be98;
+  --color-text-secondary: #d4be98;
+  --color-text-muted: #928374;
+  --color-text-subtle: #7c6f64;
+
+  --color-red: #ea6962;
+  --color-green: #a9b665;
+  --color-yellow: #d8a657;
+  --color-blue: #7daea3;
+  --color-purple: #d3869b;
+  --color-aqua: #89b482;
+  --color-orange: #e78a4e;
+
+  --color-highlight-low: #32302f;
+  --color-highlight-med: #45403d;
+  --color-highlight-high: #5a524c;
 }
 
-html {
-  min-width: 360px;
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
 }

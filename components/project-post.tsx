@@ -16,16 +16,16 @@ export default function ProjectPost({ project }: ProjectPostProps) {
         <div className="space-y-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors font-mono -mt-6 md:mt-0"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-green transition-colors font-mono -mt-6 md:mt-0"
           >
-            <BsArrowLeft className="text-xs" />
-            Back to projects
+            <BsArrowLeft className="text-md" />
+            Back
           </Link>
 
           <div className="space-y-4">
-            <p className="font-mono text-sm text-primary">~/Project</p>
+            <p className="font-mono text-md text-green">~/Project</p>
             <div className="space-y-3">
-              <h1 className="font-sans text-2xl font-semibold text-text">
+              <h1 className="font-sans text-xl font-semibold text-primary">
                 {project.metadata.title}
               </h1>
               {/* <div className="flex flex-wrap gap-2">
@@ -38,7 +38,7 @@ export default function ProjectPost({ project }: ProjectPostProps) {
                   </span>
                 ))}
               </div> */}
-              <p className="font-mono text-md text-text-muted">
+              <p className="font-mono text-md text-muted">
                 {formatDate(project.metadata.publishedAt)}
               </p>
               {project.metadata.link && (
@@ -46,7 +46,7 @@ export default function ProjectPost({ project }: ProjectPostProps) {
                   href={project.metadata.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-sm text-primary hover:underline font-mono"
+                  className="inline-block text-sm text-green hover:text-green/80 font-mono"
                 >
                   View Project →
                 </a>
@@ -56,7 +56,16 @@ export default function ProjectPost({ project }: ProjectPostProps) {
         </div>
 
         {/* Content */}
-        <article className="prose prose-invert max-w-none prose-p:font-sans prose-p:text-text prose-headings:font-sans prose-headings:text-text prose-p:mt-4 prose-headings:mt-6 prose-h1:text-xl prose-h2:text-lg prose-h3:text-base">
+        <article className="prose prose-invert max-w-none
+          prose-p:font-sans prose-p:text-primary
+          prose-headings:font-mono prose-headings:text-green
+          prose-p:mt-4 prose-headings:mt-6
+          prose-h1:text-xl prose-h2:text-lg prose-h3:text-base
+          prose-li:text-primary prose-strong:text-primary
+          prose-pre:bg-surface prose-pre:border prose-pre:border-overlay
+          prose-code:text-primary prose-code:bg-surface prose-code:px-1 prose-code:rounded-md
+          prose-pre:rounded-lg
+          prose-a:no-underline hover:prose-a:text-green">
           <CustomMDX source={project.content} />
         </article>
       </div>

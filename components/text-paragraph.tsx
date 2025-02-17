@@ -5,7 +5,7 @@ interface TextParagraphProps {
 
 export default function TextParagraph({ children, className = "" }: TextParagraphProps) {
   return (
-    <p className={`font-sans text-text leading-relaxed ${className}`}>
+    <p className={`font-sans text-primary leading-relaxed ${className}`}>
       {children}
     </p>
   );

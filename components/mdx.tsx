@@ -4,6 +4,19 @@ import Link from 'next/link'
 import React from 'react'
 import { highlight } from 'sugar-high'
 
+// Add custom styles for syntax highlighting
+const syntaxHighlightingStyles = `
+  code .string { color: var(--color-green); }
+  code .keyword { color: var(--color-red); }
+  code .function { color: var(--color-blue); }
+  code .number { color: var(--color-purple); }
+  code .comment { color: var(--color-text-muted); }
+  code .operator { color: var(--color-orange); }
+  code .punctuation { color: var(--color-text-muted); }
+  code .property { color: var(--color-yellow); }
+  code .variable { color: var(--color-aqua); }
+`
+
 function Table({ data }: { data: any }) {
   let headers = data.headers.map((header: any, index: number) => (
     <th key={index}>{header}</th>
@@ -31,17 +44,24 @@ function CustomLink(props: any) {
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} {...props}>
+      <Link href={href} className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors" {...props}>
         {props.children}
       </Link>
     )
   }
 
   if (href.startsWith('#')) {
-    return <a {...props} />
+    return <a {...props} className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors" />
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
+      {...props}
+    />
+  )
 }
 
 function RoundedImage(props: any) {
@@ -50,7 +70,12 @@ function RoundedImage(props: any) {
 
 function Code({ children, ...props }: { children: any }) {
   let codeHTML = highlight(children)
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+  return (
+    <>
+      <style>{syntaxHighlightingStyles}</style>
+      <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+    </>
+  )
 }
 
 function slugify(str: string) {

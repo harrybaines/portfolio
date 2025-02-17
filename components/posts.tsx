@@ -22,8 +22,8 @@ export function BlogPosts() {
               className="flex items-center justify-between group py-1.5"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="font-mono text-md text-text">{post.metadata.title}</span>
-                <BsArrowRight className="text-xs text-text-muted group-hover:text-primary transition-colors" />
+                <span className="font-mono text-md text-primary">{post.metadata.title}</span>
+                <BsArrowRight className="text-xs text-muted group-hover:text-green transition-colors" />
               </div>
             </Link>
             {index < allBlogs.length - 1 && (

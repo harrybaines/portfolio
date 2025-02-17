@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 };
 
 const font_sans = Noto_Serif({
-  weight: ['400'],
+  weight: ['400', '600'],
   subsets: ['latin'],
   variable: '--font-sans',
 })
 
 const font_mono = JetBrains_Mono({
-  weight: ['400'],
+  weight: ['400', '600', '700'],
   subsets: ['latin'],
   variable: '--font-mono',
 })
