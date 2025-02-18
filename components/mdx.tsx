@@ -44,21 +44,20 @@ function CustomLink(props: any) {
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors" {...props}>
+      <Link href={href} {...props}>
         {props.children}
       </Link>
     )
   }
 
   if (href.startsWith('#')) {
-    return <a {...props} className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors" />
+    return <a {...props} />
   }
 
   return (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
       {...props}
     />
   )

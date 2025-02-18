@@ -69,7 +69,6 @@ export default function Intro() {
           <Link
             href="https://archtms.com"
             target="_blank"
-            className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
           >
             archtms
           </Link>

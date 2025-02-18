@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  a {
+    @apply text-primary hover:text-green border-b border-dashed border-gray-500 hover:border-green transition-colors;
+  }
+
   h1 {
     color: var(--color-green);
     font-weight: bold;
@@ -57,7 +61,13 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 18px; /* Default font size for larger screens */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 16px; /* Smaller font size for tablets and mobile devices */
+  }
 }
 
 body {

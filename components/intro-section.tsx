@@ -41,26 +41,22 @@ export default function IntroSection() {
             href="https://archtms.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:text-green border-b border-dashed border-primary hover:border-green transition-colors"
           >
             archtms
           </a>
           , a complete architect management system.
-          Passionate about full-stack web development, AI integration, developer tooling, and learning new technologies.
+          Passionate about full-stack web development, AI integration and developer tooling.
         </p>
         <p className="font-sans text-md text-muted leading-relaxed">
           Read more{" "}
-          <Link
-            href="/about"
-            className="hover:text-green border-b border-dashed border-primary hover:border-green transition-colors"
-          >
+          <Link href="/about">
             about me
           </Link>
           , get in touch via{" "}
           <HoverLink href={SOCIAL_LINKS.email.href}>
             {SOCIAL_LINKS.email.text}
           </HoverLink>
-          , check out my{" "}
+          , or check out my{" "}
           <HoverLink href={SOCIAL_LINKS.github.href}>
             {SOCIAL_LINKS.github.text}
           </HoverLink>

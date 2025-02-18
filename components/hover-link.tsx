@@ -1,18 +1,20 @@
 interface HoverLinkProps {
   href: string;
   children: React.ReactNode;
+  className?: string;
 }
 
 export default function HoverLink({
   href,
   children,
+  className = "",
 }: HoverLinkProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="hover:text-green border-b border-dashed border-primary hover:border-green transition-colors"
+      className={`${className}`}
     >
       {children}
     </a>

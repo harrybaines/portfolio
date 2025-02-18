@@ -9,7 +9,7 @@ import { BsArrowLeft } from "react-icons/bs";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen flex flex-col px-10 sm:px-8 max-w-2xl mx-auto py-32">
+    <main className="min-h-screen flex flex-col max-w-2xl mx-auto px-10 md:px-8 pt-10 pb-40 md:py-32">
       {/* Spacing between sections */}
       <div className="space-y-16">
         {/* Header */}
@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="space-y-10">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-muted hover:text-green transition-colors font-mono"
+              className="inline-flex items-center gap-2 text-sm text-muted font-mono border-b-0"
             >
               <BsArrowLeft className="text-md" />
               Back
@@ -49,7 +49,6 @@ export default function AboutPage() {
                     href="https://archtms.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
                   >
                     archtms
                   </a>
@@ -58,7 +57,6 @@ export default function AboutPage() {
                     href="https://github.com/harrybaines/brewkit"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
                   >
                     brewkit
                   </a>
@@ -70,7 +68,6 @@ export default function AboutPage() {
                     href="https://cal.com/harrybaines"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
                   >
                     book a call
                   </a>{" "}
@@ -101,7 +98,6 @@ export default function AboutPage() {
                   href="https://github.com/harrybaines/dotfiles"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
                 >
                   dotfiles
                 </a>). I keep all my development and personal notes in my Obsidian second brain through Neovim using{" "}
@@ -109,7 +105,6 @@ export default function AboutPage() {
                   href="https://github.com/epwalsh/obsidian.nvim"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:text-green border-b border-dashed border-muted/20 hover:border-green transition-colors"
                 >
                   obsidian.nvim
                 </a>.
@@ -164,30 +159,28 @@ export default function AboutPage() {
               {workData.map((job, index) => (
                 <AnimatedSection key={job.id} delay={0.4 + index * 0.1}>
                   <div className="space-y-4">
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between">
-                        <a
-                          href={job.companyURL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-muted transition-colors"
-                        >
-                          {job.companyName}
-                        </a>
-                        <span className="font-mono text-sm text-muted">{job.date}</span>
-                      </div>
-                      <span className="font-mono text-sm text-muted">{job.title}</span>
+                    <div className="flex items-center justify-between">
+                      <a
+                        href={job.companyURL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border-b-0 mb-1"
+                      >
+                        {job.companyName}
+                      </a>
+                      <span className="font-mono text-sm text-muted">{job.date}</span>
                     </div>
+                    <span className="font-mono text-sm text-muted">{job.title}</span>
 
                     <TextParagraph>
                       {job.description}
                     </TextParagraph>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-4">
                       {job.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="inline-flex items-center px-2 py-1 rounded-md bg-muted/5 text-muted"
+                          className="inline-flex items-center text-muted"
                         >
                           <span className="text-xs font-mono">{skill}</span>
                         </span>
