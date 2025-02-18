@@ -56,6 +56,10 @@
   --color-highlight-high: #5a524c;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
