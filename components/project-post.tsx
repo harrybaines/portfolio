@@ -66,7 +66,7 @@ export default function ProjectPost({ project }: ProjectPostProps) {
           prose-code:text-primary prose-code:bg-surface prose-code:px-1 prose-code:rounded-md
           prose-pre:rounded-lg
           prose-a:text-primary
-          prose-a:border-b-0
+          prose-a:no-underline
           ">
           <CustomMDX source={project.content} />
         </article>
