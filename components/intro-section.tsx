@@ -38,8 +38,7 @@ export default function IntroSection() {
           Software engineer from the UK 🇬🇧.
           Founder of{" "}
           <a
-            href="https://archtms.com"
-            target="_blank"
+            href="/projects/archtms"
             rel="noopener noreferrer"
           >
             archtms

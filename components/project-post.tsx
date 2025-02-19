@@ -16,7 +16,7 @@ export default function ProjectPost({ project }: ProjectPostProps) {
         <div className="space-y-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted hover:text-green transition-colors font-mono -mt-6 md:mt-0"
+            className="inline-flex items-center gap-2 text-sm text-muted border-b-0 hover:text-green transition-colors font-mono -mt-6 md:mt-0"
           >
             <BsArrowLeft className="text-md" />
             Back
@@ -41,17 +41,17 @@ export default function ProjectPost({ project }: ProjectPostProps) {
               <p className="font-mono text-md text-muted">
                 {formatDate(project.metadata.publishedAt)}
               </p>
-              {project.metadata.link && (
-                <a
-                  href={project.metadata.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block text-sm text-green hover:text-green/80 font-mono"
-                >
-                  View Project →
-                </a>
-              )}
             </div>
+            {project.metadata.link && (
+              <a
+                href={project.metadata.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-sm border-b-0 font-mono text-muted hover:text-green"
+              >
+                View Project →
+              </a>
+            )}
           </div>
         </div>
 
@@ -65,7 +65,9 @@ export default function ProjectPost({ project }: ProjectPostProps) {
           prose-pre:bg-surface prose-pre:border prose-pre:border-overlay
           prose-code:text-primary prose-code:bg-surface prose-code:px-1 prose-code:rounded-md
           prose-pre:rounded-lg
-          prose-a:no-underline hover:prose-a:text-green">
+          prose-a:text-primary
+          prose-a:border-b-0
+          ">
           <CustomMDX source={project.content} />
         </article>
       </div>
