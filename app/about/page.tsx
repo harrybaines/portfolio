@@ -249,7 +249,7 @@ export default function AboutPage() {
           {stat.icon}
         </div>
         <div className="space-y-1.5">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground">
             {stat.label}
           </p>
           <div className="flex items-center gap-3">
@@ -280,7 +280,7 @@ export default function AboutPage() {
     <div className="relative">
       <div className="min-h-screen bg-gradient-to-b from-background to-background/95">
         <div className="relative mx-auto">
-          <div className="space-y-16">
+          <div className="space-y-32">
             {/* Header */}
             <div className="space-y-6">
               <div className="flex items-start justify-between gap-8">
@@ -421,7 +421,7 @@ export default function AboutPage() {
                         </div>
                         <h3 className="font-medium">{prop.title}</h3>
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed">
                         {prop.description}
                       </p>
                     </div>

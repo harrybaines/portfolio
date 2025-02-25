@@ -3,17 +3,11 @@ import { Footer } from "@/components/layout/footer"
 import { Navbar } from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import { Providers } from "@/components/providers"
-import { cn } from "@/lib/utils"
 import { Analytics } from "@vercel/analytics/react"
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from "geist/font/sans"
 import type { Metadata } from "next"
-import { Fira_Mono } from "next/font/google"
 import type React from "react"
-
-const firaMono = Fira_Mono({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-fira-mono",
-})
 
 export const metadata: Metadata = {
   title: "Harry Baines",
@@ -26,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background antialiased pt-40", firaMono.variable, "font-sans")}>
+    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="min-h-screen bg-background antialiased pt-40">
         <Providers>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
             <Navbar />
@@ -39,7 +33,7 @@ export default function RootLayout({
           </ThemeProvider>
         </Providers>
       </body>
-    </html>
+    </html >
   )
 }
 

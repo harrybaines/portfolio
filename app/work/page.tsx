@@ -38,13 +38,13 @@ const projects = [
 export default function WorkPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/95">
-      <div className="space-y-24">
+      <div className="space-y-32">
         {/* Experience Section */}
         <div className="space-y-16">
           <div className="space-y-4">
             <PageHeading label="EXPERIENCE" />
 
-            <h1 className="text-4xl font-bold tracking-tight">
+            <h1 className="text-3xl font-bold tracking-tight">
               Where I&apos;ve Worked
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
