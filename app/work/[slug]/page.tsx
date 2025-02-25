@@ -15,7 +15,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }: { params: Promise<Params> }) {
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const post = getWorkProjects().find((post) => post.slug === slug)
   if (!post) {
