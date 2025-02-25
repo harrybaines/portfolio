@@ -8,11 +8,6 @@ interface Params {
   slug: string
 }
 
-interface PageProps {
-  params: Params
-  searchParams: Record<string, string | string[] | undefined>
-}
-
 export async function generateStaticParams() {
   const posts = getBlogPosts()
   return posts.map((post) => ({
@@ -20,7 +15,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: { params: Params }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
     return
@@ -56,7 +51,7 @@ export async function generateMetadata({ params }: PageProps) {
   }
 }
 
-export default async function Blog({ params }: PageProps) {
+export default async function Blog({ params }: { params: Params }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug)
 
   if (!post) {
