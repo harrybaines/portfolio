@@ -15,8 +15,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }: { params: Params }) {
-  const post = getWorkProjects().find((post) => post.slug === params.slug)
+export function generateMetadata({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const post = getWorkProjects().find((post) => post.slug === slug)
   if (!post) {
     return
   }
@@ -51,8 +52,9 @@ export function generateMetadata({ params }: { params: Params }) {
   }
 }
 
-export default function Work({ params }: { params: Params }) {
-  const post = getWorkProjects().find((post) => post.slug === params.slug)
+export default async function Work({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const post = getWorkProjects().find((post) => post.slug === slug)
 
   if (!post) {
     notFound()
