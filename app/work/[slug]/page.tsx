@@ -5,10 +5,7 @@ import { formatDate, getWorkProjects } from '@/lib/mdx-utils'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-type Props = {
-  params: Promise<{ slug: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}
+type tParams = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   const posts = getWorkProjects()
@@ -17,11 +14,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  const paramsValue = await params
-  const post = getWorkProjects().find((post) => post.slug === paramsValue.slug)
+export async function generateMetadata(props: { params: tParams }): Promise<Metadata> {
+  const { slug } = await props.params
+  const post = getWorkProjects().find((post) => post.slug === slug)
 
   if (!post) {
     return {}
@@ -45,7 +40,7 @@ export async function generateMetadata(
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/blog/${paramsValue.slug}`,
+      url: `${baseUrl}/work/${slug}`,
       images: [{ url: ogImage }],
     },
     twitter: {
@@ -57,8 +52,9 @@ export async function generateMetadata(
   }
 }
 
-export default async function Work({ params }: { params: { slug: string } }) {
-  const post = getWorkProjects().find((post) => post.slug === params.slug)
+export default async function Work(props: { params: tParams }) {
+  const { slug } = await props.params;
+  const post = getWorkProjects().find((post) => post.slug === slug)
 
   if (!post) {
     notFound()
