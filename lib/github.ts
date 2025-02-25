@@ -47,12 +47,14 @@ export async function fetchUserCommits(
       }
     );
 
-    return commits.map((commit: any) => ({
+    // Use type assertion to handle the GitHub API response
+    return commits.map((commit) => ({
       sha: commit.sha,
       commit: {
         message: commit.commit.message,
         author: {
-          date: commit.commit.author.date,
+          // Handle potential null or undefined values
+          date: commit.commit.author?.date || new Date().toISOString(),
         },
       },
       html_url: commit.html_url,

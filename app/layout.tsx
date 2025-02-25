@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import { Providers } from "@/components/providers"
 import { cn } from "@/lib/utils"
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
 import { Fira_Mono } from "next/font/google"
 import type React from "react"
@@ -32,6 +33,7 @@ export default function RootLayout({
             <Navbar />
             <main className="container max-w-5xl mx-auto">
               {children}
+              <Analytics />
             </main>
             <Footer />
           </ThemeProvider>

@@ -1,4 +1,5 @@
 import { getBlogPosts } from "@/lib/mdx-utils";
+import Image from "next/image";
 
 export const metadata = {
   title: 'Blog',
@@ -26,10 +27,13 @@ export default function Page() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {featuredPost.metadata.image && (
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={featuredPost.metadata.image}
                 alt={featuredPost.metadata.title}
+                fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
           )}
@@ -86,10 +90,12 @@ export default function Page() {
               >
                 {post.metadata.image && (
                   <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={post.metadata.image}
                       alt={post.metadata.title}
+                      fill
                       className="object-cover transition-transform group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 )}

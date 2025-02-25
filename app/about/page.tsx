@@ -10,64 +10,64 @@ import { socialLinks } from "@/data/social-links"
 import { useGithubRepos } from "@/hooks/use-github-repos"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
-import { ArrowRight, ArrowUpRight, Bookmark, Brain, Code2, Command, Dumbbell, Footprints, GitBranch, Keyboard, Layers, Search, Terminal } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Brain, Code2, Command, Dumbbell, Footprints, GitBranch, Keyboard, Layers, Search, Terminal } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-const interests = [
-  {
-    icon: <Dumbbell className="h-4 w-4" />,
-    label: "Hybrid Training",
-    description: "Combining cardio and strength training for optimal performance",
-    gradient: "from-orange-500/20 via-amber-500/10 to-transparent",
-    gallery: [
-      {
-        src: "/bike.jpeg",
-        alt: "Cycling in the mountains",
-        location: "Peak District",
-        caption: "Weekend endurance rides",
-        size: "large" as const
-      },
-      {
-        src: "/running.jpeg",
-        alt: "Marathon training",
-        location: "London Marathon",
-        caption: "26.2 miles of grit",
-        size: "small" as const
-      },
-      {
-        src: "/gym.jpeg",
-        alt: "Powerlifting session",
-        location: "The Iron Paradise",
-        caption: "Strength training day",
-        size: "small" as const
-      },
-      {
-        src: "/trail.jpeg",
-        alt: "Trail running",
-        location: "Lake District",
-        caption: "Finding peace in nature",
-        size: "medium" as const
-      }
-    ]
-  },
-  {
-    icon: <Bookmark className="h-4 w-4" />,
-    label: "Football",
-    description: "Liverpool supporter since 2008, FPL player since 2015",
-    gradient: "from-red-500/20 via-rose-500/10 to-transparent",
-    gallery: [
-      {
-        src: "/football/anfield.jpg",
-        alt: "Anfield Stadium",
-        location: "Liverpool",
-        caption: "Home of Liverpool FC",
-        size: "large" as const
-      },
-      // Add more football related images...
-    ]
-  },
-]
+// const interests = [
+//   {
+//     icon: <Dumbbell className="h-4 w-4" />,
+//     label: "Hybrid Training",
+//     description: "Combining cardio and strength training for optimal performance",
+//     gradient: "from-orange-500/20 via-amber-500/10 to-transparent",
+//     gallery: [
+//       {
+//         src: "/bike.jpeg",
+//         alt: "Cycling in the mountains",
+//         location: "Peak District",
+//         caption: "Weekend endurance rides",
+//         size: "large" as const
+//       },
+//       {
+//         src: "/running.jpeg",
+//         alt: "Marathon training",
+//         location: "London Marathon",
+//         caption: "26.2 miles of grit",
+//         size: "small" as const
+//       },
+//       {
+//         src: "/gym.jpeg",
+//         alt: "Powerlifting session",
+//         location: "The Iron Paradise",
+//         caption: "Strength training day",
+//         size: "small" as const
+//       },
+//       {
+//         src: "/trail.jpeg",
+//         alt: "Trail running",
+//         location: "Lake District",
+//         caption: "Finding peace in nature",
+//         size: "medium" as const
+//       }
+//     ]
+//   },
+//   {
+//     icon: <Bookmark className="h-4 w-4" />,
+//     label: "Football",
+//     description: "Liverpool supporter since 2008, FPL player since 2015",
+//     gradient: "from-red-500/20 via-rose-500/10 to-transparent",
+//     gallery: [
+//       {
+//         src: "/football/anfield.jpg",
+//         alt: "Anfield Stadium",
+//         location: "Liverpool",
+//         caption: "Home of Liverpool FC",
+//         size: "large" as const
+//       },
+//       // Add more football related images...
+//     ]
+//   },
+// ]
 
 const athleteStats = [
   {
