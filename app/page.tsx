@@ -1,26 +1,28 @@
-'use client'
+import { Collaborate } from "@/components/common/collaborate"
+import { About } from "@/components/home/about"
+import { Activity } from "@/components/home/activity"
+import { FeaturedProject } from "@/components/home/featured-project"
+import { Hero } from "@/components/home/hero"
+import { PageHeading } from "@/components/ui/page-heading"
 
-import AnimatedSection from "@/components/animated-section";
-import IntroSection from "@/components/intro-section";
-import OsContributions from "@/components/os-contributions";
-import ProjectsList from "@/components/projects-list";
-
-export default function Home() {
+export default function Page() {
   return (
-    <main className="min-h-screen flex flex-col md:justify-center max-w-2xl mx-auto px-10 md:px-8 py-20 md:py-60">
-      <div className="space-y-16">
-        <AnimatedSection delay={0.2}>
-          <IntroSection />
-        </AnimatedSection>
+    <div className="min-h-screen bg-gradient-to-b from-background to-background/95">
+      <Hero />
+      <About />
 
-        <AnimatedSection delay={0.4}>
-          <ProjectsList />
-        </AnimatedSection>
+      <section className="py-16 md:py-24">
+        <div className="space-y-8">
+          <PageHeading label="FEATURED PROJECT" />
+          <FeaturedProject />
+        </div>
+      </section>
 
-        <AnimatedSection delay={0.6}>
-          <OsContributions />
-        </AnimatedSection>
-      </div>
-    </main>
-  );
+      {/* <Resources /> */}
+
+      <Activity />
+      <Collaborate />
+    </div>
+  )
 }
+

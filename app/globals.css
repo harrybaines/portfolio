@@ -3,74 +3,92 @@
 @tailwind utilities;
 
 @layer base {
-  a {
-    @apply text-primary hover:text-green border-b border-[--color-text-primary] hover:border-green transition-colors;
+  :root {
+    --background: 20 14% 96%;
+    --foreground: 20 14% 4%;
+    --card: 20 14% 94%;
+    --card-foreground: 20 14% 4%;
+    --popover: 20 14% 94%;
+    --popover-foreground: 20 14% 4%;
+    --primary: 32 95% 44%;
+    --primary-foreground: 20 14% 96%;
+    --secondary: 20 14% 90%;
+    --secondary-foreground: 20 14% 4%;
+    --muted: 20 14% 90%;
+    --muted-foreground: 20 10% 40%;
+    --accent: 32 95% 44%;
+    --accent-foreground: 20 14% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 20 14% 96%;
+    --border: 20 14% 86%;
+    --input: 20 14% 86%;
+    --ring: 32 95% 44%;
+    --radius: 0.5rem;
   }
 
-  h1 {
-    color: var(--color-green);
-    font-weight: bold;
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 32 15% 94%;
+    --card: 20 14% 8%;
+    --card-foreground: 32 15% 94%;
+    --popover: 20 14% 8%;
+    --popover-foreground: 32 15% 94%;
+    --primary: 32 95% 44%;
+    --primary-foreground: 20 14% 4%;
+    --secondary: 20 14% 12%;
+    --secondary-foreground: 32 15% 94%;
+    --muted: 20 14% 12%;
+    --muted-foreground: 32 15% 70%;
+    --accent: 32 95% 44%;
+    --accent-foreground: 20 14% 4%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 32 15% 94%;
+    --border: 20 14% 14%;
+    --input: 20 14% 14%;
+    --ring: 32 95% 44%;
   }
 
-  h2 {
-    color: var(--color-green);
-    font-weight: 600;
-  }
-
-  h3 {
-    color: var(--color-green);
-    font-weight: 500;
-  }
-
-  h4 {
-    color: var(--color-green);
-  }
-
-  h5 {
-    color: var(--color-purple);
-  }
-
-  h6 {
-    color: var(--color-aqua);
-  }
-}
-
-:root {
-  --color-bg: #282828;
-  --color-surface: #32302f;
-  --color-overlay: #3c3836;
-  --color-muted: #7c6f64;
-  --color-subtle: #928374;
-
-  --color-text-primary: #d4be98;
-  --color-text-secondary: #d4be98;
-  --color-text-muted: #928374;
-  --color-text-subtle: #7c6f64;
-
-  --color-red: #ea6962;
-  --color-green: #a9b665;
-  --color-yellow: #d8a657;
-  --color-blue: #7daea3;
-  --color-purple: #d3869b;
-  --color-aqua: #89b482;
-  --color-orange: #e78a4e;
-
-  --color-highlight-low: #32302f;
-  --color-highlight-med: #45403d;
-  --color-highlight-high: #5a524c;
-}
-
-html {
-  font-size: 18px; /* Default font size for larger screens */
-}
-
-@media (max-width: 768px) {
   html {
-    font-size: 16px; /* Smaller font size for tablets and mobile devices */
+    font-size: 16px;
   }
 }
 
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

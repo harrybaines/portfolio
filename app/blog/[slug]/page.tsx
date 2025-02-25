@@ -1,35 +1,33 @@
-import { getBlogPosts } from '@/app/blog/utils'
 import { baseUrl } from '@/app/sitemap'
-import BlogPost from '@/components/blog-post'
-import { Metadata } from 'next'
+import { CustomMDX } from '@/components/common/mdx'
+import { PostLayout } from '@/components/layout/post-layout'
+import { formatDate, getBlogPosts } from '@/lib/mdx-utils'
 import { notFound } from 'next/navigation'
 
 interface Params {
-  params: {
-    slug: string
-  }
+  slug: string
 }
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts()
+  const posts = getBlogPosts()
   return posts.map((post) => ({
     slug: post.slug,
   }))
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export function generateMetadata({ params }: { params: Params }) {
+  const post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
-    return {}
+    return
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata
-  let ogImage = image
+  const ogImage = image
     ? image
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`
 
@@ -42,11 +40,7 @@ export function generateMetadata({ params }: Params): Metadata {
       type: 'article',
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -57,12 +51,22 @@ export function generateMetadata({ params }: Params): Metadata {
   }
 }
 
-export default function BlogPostPage({ params }: Params) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export default function Blog({ params }: { params: Params }) {
+  const post = getBlogPosts().find((post) => post.slug === params.slug)
 
   if (!post) {
     notFound()
   }
 
-  return <BlogPost post={post} />
+  return (
+    <PostLayout
+      title={post.metadata.title}
+      description={post.metadata.summary}
+      date={formatDate(post.metadata.publishedAt)}
+      readingTime="5 min read"
+      image={post.metadata.image || '/images/blog-default.jpg'}
+    >
+      <CustomMDX source={post.content} />
+    </PostLayout>
+  )
 }

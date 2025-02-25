@@ -1,38 +1,43 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css"
+import { Footer } from "@/components/layout/footer"
+import { Navbar } from "@/components/layout/navbar"
+import { ThemeProvider } from "@/components/layout/theme-provider"
+import { Providers } from "@/components/providers"
+import { cn } from "@/lib/utils"
+import type { Metadata } from "next"
+import { Fira_Mono } from "next/font/google"
+import type React from "react"
 
-import { JetBrains_Mono, Rubik } from 'next/font/google';
+const firaMono = Fira_Mono({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-fira-mono",
+})
 
 export const metadata: Metadata = {
   title: "Harry Baines",
   description: "Software Engineer",
-};
-
-const font_sans = Rubik({
-  weight: ['400', '600'],
-  subsets: ['latin'],
-  variable: '--font-sans',
-})
-
-const font_mono = JetBrains_Mono({
-  weight: ['400', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-mono',
-})
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
-      <body className={`${font_sans.className} ${font_mono.variable}`}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background antialiased pt-40", firaMono.variable, "font-sans")}>
+        <Providers>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+            <Navbar />
+            <main className="container max-w-5xl mx-auto">
+              {children}
+            </main>
+            <Footer />
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
-  );
+  )
 }
+
