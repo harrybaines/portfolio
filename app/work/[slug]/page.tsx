@@ -8,6 +8,11 @@ interface Params {
   slug: string
 }
 
+interface PageProps {
+  params: Params
+  searchParams: Record<string, string | string[] | undefined>
+}
+
 export async function generateStaticParams() {
   const posts = getWorkProjects()
   return posts.map((post) => ({
@@ -15,9 +20,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<Params> }) {
-  const { slug } = await params;
-  const post = getWorkProjects().find((post) => post.slug === slug)
+export async function generateMetadata({ params }: PageProps) {
+  const post = getWorkProjects().find((post) => post.slug === params.slug)
   if (!post) {
     return
   }
@@ -52,9 +56,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
   }
 }
 
-export default async function Work({ params }: { params: Promise<Params> }) {
-  const { slug } = await params;
-  const post = getWorkProjects().find((post) => post.slug === slug)
+export default async function Work({ params }: PageProps) {
+  const post = getWorkProjects().find((post) => post.slug === params.slug)
 
   if (!post) {
     notFound()

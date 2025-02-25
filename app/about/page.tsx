@@ -69,7 +69,7 @@ import Link from "next/link"
 //   },
 // ]
 
-const athleteStats = [
+const athleteStats: { category: string, description: string, stats: StatItem[] }[] = [
   {
     category: "Running",
     description: "Passionate about distance running but currently recovering from a knee injury. Looking forward to getting back on the roads and chasing new PBs in 2024.",
@@ -136,6 +136,15 @@ const calculateYearsExperience = () => {
   const diffInYears = (now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
   return Math.floor(diffInYears);
 };
+
+// Define the interface for the stat object
+interface StatItem {
+  label: string;
+  value: string;
+  target: string;
+  link?: string; // Make link optional
+  icon: React.ReactNode;
+}
 
 export default function AboutPage() {
   const { repos, loading } = useGithubRepos();
@@ -233,7 +242,7 @@ export default function AboutPage() {
     }
   ]
 
-  const StatContent = ({ stat }: { stat: (typeof athleteStats)[0]["stats"][0] }) => (
+  const StatContent = ({ stat }: { stat: StatItem }) => (
     <div className="flex items-center justify-between group">
       <div className="flex items-center gap-3">
         <div className="flex h-8 w-8 items-center justify-center rounded-md bg-background shadow-sm ring-1 ring-border">
