@@ -2,10 +2,12 @@ import { baseUrl } from '@/app/sitemap'
 import { CustomMDX } from '@/components/common/mdx'
 import { PostLayout } from '@/components/layout/post-layout'
 import { formatDate, getBlogPosts } from '@/lib/mdx-utils'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-interface Params {
-  slug: string
+type Props = {
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export async function generateStaticParams() {
@@ -15,10 +17,14 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const paramsValue = await params
+  const post = getBlogPosts().find((post) => post.slug === paramsValue.slug)
+
   if (!post) {
-    return
+    return {}
   }
 
   const {
@@ -39,7 +45,7 @@ export async function generateMetadata({ params }: { params: Params }) {
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/blog/${paramsValue.slug}`,
       images: [{ url: ogImage }],
     },
     twitter: {
@@ -51,7 +57,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   }
 }
 
-export default async function Blog({ params }: { params: Params }) {
+export default async function Blog({ params }: { params: { slug: string } }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug)
 
   if (!post) {

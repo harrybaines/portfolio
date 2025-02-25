@@ -2,15 +2,12 @@ import { baseUrl } from '@/app/sitemap'
 import { CustomMDX } from '@/components/common/mdx'
 import { PostLayout } from '@/components/layout/post-layout'
 import { formatDate, getWorkProjects } from '@/lib/mdx-utils'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-interface Params {
-  slug: string
-}
-
-interface PageProps {
-  params: Params
-  searchParams: Record<string, string | string[] | undefined>
+type Props = {
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export async function generateStaticParams() {
@@ -20,10 +17,14 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: PageProps) {
-  const post = getWorkProjects().find((post) => post.slug === params.slug)
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const paramsValue = await params
+  const post = getWorkProjects().find((post) => post.slug === paramsValue.slug)
+
   if (!post) {
-    return
+    return {}
   }
 
   const {
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: PageProps) {
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/blog/${paramsValue.slug}`,
       images: [{ url: ogImage }],
     },
     twitter: {
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: PageProps) {
   }
 }
 
-export default async function Work({ params }: PageProps) {
+export default async function Work({ params }: { params: { slug: string } }) {
   const post = getWorkProjects().find((post) => post.slug === params.slug)
 
   if (!post) {
