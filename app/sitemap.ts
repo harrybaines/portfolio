@@ -1,4 +1,4 @@
-import { getBlogPosts } from "@/lib/mdx-utils";
+import { getBlogPosts, getWorkProjects } from "@/lib/mdx-utils";
 
 export const baseUrl = "https://www.harrybaines.net";
 
@@ -8,10 +8,15 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }));
 
-  const routes = ["", "/blog"].map((route) => ({
+  const projects = getWorkProjects().map((project) => ({
+    url: `${baseUrl}/work/${project.slug}`,
+    lastModified: project.metadata.publishedAt,
+  }));
+
+  const routes = ["", "/blog", "/work"].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  return [...routes, ...blogs];
+  return [...routes, ...blogs, ...projects];
 }

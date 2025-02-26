@@ -20,11 +20,6 @@ export function JourneyTimeline() {
     >
       <PageHeading label="PROFESSIONAL JOURNEY" />
       <div className="relative">
-        {/* Timeline line */}
-        <div className="absolute left-8 top-0 bottom-0 md:left-[7.5rem]">
-          <div className="w-px h-full border-l-2 border-dashed border-border" />
-        </div>
-
         {/* Timeline items */}
         <div className="space-y-12">
           {timeline.map((item, i) => (
@@ -33,18 +28,12 @@ export function JourneyTimeline() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative grid grid-cols-[auto,1fr] gap-6 md:grid-cols-[120px,1fr] md:gap-8"
             >
-              {/* Date marker */}
-              <div className="relative flex items-center md:justify-end">
-                <div className="hidden whitespace-nowrap text-sm text-muted-foreground md:mr-6 md:block">
-                  {item.period}
-                </div>
-              </div>
-
               {/* Content */}
               <Card className="p-6">
                 <div className="flex flex-col gap-4">
+
+                  {/* Header */}
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white dark:bg-white/90 shadow-sm">
                       <Image
@@ -98,10 +87,12 @@ export function JourneyTimeline() {
                     </div>
                   </div>
 
-                  <p className="text-sm text-muted-foreground">
+                  {/* Description */}
+                  <p className="text-muted-foreground">
                     {item.description}
                   </p>
 
+                  {/* Tech Stack */}
                   {item.tech && (
                     <div className="flex flex-wrap gap-2">
                       {item.tech.map((tech, j) => (

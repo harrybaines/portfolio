@@ -27,7 +27,7 @@ export function Collaborate() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent" />
         <div className="relative p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-4 text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight">
               Got a project in mind?
             </h2>
             <p className="text-muted-foreground max-w-[45ch]">
@@ -35,9 +35,9 @@ export function Collaborate() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="mailto:harryb0905@googlemail.com" className={cn("inline-flex items-center justify-center gap-2", "rounded-lg px-6 py-3 font-medium", "bg-primary text-primary-foreground", "hover:bg-primary/90 transition-colors")}>
+            <Link href="mailto:harryb0905@googlemail.com" className={cn("inline-flex items-center justify-center gap-2", "rounded-lg px-5 py-3 font-medium", "bg-primary text-primary-foreground", "hover:bg-primary/90 transition-colors")}>
               <Sparkles className="h-4 w-4" />
-              Let&apos;s Build Together
+              Let&apos;s Build
             </Link>
           </div>
         </div>

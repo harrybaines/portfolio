@@ -44,7 +44,9 @@ interface CustomLinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElem
 function CustomLink(props: CustomLinkProps) {
   const { href, children, ...rest } = props
 
-  if (href.startsWith('/')) {
+  console.log(href)
+
+  if (href.startsWith('/') || href.startsWith('http')) {
     return (
       <Link href={href} {...rest}>
         {children}

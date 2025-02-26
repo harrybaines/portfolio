@@ -89,12 +89,15 @@ export function PostLayout({
           className="prose prose-neutral dark:prose-invert mx-auto
             prose-h2:text-2xl prose-h2:font-semibold prose-h2:tracking-tight
             prose-h3:text-xl prose-h3:font-semibold
+            prose-h3:pt-10
             prose-p:text-muted-foreground prose-p:leading-relaxed
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
             prose-li:text-muted-foreground prose-li:marker:text-muted-foreground
             prose-blockquote:border-l-primary
             prose-code:text-foreground prose-code:bg-muted prose-code:rounded prose-code:px-1
             prose-pre:bg-black prose-pre:border
+            prose-strong:text-muted-foreground
+            prose-strong:font-bold
             max-w-none"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

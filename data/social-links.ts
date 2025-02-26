@@ -1,7 +1,7 @@
-import { Github, Mail, Twitter } from "lucide-react";
+import { Github, Mail, X } from "lucide-react";
 
 export const socialLinks = [
   { href: "https://github.com/harrybaines", icon: Github, label: "GitHub" },
-  { href: "https://twitter.com/harry_baines", icon: Twitter, label: "Twitter" },
-  { href: "mailto:hello@harrybaines.dev", icon: Mail, label: "Email" },
+  { href: "https://x.com/HarryIsCoding", icon: X, label: "Twitter" },
+  { href: "mailto:harryb0905@googlemail.com", icon: Mail, label: "Email" },
 ];

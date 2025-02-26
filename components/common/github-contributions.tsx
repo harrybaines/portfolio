@@ -1,16 +1,14 @@
 "use client"
 
 import { CommitsList } from "@/components/common/commits-list";
-import { OSContributions } from "@/components/home/os-contributions";
 import { Card } from "@/components/ui/card";
+import { GITHUB_USERNAME } from "@/lib/github";
 import GitHubCalendar from 'react-github-calendar';
-
-const GITHUB_USERNAME = "harrybaines"
 
 export function GitHubContributions() {
   return (
     <div className="space-y-6">
-      <OSContributions />
+      {/* <OSContributions /> */}
 
       <Card className="p-6 space-y-4">
         <div className="flex items-center justify-between">

@@ -5,7 +5,7 @@ import { PageHeading } from "@/components/ui/page-heading"
 import { motion } from "framer-motion"
 
 
-export function About() {
+export function TellMeMore() {
   return (
     <section className="py-16 md:py-24">
       <motion.div

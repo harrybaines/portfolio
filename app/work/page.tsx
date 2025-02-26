@@ -1,39 +1,16 @@
 "use client"
 
+import { FeaturedProject } from "@/components/common/featured-project"
 import { Activity } from "@/components/home/activity"
-import { FeaturedProject } from "@/components/home/featured-project"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { PageHeading } from "@/components/ui/page-heading"
 import { timeline } from "@/data/experience"
+import { projects } from "@/data/projects"
 import { motion } from "framer-motion"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Code2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-
-const projects = [
-  {
-    title: "Brewkit",
-    description: "A modern code boilerplate starter kit for quickly bootstrapping new projects with best practices and common configurations.",
-    image: "/projects/brewkit/preview.png",
-    link: "https://brewkit.dev",
-    tags: ["TypeScript", "React", "Next.js", "Tailwind"]
-  },
-  {
-    title: "AI Avatar Generator",
-    description: "AI avatar generator trained on my face using Dreambooth Stable Diffusion, with the trained model hosted on Hugging Face.",
-    image: "/projects/ai-avatars/me.png",
-    link: "https://github.com/harrybaines/ai-avatar-generator",
-    tags: ["Next.js", "Stable Diffusion", "Hugging Face", "Railway"]
-  },
-  {
-    title: "TorchGPT",
-    description: "Generate PyTorch code from natural language prompts using OpenAI's text-davinci-3 model.",
-    image: "/projects/torchgpt/app.png",
-    link: "https://github.com/harrybaines/torchgpt",
-    tags: ["TypeScript", "OpenAI", "PyTorch", "Next.js"]
-  },
-]
 
 export default function WorkPage() {
   return (
@@ -48,7 +25,7 @@ export default function WorkPage() {
               Where I&apos;ve Worked
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              My journey building products and leading engineering teams.
+              Companies I&apos;ve worked at as a software engineer.
             </p>
           </div>
 
@@ -141,7 +118,7 @@ export default function WorkPage() {
               Things I&apos;ve Built
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              A collection of projects I&apos;ve worked on, from developer tools to AI experiments.
+              A collection of projects I&apos;ve worked on. See all my projects on <Link href="https://github.com/harrybaines" target="_blank" className="text-primary hover:text-primary/80 transition-colors">GitHub</Link>.
             </p>
           </div>
 
@@ -155,16 +132,22 @@ export default function WorkPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
               >
-                <Link href={project.link} target="_blank">
+                <Link href={project.link ?? ""} target="_blank">
                   <Card className="group overflow-hidden hover:bg-muted/50 transition-colors">
                     <div className="grid md:grid-cols-[1fr,3fr] gap-6">
                       <div className="relative aspect-[3/4] md:aspect-auto overflow-hidden bg-muted">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
+                        {project.image ? (
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
+                            <Code2 className="h-12 w-12 text-gray-400" />
+                          </div>
+                        )}
                       </div>
 
                       <div className="p-5 space-y-4">
@@ -201,7 +184,6 @@ export default function WorkPage() {
 
         {/* Open Source Contributions */}
         <Activity />
-
       </div>
     </div>
   )

@@ -1,5 +1,7 @@
 import { Octokit } from "@octokit/core";
 
+export const GITHUB_USERNAME = "harrybaines";
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
@@ -75,7 +77,7 @@ export async function fetchUserCommits(
         new Date(b.commit.author.date).getTime() -
         new Date(a.commit.author.date).getTime()
     )
-    .slice(0, 10); // Get most recent 10 commits
+    .slice(0, 10);
 }
 
 export async function fetchTotalRepos(username: string): Promise<number> {

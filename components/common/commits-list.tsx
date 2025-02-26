@@ -32,7 +32,7 @@ export function CommitsList() {
   }
 
   return (
-    <div className="space-y-3 font-mono">
+    <div className="space-y-3 font-mono text-sm">
       {commits.map((commit) => (
         <a
           key={commit.sha}

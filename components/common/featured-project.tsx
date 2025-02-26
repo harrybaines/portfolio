@@ -9,14 +9,14 @@ import {
   TailwindCSS,
   TypeScript,
 } from "developer-icons";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Code2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const featuredProject = {
   title: "archtms",
   description: "A complete management system for architecture firms. Streamlining project tracking, time management, and resource allocation for modern architectural practices.",
-  image: "/projects/archtms/tms.png",
+  image: "/images/projects/archtms/tms.png",
   slug: "archtms",
   status: "coming-soon",
   features: [
@@ -67,13 +67,19 @@ export function FeaturedProject() {
           {/* Image */}
           <div className="relative w-full bg-gradient-to-br from-muted to-muted/50 p-3 lg:p-6">
             <div className="relative h-[300px] lg:h-[400px] rounded-lg overflow-hidden">
-              <Image
-                src={featuredProject.image}
-                alt={featuredProject.title}
-                fill
-                className="object-cover"
-                priority
-              />
+              {featuredProject.image ? (
+                <Image
+                  src={featuredProject.image}
+                  alt={featuredProject.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
+                  <Code2 className="h-16 w-16 text-primary/60" />
+                </div>
+              )}
             </div>
           </div>
 

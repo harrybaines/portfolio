@@ -1,7 +1,5 @@
-import { fetchUserCommits } from "@/lib/github";
+import { fetchUserCommits, GITHUB_USERNAME } from "@/lib/github";
 import { NextResponse } from "next/server";
-
-const GITHUB_USERNAME = "harrybaines";
 
 export async function GET() {
   try {

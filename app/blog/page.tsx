@@ -13,7 +13,7 @@ export default function Page() {
 
   return (
     <div className="py-20">
-      <div className="mx-auto max-w-5xl space-y-20">
+      <div className="mx-auto space-y-20">
         {/* Header */}
         <div className="text-center space-y-4">
           <h1 className="text-4xl font-bold tracking-tight">Writing on software & design</h1>

@@ -1,28 +1,17 @@
 import { Collaborate } from "@/components/common/collaborate"
-import { About } from "@/components/home/about"
 import { Activity } from "@/components/home/activity"
-import { FeaturedProject } from "@/components/home/featured-project"
 import { Hero } from "@/components/home/hero"
-import { PageHeading } from "@/components/ui/page-heading"
+import { HomeFeaturedProject } from "@/components/home/home-featured-project"
+import { TellMeMore } from "@/components/home/tell-me-more"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-background/95">
+    <section>
       <Hero />
-      <About />
-
-      <section className="py-16 md:py-24">
-        <div className="space-y-8">
-          <PageHeading label="FEATURED PROJECT" />
-          <FeaturedProject />
-        </div>
-      </section>
-
-      {/* <Resources /> */}
-
-      <Activity />
+      <TellMeMore />
+      <HomeFeaturedProject />
       <Collaborate />
-    </div>
+      <Activity />
+    </section>
   )
 }
-

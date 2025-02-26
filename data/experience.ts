@@ -55,7 +55,7 @@ export const timeline: TimelineItem[] = [
       { name: "Redis", icon: Redis },
       { name: "Docker", icon: Docker },
     ],
-    logo: "/work/ca.png",
+    logo: "/images/work/ca.png",
     badge: "Full Time",
   },
   {
@@ -74,7 +74,7 @@ export const timeline: TimelineItem[] = [
       { name: "Redis", icon: Redis },
       { name: "Python", icon: Python },
     ],
-    logo: "/work/yordas.png",
+    logo: "/images/work/yordas.png",
     badge: "Full Time",
   },
   {
@@ -92,7 +92,7 @@ export const timeline: TimelineItem[] = [
       { name: "MariaDB", icon: MariaDB },
       { name: "Numpy" },
     ],
-    logo: "/work/yordas.png",
+    logo: "/images/work/yordas.png",
     badge: "Internship",
   },
   {
@@ -102,7 +102,7 @@ export const timeline: TimelineItem[] = [
     period: "2019 - 2020",
     description:
       "Thesis: Enhancing Phrase Retrieval for Safety Data Sheet Authoring",
-    logo: "/work/lancaster.png",
+    logo: "/images/work/lancaster.png",
   },
   {
     type: "education",
@@ -111,6 +111,6 @@ export const timeline: TimelineItem[] = [
     period: "2016 - 2019",
     description:
       "Thesis: Implemented a novel, declarative programming language for smart contracts on Hyperledger Blockchains",
-    logo: "/work/lancaster.png",
+    logo: "/images/work/lancaster.png",
   },
 ];
