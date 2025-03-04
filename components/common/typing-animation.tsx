@@ -40,7 +40,7 @@ export function TypingAnimation({ segments, speed = 50 }: TypingAnimationProps) 
   }, [currentIndex, words, speed])
 
   return (
-    <p className="typing leading-8">
+    <p className="typing leading-7">
       {displayedWords.map((segment, i) =>
         segment.isLink ? (
           <Link

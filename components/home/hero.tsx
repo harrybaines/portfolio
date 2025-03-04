@@ -31,7 +31,7 @@ export function Hero() {
               </div>
 
               <div className="space-y-4 text-muted-foreground text-md">
-                <p className="leading-8">
+                <p className="leading-7">
                   I&apos;m a <span className="font-medium text-foreground">full-stack developer</span> from the <span className="font-medium text-foreground">UK 🇬🇧</span>{" "}
                   specialising in <span className="font-medium text-foreground">AI integration</span>, <span className="font-medium text-foreground">web development</span> and <span className="font-medium text-foreground">developer tooling</span>.
                   Founder of <Link href="/work/archtms" className="text-primary">archtms</Link>, a complete management system for architecture firms.
