@@ -63,7 +63,6 @@ export default async function Work(props: { params: tParams }) {
   return (
     <PostLayout
       title={post.metadata.title}
-      description={post.metadata.summary}
       date={formatDate(post.metadata.publishedAt)}
       readingTime="5 min read"
       image={post.metadata.image || '/images/work-default.jpg'}
