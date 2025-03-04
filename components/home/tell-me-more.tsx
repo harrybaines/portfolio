@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function TellMeMore() {
   return (
-    <section className="py-16 md:py-24">
+    <section>
       <motion.div
         className="space-y-24"
         initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ export function TellMeMore() {
           <div className="flex flex-col space-y-6 overflow-hidden">
             <PageHeading label="TELL ME MORE" />
             <motion.p
-              className="text-lg md:text-lg text-muted-foreground"
+              className="text-md md:text-lg text-muted-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}

@@ -1,80 +1,92 @@
 "use client"
 
 import { SocialLink } from "@/components/common/social-link"
-import { Button } from "@/components/ui/button"
 import { socialLinks } from "@/data/social-links"
 import { motion } from "framer-motion"
+import { Code, User } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 export function Hero() {
   return (
-    <section className="flex min-h-[40vh] items-center justify-center">
-      <div className="relative flex flex-col max-w-3xl mx-auto space-y-8">
+    <section className="py-16 md:py-24">
+      <div className="relative">
+        {/* Status indicator */}
         <motion.div
-          className="space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          className="flex items-center gap-3 mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
         >
-          <div className="space-y-4 text-center">
-            <div className="space-y-2">
-              <motion.p
-                className="font-mono text-md tracking-widest text-muted-foreground"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                HARRY BAINES
-              </motion.p>
-              <motion.h1
-                className="text-4xl font-bold font-sans tracking-tight sm:text-5xl/tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                Software Engineer
-              </motion.h1>
-            </div>
-            <motion.p
-              className="text-lg text-muted-foreground max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              Building thoughtful software solutions that help people work better.<br />
-              Passionate about full-stack web development, AI and developer tooling.
-            </motion.p>
-            <motion.p
-              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              Read more about me <Link href="/about" className="text-primary hover:text-primary/80 transition-colors">here</Link>.
-            </motion.p>
+          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span className="text-sm font-mono text-muted-foreground">open to work</span>
+        </motion.div>
+
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12">
+          <div className="space-y-6 md:space-y-8 max-w-3xl">
+            {/* Main headline */}
             <motion.div
-              className="flex items-center justify-center gap-4 pt-4"
+              className="space-y-4 md:space-y-6"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <div className="flex gap-4">
-                <Button
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 min-w-[120px]"
-                  size="lg"
-                  asChild
-                >
-                  <Link href="mailto:harryb0905@googlemail.com">Get in touch</Link>
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                {socialLinks.map(link => (
+              <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold tracking-tight leading-tight font-mono">
+                Harry Baines
+              </h1>
+
+              <p className="text-lg text-muted-foreground leading-8">
+                Software engineer building thoughtful digital products. Specializing in full-stack development, AI integration, and developer tooling. Read more <Link href="/about" className="text-primary hover:underline transition-colors">about me</Link>.
+              </p>
+            </motion.div>
+
+            {/* Links */}
+            <motion.div
+              className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 text-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Link
+                href="/work"
+                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
+              >
+                <Code size={16} />
+                <span>Work</span>
+              </Link>
+              <Link
+                href="/about"
+                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
+              >
+                <User size={16} />
+                <span>About</span>
+              </Link>
+              <div className="flex gap-4 sm:gap-5">
+                {socialLinks.map((link) => (
                   <SocialLink key={link.label} {...link} />
                 ))}
               </div>
             </motion.div>
           </div>
-        </motion.div>
+
+          {/* Profile Image - Hidden on small screens, visible on md and up */}
+          <motion.div
+            className="hidden md:block self-start"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-border">
+              <Image
+                src="/images/profile/me.jpeg"
+                alt="Harry Baines"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

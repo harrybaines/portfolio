@@ -129,8 +129,8 @@ export function FeaturedProject() {
                   ))}
                 </div>
               </div>
-
             </div>
+
           </div>
         </div>
       </Card>

@@ -145,7 +145,7 @@ export default function WorkPage() {
                           />
                         ) : (
                           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
-                            <Code2 className="h-12 w-12 text-gray-400" />
+                            <Code2 className="h-12 w-12 text-gray-200" />
                           </div>
                         )}
                       </div>

@@ -24,7 +24,7 @@ export function AboutHeader() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4 text-muted-foreground leading-relaxed mt-6"
+            className="text-md md:text-lg space-y-4 text-muted-foreground mt-8"
           >
             <p>
               Software engineer from the UK with 5+ years of experience. Passionate about developer tooling, learning new
