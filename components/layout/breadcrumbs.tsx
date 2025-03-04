@@ -15,7 +15,7 @@ export function Breadcrumbs({ title }: { title: string }) {
   }[section] || section
 
   return (
-    <nav className="flex items-center justify-center gap-1 text-sm text-muted-foreground mb-16">
+    <nav className="flex items-center justify-center gap-1 text-sm text-muted-foreground mb-8">
       <Link href="/" className="hover:text-foreground transition-colors">
         Home
       </Link>

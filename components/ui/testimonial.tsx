@@ -22,7 +22,7 @@ export function Testimonial({ quote, author, className }: TestimonialProps) {
     .toUpperCase()
 
   return (
-    <div className={cn("flex items-start gap-6 py-8 border-t border-border/50", className)}>
+    <div className={cn("flex items-start gap-6 py-8", className)}>
       {/* Author Avatar */}
       <Avatar className="h-16 w-16 flex items-center justify-center overflow-hidden">
         {author.image ? (
@@ -43,10 +43,9 @@ export function Testimonial({ quote, author, className }: TestimonialProps) {
         <h4 className="font-semibold text-base leading-none mt-1.5">
           {author.name} at {author.company}
         </h4>
-        <p className="text-muted-foreground text-sm">{author.role}</p>
-        <p className="text-muted-foreground leading-relaxed">
+        <span className="text-muted-foreground leading-relaxed">
           {quote}
-        </p>
+        </span>
       </div>
     </div >
   )

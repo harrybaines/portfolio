@@ -11,7 +11,7 @@ export const projects: Project[] = [
     title: "Brewkit",
     description:
       "A modern code boilerplate starter kit for quickly bootstrapping new projects with best practices and common configurations.",
-    link: "https://brewkit.dev",
+    link: "https://github.com/harrybaines/brewkit",
     tags: ["TypeScript", "React", "Next.js", "Tailwind"],
   },
   {

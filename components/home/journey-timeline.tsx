@@ -94,7 +94,7 @@ export function JourneyTimeline() {
 
                   {/* Tech Stack */}
                   {item.tech && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-4">
                       {item.tech.map((tech, j) => (
                         <div
                           key={j}

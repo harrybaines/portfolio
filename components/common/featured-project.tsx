@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
-  ExpressJsDark,
+  ChakraUI,
+  ExpressJsLight,
   Prisma,
   React,
   ReSend,
   Supabase,
-  TailwindCSS,
-  TypeScript,
+  TypeScript
 } from "developer-icons";
 import { ArrowRight, Code2 } from "lucide-react";
 import Image from "next/image";
@@ -33,8 +33,8 @@ const featuredProject = {
       icon: React,
     },
     {
-      name: "TailwindCSS",
-      icon: TailwindCSS,
+      name: "ChakraUI",
+      icon: ChakraUI,
     },
     {
       name: "TypeScript",
@@ -42,7 +42,7 @@ const featuredProject = {
     },
     {
       name: "Express",
-      icon: ExpressJsDark,
+      icon: ExpressJsLight,
     },
     {
       name: "Supabase",
@@ -101,7 +101,7 @@ export function FeaturedProject() {
 
               {/* Primary CTA */}
               <div className="shrink-0">
-                <Button asChild size="lg">
+                <Button asChild>
                   <Link href={`/work/${featuredProject.slug}`} className="flex items-center gap-2">
                     Read More
                     <ArrowRight className="h-4 w-4" />

@@ -2,7 +2,6 @@ import { SocialLink } from "@/components/common/social-link"
 import { PageHeading } from "@/components/ui/page-heading"
 import { socialLinks } from "@/data/social-links"
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -18,7 +17,7 @@ export function AboutHeader() {
           className="space-y-3"
         >
           <PageHeading label="ABOUT ME" />
-          <h1 className="text-3xl font-mono font-bold tracking-tight mt-2">
+          <h1 className="text-3xl font-bold tracking-tight mt-2">
             Hey, I&apos;m Harry 👋
           </h1>
 
@@ -43,10 +42,10 @@ export function AboutHeader() {
           className="relative shrink-0 overflow-hidden hidden md:block"
         >
           <Image
-            src="/images/profile/me.jpeg"
+            src="/images/profile/portfolio.jpeg"
             alt="Harry Baines"
-            width={100}
-            height={100}
+            width={125}
+            height={125}
             className="object-cover rounded-full border-2 border-border"
             priority
           />
@@ -71,7 +70,7 @@ export function AboutHeader() {
       </motion.div>
 
       {/* Bio sections with better readability */}
-      <div className="grid grid-cols-1 gap-10">
+      <div className="grid grid-cols-1 gap-6">
         {/* Current Focus */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,9 +78,6 @@ export function AboutHeader() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="space-y-4"
         >
-          <div className="inline-flex items-center gap-2 pb-1">
-            <h2 className="text-sm font-mono uppercase tracking-wider text-muted-foreground">Current Focus</h2>
-          </div>
           <p className="text-md text-muted-foreground leading-relaxed">
             Currently focused on full-stack web development and AI integration. Building{" "}
             <Link href="https://archtms.com" className="text-primary hover:text-primary/80 transition-colors">
@@ -101,11 +97,7 @@ export function AboutHeader() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-4"
         >
-          <div className="inline-flex items-center gap-2  pb-1">
-            <h2 className="text-sm font-mono uppercase tracking-wider text-muted-foreground">Availability</h2>
-          </div>
           <p className="text-md text-muted-foreground leading-relaxed">
             I&apos;m open to full-time opportunities and part-time work, feel free to get in touch and we can have a chat!
           </p>
@@ -118,7 +110,7 @@ export function AboutHeader() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex items-center gap-4 pt-2  mt-2"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-6">
             {socialLinks.map((link) => (
               <SocialLink
                 key={link.href}
@@ -128,16 +120,6 @@ export function AboutHeader() {
               />
             ))}
           </div>
-
-          <div className="h-4 w-px bg-border" />
-
-          <Link
-            href="/work"
-            className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            View Work
-            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-          </Link>
         </motion.div>
       </div>
     </div>

@@ -40,7 +40,7 @@ export function TypingAnimation({ segments, speed = 50 }: TypingAnimationProps) 
   }, [currentIndex, words, speed])
 
   return (
-    <span className="typing leading-8">
+    <p className="typing leading-8">
       {displayedWords.map((segment, i) =>
         segment.isLink ? (
           <Link
@@ -56,6 +56,6 @@ export function TypingAnimation({ segments, speed = 50 }: TypingAnimationProps) 
         )
       )}
       <span className="inline-block w-[0.5em] h-[1.1em] -mb-[1px] ml-[1px] bg-primary animate-[cursor_0.8s_infinite]" />
-    </span>
+    </p>
   )
 }

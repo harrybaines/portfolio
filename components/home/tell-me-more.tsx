@@ -4,7 +4,6 @@ import { TypingAnimation } from "@/components/common/typing-animation"
 import { PageHeading } from "@/components/ui/page-heading"
 import { motion } from "framer-motion"
 
-
 export function TellMeMore() {
   return (
     <section>
@@ -15,6 +14,7 @@ export function TellMeMore() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
+        {/* Introduction */}
         <div className="space-y-12">
           <div className="flex flex-col space-y-6 overflow-hidden">
             <PageHeading label="TELL ME MORE" />
@@ -26,7 +26,7 @@ export function TellMeMore() {
             >
               <TypingAnimation
                 segments={[
-                  { text: 'Full-stack software engineer with 5+ years experience. ' },
+                  { text: 'Full-stack engineer with 5+ years experience. ' },
                   { text: "Founder of " },
                   {
                     text: "archtms",

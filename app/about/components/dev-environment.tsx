@@ -102,30 +102,6 @@ export function DevEnvironment() {
                   View Dotfiles
                 </Link>
               </div>
-
-              {/* Config Items */}
-              <div className="grid grid-cols-2 gap-3">
-                {setup.configs.map((config, j) => (
-                  <div
-                    key={j}
-                    className={cn(
-                      "flex items-center gap-3 p-3 rounded-lg",
-                      "bg-muted/50 hover:bg-muted/80 transition-colors",
-                      "border border-border"
-                    )}
-                  >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                      {config.icon && <config.icon className="h-4 w-4 text-primary" />}
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-md">{config.name}</h4>
-                      <p className="text-sm text-muted-foreground mt-0.5">
-                        {config.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </Card>
         ))}

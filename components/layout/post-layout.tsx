@@ -9,18 +9,16 @@ export function PostLayout({
   date,
   readingTime,
   title,
-  description,
   image
 }: {
   children: React.ReactNode
   date?: string
   readingTime?: string
   title: string
-  description?: string
   image?: string
 }) {
   return (
-    <div>
+    <div className="max-w-2xl mx-auto">
       <div className="mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -31,26 +29,15 @@ export function PostLayout({
         </motion.div>
 
         {/* Header */}
-        <header className="text-center space-y-8 mb-16">
+        <header className="text-center space-y-6 mb-16">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold tracking-tight"
+            className="text-3xl md:text-4xl font-bold tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {title}
           </motion.h1>
-
-          {description && (
-            <motion.p
-              className="text-xl text-muted-foreground max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              {description}
-            </motion.p>
-          )}
 
           <motion.div
             className="flex items-center justify-center gap-2 font-mono text-sm text-muted-foreground"
@@ -88,11 +75,13 @@ export function PostLayout({
         <motion.article
           className="prose prose-neutral dark:prose-invert mx-auto
             prose-h2:text-2xl prose-h2:font-semibold prose-h2:tracking-tight
+            prose-h2:mt-12 prose-h2:mb-6
             prose-h3:text-xl prose-h3:font-semibold
-            prose-h3:pt-10
-            prose-p:text-muted-foreground prose-p:leading-relaxed
+            prose-h3:mt-8 prose-h3:mb-3
+            prose-p:text-muted-foreground prose-p:leading-7 prose-p:mb-5
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-            prose-li:text-muted-foreground prose-li:marker:text-muted-foreground
+            prose-li:text-muted-foreground prose-li:marker:text-muted-foreground prose-li:leading-7 prose-li:pl-2
+            prose-ul:my-5
             prose-blockquote:border-l-primary
             prose-code:text-foreground prose-code:bg-muted prose-code:rounded prose-code:px-1
             prose-pre:bg-black prose-pre:border
