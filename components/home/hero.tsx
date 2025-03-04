@@ -25,7 +25,7 @@ export function Hero() {
             >
               <div className="space-y-4">
                 <PageHeading label="SOFTWARE ENGINEER" />
-                <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold tracking-tight leading-tight font-mono">
+                <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold tracking-tight leading-tight">
                   👋  Hi, I&apos;m Harry
                 </h1>
               </div>
