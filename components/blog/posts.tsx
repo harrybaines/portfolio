@@ -1,10 +1,12 @@
+import { PageHeading } from '@/components/ui/page-heading'
 import { formatDate, getBlogPosts } from '@/lib/mdx-utils'
 import Link from 'next/link'
 
 export function BlogPosts() {
   const allBlogs = getBlogPosts()
   return (
-    <div>
+    <div className="space-y-6">
+      <PageHeading label="WRITING" />
       {allBlogs
         .sort((a, b) => {
           if (

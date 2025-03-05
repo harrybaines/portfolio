@@ -2,7 +2,6 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { PageHeading } from "@/components/ui/page-heading";
 import { timeline } from "@/data/experience";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -18,7 +17,6 @@ export function JourneyTimeline() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <PageHeading label="PROFESSIONAL JOURNEY" />
       <div className="relative">
         {/* Timeline items */}
         <div className="space-y-12">
@@ -31,7 +29,7 @@ export function JourneyTimeline() {
             >
               {/* Content */}
               <Card className="p-6">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-6">
 
                   {/* Header */}
                   <div className="flex items-start gap-4">
@@ -94,7 +92,7 @@ export function JourneyTimeline() {
 
                   {/* Tech Stack */}
                   {item.tech && (
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-3">
                       {item.tech.map((tech, j) => (
                         <div
                           key={j}

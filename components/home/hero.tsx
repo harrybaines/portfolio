@@ -10,18 +10,48 @@ import Image from "next/image"
 import Link from "next/link"
 
 export function Hero() {
+  // Animation variants for consistent fade-in-up effect
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (custom: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: custom * 0.1 }
+    })
+  }
+
   return (
     <section className="py-16 md:py-24">
       <div className="relative">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-8">
           <div className="space-y-8 md:space-y-8 max-w-3xl">
 
+            {/* Profile Image - Hidden on small screens, visible on md and up */}
+            <motion.div
+              className="hidden md:block self-start"
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={1}
+            >
+              <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 border-border shadow-lg">
+                <Image
+                  src="/images/profile/me.jpeg"
+                  alt="Harry Baines"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </motion.div>
+
             {/* Main headline */}
             <motion.div
               className="space-y-4 md:space-y-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={2}
             >
               <div className="space-y-4">
                 <PageHeading label="SOFTWARE ENGINEER" />
@@ -39,7 +69,8 @@ export function Hero() {
                 <TypingAnimation
                   segments={[
                     { text: "Mostly working with TypeScript, Python and Go. " },
-                    { text: "I enjoy contributing to open-source projects and constantly learning new things." },
+                    { text: "I enjoy contributing to open-source projects and learning new things." },
+                    { text: "I'm open to new opportunities, feel free to reach out!" }
                   ]}
                   speed={100}
                 />
@@ -49,24 +80,25 @@ export function Hero() {
             {/* Links */}
             <motion.div
               className="flex flex-col space-y-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={3}
             >
               <div className="flex items-center gap-6">
                 <Link
                   href="/about"
                   className="group flex items-center gap-2 text-foreground hover:text-primary transition-colors"
                 >
-                  <span className="font-medium">More about me</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  <span className="font-medium">About me</span>
+                  <ArrowRight size={16} className="transition-transform" />
                 </Link>
                 <Link
                   href="/work"
                   className="group flex items-center gap-2 text-foreground hover:text-primary transition-colors"
                 >
                   <span className="font-medium">My work</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={16} className="transition-transform" />
                 </Link>
               </div>
 
@@ -78,25 +110,8 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Profile Image - Hidden on small screens, visible on md and up */}
-          <motion.div
-            className="hidden md:block self-start"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-border shadow-lg">
-              <Image
-                src="/images/profile/me.jpeg"
-                alt="Harry Baines"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </motion.div>
         </div>
-      </div >
-    </section >
+      </div>
+    </section>
   )
 }

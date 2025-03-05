@@ -103,6 +103,7 @@ export const timeline: TimelineItem[] = [
     description:
       "Thesis: Enhancing Phrase Retrieval for Safety Data Sheet Authoring",
     logo: "/images/work/lancaster.png",
+    badge: "Student",
   },
   {
     type: "education",
@@ -112,5 +113,6 @@ export const timeline: TimelineItem[] = [
     description:
       "Thesis: Implemented a novel, declarative programming language for smart contracts on Hyperledger Blockchains",
     logo: "/images/work/lancaster.png",
+    badge: "Student",
   },
 ];

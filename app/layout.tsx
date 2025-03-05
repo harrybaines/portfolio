@@ -49,14 +49,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sansFont.variable} ${monoFont.variable}`} suppressHydrationWarning>
-      <body className="antialiased min-h-screen bg-background">
+      <body className="antialiased min-h-screen bg-background flex flex-col">
         <Providers>
           <Navbar />
-          <main className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-10 pt-32">
+          <main className="container max-w-4xl px-6 sm:px-8 lg:px-10 pt-32 flex-grow">
             {children}
             <Analytics />
-            <Footer />
           </main>
+          <Footer />
         </Providers>
       </body>
     </html >

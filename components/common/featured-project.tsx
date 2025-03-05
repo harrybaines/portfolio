@@ -17,7 +17,7 @@ const featuredProject = {
   title: "archtms",
   description: "A complete management system for architecture firms. Streamlining project tracking, time management, and resource allocation for modern architectural practices.",
   image: "/images/projects/archtms/tms.png",
-  slug: "archtms",
+  slug: "/blog/archtms",
   status: "coming-soon",
   features: [
     "Timesheets",
@@ -62,7 +62,7 @@ const featuredProject = {
 export function FeaturedProject() {
   return (
     <section>
-      <Card className="group overflow-hidden border-border/50">
+      <Card className="group overflow-hidden border-border">
         <div className="flex flex-col">
           {/* Image */}
           <div className="relative w-full bg-gradient-to-br from-muted to-muted/50 p-3 lg:p-6">
@@ -102,7 +102,7 @@ export function FeaturedProject() {
               {/* Primary CTA */}
               <div className="shrink-0">
                 <Button asChild>
-                  <Link href={`/work/${featuredProject.slug}`} className="flex items-center gap-2">
+                  <Link href={featuredProject.slug} className="flex items-center gap-2">
                     Read More
                     <ArrowRight className="h-4 w-4" />
                   </Link>

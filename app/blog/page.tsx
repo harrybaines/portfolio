@@ -1,9 +1,21 @@
+import { PageHeading } from "@/components/ui/page-heading";
 import { getBlogPosts } from "@/lib/mdx-utils";
-import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export const metadata = {
   title: 'Blog',
   description: 'Read my blog.',
+}
+
+// Format date to a more readable format (e.g., "Jan 15, 2023")
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
 }
 
 export default function Page() {
@@ -12,115 +24,70 @@ export default function Page() {
   const remainingPosts = posts.slice(1)
 
   return (
-    <div className="py-20">
-      <div className="mx-auto space-y-20">
+    <section>
+      <div className="max-w-5xl space-y-10">
+
         {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">Writing on software & design</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Essays on software development, design patterns, and building digital products.
-            Subscribe to get new posts in your inbox.
+        <div className="space-y-4">
+          <PageHeading label="BLOG" />
+          <p className="text-3xl font-bold tracking-tight">
+            My Posts
           </p>
         </div>
 
         {/* Featured Post */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          {featuredPost.metadata.image && (
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <Image
-                src={featuredPost.metadata.image}
-                alt={featuredPost.metadata.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
+        <Link href={`/blog/${featuredPost.slug}`} className="group block">
+          <article className="space-y-3">
+            <div className="text-sm text-muted-foreground font-mono">
+              <time>{formatDate(featuredPost.metadata.publishedAt)}</time>
+              <span className="mx-2">•</span>
+              <span>5 min read</span>
             </div>
-          )}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <time className="text-sm text-muted-foreground font-mono">
-                  {featuredPost.metadata.publishedAt}
-                </time>
-                <span className="text-sm text-muted-foreground">•</span>
-                <span className="text-sm text-muted-foreground font-mono">
-                  5 min read
-                </span>
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">
-                {featuredPost.metadata.title}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                {featuredPost.metadata.summary}
-              </p>
-            </div>
-            <a
-              href={`/blog/${featuredPost.slug}`}
-              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
-            >
-              Read more
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+            <h2 className="text-2xl font-bold tracking-tight group-hover:text-primary">
+              {featuredPost.metadata.title}
+            </h2>
+            <p className="text-muted-foreground">
+              {featuredPost.metadata.summary}
+            </p>
+            <div className="flex items-center text-primary font-medium pt-1">
+              Read article
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-            </a>
-          </div>
-        </div>
+            </div>
+          </article>
+        </Link>
 
-        {/* Post Grid */}
-        <div className="space-y-8">
-          <h2 className="text-2xl font-bold tracking-tight">Latest Posts</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+        {/* Post List - Minimal Coder Aesthetic */}
+        <div className="pt-8">
+          <div className="space-y-6">
             {remainingPosts.map((post) => (
-              <article
+              <Link
                 key={post.slug}
-                className="group relative space-y-4 hover:cursor-pointer"
-                onClick={() => window.location.href = `/blog/${post.slug}`}
+                href={`/blog/${post.slug}`}
+                className="block hover:text-primary"
               >
-                {post.metadata.image && (
-                  <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
-                    <Image
-                      src={post.metadata.image}
-                      alt={post.metadata.title}
-                      fill
-                      className="object-cover transition-transform group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                <div className="flex justify-between items-start py-2">
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-3">
+                      <h3 className="font-medium">
+                        {post.metadata.title}
+                      </h3>
+                      <span className="text-xs font-mono text-muted-foreground">
+                        {formatDate(post.metadata.publishedAt)}
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {post.metadata.summary}
+                    </p>
                   </div>
-                )}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <time className="text-sm text-muted-foreground font-mono">
-                      {post.metadata.publishedAt}
-                    </time>
-                    <span className="text-sm text-muted-foreground">•</span>
-                    <span className="text-sm text-muted-foreground font-mono">
-                      5 min read
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    {post.metadata.title}
-                  </h3>
-                  <p className="text-muted-foreground line-clamp-2">
-                    {post.metadata.summary}
-                  </p>
+                  <ArrowUpRight className="h-4 w-4 text-current mt-1" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

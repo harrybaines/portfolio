@@ -64,7 +64,7 @@ export default async function Blog(props: { params: tParams }) {
       title={post.metadata.title}
       date={formatDate(post.metadata.publishedAt)}
       readingTime="5 min read"
-      image={post.metadata.image || '/images/blog-default.jpg'}
+      image={post.metadata.image}
     >
       <CustomMDX source={post.content} />
     </PostLayout>

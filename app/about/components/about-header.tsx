@@ -66,7 +66,7 @@ export function AboutHeader() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       </motion.div>
 
       {/* Bio sections with better readability */}

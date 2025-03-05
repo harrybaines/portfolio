@@ -9,15 +9,14 @@ type Project = {
 export const projects: Project[] = [
   {
     title: "Brewkit",
-    description:
-      "A modern code boilerplate starter kit for quickly bootstrapping new projects with best practices and common configurations.",
+    description: "A modern starter kit for quickly bootstrapping new projects.",
     link: "https://github.com/harrybaines/brewkit",
     tags: ["TypeScript", "React", "Next.js", "Tailwind"],
   },
   {
     title: "AI Avatar Generator",
     description:
-      "AI avatar generator trained on my face using Dreambooth Stable Diffusion, with the trained model hosted on Hugging Face.",
+      "Trained on my face using Dreambooth Stable Diffusion, with the model hosted on HuggingFace.",
     image: "/images/projects/ai-avatars/me.png",
     link: "https://github.com/harrybaines/ai-avatar-generator",
     tags: ["Next.js", "Stable Diffusion", "Hugging Face", "Railway"],

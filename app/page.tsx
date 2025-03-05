@@ -1,12 +1,10 @@
 import { Hero } from "@/components/home/hero"
-import { HomeFeaturedProject } from "@/components/home/home-featured-project"
 
 export default function Page() {
   return (
-    <section className="space-y-40">
+    <section className="space-y-6">
       <Hero />
-      {/* <TellMeMore /> */}
-      <HomeFeaturedProject />
+      {/* <BlogPosts /> */}
     </section>
   )
 }
