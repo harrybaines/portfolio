@@ -1,14 +1,8 @@
 # Harry Baines | Personal Portfolio
 
 <div align="center">
-  <img src="public/images/profile/me.jpeg" alt="Harry Baines" width="150" style="border-radius: 50%;" />
+  <img src="public/images/website/2025-03-05.png" alt="Harry Baines" />
   <p><strong>Software Engineer | Full-Stack Developer | AI Enthusiast</strong></p>
-  
-  [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-  [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-  [![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 </div>
 
 ## 📋 Overview
@@ -38,7 +32,7 @@ Visit the live site: [harry.dev](https://harry.dev)
 - **Framework**: [Next.js 15](https://nextjs.org/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**: Custom components with [Radix UI](https://www.radix-ui.com/)
+- **UI Components**: shadcn components with [Radix UI](https://www.radix-ui.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Fonts**: [Geist](https://vercel.com/font)
@@ -92,8 +86,7 @@ harry.dev/
 ├── data/               # Data files (projects, experience)
 ├── hooks/              # Custom React hooks
 ├── lib/                # Utility functions
-├── public/             # Static assets
-└── styles/             # Global styles
+└── public/             # Static assets
 ```
 
 ## 📬 Contact
