@@ -8,7 +8,6 @@ export const metadata = {
   description: 'Read my blog.',
 }
 
-// Format date to a more readable format (e.g., "Jan 15, 2023")
 function formatDate(dateString: string) {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', {
@@ -67,21 +66,23 @@ export default function Page() {
                 href={`/blog/${post.slug}`}
                 className="block hover:text-primary"
               >
-                <div className="flex justify-between items-start py-2">
-                  <div className="space-y-1.5">
+                <div className="flex justify-between items-center py-2 w-full">
+                  <div className="space-y-1.5 max-w-[70%]">
                     <div className="flex items-center gap-3">
                       <h3 className="font-medium">
                         {post.metadata.title}
                       </h3>
-                      <span className="text-xs font-mono text-muted-foreground">
-                        {formatDate(post.metadata.publishedAt)}
-                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
                       {post.metadata.summary}
                     </p>
                   </div>
-                  <ArrowUpRight className="h-4 w-4 text-current mt-1" />
+                  <div className="flex items-center gap-3 ml-auto">
+                    <span className="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                      {formatDate(post.metadata.publishedAt)}
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 text-current" />
+                  </div>
                 </div>
               </Link>
             ))}

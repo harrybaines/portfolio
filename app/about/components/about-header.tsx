@@ -18,7 +18,7 @@ export function AboutHeader() {
         >
           <PageHeading label="ABOUT ME" />
           <h1 className="text-3xl font-bold tracking-tight mt-2">
-            Hey, I&apos;m Harry 👋
+            Software Engineer from the UK 🇬🇧
           </h1>
 
           {/* Background section moved beneath name */}
@@ -29,7 +29,7 @@ export function AboutHeader() {
             className="max-w-3xl pt-3"
           >
             <p className="text-md text-muted-foreground leading-relaxed">
-              Software engineer from the UK 🇬🇧. Passionate about full-stack development, AI and developer tooling.
+              Passionate about full-stack development, AI and developer tooling.
               I enjoy learning new technologies and building software that solves real problems.
             </p>
           </motion.div>
@@ -87,7 +87,7 @@ export function AboutHeader() {
             <Link href="https://brewkit.dev" className="text-primary hover:text-primary/80 transition-colors">
               brewkit
             </Link>
-            , an open-source AI-powered startup boilerplate.
+            , an open-source startup boilerplate.
             I primarily code in TypeScript, Go and Python. Recently, I&apos;ve been learning Rust to build API&apos;s and CLI&apos;s.
           </p>
         </motion.div>

@@ -10,11 +10,11 @@ export function Navbar() {
             <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Home
             </Link>
-            {/* <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Blog
-            </Link> */}
             <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Work
+            </Link>
+            <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Blog
             </Link>
             <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               About

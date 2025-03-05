@@ -47,7 +47,7 @@ export function Hero() {
 
             {/* Main headline */}
             <motion.div
-              className="space-y-4 md:space-y-6"
+              className="space-y-4 md:space-y-8"
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
@@ -55,7 +55,7 @@ export function Hero() {
             >
               <div className="space-y-4">
                 <PageHeading label="SOFTWARE ENGINEER" />
-                <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold tracking-tight leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold tracking-tight leading-tight font-mono">
                   👋  Hi, I&apos;m Harry
                 </h1>
               </div>
