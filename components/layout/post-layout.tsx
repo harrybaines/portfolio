@@ -2,7 +2,6 @@
 import { motion } from "framer-motion"
 import { Calendar, Clock, MessageSquare, Tag } from "lucide-react"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { Breadcrumbs } from "./breadcrumbs"
 
 // Used for projects, blog posts and resources
@@ -21,8 +20,6 @@ export function PostLayout({
   image?: string
   tags?: string[]
 }) {
-  const pathname = usePathname()
-
   return (
     <div className="max-w-4xl mx-auto">
       <motion.div
