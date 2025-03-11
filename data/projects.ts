@@ -29,4 +29,16 @@ export const projects: Project[] = [
     link: "https://github.com/harrybaines/torchgpt",
     tags: ["TypeScript", "OpenAI", "PyTorch", "Next.js"],
   },
+  {
+    title: "Ivy",
+    description: "Added JAX to numpy function conversions",
+    link: "https://github.com/unifyai/ivy",
+    tags: ["Python", "JAX", "NumPy", "ML"],
+  },
+  {
+    title: "Buildspace",
+    description: "Added enhancements to AI avatar tutorial project",
+    link: "https://github.com/buildspace/buildspace-projects",
+    tags: ["Next.js", "AI", "Tutorial"],
+  },
 ];

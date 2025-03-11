@@ -119,13 +119,12 @@ export function FeaturedProject() {
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {featuredProject.stack.map(({ name, icon: Icon }) => (
-                    <div
-                      key={name}
-                      className="flex items-center gap-2.5 px-3.5 py-2 bg-muted/50 rounded-full text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors group"
+                    <span
+                      key={`${featuredProject.title}-${name}`}
+                      className="text-xs font-mono px-2 py-1 bg-primary/5 rounded-full text-muted-foreground"
                     >
-                      <Icon className="h-4 w-4 shrink-0 text-primary/70 group-hover:text-primary transition-colors" />
-                      <span>{name}</span>
-                    </div>
+                      {name}
+                    </span>
                   ))}
                 </div>
               </div>

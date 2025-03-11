@@ -1,5 +1,6 @@
 import "@/app/globals.css"
 import { baseUrl } from "@/app/sitemap"
+import { BackgroundPattern } from "@/components/layout/background-pattern"
 import { Footer } from "@/components/layout/footer"
 import { Navbar } from "@/components/layout/navbar"
 import { Providers } from "@/components/layout/providers"
@@ -51,8 +52,9 @@ export default function RootLayout({
     <html lang="en" className={`${sansFont.variable} ${monoFont.variable}`} suppressHydrationWarning>
       <body className="antialiased min-h-screen bg-background flex flex-col">
         <Providers>
+          <BackgroundPattern />
           <Navbar />
-          <main className="container max-w-4xl px-6 sm:px-8 lg:px-10 pt-32 flex-grow">
+          <main className="container max-w-4xl px-6 sm:px-8 pt-24 flex-grow">
             {children}
             <Analytics />
           </main>

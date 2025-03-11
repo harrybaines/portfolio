@@ -19,10 +19,10 @@ export function JourneyTimeline() {
     >
       <div className="relative">
         {/* Timeline items */}
-        <div className="space-y-12">
+        <div className="space-y-6">
           {timeline.map((item, i) => (
             <motion.div
-              key={i}
+              key={`journey-${item.company}-${item.role}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -93,16 +93,13 @@ export function JourneyTimeline() {
                   {/* Tech Stack */}
                   {item.tech && (
                     <div className="flex flex-wrap gap-3">
-                      {item.tech.map((tech, j) => (
-                        <div
-                          key={j}
-                          className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted/50 border border-border"
+                      {item.tech.map((tech) => (
+                        <span
+                          key={`${item.role}-${item.company}-${tech.name}`}
+                          className="text-xs font-mono px-2 py-1 bg-primary/5 rounded-full text-muted-foreground"
                         >
-                          {tech.icon && (
-                            <tech.icon className="h-3.5 w-3.5" />
-                          )}
-                          <span className="text-xs font-medium">{tech.name}</span>
-                        </div>
+                          {tech.name}
+                        </span>
                       ))}
                     </div>
                   )}
