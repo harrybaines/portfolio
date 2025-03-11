@@ -118,7 +118,7 @@ export function FeaturedProject() {
                   Built with
                 </h4>
                 <div className="flex flex-wrap gap-3">
-                  {featuredProject.stack.map(({ name, icon: Icon }) => (
+                  {featuredProject.stack.map(({ name }) => (
                     <span
                       key={`${featuredProject.title}-${name}`}
                       className="text-xs font-mono px-2 py-1 bg-primary/5 rounded-full text-muted-foreground"

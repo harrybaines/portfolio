@@ -22,7 +22,6 @@ export function PostLayout({
   tags?: string[]
 }) {
   const pathname = usePathname()
-  const slug = pathname.split('/').pop() || ''
 
   return (
     <div className="max-w-4xl mx-auto">
