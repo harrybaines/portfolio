@@ -9,19 +9,19 @@ import Link from "next/link"
 
 export function Hero() {
   return (
-    <section className="pt-32 md:pt-60 pb-32 flex flex-col justify-center relative overflow-hidden">
+    <section className="pt-12 md:pt-40 pb-16 md:pb-32 flex flex-col justify-center relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-20">
           {/* Left content */}
           <div className="w-full md:w-3/5 order-2 md:order-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.7 }}
-              className="mb-8"
+              className="mb-6 md:mb-8"
             >
-              <span className="text-sm font-mono tracking-wider text-primary">HARRY BAINES</span>
-              <h1 className="text-4xl md:text-6xl font-bold mt-2 mb-6 leading-tight">
+              <span className="text-xs md:text-sm font-mono tracking-wider text-primary">HARRY BAINES</span>
+              <h1 className="text-3xl md:text-6xl font-bold mt-2 mb-4 md:mb-6 leading-tight">
                 <span className="text-gray-800 dark:text-foreground">Software Engineer</span> <br />
                 <span className="text-gray-500 dark:text-muted-foreground">from the UK 🇬🇧</span>
               </h1>
@@ -31,12 +31,12 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.7 }}
-              className="mb-10"
+              className="mb-8 md:mb-10"
             >
-              <p className="text-xl text-muted-foreground/90 leading-relaxed mb-6 max-w-2xl">
+              <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-4 md:mb-6 max-w-2xl">
                 I&apos;m a <span className="font-medium text-foreground">full-stack developer</span> with <span className="font-medium text-foreground">6+ years of experience</span> specialising in <span className="font-medium text-foreground">AI integration</span>, <span className="font-medium text-foreground">web development</span> and <span className="font-medium text-foreground">developer tooling</span>.
               </p>
-              <p className="text-xl text-muted-foreground/90 leading-relaxed max-w-2xl">
+              <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-2xl">
                 Building{" "}
                 <Link href="/blog/archtms" className="text-primary hover:text-primary/80 transition-colors underline decoration-dotted underline-offset-4">
                   archtms
@@ -67,7 +67,8 @@ export function Hero() {
                 </Link>
               </div>
 
-              <SocialLinks variant="button" className="gap-3" />
+              <SocialLinks variant="icon" className="gap-3 md:hidden" />
+              <SocialLinks variant="button" className="gap-3 hidden md:flex" />
             </motion.div>
           </div>
 
@@ -78,7 +79,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
           >
-            <div className="relative group pb-4 pr-4 pt-4 pl-4">
+            <div className="relative group pb-4 pr-4 pt-4 pl-0 md:pl-4">
               {/* Decorative elements - hidden on mobile */}
               <div className="absolute -top-4 -left-4 w-24 h-24 border border-primary/20 rounded-md hidden md:block" />
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-primary/20 rounded-md hidden md:block" />
@@ -96,7 +97,7 @@ export function Hero() {
               </div>
 
               {/* Image container */}
-              <div className="aspect-square w-full max-w-[220px] md:max-w-[320px] mx-auto overflow-hidden rounded-md relative">
+              <div className="aspect-square w-full max-w-[180px] md:max-w-[320px] ml-0 md:mx-auto overflow-hidden rounded-md relative">
                 {personalConfig.profileImage ? (
                   <>
                     <Image

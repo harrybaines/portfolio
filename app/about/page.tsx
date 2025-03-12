@@ -127,15 +127,7 @@ export default function About() {
                 </div>
 
                 {/* Actions with visual distinction */}
-                <div className="mt-8 flex flex-wrap items-center gap-5">
-                  <Link
-                    href={`mailto:${personalConfig.email}`}
-                    className="group flex items-center gap-2 px-4 py-2 rounded-md bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-colors duration-300 text-sm font-medium"
-                  >
-                    Get in touch
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-                  </Link>
-
+                <div className="mt-6">
                   <SocialLinks variant="icon" className="gap-3" />
                 </div>
               </motion.div>
