@@ -60,7 +60,7 @@ export default function AboutOriginal() {
                     Hi there! I&apos;m Harry, a developer with <span className="font-medium text-foreground">6+ years of experience</span> in software. Currently focused on full-stack web development and AI integration.
                   </p>
                   <p className="text-xl text-muted-foreground/90 leading-relaxed max-w-2xl">
-                    Building{" "}
+                    Founder of{" "}
                     <Link href="https://archtms.com" className="text-primary hover:text-primary/80 transition-colors underline decoration-dotted underline-offset-4">
                       archtms
                     </Link>, a complete management system for architecture firms.

@@ -1,3 +1,4 @@
+import BlogTLDR from '@/components/ui/blog-tldr'
 import { Testimonial } from '@/components/ui/testimonial'
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
 import Image, { ImageProps } from 'next/image'
@@ -43,8 +44,6 @@ interface CustomLinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElem
 
 function CustomLink(props: CustomLinkProps) {
   const { href, children, ...rest } = props
-
-  console.log(href)
 
   if (href.startsWith('/') || href.startsWith('http')) {
     return (
@@ -129,6 +128,7 @@ const components = {
   code: Code,
   Table,
   Testimonial,
+  BlogTLDR,
 }
 
 interface CustomMDXProps extends Omit<MDXRemoteProps, 'components'> {

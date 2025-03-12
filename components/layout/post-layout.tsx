@@ -148,7 +148,7 @@ export function PostLayout({
           prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-border prose-h2:pb-2
           prose-h3:text-xl prose-h3:font-semibold
           prose-h3:mt-8 prose-h3:mb-3
-          prose-p:text-muted-foreground prose-p:leading-7 prose-p:mb-5
+          prose-p:text-red-500 prose-p:leading-7 prose-p:mb-5
           prose-a:text-primary prose-a:no-underline hover:prose-a:underline
           prose-li:text-muted-foreground prose-li:marker:text-primary/70 prose-li:leading-7 prose-li:pl-2
           prose-ul:my-5
