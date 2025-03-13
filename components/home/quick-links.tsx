@@ -39,16 +39,6 @@ export function QuickLinks({ blogPosts }: { blogPosts: BlogPostProps[] }) {
     }
   ]
 
-  // Format date function (copied from mdx-utils to avoid server component import)
-  const formatDate = (date: string) => {
-    const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    }
-    return new Date(date).toLocaleDateString('en-US', options)
-  }
-
   return (
     <div className="container mx-auto px-4 relative z-10 mt-0">
       {/* Background elements similar to hero */}
