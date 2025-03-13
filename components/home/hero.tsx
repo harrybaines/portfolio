@@ -1,6 +1,7 @@
 "use client"
 
 import { SocialLinks } from "@/components/common/social-links"
+import { TypingAnimation } from "@/components/common/typing-animation"
 import { personalConfig } from "@/data/personal"
 import { motion } from "framer-motion"
 import { ArrowRight, User } from "lucide-react"
@@ -9,7 +10,7 @@ import Link from "next/link"
 
 export function Hero() {
   return (
-    <section className="pt-12 md:pt-40 pb-16 md:pb-32 flex flex-col justify-center relative overflow-hidden">
+    <section className="pt-12 md:pt-60 pb-16 md:pb-32 flex flex-col justify-center relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-20">
           {/* Left content */}
@@ -20,10 +21,14 @@ export function Hero() {
               transition={{ delay: 0.2, duration: 0.7 }}
               className="mb-6 md:mb-8"
             >
-              <span className="text-xs md:text-sm font-mono tracking-wider text-primary">HARRY BAINES</span>
-              <h1 className="text-3xl md:text-6xl font-bold mt-2 mb-4 md:mb-6 leading-tight">
-                <span className="text-gray-800 dark:text-foreground">Software Engineer</span> <br />
-                <span className="text-gray-500 dark:text-muted-foreground">from the UK 🇬🇧</span>
+              <TypingAnimation
+                segments={[{ text: "HARRY BAINES", isLink: false }]}
+                speed={300}
+                className="text-sm md:text-base font-mono tracking-wider text-muted-foreground"
+              />
+              <h1 className="text-2xl md:text-5xl font-bold mt-2 mb-4 md:mb-6">
+                <p className="text-gray-800 dark:text-foreground mb-2">Software Engineer</p>
+                <p className="text-gray-500 dark:text-muted-foreground">from the UK 🇬🇧</p>
               </h1>
             </motion.div>
 
@@ -33,11 +38,11 @@ export function Hero() {
               transition={{ delay: 0.4, duration: 0.7 }}
               className="mb-8 md:mb-10"
             >
-              <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-4 md:mb-6 max-w-2xl">
-                I&apos;m a <span className="font-medium text-foreground">full-stack developer</span> with <span className="font-medium text-foreground">6+ years of experience</span> specialising in <span className="font-medium text-foreground">AI integration</span>, <span className="font-medium text-foreground">web development</span> and <span className="font-medium text-foreground">developer tooling</span>.
+              <p className="text-base md:text-lg text-muted-foreground/90 leading-relaxed mb-4 md:mb-6 max-w-2xl">
+                I&apos;m a <span className="font-medium text-foreground">full-stack developer</span> with <span className="font-medium text-foreground">6+ years of experience</span> specialising in <span className="font-medium text-foreground">web development</span>, <span className="font-medium text-foreground">AI integration</span> and <span className="font-medium text-foreground">developer tooling</span>.
               </p>
-              <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-2xl">
-                Building{" "}
+              <p className="text-base md:text-lg text-muted-foreground/90 leading-relaxed max-w-2xl">
+                Founder of{" "}
                 <Link href="/blog/archtms" className="text-primary hover:text-primary/80 transition-colors underline decoration-dotted underline-offset-4">
                   archtms
                 </Link>, a complete management system for architecture firms.
@@ -53,14 +58,14 @@ export function Hero() {
               <div className="flex items-center gap-6">
                 <Link
                   href="/about"
-                  className="group flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                  className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
                 >
                   <span className="font-medium">About me</span>
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/work"
-                  className="group flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                  className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
                 >
                   <span className="font-medium">My work</span>
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -85,8 +90,8 @@ export function Hero() {
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-primary/20 rounded-md hidden md:block" />
 
               {/* Hover me prompt - hidden on mobile */}
-              <div className="absolute -top-8 right-0 text-xs font-mono text-muted-foreground/60 opacity-70 group-hover:opacity-0 transition-opacity duration-300 hidden md:block">
-                hover me →
+              <div className="absolute -top-4 right-3 text-xs font-mono text-muted-foreground/90 opacity-90 group-hover:opacity-0 transition-opacity duration-300 hidden md:block">
+                hover me!
               </div>
 
               {/* Speech bubble on hover - hidden on mobile */}
@@ -130,7 +135,7 @@ export function Hero() {
           transition={{ delay: 1, duration: 0.5 }}
         >
           <span className="text-xs font-mono text-muted-foreground mb-2">SCROLL</span>
-          <div className="w-px h-12 bg-muted-foreground/30" />
+          <div className="w-px h-8 bg-muted-foreground/30" />
         </motion.div>
       </div>
     </section>

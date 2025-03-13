@@ -12,9 +12,10 @@ interface TextSegment {
 interface TypingAnimationProps {
   segments: TextSegment[]
   speed?: number
+  className?: string
 }
 
-export function TypingAnimation({ segments, speed = 50 }: TypingAnimationProps) {
+export function TypingAnimation({ segments, speed = 50, className = "" }: TypingAnimationProps) {
   const [displayedWords, setDisplayedWords] = useState<TextSegment[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -40,7 +41,7 @@ export function TypingAnimation({ segments, speed = 50 }: TypingAnimationProps) 
   }, [currentIndex, words, speed])
 
   return (
-    <p className="typing leading-7">
+    <p className={`typing leading-7 ${className}`}>
       {displayedWords.map((segment, i) =>
         segment.isLink ? (
           <Link
@@ -55,7 +56,7 @@ export function TypingAnimation({ segments, speed = 50 }: TypingAnimationProps) 
           <span key={i}>{segment.text}</span>
         )
       )}
-      <span className="inline-block w-[0.5em] h-[1.1em] -mb-[1px] ml-[1px] bg-primary animate-[cursor_0.8s_infinite]" />
+      <span className="inline-block w-[0.5em] h-[1.1em] -mb-[2px] ml-[1px] bg-primary/40 animate-[cursor_0.8s_infinite]" />
     </p>
   )
 }

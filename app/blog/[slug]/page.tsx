@@ -88,9 +88,9 @@ export default async function Blog(props: { params: tParams }) {
   const tags = extractTags(post as unknown as { metadata: { tags?: string | string[] } });
 
   return (
-    <div className="relative max-w-5xl mx-auto font-sans">
+    <div className="relative max-w-5xl mx-auto font-sans mt-16">
       {/* Navigation */}
-      <nav className="flex justify-between items-center mb-16">
+      {/* <nav className="flex justify-between items-center mb-16">
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-200 group"
@@ -99,7 +99,7 @@ export default async function Blog(props: { params: tParams }) {
           <span>Back to all posts</span>
         </Link>
 
-      </nav>
+      </nav> */}
 
       {/* Header */}
       <header className="space-y-6">
@@ -112,7 +112,7 @@ export default async function Blog(props: { params: tParams }) {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 leading-tight font-mono">
             {post.metadata.title}
           </h1>
         </div>
@@ -158,17 +158,17 @@ export default async function Blog(props: { params: tParams }) {
 
       {/* Main content - full width now */}
       <article className="prose prose-lg dark:prose-invert max-w-none
-        prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900 dark:prose-headings:text-gray-50
-        prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-gray-200 dark:prose-h2:border-gray-800 prose-h2:pb-2
-        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-        prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-7 prose-p:my-6
-        prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+        prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900 dark:prose-headings:text-gray-300
+        prose-h2:text-xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-gray-200 dark:prose-h2:border-gray-800 prose-h2:pb-2
+        prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-4
+        prose-p:text-muted-foreground prose-p:leading-7 prose-p:my-6
+        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
         prose-code:font-mono prose-code:text-gray-900 dark:prose-code:text-gray-100 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:rounded prose-code:px-1 prose-code:py-0.5
         prose-pre:bg-gray-900 dark:prose-pre:bg-black prose-pre:border prose-pre:border-gray-300 dark:prose-pre:border-gray-700 prose-pre:rounded-lg
         prose-blockquote:border-l-4 prose-blockquote:border-gray-400 dark:prose-blockquote:border-gray-600 prose-blockquote:pl-4 prose-blockquote:py-1 prose-blockquote:italic
         prose-img:rounded-lg prose-img:shadow-md
-        prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-li:my-2
-        prose-strong:text-gray-800 dark:prose-strong:text-gray-200 prose-strong:font-semibold
+        prose-li:text-muted-foreground dark:prose-li:text-muted-foreground prose-li:my-2
+        prose-strong:text-gray-800 dark:prose-strong:text-foreground/70 prose-strong:font-semibold
         prose-hr:border-gray-200 dark:prose-hr:border-gray-800 prose-hr:my-8
       ">
         <CustomMDX source={post.content} />

@@ -8,6 +8,12 @@ import { GitCommit } from "lucide-react"
 export function CommitsList() {
   const { commits, loading } = useGithubCommits()
 
+  // Function to trim commit message
+  const trimMessage = (message: string, maxLength: number = 60) => {
+    const firstLine = message.split('\n')[0]
+    return firstLine.length > maxLength ? `${firstLine.substring(0, maxLength)}...` : firstLine
+  }
+
   if (loading) {
     return (
       <div className="space-y-3">
@@ -39,20 +45,27 @@ export function CommitsList() {
           href={commit.html_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-start gap-3 text-muted-foreground hover:text-foreground transition-colors group"
+          className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-colors group"
         >
-          <GitCommit className="h-4 w-4 mt-1 text-primary" />
-          <span className="flex-1">
-            Pushed 1 commit to{' '}
-            <span className="text-primary group-hover:text-primary/80">
-              {commit.repository.name}
+          <GitCommit className="h-4 w-4 mt-1 text-primary hidden sm:block flex-shrink-0" />
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0">
+              <div className="flex items-center gap-2 sm:gap-1 flex-shrink-0">
+                <GitCommit className="h-4 w-4 text-primary sm:hidden" />
+                <span className="text-primary group-hover:text-primary/80">
+                  {commit.repository.name}
+                </span>
+                <span className="hidden sm:inline">:</span>
+              </div>
+              <span className="text-muted-foreground group-hover:text-foreground sm:ml-1 overflow-hidden text-ellipsis whitespace-nowrap">
+                {trimMessage(commit.commit.message)}
+              </span>
+            </div>
+            <span className="block sm:hidden text-muted-foreground/60 whitespace-nowrap text-xs mt-1">
+              {formatDistanceToNow(new Date(commit.commit.author.date), { addSuffix: true })}
             </span>
-            :{' '}
-            <span className="text-muted-foreground group-hover:text-foreground">
-              {commit.commit.message.split('\n')[0]}
-            </span>
-          </span>
-          <span className="text-muted-foreground/60 whitespace-nowrap">
+          </div>
+          <span className="hidden sm:block text-muted-foreground/60 whitespace-nowrap text-sm flex-shrink-0">
             {formatDistanceToNow(new Date(commit.commit.author.date), { addSuffix: true })}
           </span>
         </a>

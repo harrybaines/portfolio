@@ -34,7 +34,7 @@ export function TellMeMore() {
                     href: "https://archtms.com"
                   },
                   { text: ", a complete architect management system. " },
-                  { text: "Building " },
+                  { text: "Founder of " },
                   {
                     text: "brewkit",
                     isLink: true,

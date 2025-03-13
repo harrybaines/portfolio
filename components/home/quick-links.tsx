@@ -83,7 +83,7 @@ export function QuickLinks({ blogPosts }: { blogPosts: BlogPostProps[] }) {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                <div className="p-3 flex items-start gap-3 relative z-10">
+                <div className="p-3 flex items-center gap-3 relative z-10">
                   <div className="mt-0.5 bg-primary/10 p-1.5 rounded-md">
                     {link.icon}
                   </div>
@@ -126,15 +126,12 @@ export function QuickLinks({ blogPosts }: { blogPosts: BlogPostProps[] }) {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 <div className="relative z-10">
-                  <div className="flex flex-col space-y-1">
+                  <div className="flex flex-col space-y-2">
                     <h3 className="font-medium flex items-center gap-1.5">
                       {post.metadata.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       {post.metadata.summary}
-                    </p>
-                    <p className="text-xs text-muted-foreground/70 mt-1">
-                      {formatDate(post.metadata.publishedAt)}
                     </p>
                   </div>
                 </div>

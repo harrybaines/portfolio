@@ -107,7 +107,7 @@ export const timeline: TimelineItem[] = [
   },
   {
     type: "education",
-    role: "BSc Computer Science (First Class Honours)",
+    role: "BSc Computer Science (First)",
     company: "Lancaster University",
     period: "2016 - 2019",
     description:

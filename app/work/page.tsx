@@ -2,7 +2,7 @@
 
 import { FeaturedProject } from "@/components/common/featured-project"
 import { Activity } from "@/components/home/activity"
-import { JourneyTimeline } from "@/components/home/journey-timeline"
+import { EducationList, ExperienceList } from "@/components/timeline"
 import { PageHeading } from "@/components/ui/page-heading"
 import { projects } from "@/data/projects"
 import { motion } from "framer-motion"
@@ -88,17 +88,17 @@ export default function WorkPage() {
 
                   <div className="flex flex-col h-full relative z-0">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-base font-mono font-medium group-hover:text-primary transition-colors">
+                      <h3 className="text-base font-mono font-medium text-foreground group-hover:text-primary transition-colors duration-300">
                         {project.title}
                       </h3>
                       {project.link && (
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
+                        <span className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
                           <ArrowUpRight className="h-4 w-4" />
                         </span>
                       )}
                     </div>
 
-                    <p className="text-muted-foreground text-base mb-4 group-hover:text-muted-foreground/80 transition-colors">
+                    <p className="text-muted-foreground text-base mb-4 group-hover:text-foreground/80 transition-colors duration-300">
                       {project.description}
                     </p>
 
@@ -106,7 +106,7 @@ export default function WorkPage() {
                       {project.tags.map((tag) => (
                         <span
                           key={`${project.title}-${tag}`}
-                          className="text-xs font-mono px-2 py-1 bg-primary/5 rounded-full text-muted-foreground group-hover:text-muted-foreground/80 transition-colors pointer-events-none"
+                          className="text-xs font-mono px-2 py-1 bg-primary/5 rounded-full text-muted-foreground group-hover:bg-primary/10 group-hover:text-foreground/80 transition-all duration-300 pointer-events-none"
                         >
                           {tag}
                         </span>
@@ -153,7 +153,21 @@ export default function WorkPage() {
               <PageHeading label="EXPERIENCE" />
             </div>
 
-            <JourneyTimeline />
+            <ExperienceList />
+          </motion.section>
+
+          {/* Education Section */}
+          <motion.section
+            className="mb-16 max-w-5xl mx-auto px-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.4 }}
+          >
+            <div className="mb-6">
+              <PageHeading label="EDUCATION" />
+            </div>
+
+            <EducationList />
           </motion.section>
         </motion.section>
       </motion.div>

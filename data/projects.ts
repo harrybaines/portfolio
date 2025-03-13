@@ -8,7 +8,7 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Brewkit",
+    title: "brewkit",
     description: "A modern starter kit for quickly bootstrapping new projects.",
     link: "https://github.com/harrybaines/brewkit",
     tags: ["TypeScript", "React", "Next.js", "Tailwind"],
@@ -19,7 +19,7 @@ export const projects: Project[] = [
       "Trained on my face using Dreambooth Stable Diffusion, with the model hosted on HuggingFace.",
     image: "/images/projects/ai-avatars/me.png",
     link: "https://github.com/harrybaines/ai-avatar-generator",
-    tags: ["Next.js", "Stable Diffusion", "Hugging Face", "Railway"],
+    tags: ["Next.js", "Stable Diffusion", "HuggingFace"],
   },
   {
     title: "TorchGPT",
