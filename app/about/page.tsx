@@ -145,7 +145,7 @@ export default function About() {
           >
             <div className="relative aspect-[16/10] md:aspect-[21/11] w-full">
               <Image
-                src="/images/setup/desk.png"
+                src="/images/setup/desk.jpg"
                 alt="My workspace setup with split ergonomic keyboard and monitor"
                 fill
                 className="object-cover brightness-[0.85] contrast-[1.05] filter hover:brightness-[0.9] transition-all duration-700"
