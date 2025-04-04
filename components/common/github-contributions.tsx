@@ -1,6 +1,5 @@
 "use client"
 
-import { CommitsList } from "@/components/common/commits-list";
 import { Card } from "@/components/ui/card";
 import { GITHUB_USERNAME } from "@/lib/github";
 import { useTheme } from "next-themes";
@@ -41,9 +40,9 @@ export function GitHubContributions() {
         </div>
       </Card>
 
-      <Card className="p-6">
-        <CommitsList />
-      </Card>
+      {/* <Card className="p-6"> */}
+      {/* <CommitsList /> */}
+      {/* </Card> */}
     </div>
   )
 }
