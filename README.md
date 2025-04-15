@@ -6,7 +6,7 @@ This is my personal portfolio website built with Next.js, showcasing my work exp
 
 ### ✨ Live Demo
 
-Visit the live site: [harry.dev](https://harry.dev)
+Visit the live site: [harrybaines.net](https://harrybaines.net)
 
 ## 🚀 Features
 
