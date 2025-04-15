@@ -37,21 +37,21 @@ export default function AboutPage() {
 
   const photoData = [
     {
-      src: "/graduation.png",
+      src: "/images/graduation.png",
       alt: "Graduation day",
       caption: "Lancaster University graduation, 2021",
       initialRotation: -4,
       hoverRotation: 0
     },
     {
-      src: "/running.jpeg",
+      src: "/images/running.jpeg",
       alt: "Running by the coast",
       caption: "Fleetwood promenade parkrun, 2022",
       initialRotation: -1,
       hoverRotation: 0
     },
     {
-      src: "/maldives.jpeg",
+      src: "/images/maldives.jpeg",
       alt: "Cycling in the Maldives",
       caption: "Cycling in the Maldives, 2018",
       initialRotation: 4,
@@ -155,7 +155,7 @@ export default function AboutPage() {
               <div className="rounded-lg overflow-hidden w-full relative h-[350px] mb-6">
                 <div className="absolute inset-0 bg-black/30 z-10"></div>
                 <Image
-                  src="/desk.jpg"
+                  src="/images/desk.jpg"
                   alt="My development workspace with multiple monitors showing code"
                   fill
                   className="object-cover"

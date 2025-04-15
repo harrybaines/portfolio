@@ -37,7 +37,7 @@ export default function ProfileImage() {
         >
           {!imgError ? (
             <Image
-              src="/profile.jpg"
+              src="/images/profile.png"
               alt="Profile Image"
               fill
               style={{ objectFit: "cover" }}
