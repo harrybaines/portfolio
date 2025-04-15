@@ -1,10 +1,5 @@
 # Harry Baines | Personal Portfolio
 
-<div align="center">
-  <img src="public/images/website/2025-03-05.png" alt="Harry Baines" />
-  <p><strong>Software Engineer | Full-Stack Developer | AI Enthusiast</strong></p>
-</div>
-
 ## 📋 Overview
 
 This is my personal portfolio website built with Next.js, showcasing my work experience, projects, and skills as a software engineer. The site features a modern, responsive design with smooth animations and a clean user interface.
@@ -77,14 +72,13 @@ harry.dev/
 ├── app/                # Next.js App Router
 │   ├── about/          # About page
 │   ├── blog/           # Blog section
+│   ├── components/     # Reusable UI components
+│   ├── config/         # Site configuration
 │   ├── work/           # Work & projects page
 │   ├── api/            # API routes
 │   ├── layout.tsx      # Root layout
 │   └── page.tsx        # Home page
-├── components/         # Reusable UI components
 ├── content/            # Markdown/MDX content
-├── data/               # Data files (projects, experience)
-├── hooks/              # Custom React hooks
 ├── lib/                # Utility functions
 └── public/             # Static assets
 ```

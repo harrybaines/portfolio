@@ -1,0 +1,163 @@
+---
+title: "Introducing archtms"
+summary: "A complete architect management system"
+publishedAt: "2025-01-01"
+---
+
+<div className="relative w-full mb-10">
+  <Image
+    src="/images/projects/archtms/tms.png"
+    alt="archtms dashboard interface"
+    width={1200}
+    height={600}
+    className="mx-auto"
+    priority
+  />
+</div>
+
+archtms is a centralised hub for architects, building surveyors and town planners to manage their projects, clients, fees, staff and cashflow.
+
+### The Beginning
+
+The journey began in 2018 during my internship as an accounts assistant at [Cassidy and Ashton](https://www.cassidyashton.co.uk/). I was responsible for managing employee timesheets—paper-based documents that were submitted to the accounts department each week and manually entered into Excel spreadsheets. This inefficient process quickly revealed an opportunity for improvement.
+
+### The Problem
+
+The existing paper-based system had numerous shortcomings:
+
+- **Manual data entry**: Accounts staff spent considerable time inputting data from paper timesheets into Excel, diverting attention from more critical business functions
+- **Data duplication and inconsistency**: The manual process was prone to errors, with different employees potentially recording the same job with slight variations in descriptions
+- **Limited scalability**: Excel's constraints (maximum of 1 million rows) and performance issues with large datasets were becoming apparent
+- **Collaboration difficulties**: Simultaneous editing could lead to overwritten changes
+- **Lack of validation**: No mechanism existed to verify the accuracy of entered data
+
+The company had researched third-party solutions, but these came with significant costs—ranging from £20,000 to £40,000—and substantial training expenses. This indicated to me that these systems weren't affordable or intuitive enough for users to quickly adopt.
+
+### Version 1
+
+With my background in web development I proposed creating a bespoke full-stack web application that would be tailored to the firm's specific needs. The company welcomed this initiative, giving me the opportunity to design and develop a solution from scratch.
+
+For version 1, I implemented a complete PERN stack architecture:
+
+- **Frontend**: React.js with Redux for state management and Ant Design for the UI components
+- **Backend**: Node.js with Express.js framework serving as an API layer
+- **Database**: PostgreSQL for robust data storage
+- **Authentication**: Firebase Authentication for secure user management
+- **Deployment**: Heroku for hosting
+
+This architecture created a centralized platform accessible from any device with an internet connection, optimized primarily for desktop use given the nature of timesheet entry.
+
+### Core Features
+
+The initial version focused on streamlining the timesheet process:
+
+- **Digital Timesheet Entry**: Intuitive interface for recording time spent on jobs
+- **Job Autocomplete**: Smart filtering as users typed job numbers or descriptions
+- **Fee Indicators**: Color-coded job numbers (red for jobs without fees, green for those with fees)
+- **Staged Submission**: Options to save timesheets in progress or submit completed ones
+- **Admin Dashboard**: Oversight capabilities for directors to monitor staff timesheet status
+- **Data Export**: CSV export functionality for both time records and expenses
+
+### Implementation Challenges
+
+Developing this system presented several challenges:
+
+- Creating appropriate authorization rules to control access across the application
+- Implementing complex timesheet restoration functionality for administrators
+- Managing application state across a complex, multi-user platform
+- Resolving numerous CSS and UI consistency issues
+- Determining the optimal deployment strategy
+
+Despite these challenges, the system was successfully deployed and adopted by the practice.
+
+## Version 2
+
+Building on the success of the initial timesheet system, I recognized opportunities to address broader needs within architectural practices. This led to the development of version 2—a comprehensive practice management solution.
+
+### Enhanced Features
+
+The new system retained all the functionality of version 1 while introducing significant new capabilities:
+
+#### Timesheet Enhancements
+
+The core timesheet functionality was enhanced with improved usability, faster data entry, and better validation. The interface was redesigned to be more intuitive, with streamlined workflows and keyboard shortcuts for power users. Historical data access and editing capabilities were expanded for administrators.
+
+#### Clients
+
+A dedicated client portal centralizes all client information in one place. This includes contact details, project history and logs. The system maintains relationships between clients and their projects, providing a complete view of client engagement across the practice.
+
+#### Project Dashboards
+
+Each project now has its own comprehensive dashboard showing real-time metrics like budget utilization, time allocation across RIBA stages, and team member contributions. These dashboards provide project leads with at-a-glance visibility into project health and progress.
+
+#### Fees
+
+The system now supports sophisticated fee structures. Fees can be allocated across RIBA stages and tracked against actual time spent, providing critical insights into project profitability.
+
+#### Cashflow and Fee Forecasting
+
+One of the most valuable additions, the cashlow feature allows directors to manage and visualise allocations of fees across months and years, along with a master cashflow dashboard to view all directors cashflows over time.
+
+#### Holiday Management
+
+A complete leave management system allows staff to request time off, with automated approval workflows for directors. The global company calendar displays team availability and public holidays, helping with resource planning and workload distribution.
+
+#### Employee Reviews
+
+The performance management module facilitates structured employee evaluations, goal setting, and professional development tracking. Customizable review templates support different review types (annual, quarterly, probation), with historical performance data accessible to authorized managers.
+
+The system also includes other improvements like:
+
+- **Expense Management**: Digital receipt uploads and tracking
+- **Personalized Dashboards**: Role-specific views presenting relevant information
+- **Automated Workflows**: Email notifications and approval processes
+- **Enhanced Reporting**: Customized insights for directors including sector analysis, top projects, and project progression
+
+### Modernized Tech Stack
+
+For version 2, I rebuilt the system with an updated technology stack:
+
+- **Frontend**: React, Vite, TypeScript, RTK Query
+- **Backend**: Express, TypeScript, Prisma, Zod
+- **UI**: Chakra UI, react-table, Apexcharts, framer-motion, Mapbox
+- **Database**: Supabase w/PostgreSQL
+- **Emails**: Resend w/react-email
+- **Authentication**: Supabase auth
+- **Storage**: Supabase storage for file uploads
+- **Deployment**: GitHub actions CI/CD to Fly.io via Docker containers
+
+### Impact and Feedback
+
+The system has been used by over 100 staff and is now used daily by around 60 employees. Leadership and staff alike have provided positive feedback:
+
+<div>
+  <Testimonial
+    quote="Since the new time management system has been up and running not only have I been able to produce my own weekly time sheets & expenses much easier but I have been able to assess staff time and book costs against fee levels for individual jobs. As a Director this is invaluable in helping to run an efficient business, particularly as an architectural practice. This automated process whilst helping solve a problem also adds to our environmental credentials with a paperless system now in place. A very professional tool that we can easily evolve over time as the business needs change"
+    author={{
+      name: "Lawrence McBurney",
+      role: "Board Director",
+      company: "Cassidy + Ashton",
+      image: "/images/projects/archtms/lawrence.png",
+    }}
+  />
+
+  <Testimonial
+    quote="The TMS system installed here at C+A has automated a procedure that previously relied upon searching elsewhere for job numbers, photocopying numerous copies, wasted paper, and took a long time to complete. Harry listened to our comments on the initial version and then made further improvements to create a system that is clear, reliable, quick and user friendly. Harry's software saves paper and time and makes it far easier for the staff to record their time spent on each project"
+    author={{
+      name: "Carl Myerscough",
+      role: "Architect",
+      company: "Cassidy + Ashton",
+      image: "/images/projects/archtms/carl.png",
+    }}
+  />
+</div>
+
+### Conclusion
+
+What began as a solution to a specific problem—inefficient timesheet management—has evolved into a comprehensive practice management system that delivers significant value to the entire organization.
+
+The success of archtms highlights the advantages of bespoke software development: tailored functionality, seamless integration with existing workflows, and the ability to evolve with the organization's needs—all at a fraction of the cost of off-the-shelf alternatives.
+
+### Interested?
+
+If you're looking to modernize your architectural practice or want to learn more about archtms, I'd love to chat. Feel free to contact me!
