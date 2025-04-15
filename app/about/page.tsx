@@ -1,225 +1,216 @@
-"use client"
+'use client';
 
-import { SocialLinks } from "@/components/common/social-links"
-import { EducationList, ExperienceList } from "@/components/timeline"
-import { PageHeading } from "@/components/ui/page-heading"
-import { interests } from "@/data/interests"
-import { personalConfig } from "@/data/personal"
-import { motion } from "framer-motion"
-import { User } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { HobbyCard } from "@/app/components/hobby-card";
+import { PhotoGallery } from "@/app/components/photo-gallery";
+import { SectionHeading } from "@/app/components/section-heading";
+import { SocialLinks } from "@/app/components/social-links";
+import { SubsectionHeading } from "@/app/components/subsection-heading";
+import { getFormattedExperience } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { BookOpen, Dumbbell, Gamepad2, LucideGamepad } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-/**
- * About page component
- * Displays detailed information about the person, including experience, education, and interests
- */
-export default function About() {
+export default function AboutPage() {
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 15 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+
+  const photoData = [
+    {
+      src: "/graduation.png",
+      alt: "Graduation day",
+      caption: "Lancaster University graduation, 2021",
+      initialRotation: -4,
+      hoverRotation: 0
+    },
+    {
+      src: "/running.jpeg",
+      alt: "Running by the coast",
+      caption: "Fleetwood promenade parkrun, 2022",
+      initialRotation: -1,
+      hoverRotation: 0
+    },
+    {
+      src: "/maldives.jpeg",
+      alt: "Cycling in the Maldives",
+      caption: "Cycling in the Maldives, 2018",
+      initialRotation: 4,
+      hoverRotation: 0
+    }
+  ];
+
+  const hobbyData = [
+    {
+      icon: Dumbbell,
+      title: "hybrid training",
+      description: "Balancing weight lifting and running. Best of both worlds!"
+    },
+    {
+      icon: LucideGamepad,
+      title: "chess",
+      description: "I like to think I'm half decent. In reality, I'm probably worse than average."
+    },
+    {
+      icon: BookOpen,
+      title: "learning",
+      description: "I strive to learn something new every day. Embrace the 1% rule."
+    },
+    {
+      icon: Gamepad2,
+      title: "dead by daylight",
+      description: "After a hard day at work, I like to unwind with a stressful horror game."
+    }
+  ];
+
   return (
-    <section className="min-h-screen">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        {/* Hero section - ultra minimal aesthetic */}
-        <motion.section
-          className="pt-6 md:pt-12 pb-16 md:pb-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+    <div className="min-h-screen flex flex-col bg-[#1C1C1C] text-white">
+      <main className="flex-1 flex items-start md:items-start justify-center pt-16 md:pt-48">
+        <motion.div
+          className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-16"
+          variants={container}
+          initial="hidden"
+          animate="show"
         >
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="mb-8">
-              <PageHeading label="ABOUT" />
-            </div>
+          <div className="flex flex-col gap-8">
+            <motion.div
+              className="flex justify-start"
+              variants={item}
+            >
+              <Link href="/" className="text-white/70 hover:text-white transition-colors font-mono">
+                ← back home
+              </Link>
+            </motion.div>
 
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="w-full md:w-auto flex justify-center md:justify-start">
-                <div className="relative w-[160px]">
-                  <div className="w-full aspect-square overflow-hidden rounded-md relative">
-                    {personalConfig.profileImage ? (
-                      <>
-                        <Image
-                          src={personalConfig.profileImage}
-                          alt={personalConfig.name}
-                          fill
-                          className="object-cover filter grayscale"
-                          priority
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-background/5 opacity-50"></div>
-                      </>
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                        <User className="text-primary w-16 h-16" />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+            <motion.section
+              className="mb-8"
+              variants={item}
+            >
+              <PhotoGallery photos={photoData} />
+            </motion.section>
 
-              <div className="flex-1">
-                <div className="space-y-5">
-                  <h1 className="font-mono text-lg md:text-xl font-medium text-foreground tracking-tight">
-                    Software Engineer & AI Enthusiast
-                  </h1>
-
-                  <p className="font-sans text-md text-muted-foreground leading-relaxed max-w-lg">
-                    I build software with a focus on clean code and performance.
-                    Founder of <Link href="/blog/archtms" className="text-primary hover:text-primary/80 transition-colors underline decoration-dotted underline-offset-4">archtms</Link>, a complete architect management system.
-                    Im always open to opportunities, feel free to ping me an email!
-                  </p>
-
-                  <SocialLinks variant="button" className="gap-2" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Tech stack section */}
-        <motion.section
-          id="tech-stack"
-          className="mb-20 max-w-5xl mx-auto px-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-        >
-          <div className="mb-6">
-            <PageHeading label="TECH STACK" />
-          </div>
-
-          <motion.div
-            className="rounded-lg border border-border bg-card/5 backdrop-blur-sm p-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-          >
-            <p className="text-muted-foreground text-base mb-8">
-              I believe there is no perfect tech stack. I consider myself a full-stack developer, but I lean more towards the backend.
-            </p>
-
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-mono font-medium mb-3">
-                  Backend
-                </h3>
-                <p className="text-muted-foreground text-base">
-                  I mainly work with Node.js and Go for backend systems. I&apos;ve also been exploring Rust for building high-performance APIs and CLI tools. I often use Prisma for type-safe database access. I use Supabase for auth, storage, and PostgreSQL database hosting. For deployment, I prefer containerized applications with Docker deployed to platforms like Fly.io, with CI/CD pipelines via GitHub Actions.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-mono font-medium mb-3">
-                  Frontend
-                </h3>
-                <p className="text-muted-foreground text-base">
-                  I primarily work with TypeScript, Next.js and React for building modern web applications. For UI, I use Tailwind CSS and shadcn/ui for rapid development and consistent design systems.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-mono font-medium mb-3">
-                  AI / ML
-                </h3>
-                <p className="text-muted-foreground text-base">
-                  Python and TypeScript are my go-to languages for AI work. I&apos;ve built several AI-powered applications including TorchGPT (generating PyTorch code from natural language) and custom avatar generators using Dreambooth Stable Diffusion. I&apos;ve contributed to the Ivy project, adding JAX to NumPy function conversions, and regularly integrate OpenAI&apos;s APIs into applications for enhanced functionality.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* Desk image section */}
-        <motion.section
-          className="mb-20 max-w-5xl mx-auto px-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.4 }}
-        >
-          <motion.div
-            className="overflow-hidden rounded-lg border border-border"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-          >
-            <div className="relative aspect-[16/10] md:aspect-[21/11] w-full">
-              <Image
-                src="/images/setup/desk.jpg"
-                alt="My workspace setup with split ergonomic keyboard and monitor"
-                fill
-                className="object-cover brightness-[0.85] contrast-[1.05] filter hover:brightness-[0.9] transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-background/20 opacity-75"></div>
-            </div>
-            <div className="p-4 bg-card/5 backdrop-blur-sm border-t border-border">
-              <p className="text-sm text-center font-mono text-muted-foreground">
-                ~/My workspace
+            <motion.section
+              className="mb-8"
+              variants={item}
+            >
+              <SectionHeading>who am i</SectionHeading>
+              <motion.p className="text-white/70 leading-relaxed mb-6">
+                I&apos;m Harry, a software engineer from the UK 🇬🇧 with {getFormattedExperience()} of experience.
+                I&apos;m the founder of {" "}
+                <Link
+                  href="/blog/archtms"
+                  rel="noopener noreferrer"
+                  className="text-white underline underline-offset-4 hover:text-white/80 transition-colors"
+                >
+                  archtms
+                </Link>
+                , a complete architect management system.
+              </motion.p>
+              <motion.p className="text-white/70 leading-relaxed mb-6">
+                I specialise in web development, AI integration and developer tooling.
+                I also enjoy contributing to open-source projects, and exploring new technologies.
+              </motion.p>
+              <p className="text-white/70 leading-relaxed mb-6">
+                I&apos;m always open to new opportunities, collaborations, or a chat over a coffee!
+                Feel free to check out my CV {" "}
+                <Link
+                  href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8csQjh97SZY6qKNRiTeyxmBabh2s1nMr98tvg4E"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/90 hover:text-white underline underline-offset-4 transition-colors"
+                  download
+                >
+                  here
+                </Link>.
               </p>
-            </div>
-          </motion.div>
-        </motion.section>
+              <div className="mt-8">
+                <SocialLinks />
+              </div>
+            </motion.section>
 
-        {/* Experience section */}
-        <motion.section
-          className="mb-20 max-w-5xl mx-auto px-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4 }}
-        >
-          <div className="mb-6">
-            <PageHeading label="EXPERIENCE" />
+            <motion.section
+              className="mb-8"
+              variants={item}
+            >
+              <SectionHeading>tech stack</SectionHeading>
+              <div className="rounded-lg overflow-hidden w-full relative h-[350px] mb-6">
+                <div className="absolute inset-0 bg-black/30 z-10"></div>
+                <Image
+                  src="/desk.jpg"
+                  alt="My development workspace with multiple monitors showing code"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+
+              <SubsectionHeading>Backend Development</SubsectionHeading>
+              <p className="text-white/70 leading-relaxed mb-8">
+                I&apos;m proficient in Python and TypeScript, have production experience with Go, and am currently learning Rust. My backend expertise includes Node.js, Django, Flask, and building robust APIs and microservices. I&apos;m also planning to create CLI tools with Rust.
+              </p>
+
+              <SubsectionHeading>Frontend Development</SubsectionHeading>
+              <p className="text-white/70 leading-relaxed mb-8">
+                For frontend development, I work with React, TypeScript, Next.js, and shadcn/ui, focusing on creating accessible and performant interfaces. I use Tailwind CSS for styling and implement smooth animations and responsive designs.
+              </p>
+
+              <SubsectionHeading>Databases & Infrastructure</SubsectionHeading>
+              <p className="text-white/70 leading-relaxed mb-8">
+                I&apos;m experienced with both SQL and NoSQL databases, and I&apos;ve been working on integrating AI capabilities with the Vercel AI SDK and OpenAI API&apos;s. I also implement modern DevOps practices with CI/CD pipelines, containerization, and cloud infrastructure on AWS and Google Cloud.
+              </p>
+
+              <SubsectionHeading>Development Environment</SubsectionHeading>
+              <p className="text-white/70 leading-relaxed mb-3">
+                I&apos;m passionate about optimizing my development environment. Here are the tools I use daily:
+              </p>
+              <ul className="list-disc list-inside text-white/70 leading-relaxed mb-8 space-y-1 ml-2">
+                <li>Neovim with Lazy configuration</li>
+                <li>Cursor IDE</li>
+                <li>Claude Sonnet AI</li>
+                <li>Wezterm terminal (and sometimes Warp)</li>
+                <li>Moonlander Mark 2 split mechanical keyboard</li>
+              </ul>
+            </motion.section>
+
+            <motion.section
+              className="mb-8"
+              variants={item}
+            >
+              <SectionHeading className="mb-6">beyond code</SectionHeading>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {hobbyData.map((hobby) => (
+                  <HobbyCard
+                    key={hobby.title}
+                    icon={hobby.icon}
+                    title={hobby.title}
+                    description={hobby.description}
+                  />
+                ))}
+              </div>
+            </motion.section>
           </div>
-
-          <ExperienceList />
-        </motion.section>
-
-        {/* Education section */}
-        <motion.section
-          className="mb-20 max-w-5xl mx-auto px-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.4 }}
-        >
-          <div className="mb-6">
-            <PageHeading label="EDUCATION" />
-          </div>
-
-          <EducationList />
-        </motion.section>
-
-        {/* Interests section */}
-        <motion.section
-          className="mb-20 max-w-5xl mx-auto px-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-        >
-          <div className="mb-6">
-            <PageHeading label="INTERESTS" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {interests.map((hobby, i) => (
-              <motion.div
-                key={i}
-                className="p-6 rounded-lg border border-border"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + (i * 0.1), duration: 0.4 }}
-              >
-                <h3 className="text-base font-mono font-medium mb-2">
-                  {hobby.title}
-                </h3>
-                <p className="text-muted-foreground text-base">
-                  {hobby.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-      </motion.div>
-    </section>
-  )
+        </motion.div>
+      </main>
+      <div className="h-24 md:h-32"></div>
+    </div>
+  );
 }
