@@ -17,13 +17,13 @@ interface PhotoGalleryProps {
 
 export function PhotoGallery({ photos }: PhotoGalleryProps) {
   return (
-    <div className="relative h-[320px]">
+    <div className="relative h-[250px] md:h-[320px]">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="grid grid-cols-3 gap-3 w-full max-w-4xl mx-auto px-4">
           {photos.map((photo, index) => (
             <motion.div
               key={photo.src}
-              className="relative h-[280px] group cursor-pointer"
+              className="relative h-[200px] md:h-[280px] group cursor-pointer"
               initial={{ rotate: photo.initialRotation, y: 20, opacity: 0 }}
               animate={{ rotate: photo.initialRotation, y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

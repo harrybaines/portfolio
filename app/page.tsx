@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#1C1C1C] text-white">
       {/* Full-width banner image */}
-      <div className="w-full h-[20vh] md:h-[30vh] relative overflow-hidden">
+      <div className="w-full h-[30vh] relative overflow-hidden">
         <Image
           src="/images/desk.jpg"
           alt="Workspace desk with computer"

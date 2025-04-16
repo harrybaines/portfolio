@@ -84,7 +84,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#1C1C1C] text-white">
-      <main className="flex-1 flex items-start md:items-start justify-center pt-16 md:pt-48">
+      <main className="flex-1 flex items-start md:items-start justify-center pt-12 md:pt-48">
         <motion.div
           className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-16"
           variants={container}
