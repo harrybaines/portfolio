@@ -38,7 +38,7 @@ export default function Home() {
           className="object-cover"
           style={{
             objectPosition: "center 100%",
-            filter: "brightness(0.6) blur(2px)",
+            filter: "brightness(0.6) blur(1px)",
           }}
         />
 
