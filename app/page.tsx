@@ -3,6 +3,7 @@ import { BlogPosts } from "@/app/components/posts";
 import { Projects } from "@/app/components/projects";
 import { getFormattedExperience } from "@/lib/utils";
 import { Github, Linkedin, Mail, Youtube } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import ProfileSection from "./components/profile-section";
 import { siteConfig } from "./config/site";
@@ -27,21 +28,42 @@ const XIcon = ({ size = 24, className = "" }) => (
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#1C1C1C] text-white">
-      <div className="flex-1 flex flex-col justify-center pt-32 md:pt-48 lg:pt-32">
-        {/* Hero Section */}
-        <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-16">
-          <div className="flex flex-col gap-10">
-            {/* Header Group */}
-            <div className="flex flex-col gap-2">
-              <p className="text-lg text-white/60 font-mono">
+      {/* Full-width banner image */}
+      <div className="w-full h-[20vh] md:h-[30vh] relative overflow-hidden">
+        <Image
+          src="/images/desk.jpg"
+          alt="Workspace desk with computer"
+          fill
+          priority
+          className="object-cover"
+          style={{
+            objectPosition: "center 100%",
+            filter: "brightness(0.6) blur(2px)",
+          }}
+        />
+
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1C1C1C]/50 to-[#1C1C1C]" />
+
+        {/* Hero content positioned over the image */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 flex flex-col items-center">
+            <div className="text-center">
+              <p className="text-xl text-white/80 font-mono mb-3">
                 Hi! I&apos;m Harry 👋
               </p>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight">
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-white drop-shadow-lg">
                 I build software.
               </h1>
             </div>
+          </div>
+        </div>
+      </div>
 
-            {/* Profile Image and Bio */}
+      <div className="flex-1 flex flex-col -mt-14 md:-mt-16 relative z-10">
+        {/* Profile and Bio Section */}
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 py-6">
+          <div className="bg-[#252525]/80 backdrop-blur-sm p-8 rounded-xl shadow-xl">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
               <ProfileSection />
 
@@ -52,10 +74,8 @@ export default function Home() {
                     <h3 className="text-xs uppercase tracking-wider text-white/40 font-mono mb-3">about</h3>
                     <div className="space-y-4">
                       <p className="text-lg text-white/70">
-                        Full-stack developer from the UK  with {getFormattedExperience()} experience.
-
+                        Full-stack developer from the UK with {getFormattedExperience()} experience.
                         Specialising in web development, AI integration and developer tooling.
-
                       </p>
                       <p className="text-lg text-white/70">
                         Read more about me {" "}
@@ -122,21 +142,23 @@ export default function Home() {
 
         {/* Two Column Grid Section */}
         <AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Projects Column */}
-            <div>
-              <h3 className="text-sm uppercase tracking-wide text-white/50 font-mono mb-6">
-                projects
-              </h3>
-              <Projects />
-            </div>
+          <div className="max-w-4xl mx-auto w-full px-4 sm:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Projects Column */}
+              <div>
+                <h3 className="text-sm uppercase tracking-wide text-white/50 font-mono mb-6">
+                  projects
+                </h3>
+                <Projects />
+              </div>
 
-            {/* Writing Column */}
-            <div>
-              <h3 className="text-sm uppercase tracking-wide text-white/50 font-mono mb-6">
-                writing
-              </h3>
-              <BlogPosts />
+              {/* Writing Column */}
+              <div>
+                <h3 className="text-sm uppercase tracking-wide text-white/50 font-mono mb-6">
+                  writing
+                </h3>
+                <BlogPosts />
+              </div>
             </div>
           </div>
         </AnimatedSection>
