@@ -23,7 +23,7 @@ export default function ProfileImage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{
             opacity: 1,
-            scale: isHovered ? 1.05 : 1,
+            scale: isHovered ? 1.02 : 1,
             boxShadow: isHovered
               ? "0 25px 65px -15px rgba(255,255,255,0.15)"
               : "0 20px 60px -15px rgba(255,255,255,0.1)"
@@ -54,7 +54,7 @@ export default function ProfileImage() {
       </motion.div>
 
       <motion.div
-        className="absolute left-1/2 transform -translate-x-1/2 mt-6"
+        className="absolute left-1/2 transform -translate-x-1/2 mt-1"
         initial={{ opacity: 0 }}
         animate={{
           opacity: isHovered ? 1 : 0,
@@ -62,7 +62,7 @@ export default function ProfileImage() {
         transition={{ duration: 0.3 }}
       >
         <div className="flex items-center gap-2 whitespace-nowrap py-1 px-1">
-          <p className="text-white font-mono text-sm">Yo whats up? 👋</p>
+          <p className="text-white font-mono text-xs">Yo whats up? 👋</p>
         </div>
       </motion.div>
     </div>
