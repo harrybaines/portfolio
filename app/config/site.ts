@@ -10,11 +10,11 @@ export const siteConfig = {
     startDate: new Date("2020-06-01"), // June 2020 start date
   },
   keyProjects: [
-    {
-      title: "ai.resources",
-      description: "Directory of community tools",
-      url: "https://ai.resources",
-    },
+    // {
+    //   title: "ai.resources",
+    //   description: "Directory of community tools",
+    //   url: "https://ai.resources",
+    // },
     {
       title: "archtms",
       description: "Architect management system",
