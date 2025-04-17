@@ -13,7 +13,7 @@ export function AnimatedSection({ children }: AnimatedSectionProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.6 }}
-      className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-24"
+      className="w-full mx-auto px-4 sm:px-6 py-20"
     >
       {children}
     </motion.div>

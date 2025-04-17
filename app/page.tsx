@@ -3,7 +3,6 @@ import { BlogPosts } from "@/app/components/posts";
 import { Projects } from "@/app/components/projects";
 import { getFormattedExperience } from "@/lib/utils";
 import { Github, Linkedin, Mail, Youtube } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import ProfileSection from "./components/profile-section";
 import { siteConfig } from "./config/site";
@@ -28,41 +27,23 @@ const XIcon = ({ size = 24, className = "" }) => (
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#1C1C1C] text-white">
-      {/* Full-width banner image */}
-      <div className="w-full h-[30vh] relative overflow-hidden">
-        <Image
-          src="/images/desk.jpg"
-          alt="Workspace desk with computer"
-          fill
-          priority
-          className="object-cover"
-          style={{
-            objectPosition: "center 100%",
-            filter: "brightness(0.6) blur(1px)",
-          }}
-        />
-
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1C1C1C]/50 to-[#1C1C1C]" />
-
-        {/* Hero content positioned over the image */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 flex flex-col items-center">
-            <div className="text-center">
-              <p className="text-xl text-white/80 font-mono mb-3">
-                Hi! I&apos;m Harry 👋
-              </p>
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-white drop-shadow-lg">
-                I build software.
-              </h1>
-            </div>
+      {/* Hero section with both elements centered */}
+      <div className="w-full flex items-center justify-center pt-40 pb-10">
+        <div className="max-w-4xl w-full px-4 sm:px-6">
+          <div className="space-y-3">
+            <p className="text-sm sm:text-lg font-mono text-neutral-400 tracking-tight">
+              Hi, I&apos;m Harry 👋
+            </p>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tighter text-white">
+              I build software<span className="text-white/70">.</span>
+            </h1>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col -mt-14 md:-mt-16 relative z-10">
+      <div className="flex-1 flex flex-col">
         {/* Profile and Bio Section */}
-        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 py-6">
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
           <div className="bg-[#252525]/80 backdrop-blur-sm p-8 rounded-xl shadow-xl">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
               <ProfileSection />
@@ -142,8 +123,8 @@ export default function Home() {
 
         {/* Two Column Grid Section */}
         <AnimatedSection>
-          <div className="max-w-4xl mx-auto w-full px-4 sm:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="max-w-4xl mx-auto px-4 sm:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
               {/* Projects Column */}
               <div>
                 <h3 className="text-sm uppercase tracking-wide text-white/50 font-mono mb-6">
