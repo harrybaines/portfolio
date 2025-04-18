@@ -96,9 +96,9 @@ const Container = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 const IntroSection = () => (
-  <div className="pt-20 xl:pt-40 2xl:pt-60 pb-10">
+  <div className="pt-20 xl:pt-40 2xl:pt-80 pb-10">
     <Container>
-      <div className="space-y-3">
+      <div className="space-y-3 pl-8">
         <p className="text-sm sm:text-lg font-mono text-neutral-400 tracking-tight">
           Hi, I&apos;m Harry 👋
         </p>
