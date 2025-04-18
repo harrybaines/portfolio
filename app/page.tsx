@@ -96,7 +96,7 @@ const Container = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 const IntroSection = () => (
-  <div className="pt-40 pb-10">
+  <div className="pt-20 xl:pt-40 2xl:pt-60 pb-10">
     <Container>
       <div className="space-y-3">
         <p className="text-sm sm:text-lg font-mono text-neutral-400 tracking-tight">
@@ -151,7 +151,7 @@ const ProfileBioSection = () => (
 const ContentSection = () => (
   <AnimatedSection>
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 px-8">
         <div>
           <SectionTitle title="projects" />
           <Projects />
