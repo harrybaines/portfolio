@@ -88,3 +88,28 @@
     @apply bg-white/20 text-white/85;
   }
 }
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 0.5rem;
+  height: 2.5rem;
+  background-color: rgb(168, 85, 247); /* purple-500 */
+  margin-left: 0.25rem;
+  animation: blink 1s step-end infinite;
+}
+
+@media (min-width: 768px) {
+  .cursor-blink {
+    height: 3.5rem;
+  }
+}

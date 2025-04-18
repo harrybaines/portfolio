@@ -21,7 +21,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
           <div
             className="prose prose-invert
               prose-headings:font-medium prose-headings:text-white/95
-              prose-h1:text-4xl prose-h1:tracking-tight prose-h1:mt-6 prose-h1:mb-2
+              prose-h1:text-3xl prose-h1:tracking-tight prose-h1:mt-6 prose-h1:mb-2
               prose-h2:text-xl prose-h2:tracking-tight prose-h2:mt-6 prose-h2:mb-2
               prose-h3:text-xl prose-h3:tracking-tight prose-h3:mt-6 prose-h3:mb-2
               prose-h4:text-lg prose-h4:tracking-tight prose-h4:mt-6 prose-h4:mb-2

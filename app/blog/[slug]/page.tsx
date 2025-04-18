@@ -89,10 +89,10 @@ export default async function Blog({ params }: { params: Params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold tracking-tighter font-mono">
+      <h1 className="font-semibold tracking-tighter font-mono">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center text-sm text-neutral-400 mt-4 mb-4">
+      <div className="flex justify-between items-center text-sm text-neutral-400 mt-3 mb-6">
         {formatDate(post.metadata.publishedAt)}
       </div>
       <article className="prose">
