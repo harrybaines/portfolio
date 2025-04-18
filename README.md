@@ -39,8 +39,8 @@ Visit the live site: [harrybaines.net](https://harrybaines.net)
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/harrybaines/harry.dev.git
-cd harry.dev
+git clone https://github.com/harrybaines/portfolio.git
+cd portfolio
 ```
 
 2. **Install dependencies**
@@ -68,7 +68,7 @@ bun dev
 ## 📦 Project Structure
 
 ```
-harry.dev/
+portfolio/
 ├── app/                # Next.js App Router
 │   ├── about/          # About page
 │   ├── blog/           # Blog section

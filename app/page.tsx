@@ -2,7 +2,7 @@ import { AnimatedSection } from "@/app/components/animated-section";
 import { BlogPosts } from "@/app/components/posts";
 import { Projects } from "@/app/components/projects";
 import { getFormattedExperience } from "@/lib/utils";
-import { Github, Linkedin, Mail, Youtube } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Youtube } from "lucide-react";
 import Link from "next/link";
 import ProfileSection from "./components/profile-section";
 import { siteConfig } from "./config/site";
@@ -14,43 +14,7 @@ const SectionTitle = ({ title }: { title: string }) => (
   </h3>
 );
 
-// Social icons component
-const SocialIcons = () => (
-  <div className="flex gap-5 mt-2">
-    <SocialIcon
-      href={siteConfig.social.twitter}
-      aria-label="X (formerly Twitter)"
-    >
-      <XIcon size={18} />
-    </SocialIcon>
-    <SocialIcon
-      href={siteConfig.social.github}
-      aria-label="GitHub"
-    >
-      <Github size={18} />
-    </SocialIcon>
-    <SocialIcon
-      href={`mailto:${siteConfig.social.email}`}
-      aria-label="Email"
-    >
-      <Mail size={18} />
-    </SocialIcon>
-    <SocialIcon
-      href={siteConfig.social.linkedin}
-      aria-label="LinkedIn"
-    >
-      <Linkedin size={18} />
-    </SocialIcon>
-    <SocialIcon
-      href={siteConfig.social.youtube}
-      aria-label="YouTube"
-    >
-      <Youtube size={18} />
-    </SocialIcon>
-  </div>
-);
-
-// Individual social icon with consistent styling
+// Social icon with consistent styling
 const SocialIcon = ({
   href,
   children,
@@ -64,7 +28,7 @@ const SocialIcon = ({
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-white/60 hover:text-white transition-colors"
+    className="text-white/60 hover:text-white transition-colors duration-300"
     aria-label={ariaLabel}
   >
     {children}
@@ -95,63 +59,125 @@ const Container = ({ children, className = "" }: { children: React.ReactNode; cl
   </div>
 );
 
-const IntroSection = () => (
-  <div className="pt-20 xl:pt-40 2xl:pt-80 pb-10">
-    <Container>
-      <div className="space-y-3 pl-8">
-        <p className="text-sm sm:text-lg font-mono text-neutral-400 tracking-tight">
-          Hi, I&apos;m Harry 👋
-        </p>
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tighter text-white">
-          I build software<span className="text-white/70">.</span>
-        </h1>
-      </div>
-    </Container>
-  </div>
-);
+// Hero section - new redesigned component
+const HeroSection = () => (
+  <div className="min-h-[75vh] flex items-center justify-center py-20 md:py-44 relative overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-b from-[#1C1C1C] via-[#1e1e1e] to-[#252525] z-0"></div>
 
-// Profile and bio section component
-const ProfileBioSection = () => (
-  <Container>
-    <div className="bg-[#252525]/80 backdrop-blur-sm p-8 rounded-xl shadow-xl">
-      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-        <ProfileSection />
+    <div className="absolute top-0 left-0 w-full h-full z-0 opacity-10">
+      <div className="absolute top-16 left-16 w-64 h-64 rounded-full bg-teal-500/20 blur-3xl"></div>
+      <div className="absolute bottom-32 right-16 w-80 h-80 rounded-full bg-cyan-500/20 blur-3xl"></div>
+    </div>
 
-        <div className="flex flex-col gap-6 flex-1">
-          {/* Bio Section */}
-          <div className="flex flex-col gap-4">
-            <div>
-              <h3 className="text-xs uppercase tracking-wider text-white/40 font-mono mb-3">about</h3>
-              <div className="space-y-4">
-                <p className="text-lg text-white/70">
-                  Full-stack developer from the UK with {getFormattedExperience()} experience.
-                  Specialising in web development, AI integration and developer tooling.
-                </p>
-                <p className="text-lg text-white/70">
-                  Read more about me {" "}
-                  <Link
-                    href="/about"
-                    className="text-white underline underline-offset-4 hover:text-white/80 transition-colors"
-                  >
-                    here
-                  </Link>.
-                </p>
-              </div>
+    <Container className="z-10">
+      <div className="flex flex-col gap-10">
+        {/* Headline first - separate from the main content grid */}
+        <div className="mb-0">
+          <p className="font-mono text-sm sm:text-lg text-neutral-400 tracking-tight mb-2">
+            Hi, I&apos;m Harry 👋
+          </p>
+          <div className="text-3xl sm:text-4xl font-bold tracking-tighter text-white flex">
+            I build software.
+          </div>
+        </div>
+
+        {/* Main content grid with profile image and bio side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          <div className="md:col-span-1">
+            <ProfileSection />
+          </div>
+
+          <div className="md:col-span-2 flex flex-col justify-center space-y-4">
+
+            <div className="flex flex-col gap-3">
+              <h2 className="font-mono text-sm text-neutral-400 tracking-tight uppercase inline-block">
+                About
+              </h2>
+
+              <p className="text-lg text-white/70 max-w-xl">
+                Full-stack developer from the UK with {getFormattedExperience()} experience.
+                Specialising in web development, AI integration and developer tooling.
+              </p>
             </div>
 
-            <SocialIcons />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mt-2">
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/about"
+                  className="px-5 py-2.5 bg-white/[0.05] text-white rounded-md font-mono text-sm transition-all duration-300 hover:bg-white/[0.08] border border-white/10 hover:border-white/20 hover:translate-y-[-1px] hover:shadow-sm hover:shadow-white/5"
+                >
+                  About me
+                </Link>
+                <a
+                  href={`mailto:${siteConfig.social.email}`}
+                  className="px-5 py-2.5 bg-transparent text-white/70 rounded-md font-mono text-sm transition-all duration-300 hover:text-white border border-white/10 hover:border-white/20 hover:translate-y-[-1px]"
+                >
+                  Get in touch
+                </a>
+              </div>
+
+              <div className="flex gap-4 sm:pl-6 sm:border-l sm:border-white/10 mt-3 sm:mt-0">
+                <SocialIcon href={siteConfig.social.twitter} aria-label="X (formerly Twitter)">
+                  <XIcon size={18} />
+                </SocialIcon>
+                <SocialIcon href={siteConfig.social.github} aria-label="GitHub">
+                  <Github size={18} />
+                </SocialIcon>
+                <SocialIcon href={siteConfig.social.linkedin} aria-label="LinkedIn">
+                  <Linkedin size={18} />
+                </SocialIcon>
+                <SocialIcon href={siteConfig.social.youtube} aria-label="YouTube">
+                  <Youtube size={18} />
+                </SocialIcon>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Cards */}
+        <div className="w-full mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* ArchTMS Card */}
+            <a
+              href="/blog/archtms"
+              className="group relative overflow-hidden rounded-md transition-all duration-300 hover:translate-y-[-2px] bg-white/[0.02] border border-white/[0.05]"
+            >
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-mono text-sm text-white">ArchTMS</h3>
+                  <ExternalLink className="text-white/50 group-hover:text-white transition-colors" size={14} />
+                </div>
+                <p className="text-white/60 text-xs font-mono">Architecture and task management system</p>
+              </div>
+            </a>
+
+            {/* Brewkit Card */}
+            <a
+              href="https://github.com/harrybaines/brewkit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-md transition-all duration-300 hover:translate-y-[-2px] bg-white/[0.02] border border-white/[0.05]"
+            >
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-mono text-sm text-white">brewkit</h3>
+                  <ExternalLink className="text-white/50 group-hover:text-white transition-colors" size={14} />
+                </div>
+                <p className="text-white/60 text-xs font-mono">Modern starter kit for web development</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 );
 
 // Content section component for projects and blog posts
 const ContentSection = () => (
   <AnimatedSection>
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 px-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 min-h-[50vh]">
         <div>
           <SectionTitle title="projects" />
           <Projects />
@@ -169,8 +195,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#1C1C1C] text-white">
       <div className="flex-1 flex flex-col">
-        <IntroSection />
-        <ProfileBioSection />
+        <HeroSection />
         <ContentSection />
       </div>
     </div>

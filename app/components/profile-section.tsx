@@ -20,14 +20,34 @@ export default function ProfileSection() {
     }
   };
 
+  const wrapperAnimation = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        delay: 0.1
+      }
+    }
+  };
+
   return (
     <motion.div
       initial="hidden"
       animate="show"
-      variants={profileImageAnimation}
+      variants={wrapperAnimation}
       className="flex justify-center md:justify-start"
     >
-      <ProfileImage />
+      <div className="relative rounded-lg overflow-hidden p-4 bg-white/[0.03] backdrop-blur-sm shadow-xl shadow-black/5">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={profileImageAnimation}
+          className="flex justify-center"
+        >
+          <ProfileImage />
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
