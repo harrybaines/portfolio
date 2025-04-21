@@ -10,11 +10,12 @@ export const siteConfig = {
     startDate: new Date("2020-06-01"), // June 2020 start date
   },
   keyProjects: [
-    // {
-    //   title: "ai.resources",
-    //   description: "Directory of community tools",
-    //   url: "https://ai.resources",
-    // },
+    {
+      title: "ai.resources",
+      description:
+        "Curated collection of community resources to build AI apps (in development)",
+      url: "#",
+    },
     {
       title: "archtms",
       description: "Architect management system",
@@ -26,14 +27,26 @@ export const siteConfig = {
       url: "https://github.com/harrybaines/brewkit",
     },
     {
+      title: "YT-to-text",
+      description:
+        "Transcribe a YouTube video URL to text using the OpenAI Whisper model",
+      url: "https://github.com/harrybaines/gradio-whisper",
+    },
+    {
       title: "ai avatars",
-      description: "Dreambooth Stable Diffusion avatars",
+      description:
+        "Custom Dreambooth Stable Diffusion model trained on my face",
       url: "https://github.com/harrybaines/ai-avatar-generator",
     },
     {
       title: "torchgpt",
       description: "PyTorch code generator",
       url: "https://github.com/harrybaines/torchgpt",
+    },
+    {
+      title: "ivy (OS)",
+      description: "Added JAX to numpy conversions",
+      url: "https://github.com/ivy-llc/ivy",
     },
   ],
   writing: [

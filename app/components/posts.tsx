@@ -21,15 +21,15 @@ export function BlogPosts() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex flex-col space-y-1 mb-4 hover:opacity-75 transition-opacity duration-300"
+            className="flex flex-col space-y-1 mb-4 hover:opacity-100 transition-opacity duration-300 block"
             href={`/blog/${post.slug}`}
           >
             <div className="w-full flex space-x-0 justify-between items-end py-1">
               <div className="flex-1">
-                <p className="font-mono text-md tracking-tight">
+                <p className="font-mono text-md tracking-tight text-[#F5F5F5] border-b border-dashed border-white/70 inline-block pb-0.5 hover:text-[#64FFDA] transition-colors duration-200">
                   {post.metadata.title}
                 </p>
-                <p className="text-neutral-400 mt-0.5">
+                <p className="text-neutral-400 mt-1.5">
                   {post.metadata.summary}
                 </p>
               </div>

@@ -7,7 +7,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1 flex flex-col justify-center pt-32 md:pt-48 lg:pt-20">
-        <div className="w-full max-w-2xl mx-auto px-4 sm:px-6">
+        <div className="w-full max-w-3xl mx-auto px-4 sm:px-6">
           <div className="mb-10">
             <Link
               href="/"
