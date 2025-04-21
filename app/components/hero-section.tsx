@@ -5,167 +5,114 @@ import { getYearsOfExperience } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Twitter, Youtube } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 export default function HeroSection() {
-  const [cursorVisible, setCursorVisible] = useState(true);
-
-  // Cursor blinking
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCursorVisible(prev => !prev);
-    }, 500);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Staggered animation for children
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.21, 0.45, 0.15, 1]
-      }
-    }
-  };
-
-  const socialItem = {
-    hidden: { opacity: 0, scale: 0.8 },
-    show: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.35,
-        ease: "easeOut"
-      }
-    }
-  };
+  const socialLinks = [
+    { icon: Github, href: siteConfig.social.github, label: "GitHub" },
+    { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
+    { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
+    { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
+    { icon: Mail, href: `mailto:${siteConfig.social.email}`, label: "Email" }
+  ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto py-10">
-      <div className="flex flex-col lg:flex-row items-center gap-8">
-        {/* Left side - image */}
-        <motion.div
-          initial={{ opacity: 0, x: -40, rotate: -12, scale: 0.9 }}
-          animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.19, 1, 0.22, 1],
-            rotate: { duration: 0.7, ease: "easeOut" }
-          }}
-          className="w-36 md:w-40 lg:w-44 relative"
-        >
-          <div className="relative aspect-square rounded-md overflow-hidden">
-            <Image
-              src="/images/profile.png"
-              alt="Harry Baines"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </motion.div>
+    <section className="relative flex items-center justify-center overflow-hidden pt-10 pb-28 md:pt-32 md:pb-40">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 -z-10 bg-black">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/3 right-1/3 w-72 h-72 bg-[#64FFDA]/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-[#FF6B6B]/5 rounded-full blur-[100px]" />
+        </div>
+      </div>
 
-        {/* Right side - content */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="flex-1 space-y-4"
-        >
-          <motion.div variants={item}>
-            <span className="font-mono text-sm text-[#64FFDA]">Hi! I&apos;m Harry 👋</span>
-            <div className="flex items-center mt-1">
-              <h1 className="text-2xl md:text-3xl font-bold text-white">I build software</h1>
-              <div
-                className={`w-2 h-6 md:h-7 bg-[#64FFDA] ml-1 ${cursorVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}
-              ></div>
-            </div>
+      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8 items-center">
+        {/* Text Content - 3 columns */}
+        <div className="lg:col-span-3 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-0"
+          >
+            <span className="font-mono text-sm text-[#64FFDA] tracking-wider block mb-3">Hi! I'm Harry 👋</span>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold tracking-tighter text-white font-mono whitespace-nowrap">
+              I build software
+            </h1>
           </motion.div>
 
           <motion.p
-            variants={item}
-            className="text-base text-[#B8B8B8] max-w-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-zinc-400 text-lg max-w-xl leading-relaxed"
           >
-            Full-stack developer with {getYearsOfExperience()} years experience.
-            Specialising in web dev, AI integration, terminals and developer tooling.
+            Full-stack developer with {getYearsOfExperience()} years of experience. Specialising in web dev, AI integration, terminals and developer tooling.
           </motion.p>
 
+          {/* Social links */}
           <motion.div
-            className="flex items-center gap-5 pt-1"
-            variants={container}
-            initial="hidden"
-            animate="show"
-            transition={{ delayChildren: 0.3, staggerChildren: 0.05 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap items-center gap-2 pr-4 md:pr-0"
           >
-            <motion.a
-              variants={socialItem}
-              href={siteConfig.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#8A8A8A] hover:text-[#64FFDA] transition-colors duration-200"
-              aria-label="GitHub"
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            >
-              <Github size={20} />
-            </motion.a>
-            <motion.a
-              variants={socialItem}
-              href={siteConfig.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#8A8A8A] hover:text-[#64FFDA] transition-colors duration-200"
-              aria-label="Twitter"
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            >
-              <Twitter size={20} />
-            </motion.a>
-            <motion.a
-              variants={socialItem}
-              href={siteConfig.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#8A8A8A] hover:text-[#64FFDA] transition-colors duration-200"
-              aria-label="LinkedIn"
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            >
-              <Linkedin size={20} />
-            </motion.a>
-            <motion.a
-              variants={socialItem}
-              href={siteConfig.social.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#8A8A8A] hover:text-[#64FFDA] transition-colors duration-200"
-              aria-label="YouTube"
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            >
-              <Youtube size={20} />
-            </motion.a>
-            <motion.a
-              variants={socialItem}
-              href={`mailto:${siteConfig.social.email}`}
-              className="text-[#8A8A8A] hover:text-[#64FFDA] transition-colors duration-200"
-              aria-label="Email"
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            >
-              <Mail size={20} />
-            </motion.a>
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 + (index * 0.1) }}
+                className="flex items-center gap-2 text-zinc-500 hover:text-[#64FFDA] transition-all duration-300 hover:-translate-y-1 whitespace-nowrap pr-3 py-1"
+              >
+                <social.icon size={16} strokeWidth={1.5} />
+                <span className="text-xs font-medium">{social.label}</span>
+              </motion.a>
+            ))}
           </motion.div>
+        </div>
+
+        {/* Image - 2 columns */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="lg:col-span-2 hidden sm:flex justify-center lg:justify-end"
+        >
+          <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 m-4">
+            {/* Decorative borders with padding to prevent overflow */}
+            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-zinc-700/60 -translate-x-2 -translate-y-2 rounded-tl-md"></div>
+            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-zinc-700/60 translate-x-2 translate-y-2 rounded-br-md"></div>
+
+            <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[#64FFDA]/10 to-[#FF6B6B]/10 blur-xl rounded-full" />
+            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-zinc-800 p-2">
+              <div className="relative w-full h-full rounded-xl overflow-hidden">
+                <Image
+                  src="/images/profile.png"
+                  alt="Harry Baines"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
-    </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+      >
+        <span className="text-xs uppercase tracking-widest text-zinc-600 font-mono">Scroll</span>
+        <div className="h-8 w-px bg-zinc-800"></div>
+      </motion.div>
+    </section>
   );
 }
