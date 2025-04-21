@@ -17,7 +17,7 @@ export function Testimonial({ quote, author, className }: TestimonialProps) {
     <div className={cn("py-6 space-y-4", className)}>
       <div className="flex items-center gap-4">
         {author.image && (
-          <div className="relative w-20 h-20 rounded-full overflow-hidden">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden">
             <Image
               src={author.image}
               alt={author.name}
@@ -28,7 +28,7 @@ export function Testimonial({ quote, author, className }: TestimonialProps) {
         )}
         <div>
           <span className="font-medium text-white block">{author.name}</span>
-          <span className="text-sm text-slate-400">
+          <span className="text-sm text-neutral-400">
             {author.role}, {author.company}
           </span>
         </div>
