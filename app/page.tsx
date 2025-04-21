@@ -87,7 +87,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#1D1E1E] text-[#B8B8B8] font-sans">
-      <div className="max-w-3xl mx-auto px-6 py-80">
+      <div className="max-w-3xl mx-auto px-6 py-20 lg:py-40 xl:py-80">
         {/* Hero Section */}
         <div className="mb-10">
           <HeroSection />
