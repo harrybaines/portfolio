@@ -10,12 +10,12 @@ export const siteConfig = {
     startDate: new Date("2020-06-01"), // June 2020 start date
   },
   keyProjects: [
-    {
-      title: "ai.resources",
-      description:
-        "Curated collection of community resources to build AI apps (in development)",
-      url: "#",
-    },
+    // {
+    //   title: "ai.resources",
+    //   description:
+    //     "Curated collection of community resources to build AI apps (in development)",
+    //   url: "#",
+    // },
     {
       title: "archtms",
       description: "Architect management system",

@@ -87,7 +87,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#1D1E1E] text-[#B8B8B8] font-sans">
-      <div className="max-w-3xl mx-auto px-6 py-20 lg:py-40 xl:py-80">
+      <div className="max-w-3xl mx-auto px-6 py-20 lg:py-40 3xl:py-80">
         {/* Hero Section */}
         <div className="mb-10">
           <HeroSection />
@@ -98,21 +98,17 @@ export default function Home() {
           <SectionHeader title="About" />
           <div className="prose prose-lg max-w-none prose-p:text-[#B8B8B8] prose-headings:text-[#F5F5F5]">
             <p className="mb-6 text-lg font-normal font-sans">
-              I&apos;m a software engineer from the 🇬🇧 UK near Blackpool.
-              I specialise in web development, AI integration, developer tooling and terminal tools.
+              I&apos;m a software engineer from the 🇬🇧 UK.
               I am the founder of a complete architecture practice management system, <a href="/blog/archtms" target="_blank" rel="noopener noreferrer">archtms</a>, which I built and sold to a large architecture company.
+              I have experience building full-stack web apps, automation scripts, API's and developer tools.
             </p>
             <p className="mb-6 text-lg font-normal font-sans">
-              I have experience building full-stack web apps, automation scripts, API's and developer tools.
               I&apos;m proficient in Python, Go and TypeScript, and I'm currently learning Rust to build performant applications.
               My go-to web stack is PERN, Django or Next.js depending on the project.
               I&apos;m comfortable with any kind of database (SQL/NoSQL).
               I&apos;m currently learning about Vercel's AI SDK to build AI apps, terminal tools and general SWE knowledge.
-            </p>
-            <p className="mb-6 text-lg font-normal font-sans">
-              I live in the terminal, as I love being able to fully customise my dev environment.
               I use Neovim, although I do enjoy using Zed and Cursor.
-              I also enjoy contributing to open-source projects, and I love exploring new technologies.
+              I also enjoy contributing to OS projects, and I love exploring new technologies.
             </p>
             <p className="mb-6 text-lg font-normal font-sans">
               I&apos;m always open to new opportunities - if you&apos;d like to have a chat over coffee ☕, feel free to ping me an <a href={`mailto:${siteConfig.social.email}`}>email</a>!
