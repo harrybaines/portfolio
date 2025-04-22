@@ -2,13 +2,11 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-mono: var(--font-ibm-plex-mono);
-  --font-sans: var(--font-geist-sans);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -29,21 +27,21 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-lora);
   --font-mono: var(--font-ibm-plex-mono);
 }
 
+/* Vars */
 :root {
   --radius: 0.5rem;
   --background: #1d1e1e;
-  --foreground: 222.2 84% 4.9%;
+  --foreground: oklch(87.2% 0.01 258.338);
   --card: #1d1e1e;
   --card-foreground: 222.2 84% 4.9%;
   --popover: #1d1e1e;
   --popover-foreground: 222.2 84% 4.9%;
   --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: #1d1e1e;
+  --primary-foreground: red;
   --secondary: 210 40% 96.1%;
   --secondary-foreground: 222.2 47.4% 11.2%;
   --muted: 210 40% 96.1%;
@@ -59,7 +57,7 @@
 
 .dark {
   --background: #1d1e1e;
-  --foreground: 210 40% 98%;
+  --foreground: 42 23% 91%;
   --card: #1d1e1e;
   --card-foreground: 210 40% 98%;
   --popover: #1d1e1e;
@@ -80,16 +78,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  ::selection {
-    @apply bg-white/20 text-white/85;
-  }
-
   /* Global style for inline links with improved visibility */
   p a,
   .prose a {
@@ -98,10 +86,14 @@
     border-bottom: 1px dashed rgba(255, 255, 255, 0.7) !important;
     transition: color 0.2s !important;
   }
-
   p a:hover,
   .prose a:hover {
     color: #64ffda !important;
+  }
+
+  /* Global paragraph line height */
+  p {
+    line-height: 32px;
   }
 }
 

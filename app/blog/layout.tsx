@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex-1 flex flex-col justify-center pt-32 md:pt-48 lg:pt-20">
+      <div className="flex-1 flex flex-col justify-center">
         <div className="w-full max-w-3xl mx-auto px-4 sm:px-6">
           <div className="mb-10">
             <Link
@@ -25,7 +25,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
               prose-h2:text-xl prose-h2:tracking-tight prose-h2:mt-6 prose-h2:mb-2
               prose-h3:text-xl prose-h3:tracking-tight prose-h3:mt-6 prose-h3:mb-2
               prose-h4:text-lg prose-h4:tracking-tight prose-h4:mt-6 prose-h4:mb-2
-              prose-p:text-neutral-300 prose-p:my-4 prose-p:leading-normal
+              prose-p:text-neutral-300 prose-p:my-4 prose-p:leading-relaxed
               prose-a:underline prose-a:decoration-neutral-600 prose-a:decoration-[0.1em] prose-a:underline-offset-2 prose-a:transition-all prose-a:text-white/80 prose-a:hover:text-white
               prose-code:font-['berkeley-mono'] prose-code:px-1 prose-code:py-0.5 prose-code:rounded-lg prose-code:text-neutral-300
               prose-pre:bg-neutral-900 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-pre:border prose-pre:border-neutral-900 prose-pre:py-2 prose-pre:px-3 prose-pre:text-sm

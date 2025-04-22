@@ -16,26 +16,18 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden pt-10 pb-28 md:pt-32 md:pb-40">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 -z-10 bg-black">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/3 right-1/3 w-72 h-72 bg-[#64FFDA]/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-[#FF6B6B]/5 rounded-full blur-[100px]" />
-        </div>
-      </div>
-
-      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8 items-center">
+    <section className="relative flex items-center justify-center overflow-hidden pt-10 pb-28 md:pt-32 md:pb-48">
+      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-0 items-center">
         {/* Text Content - 3 columns */}
-        <div className="lg:col-span-3 space-y-6">
+        <div className="lg:col-span-3 space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="space-y-0"
           >
-            <span className="font-mono text-sm text-[#64FFDA] tracking-wider block mb-3">Hi! I'm Harry 👋</span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold tracking-tighter text-white font-mono whitespace-nowrap">
+            <span className="font-mono text-md text-[#64FFDA] tracking-wider block mb-3">Hi! I'm Harry 👋</span>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white whitespace-nowrap">
               I build software
             </h1>
           </motion.div>
@@ -44,7 +36,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-zinc-400 text-lg max-w-xl leading-relaxed"
+            className="text-foreground text-lg max-w-xl leading-relaxed"
           >
             Full-stack developer with {getYearsOfExperience()} years of experience. Specialising in web dev, AI integration, terminals and developer tooling.
           </motion.p>
@@ -66,7 +58,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 + (index * 0.1) }}
-                className="flex items-center gap-2 text-zinc-500 hover:text-[#64FFDA] transition-all duration-300 hover:-translate-y-1 whitespace-nowrap pr-3 py-1"
+                className="flex items-center gap-2 text-zinc-400 hover:text-[#64FFDA] transition-all duration-300 hover:-translate-y-1 whitespace-nowrap pr-3 py-1"
               >
                 <social.icon size={16} strokeWidth={1.5} />
                 <span className="text-xs font-medium">{social.label}</span>
@@ -108,7 +100,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
       >
         <span className="text-xs uppercase tracking-widest text-zinc-600 font-mono">Scroll</span>
         <div className="h-8 w-px bg-zinc-800"></div>
