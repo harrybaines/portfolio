@@ -12,7 +12,7 @@ export default function AboutSection() {
         </p>
         <p>
           I&apos;m proficient in Python, Go and TypeScript, and I'm currently learning Rust to build performant applications.
-          My go-to stack is PERN, Django Next.js, or Go depending on the project.
+          My go-to stack is PERN, Django, Next.js, or Go depending on the project.
           I&apos;m comfortable with any kind of database (SQL/NoSQL).
           I&apos;m currently learning about Vercel's AI SDK to build AI apps, terminal tools and general SWE knowledge.
           I use Neovim, although I do enjoy using Zed and Cursor.

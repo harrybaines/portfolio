@@ -60,8 +60,8 @@ function Code({ children, ...props }) {
   const codeHTML = highlight(children);
 
   return (
-    <div className="relative pr-10">
-      <pre>
+    <div className="relative pr-10 overflow-x-auto">
+      <pre className="whitespace-pre-wrap break-words">
         <code
           dangerouslySetInnerHTML={{ __html: skipHighlight ? children : codeHTML }}
           {...props}

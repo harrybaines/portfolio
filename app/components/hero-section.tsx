@@ -15,13 +15,13 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden py-20 lg:py-40 3xl:py-80">
+    <section className="relative flex items-center justify-center overflow-hidden pt-0 pb-20 lg:py-20">
       <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-0 items-center">
         {/* Text Content - 3 columns */}
-        <div className="lg:col-span-3 space-y-8">
-          <div className="space-y-0">
-            <span className="font-mono text-md text-[#64FFDA] tracking-wider block mb-3">Hi! I'm Harry 👋</span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white whitespace-nowrap">
+        <div className="lg:col-span-3 space-y-6">
+          <div className="space-y-2">
+            <span className="font-mono text-sm font-semibold text-neutral-400 tracking-wider block">Hi! I'm Harry 👋</span>
+            <h1 className="text-4xl md:text-4xl font-bold tracking-tighter text-white whitespace-nowrap">
               I build software
             </h1>
           </div>
@@ -55,7 +55,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="lg:col-span-2 hidden sm:flex justify-center lg:justify-end"
         >
-          <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 m-4">
+          <div className="relative w-44 h-44 m-4">
             {/* Decorative borders with padding to prevent overflow */}
             <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-zinc-600/60 -translate-x-2 -translate-y-2 rounded-tl-md"></div>
             <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-zinc-600/60 translate-x-2 translate-y-2 rounded-br-md"></div>
@@ -72,12 +72,6 @@ export default function HeroSection() {
             </div>
           </div>
         </motion.div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
-        <span className="text-xs uppercase tracking-widest text-zinc-600 font-mono">Scroll</span>
-        <div className="h-8 w-px bg-zinc-800"></div>
       </div>
     </section>
   );
