@@ -14,9 +14,4 @@ export type SiteConfig = {
     description: string;
     url: string;
   }[];
-  writing: {
-    title: string;
-    description: string;
-    url: string;
-  }[];
 };
