@@ -1,10 +1,10 @@
 import SectionWrapper from "@/app/components/section-wrapper";
-import { siteConfig } from "@/app/config/site";
+import { siteConfig } from "@/config/site";
 
 export default function AboutSection() {
   return (
     <SectionWrapper title="About">
-      <div className="flex flex-col gap-6 text-lg text-foreground">
+      <div className="flex flex-col gap-6 text-foreground text-neutral-300">
         <p>
           I&apos;m a software engineer from the 🇬🇧 UK.
           I am the founder of a complete architecture practice management system, <a href="/blog/archtms" target="_blank" rel="noopener noreferrer">archtms</a>, which I built and sold to a large architecture company.
@@ -12,7 +12,7 @@ export default function AboutSection() {
         </p>
         <p>
           I&apos;m proficient in Python, Go and TypeScript, and I'm currently learning Rust to build performant applications.
-          My go-to web stack is PERN, Django or Next.js depending on the project.
+          My go-to stack is PERN, Django Next.js, or Go depending on the project.
           I&apos;m comfortable with any kind of database (SQL/NoSQL).
           I&apos;m currently learning about Vercel's AI SDK to build AI apps, terminal tools and general SWE knowledge.
           I use Neovim, although I do enjoy using Zed and Cursor.
@@ -23,7 +23,7 @@ export default function AboutSection() {
         </p>
       </div>
       <div className="flex items-center justify-start mt-8">
-        <div className="h-px w-8 bg-[#D9D9D9] opacity-60 mr-3"></div>
+        <div className="h-px w-6 bg-[#D9D9D9] opacity-60 mr-3"></div>
         <span className="font-mono text-[#D9D9D9] text-sm tracking-wide">Harry</span>
       </div>
     </SectionWrapper>

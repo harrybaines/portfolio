@@ -4,7 +4,6 @@ export const siteConfig = {
     twitter: "https://twitter.com/harryiscoding",
     linkedin: "https://linkedin.com/in/harryb0905",
     email: "harryb0905@googlemail.com",
-    youtube: "https://www.youtube.com/@harry-baines",
   },
   career: {
     startDate: new Date("2020-06-01"),

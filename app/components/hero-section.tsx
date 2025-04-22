@@ -1,9 +1,9 @@
 'use client';
 
-import { siteConfig } from '@/app/config/site';
+import { siteConfig } from '@/config/site';
 import { getYearsOfExperience } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Twitter, Youtube } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HeroSection() {
@@ -11,12 +11,11 @@ export default function HeroSection() {
     { icon: Github, href: siteConfig.social.github, label: "GitHub" },
     { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
     { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
-    { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
     { icon: Mail, href: `mailto:${siteConfig.social.email}`, label: "Email" }
   ];
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden pt-10 pb-28 md:pt-32 md:pb-48">
+    <section className="relative flex items-center justify-center overflow-hidden py-20 lg:py-40 3xl:py-80">
       <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-0 items-center">
         {/* Text Content - 3 columns */}
         <div className="lg:col-span-3 space-y-8">
@@ -36,7 +35,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-foreground text-lg max-w-xl leading-relaxed"
+            className="text-neutral-300 max-w-xl leading-relaxed"
           >
             Full-stack developer with {getYearsOfExperience()} years of experience. Specialising in web dev, AI integration, terminals and developer tooling.
           </motion.p>
@@ -58,7 +57,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 + (index * 0.1) }}
-                className="flex items-center gap-2 text-zinc-400 hover:text-[#64FFDA] transition-all duration-300 hover:-translate-y-1 whitespace-nowrap pr-3 py-1"
+                className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-all duration-300 hover:-translate-y-1 whitespace-nowrap pr-3 py-1"
               >
                 <social.icon size={16} strokeWidth={1.5} />
                 <span className="text-xs font-medium">{social.label}</span>
@@ -76,10 +75,8 @@ export default function HeroSection() {
         >
           <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 m-4">
             {/* Decorative borders with padding to prevent overflow */}
-            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-zinc-700/60 -translate-x-2 -translate-y-2 rounded-tl-md"></div>
-            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-zinc-700/60 translate-x-2 translate-y-2 rounded-br-md"></div>
-
-            <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[#64FFDA]/10 to-[#FF6B6B]/10 blur-xl rounded-full" />
+            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-zinc-600/60 -translate-x-2 -translate-y-2 rounded-tl-md"></div>
+            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-zinc-600/60 translate-x-2 translate-y-2 rounded-br-md"></div>
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-zinc-800 p-2">
               <div className="relative w-full h-full rounded-xl overflow-hidden">
                 <Image
