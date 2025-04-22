@@ -19,58 +19,40 @@ export default function HeroSection() {
       <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-0 items-center">
         {/* Text Content - 3 columns */}
         <div className="lg:col-span-3 space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-0"
-          >
+          <div className="space-y-0">
             <span className="font-mono text-md text-[#64FFDA] tracking-wider block mb-3">Hi! I'm Harry 👋</span>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white whitespace-nowrap">
               I build software
             </h1>
-          </motion.div>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-neutral-300 max-w-xl leading-relaxed"
-          >
+          <p className="text-neutral-300 max-w-xl leading-relaxed">
             Full-stack developer with {getYearsOfExperience()} years of experience. Specialising in web dev, AI integration, terminals and developer tooling.
-          </motion.p>
+          </p>
 
           {/* Social links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-2 pr-4 md:pr-0"
-          >
+          <div className="flex flex-wrap items-center gap-2 pr-4 md:pr-0">
             {socialLinks.map((social, index) => (
-              <motion.a
+              <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 + (index * 0.1) }}
                 className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-all duration-300 hover:-translate-y-1 whitespace-nowrap pr-3 py-1"
               >
                 <social.icon size={16} strokeWidth={1.5} />
                 <span className="text-xs font-medium">{social.label}</span>
-              </motion.a>
+              </a>
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        {/* Image - 2 columns */}
+        {/* Image - 2 columns with anti-clockwise fade in animation */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, rotate: 15, scale: 0.9 }}
+          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="lg:col-span-2 hidden sm:flex justify-center lg:justify-end"
         >
           <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 m-4">
@@ -93,15 +75,10 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
-      >
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
         <span className="text-xs uppercase tracking-widest text-zinc-600 font-mono">Scroll</span>
         <div className="h-8 w-px bg-zinc-800"></div>
-      </motion.div>
+      </div>
     </section>
   );
 }
