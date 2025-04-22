@@ -2,7 +2,7 @@ import SectionHeader from "@/app/components/section-header";
 
 export default function SectionWrapper({ title, children }: { title: string, children: React.ReactNode }) {
   return (
-    <section className="mb-32">
+    <section className="mb-24">
       <SectionHeader title={title} />
       {children}
     </section>

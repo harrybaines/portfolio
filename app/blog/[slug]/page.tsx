@@ -1,37 +1,33 @@
-import { formatDate, getBlogPosts } from "@/app/blog/utils";
-import { CustomMDX } from "@/app/components/mdx";
-import { baseUrl } from "@/app/sitemap";
-import { notFound } from "next/navigation";
+import { formatDate, getBlogPosts } from 'app/blog/utils'
+import { CustomMDX } from 'app/components/mdx'
+import { baseUrl } from 'app/sitemap'
+import { ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const posts = getBlogPosts();
+  let posts = getBlogPosts()
 
   return posts.map((post) => ({
     slug: post.slug,
-  }));
+  }))
 }
 
-type Params = Promise<{ slug: string }>;
-
-export async function generateMetadata({ params }: { params: Params }) {
-  const { slug } = await params;
-  const post = getBlogPosts().find((post) => post.slug === slug);
+export function generateMetadata({ params }) {
+  let post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
-    return {
-      title: 'Not Found',
-      description: 'The page you requested could not be found.'
-    };
+    return
   }
 
-  const {
+  let {
     title,
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.metadata;
-  const ogImage = image
+  } = post.metadata
+  let ogImage = image
     ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
 
   return {
     title,
@@ -39,7 +35,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     openGraph: {
       title,
       description,
-      type: "article",
+      type: 'article',
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
       images: [
@@ -49,31 +45,30 @@ export async function generateMetadata({ params }: { params: Params }) {
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       description,
       images: [ogImage],
     },
-  };
+  }
 }
 
-export default async function Blog({ params }: { params: Params }) {
-  const { slug } = await params;
-  const post = getBlogPosts().find((post) => post.slug === slug);
+export default function Blog({ params }) {
+  let post = getBlogPosts().find((post) => post.slug === params.slug)
 
   if (!post) {
-    notFound();
+    notFound()
   }
 
   return (
-    <section>
+    <section className="mx-auto max-w-xl">
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
@@ -83,21 +78,32 @@ export default async function Blog({ params }: { params: Params }) {
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
-              "@type": "Person",
-              name: "Harry Baines",
+              '@type': 'Person',
+              name: 'My Portfolio',
             },
           }),
         }}
       />
-      <h1 className="font-semibold tracking-tighter">
+      <div className="mb-10">
+        <Link
+          href="/"
+          className="inline-flex items-center text-sm font-mono text-white/60 hover:text-white transition-colors"
+        >
+          <ArrowLeft size={16} className="mr-2" />
+          Back home
+        </Link>
+      </div>
+      <h1 className="title font-semibold text-2xl tracking-tighter">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center text-sm text-neutral-400 mt-2 mb-6">
-        {formatDate(post.metadata.publishedAt)}
+      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          {formatDate(post.metadata.publishedAt)}
+        </p>
       </div>
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
     </section>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import { siteConfig } from "@/app/config/site";
-import { type ClassValue, clsx } from "clsx";
+import { siteConfig } from "@/config/site";
+import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {

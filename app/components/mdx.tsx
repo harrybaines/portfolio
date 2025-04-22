@@ -52,13 +52,22 @@ function RoundedImage(props) {
 }
 
 function Code({ children, ...props }) {
+  // Skip highlighting for blocks with "plain" or "text" language or no language
+  const skipHighlight = props.className === 'language-plain' ||
+    props.className === 'language-text' ||
+    !props.className;
+
   const codeHTML = highlight(children);
+
   return (
-    <div className="relative">
-      <pre className="p-4">
-        <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+    <div className="relative pr-10">
+      <pre>
+        <code
+          dangerouslySetInnerHTML={{ __html: skipHighlight ? children : codeHTML }}
+          {...props}
+        />
       </pre>
-      <div className="absolute top-2 right-2">
+      <div className="absolute top-1.5 right-2">
         <CopyButton content={children.toString()} />
       </div>
     </div>
