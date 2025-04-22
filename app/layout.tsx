@@ -61,7 +61,7 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased max-w-2xl mx-4 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 py-20">
+        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 py-20">
           {children}
           <Footer />
           <Analytics />
