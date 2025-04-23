@@ -4,7 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Lora } from 'next/font/google'
+import { Jost } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -38,7 +38,14 @@ export const metadata: Metadata = {
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
-const lora = Lora({
+// const lora = Lora({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '600', '700'],
+//   style: ['normal', 'italic'],
+//   display: 'swap',
+// })
+
+const jost = Jost({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
@@ -57,7 +64,8 @@ export default function RootLayout({
         'text-black bg-white dark:text-white dark:bg-[#1D1E1E] text-lg',
         GeistSans.variable,
         GeistMono.variable,
-        lora.className
+        // lora.className,
+        jost.className
       )}
     >
       <body className="antialiased max-w-2xl mx-4 lg:mx-auto">
