@@ -1,40 +1,61 @@
-import Link from 'next/link'
+"use client";
 
-const navItems = {
-  '/': {
-    name: 'home',
-  },
-  '/blog': {
-    name: 'blog',
-  },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'deploy',
-  },
-}
+import { profileConfig } from "@/config";
+import { Mail } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export function Navbar() {
+export default function Nav() {
+  const pathname = usePathname();
+
+  // Determine active page based on pathname
+  const isActive = (path: string): boolean => {
+    if (path === "/" && pathname === "/") return true;
+    if (path === "/about" && pathname === "/about") return true;
+    if (path === "projects" && (pathname === "/projects" || pathname.includes("#projects"))) return true;
+    if (path === "writing" && (pathname === "/writing" || pathname.includes("#writing"))) return true;
+    return false;
+  };
+
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              )
-            })}
-          </div>
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-amber-50 border-b border-amber-100">
+      <div className="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-2 hover:text-amber-700 transition-colors">
+          <Image
+            src="/images/brand_transparent.png"
+            alt="Brand logo"
+            width={36}
+            height={36}
+          />
+          <span className="font-medium text-stone-800">harrybaines.net</span>
+        </Link>
+
+        <nav className="hidden md:flex space-x-8">
+          <Link
+            href="/"
+            className={`transition-colors font-medium ${isActive("/") ? "text-amber-700" : "text-stone-700 hover:text-amber-700"}`}
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className={`transition-colors font-medium ${isActive("/about") ? "text-amber-700" : "text-stone-700 hover:text-amber-700"}`}
+          >
+            About
+          </Link>
         </nav>
+
+        <div className="flex items-center gap-6">
+          <a
+            href={`mailto:${profileConfig.email}`}
+            className="text-sm px-4 py-2 rounded-md bg-amber-600 text-white hover:bg-amber-700 transition-colors inline-flex items-center gap-2"
+          >
+            <Mail size={14} />
+            Contact
+          </a>
+        </div>
       </div>
-    </aside>
-  )
+    </header>
+  );
 }

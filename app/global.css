@@ -1,31 +1,21 @@
 @import "tailwindcss";
 
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-:root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-  html {
-    color-scheme: dark;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
@@ -33,8 +23,10 @@ html {
   min-width: 360px;
 }
 
-p {
-  @apply text-neutral-300;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
 }
 
 .prose .anchor {
@@ -69,11 +61,11 @@ p {
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  @apply px-1 py-0.5 rounded-lg bg-neutral-100 text-stone-800 dark:bg-neutral-800 dark:text-stone-200;
 }
 
 .prose pre code {
-  @apply p-0;
+  @apply p-0 bg-transparent text-stone-800 dark:text-stone-200;
   border: initial;
   line-height: 1.5;
 }
@@ -87,24 +79,24 @@ p {
   @apply m-0;
 }
 
-.prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-300;
-}
-
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-5xl font-medium tracking-tight mt-8 mb-4;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-2xl font-medium tracking-tight mt-8 mb-3;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-xl font-medium tracking-tight mt-7 mb-3;
 }
 
 .prose h4 {
   @apply text-lg font-medium tracking-tight mt-6 mb-2;
+}
+
+.prose p {
+  @apply my-4 leading-7 text-lg;
 }
 
 .prose strong {
@@ -112,11 +104,19 @@ p {
 }
 
 .prose ul {
-  @apply list-disc pl-6 text-neutral-300;
+  @apply list-disc pl-6 my-5 space-y-2 text-lg;
 }
 
 .prose ol {
-  @apply list-decimal pl-6;
+  @apply list-decimal pl-6 my-5 space-y-2 text-lg;
+}
+
+.prose li {
+  @apply leading-7 pb-0.5;
+}
+
+.prose li p {
+  @apply my-1;
 }
 
 .prose > :first-child {

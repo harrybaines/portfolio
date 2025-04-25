@@ -1,9 +1,14 @@
-import { formatDate, getBlogPosts } from 'app/blog/utils'
-import { CustomMDX } from 'app/components/mdx'
+import { getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
-import { ArrowLeft } from 'lucide-react'
-import Link from 'next/link'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import BackButton from '@/app/components/blog/back-button'
+import PostBanner from '@/app/components/blog/post-banner'
+import PostContent from '@/app/components/blog/post-content'
+import PostHeader from '@/app/components/blog/post-header'
+import RelatedPosts from '@/app/components/blog/related-posts'
+import SEOSchema from '@/app/components/blog/seo-schema'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -13,10 +18,10 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }) {
+export function generateMetadata({ params }): Metadata | null {
   let post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
-    return
+    return null
   }
 
   let {
@@ -60,50 +65,40 @@ export default function Blog({ params }) {
     notFound()
   }
 
+  const relatedPosts = getBlogPosts()
+    .filter(p => p.slug !== post.slug)
+    .slice(0, 2);
+
+  const hasBanner = !!post.metadata.image;
+
   return (
-    <section className="mx-auto max-w-2xl">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
-            author: {
-              '@type': 'Person',
-              name: 'My Portfolio',
-            },
-          }),
-        }}
+    <div className="min-h-screen bg-amber-50 text-stone-800">
+      <PostBanner
+        imageUrl={post.metadata.image}
+        title={post.metadata.title}
       />
-      <div className="mb-10">
-        <Link
-          href="/"
-          className="inline-flex items-center text-sm font-mono text-white/60 hover:text-white transition-colors"
-        >
-          <ArrowLeft size={16} className="mr-2" />
-          Back home
-        </Link>
+      <div className={`max-w-4xl mx-auto px-6 ${hasBanner ? '-mt-20 relative z-20' : 'pt-12'}`}>
+        <article className="bg-white rounded-xl shadow-md overflow-hidden">
+          <PostHeader
+            title={post.metadata.title}
+            summary={post.metadata.summary}
+            publishedAt={post.metadata.publishedAt}
+            tags={post.metadata.tags}
+            readingTime={post.readingTime}
+          />
+          <PostContent content={post.content} />
+        </article>
       </div>
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
-      </div>
-      <article className="prose">
-        <CustomMDX source={post.content} />
-      </article>
-    </section>
+      <RelatedPosts posts={relatedPosts} />
+      <BackButton href="/blog" />
+      <SEOSchema
+        title={post.metadata.title}
+        publishedAt={post.metadata.publishedAt}
+        summary={post.metadata.summary}
+        image={post.metadata.image}
+        slug={post.slug}
+        baseUrl={baseUrl}
+      />
+    </div>
   )
 }

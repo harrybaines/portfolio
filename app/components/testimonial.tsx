@@ -27,13 +27,13 @@ export function Testimonial({ quote, author, className }: TestimonialProps) {
           </div>
         )}
         <div>
-          <span className="font-medium text-white block">{author.name}</span>
-          <span className="text-sm text-neutral-400">
+          <span className="font-medium block">{author.name}</span>
+          <span className="text-sm text-stone-400">
             {author.role}, {author.company}
           </span>
         </div>
       </div>
-      <p className="text-slate-300 leading-relaxed">
+      <p className="leading-relaxed">
         &ldquo;{quote}&rdquo;
       </p>
     </div>

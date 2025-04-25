@@ -1,12 +1,12 @@
-import { getBlogPosts } from 'app/blog/utils'
+import { formatDateFriendly, getBlogPosts } from 'app/blog/utils'
 import Link from 'next/link'
 
-export function BlogPosts() {
-  let allBlogs = getBlogPosts()
+export function Posts() {
+  let posts = getBlogPosts()
 
   return (
-    <div>
-      {allBlogs
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
@@ -16,22 +16,23 @@ export function BlogPosts() {
           return 1
         })
         .map((post) => (
-          <Link
-            key={post.slug}
-            className="flex flex-col space-y-1 mb-4 hover:opacity-100 transition-opacity duration-300"
-            href={`/blog/${post.slug}`}
-          >
-            <div className="w-full flex space-x-0 justify-between items-end">
-              <p className="text-lg tracking-tight border-b border-dashed">
-                {post.metadata.title}
-              </p>
-              <p className="text-neutral-400 text-sm whitespace-nowrap">
-                {new Date(post.metadata.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric'
-                })}
-              </p>
+          <Link href={`/blog/${post.slug}`} className="block p-6 bg-white hover:bg-amber-50 transition-colors rounded-md border border-amber-100 hover:border-amber-200 shadow-sm hover:shadow">
+            <div className="text-sm text-stone-500 mb-2">{formatDateFriendly(post.metadata.publishedAt)}</div>
+            <h3 className="text-lg font-medium text-stone-900 group-hover:text-amber-700 transition-colors mb-3">
+              {post.metadata.title}
+            </h3>
+            <p className="text-stone-600 mb-4 line-clamp-3">
+              {post.metadata.description}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {post.metadata.tags?.map((tag, tagIndex) => (
+                <span
+                  key={tagIndex}
+                  className="text-xs text-amber-600 hover:text-amber-800 transition-colors"
+                >
+                  #{tag}
+                </span>
+              ))}
             </div>
           </Link>
         ))}

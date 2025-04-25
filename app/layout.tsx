@@ -1,8 +1,7 @@
 import Footer from '@/app/components/footer'
+import Nav from '@/app/components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import { Jost } from 'next/font/google'
 import './global.css'
@@ -38,19 +37,11 @@ export const metadata: Metadata = {
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
-// const lora = Lora({
-//   subsets: ['latin'],
-//   weight: ['400', '500', '600', '700'],
-//   style: ['normal', 'italic'],
-//   display: 'swap',
-// })
-
 const jost = Jost({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-})
+  variable: "--font-jost",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export default function RootLayout({
   children,
@@ -58,23 +49,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        'text-black bg-white dark:text-white dark:bg-[#1D1E1E] text-lg',
-        GeistSans.variable,
-        GeistMono.variable,
-        // lora.className,
-        jost.className
-      )}
-    >
-      <body className="antialiased max-w-2xl mx-4 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 py-20">
+    <html lang="en">
+      <body className={`${jost.variable} antialiased`}>
+        <Nav />
+        <main className="min-h-screen bg-amber-50">
           {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
         </main>
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
