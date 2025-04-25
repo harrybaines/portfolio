@@ -27,7 +27,7 @@ export function generateMetadata({ params }): Metadata | null {
   let {
     title,
     publishedAt: publishedTime,
-    summary: description,
+    description,
     image,
   } = post.metadata
   let ogImage = image
@@ -81,7 +81,7 @@ export default function Blog({ params }) {
         <article className="bg-white rounded-xl shadow-md overflow-hidden">
           <PostHeader
             title={post.metadata.title}
-            summary={post.metadata.summary}
+            description={post.metadata.description}
             publishedAt={post.metadata.publishedAt}
             tags={post.metadata.tags}
             readingTime={post.readingTime}
@@ -94,7 +94,7 @@ export default function Blog({ params }) {
       <SEOSchema
         title={post.metadata.title}
         publishedAt={post.metadata.publishedAt}
-        summary={post.metadata.summary}
+        description={post.metadata.description}
         image={post.metadata.image}
         slug={post.slug}
         baseUrl={baseUrl}

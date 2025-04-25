@@ -5,7 +5,7 @@ interface RelatedPost {
   slug: string;
   metadata: {
     title: string;
-    summary: string;
+    description: string;
     publishedAt: string;
     tags?: any;
   };
@@ -30,7 +30,7 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
               {post.metadata.title}
             </h3>
             <p className="text-stone-600 mb-4 line-clamp-3">
-              {post.metadata.summary}
+              {post.metadata.description}
             </p>
             <div className="flex flex-wrap gap-2">
               {Array.isArray(post.metadata.tags)

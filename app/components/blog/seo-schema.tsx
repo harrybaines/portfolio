@@ -3,7 +3,7 @@
 interface SEOSchemaProps {
   title: string;
   publishedAt: string;
-  summary: string;
+  description: string;
   image?: string;
   slug: string;
   baseUrl: string;
@@ -13,7 +13,7 @@ interface SEOSchemaProps {
 export default function SEOSchema({
   title,
   publishedAt,
-  summary,
+  description,
   image,
   slug,
   baseUrl,
@@ -30,7 +30,7 @@ export default function SEOSchema({
           headline: title,
           datePublished: publishedAt,
           dateModified: publishedAt,
-          description: summary,
+          description,
           image: image
             ? `${baseUrl}${image}`
             : `${baseUrl}/og?title=${encodeURIComponent(title)}`,

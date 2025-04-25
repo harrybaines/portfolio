@@ -4,9 +4,9 @@ import path from "path";
 type Metadata = {
   title: string;
   publishedAt: string;
-  summary: string;
+  description: string;
   image?: string;
-  tags?: any; // This allows for flexibility in the tag types
+  tags?: any;
 };
 
 function parseFrontmatter(fileContent: string) {

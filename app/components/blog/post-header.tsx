@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 interface PostHeaderProps {
   title: string;
-  summary: string;
+  description: string;
   publishedAt: string;
   readingTime?: number;
   tags?: any;
@@ -16,7 +16,7 @@ interface PostHeaderProps {
 
 export default function PostHeader({
   title,
-  summary,
+  description,
   publishedAt,
   readingTime = 5,
   tags,
@@ -53,7 +53,7 @@ export default function PostHeader({
       </h1>
 
       <p className="text-lg text-stone-600 mb-8">
-        {summary}
+        {description}
       </p>
 
       <div className="flex items-center justify-between flex-wrap gap-y-4">
