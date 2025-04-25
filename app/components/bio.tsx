@@ -13,7 +13,7 @@ export default function Bio() {
             <div className="flex-shrink-0">
               <div className="w-44 h-44 rounded-xl overflow-hidden border-2 border-stone-200 shadow-md relative group">
                 <Image
-                  src="/images/whale.jpg"
+                  src="/images/whale.JPG"
                   alt="Harry Baines"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
