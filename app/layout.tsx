@@ -52,7 +52,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jost.variable} antialiased`}>
         <Nav />
-        <main className="min-h-screen bg-amber-50">
+        <main className="min-h-screen bg-amber-50 px-2">
           {children}
         </main>
         <Footer />

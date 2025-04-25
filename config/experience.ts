@@ -55,7 +55,7 @@ const experienceConfig = {
       description:
         "A complete architect management system for timesheets, cashflow, holidays and project management. Landing page coming soon!",
       tags: ["TypeScript", "React", "Node.js", "GraphQL"],
-      image: "/images/projects/tms.png",
+      image: "/images/projects/archtms/tms.png",
       link: "/blog/archtms",
     },
     {

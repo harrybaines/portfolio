@@ -43,15 +43,28 @@ const CardLink = ({ href, children }: { href: string; children: React.ReactNode 
   </Link>
 );
 
-const ProjectImageWrapper = ({ src, alt, priority, aspectRatio = "9/5" }: { src: string; alt: string; priority?: boolean; aspectRatio?: string }) => (
-  <div className={`aspect-[${aspectRatio}] overflow-hidden relative rounded-lg shadow w-full`}>
+const ProjectImageWrapper = ({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) => (
+  <div className="aspect-[9/5] overflow-hidden relative rounded-lg shadow w-full mb-5">
     <Image
       src={src}
       alt={alt}
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       priority={priority}
       fill
-      className="object-cover transition-transform duration-300"
+      className="object-cover transition-transform duration-300 hover:scale-105"
+    />
+  </div>
+);
+
+const FeaturedImageWrapper = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="aspect-[6/5] overflow-hidden relative rounded-lg shadow w-full">
+    <Image
+      src={src}
+      alt={alt}
+      sizes="(max-width: 768px) 100vw, 50vw"
+      priority
+      fill
+      className="object-cover transition-transform duration-300 hover:scale-105"
     />
   </div>
 );
@@ -109,7 +122,7 @@ export default function ProjectsSection() {
           alt={project.title}
           priority={index < 2}
         />
-        <h3 className="text-xl font-medium text-stone-900 mb-3 group-hover:text-amber-700 transition-colors mt-5">
+        <h3 className="text-xl font-medium text-stone-900 mb-3 group-hover:text-amber-700 transition-colors">
           {project.title}
         </h3>
         <p className="text-stone-700 mb-4 line-clamp-3">
@@ -170,11 +183,9 @@ export default function ProjectsSection() {
             )}
           </div>
           <div className="p-8 h-full flex items-center justify-center order-first md:order-last">
-            <ProjectImageWrapper
+            <FeaturedImageWrapper
               src={project.image}
               alt={project.title}
-              priority
-              aspectRatio="6/5"
             />
           </div>
         </div>

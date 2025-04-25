@@ -75,7 +75,7 @@ export default function AboutSection() {
           </div>
 
           <motion.div
-            className="md:w-3/5 ml-auto"
+            className="md:w-2/5 ml-auto"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
