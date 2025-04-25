@@ -10,15 +10,15 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Harry Baines Portfolio',
+    template: '%s | Harry Baines Portfolio',
   },
-  description: 'This is my portfolio.',
+  description: 'Welcome to my portfolio.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Harry Baines Portfolio',
+    description: 'Welcome to my portfolio.',
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'Harry Baines Portfolio',
     locale: 'en_US',
     type: 'website',
   },
@@ -34,8 +34,6 @@ export const metadata: Metadata = {
     },
   },
 }
-
-const cx = (...classes) => classes.filter(Boolean).join(' ')
 
 const jost = Jost({
   variable: "--font-jost",
