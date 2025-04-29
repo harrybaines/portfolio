@@ -23,19 +23,19 @@ export default function AboutHero() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
         {/* Image column */}
-        <div className="lg:col-span-5 xl:col-span-4 order-2 lg:order-1">
-          <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0">
+        <div className="lg:col-span-4 xl:col-span-3 order-2 lg:order-1">
+          <div className="relative aspect-[5/6] w-4/5 sm:w-3/5 md:w-2/5 lg:w-full max-w-xs mx-auto lg:mx-0">
             {/* Decorative elements */}
-            <div className="absolute -z-10 w-full h-full left-6 top-6 bg-amber-200/70 rounded-2xl opacity-50 blur-sm"></div>
-            <div className="absolute -z-10 w-4/5 h-4/5 -left-4 -bottom-4 bg-gradient-to-br from-amber-500/30 to-amber-200/30 rounded-2xl"></div>
+            <div className="absolute -z-10 w-full h-full left-4 top-4 bg-amber-200/70 rounded-2xl opacity-50 blur-sm"></div>
+            <div className="absolute -z-10 w-4/5 h-4/5 -left-3 -bottom-3 bg-gradient-to-br from-amber-500/30 to-amber-200/30 rounded-2xl"></div>
 
             {/* Main image */}
-            <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg border-4 border-amber-100">
+            <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg border-3 border-amber-100">
               <Image
                 src={profileConfig.avatar}
                 alt={profileConfig.name}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 25vw"
                 className="object-cover"
                 priority
               />
@@ -48,13 +48,13 @@ export default function AboutHero() {
         </div>
 
         {/* Content column */}
-        <div className="lg:col-span-7 xl:col-span-8 order-1 lg:order-2">
+        <div className="lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
           <div className="space-y-7">
             <div>
               <span className="text-sm uppercase tracking-wider text-amber-600 font-medium mb-2 inline-block">
                 Hi there, nice to meet you!
               </span>
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-stone-700">
+              <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold text-stone-700">
                 I&apos;m Harry 👋
               </h1>
             </div>

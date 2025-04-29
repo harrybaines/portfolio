@@ -5,7 +5,7 @@ import { Terminal } from "lucide-react";
 export default function WritingSection() {
 
   return (
-    <SectionWrapper bgColor="bg-white/10">
+    <SectionWrapper bgColor="bg-white/50">
       <div className="max-w-6xl mx-auto">
         <div className="inline-flex items-center gap-2 text-amber-600 mb-2">
           <Terminal size={18} strokeWidth={1.5} />

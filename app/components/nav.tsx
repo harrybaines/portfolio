@@ -28,7 +28,7 @@ export default function Nav() {
             width={36}
             height={36}
           />
-          <span className="font-medium text-stone-800">harrybaines.net</span>
+          <span className="font-medium text-stone-800">harrybaines</span>
         </Link>
 
         <nav className="hidden md:flex space-x-8">

@@ -32,7 +32,7 @@ const Tag = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Badge = ({ children, variant = "default" }: { children: React.ReactNode; variant?: "default" | "featured" }) => (
-  <span className={`font-mono text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-${variant === "featured" ? "600" : "700"} shadow-sm`}>
+  <span className={`font-mono text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-${variant === "featured" ? "600" : "700"}`}>
     {children}
   </span>
 );
@@ -253,7 +253,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <SectionWrapper bgColor="bg-white/50">
+    <SectionWrapper bgColor="bg-white/10">
       <div ref={projectsRef} className="max-w-6xl mx-auto">
         <motion.div
           className="mb-16"

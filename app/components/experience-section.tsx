@@ -44,7 +44,7 @@ export default function ExperienceSection() {
     <SectionWrapper bgColor="bg-white/50">
       <div className="relative">
         <motion.div
-          className="mb-12 relative z-10"
+          className="mb-10 relative z-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -59,7 +59,7 @@ export default function ExperienceSection() {
               <h2 className="text-3xl font-semibold text-stone-900 mb-3">
                 Professional Journey
               </h2>
-              <p className="text-lg text-stone-700 mb-8 max-w-3xl">
+              <p className="text-lg text-stone-700 max-w-3xl">
                 A timeline of my professional experience and education. Feel free to check out my full CV <a href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8csQjh97SZY6qKNRiTeyxmBabh2s1nMr98tvg4E" className="text-amber-700 hover:text-amber-900 underline">here</a>.
               </p>
             </div>

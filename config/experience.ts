@@ -31,7 +31,7 @@ const experienceConfig = {
   // Education
   education: [
     {
-      degree: "M.Sc. Data Science",
+      degree: "MSc (Hons) Data Science",
       institution: "Lancaster University",
       period: "September 2019 - June 2020",
       image: "/images/experience/lancaster.png",
@@ -39,7 +39,7 @@ const experienceConfig = {
         "Thesis project focused on enhancing phrase retrieval for Safety Data Sheet authoring.",
     },
     {
-      degree: "B.Sc. Computer Science",
+      degree: "BSc (Hons) Computer Science",
       institution: "Lancaster University",
       period: "October 2016 - June 2019",
       image: "/images/experience/lancaster.png",

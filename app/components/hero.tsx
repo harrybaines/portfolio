@@ -15,7 +15,7 @@ const fadeIn = {
 export default function Hero() {
   return (
     <SectionWrapper bgColor="bg-white/40">
-      <div className="max-w-6xl mx-auto py-24 md:py-32 px-6">
+      <div className="max-w-6xl mx-auto py-24 md:py-10 px-6">
         <motion.div
           className="max-w-3xl mx-auto text-center space-y-7"
           initial="hidden"
@@ -36,15 +36,15 @@ export default function Hero() {
           </div>
 
           <div>
-            <h2 className="text-xl md:text-2xl text-amber-500 font-medium mb-3 font-mono">
+            <h2 className="text-xl md:text-2xl text-amber-500 font-medium mb-3">
               Hi, I&apos;m {profileConfig.name.split(' ')[0]} 👋
             </h2>
-            <h1 className="text-4xl md:text-6xl font-bold text-stone-700">
+            <h1 className="text-4xl md:text-5xl font-bold text-stone-700">
               I build software
             </h1>
           </div>
 
-          <p className="text-lg text-stone-700 max-w-2xl mx-auto">
+          <p className="text-lg text-stone-700 max-w-xl mx-auto">
             Full-stack software engineer specialising in web dev, AI integration, terminals and developer tooling.
           </p>
 
