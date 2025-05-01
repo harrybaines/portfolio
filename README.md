@@ -29,28 +29,13 @@ My personal portfolio website built with Next.js, React 19, and Tailwind CSS. Fe
 ### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/harrybaines/portfolio.git
 cd portfolio
-
-# Install dependencies
-bun install
-
-# Start development server
-bun dev
+pnpm install
+pnpm run dev
 ```
 
 The site will be available at `http://localhost:3000`.
-
-## Building for Production
-
-```bash
-pnpm build
-# or
-npm run build
-# or
-bun run build
-```
 
 ## Project Structure
 

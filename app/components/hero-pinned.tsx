@@ -21,7 +21,7 @@ const fadeInSection = {
 
 export default function HeroPinned() {
   // Get pinned projects
-  const pinnedProjects = [];
+  const pinnedProjects: any[] = [];
   // Type assertion to avoid TS errors
   const keyProjects = siteConfig.keyProjects as any[];
 
