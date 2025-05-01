@@ -3,10 +3,7 @@ import { baseUrl } from 'app/sitemap'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import BackButton from '@/app/components/blog/back-button'
-import PostBanner from '@/app/components/blog/post-banner'
 import PostContent from '@/app/components/blog/post-content'
-import PostHeader from '@/app/components/blog/post-header'
 import RelatedPosts from '@/app/components/blog/related-posts'
 import SEOSchema from '@/app/components/blog/seo-schema'
 
@@ -65,32 +62,29 @@ export default function Blog({ params }) {
     notFound()
   }
 
-  const relatedPosts = getBlogPosts()
-    .filter(p => p.slug !== post.slug)
-    .slice(0, 2);
-
-  const hasBanner = !!post.metadata.image;
+  // Format date to match screenshot format
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    })
+  }
 
   return (
-    <div className="min-h-screen bg-amber-50 text-stone-800">
-      <PostBanner
-        imageUrl={post.metadata.image}
-        title={post.metadata.title}
-      />
-      <div className={`max-w-4xl mx-auto px-6 ${hasBanner ? '-mt-20 relative z-20' : 'pt-12'}`}>
-        <article className="bg-white rounded-xl shadow-md overflow-hidden">
-          <PostHeader
-            title={post.metadata.title}
-            description={post.metadata.description}
-            publishedAt={post.metadata.publishedAt}
-            tags={post.metadata.tags}
-            readingTime={post.readingTime}
-          />
-          <PostContent content={post.content} />
-        </article>
-      </div>
-      <RelatedPosts posts={relatedPosts} />
-      <BackButton href="/blog" />
+    <div className="max-w-3xl mx-auto px-6 py-12 mt-32">
+      <header className="mb-10">
+        <h1 className="text-3xl font-bold mb-2">{post.metadata.title}</h1>
+        <time className="text-gray-300 text-sm">{formatDate(post.metadata.publishedAt)}</time>
+      </header>
+
+      <main className="mb-10">
+        <PostContent content={post.content} />
+      </main>
+
+      <RelatedPosts posts={getBlogPosts()} currentPostSlug={post.slug} />
+
       <SEOSchema
         title={post.metadata.title}
         publishedAt={post.metadata.publishedAt}

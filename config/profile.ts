@@ -1,3 +1,4 @@
+import { getYearsOfExperience } from "@/lib/utils";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 const profileConfig = {
@@ -14,7 +15,7 @@ const profileConfig = {
 
   // Stats
   stats: {
-    yearsExperience: "5+",
+    yearsExperience: getYearsOfExperience(),
     typingSpeed: "110",
     githubContributions: "6K",
     mechanicalKeyboards: "6",
@@ -40,7 +41,11 @@ const profileConfig = {
   currently: [
     {
       emoji: "📚",
-      text: "Learning Rust for performance-critical applications",
+      text: "Learning Rust and extending my knowledge of Go",
+    },
+    {
+      emoji: "💻",
+      text: "Exploring developer tools",
     },
     {
       emoji: "🧠",

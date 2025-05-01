@@ -2,11 +2,22 @@
 
 import { techStackConfig } from "@/config";
 import { motion } from "framer-motion";
-import { Terminal } from "lucide-react";
 import { useState } from "react";
-import SectionWrapper from "./section-wrapper";
 
 // Animation variants
+const fadeInSection = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  })
+};
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -16,7 +27,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
     y: 0,
@@ -33,28 +44,24 @@ export default function TechStack() {
     : techStackConfig.technologies.filter(tech => tech.category === techFilter);
 
   return (
-    <SectionWrapper bgColor="bg-white">
+    <div className="w-full max-w-4xl mx-auto px-6 py-6 text-zinc-300 font-['Geist_Mono']">
       <motion.div
+        custom={0}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInSection}
         className="mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
       >
-        <div className="inline-flex items-center gap-2 text-amber-600 mb-2">
-          <Terminal size={18} strokeWidth={1.5} />
-          <span className="font-mono text-sm">tools_and_technologies</span>
-        </div>
-        <h2 className="text-3xl font-semibold text-stone-900 mb-6">
+        <h3 className="text-sm uppercase tracking-wider mb-4 flex items-center text-zinc-500 font-medium">
           Tech Stack
-        </h2>
+        </h3>
 
-        <div className="flex flex-wrap gap-3 mb-8">
+        <div className="flex flex-wrap gap-3 mt-6">
           <button
             onClick={() => setTechFilter("all")}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${techFilter === "all"
-              ? "bg-amber-600 text-white"
-              : "bg-amber-100 text-amber-800 hover:bg-amber-200"
+            className={`px-4 py-1.5 text-xs rounded-sm transition-colors ${techFilter === "all"
+              ? "bg-amber-500/20 text-amber-500 border border-amber-900/50"
+              : "bg-zinc-900/30 text-zinc-400 border border-zinc-800/50 hover:border-zinc-700/70"
               }`}
           >
             All
@@ -63,9 +70,9 @@ export default function TechStack() {
             <button
               key={category}
               onClick={() => setTechFilter(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${techFilter === category
-                ? "bg-amber-600 text-white"
-                : "bg-amber-100 text-amber-800 hover:bg-amber-200"
+              className={`px-4 py-1.5 text-xs rounded-sm transition-colors ${techFilter === category
+                ? "bg-amber-500/20 text-amber-500 border border-amber-900/50"
+                : "bg-zinc-900/30 text-zinc-400 border border-zinc-800/50 hover:border-zinc-700/70"
                 }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -79,23 +86,23 @@ export default function TechStack() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
       >
         {filteredTechs.map((tech, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
-            className="p-3 rounded-lg bg-white shadow-sm border hover:shadow-md"
+            className="p-3 rounded-sm bg-zinc-900/30 border border-zinc-800/50 hover:border-amber-600/30 transition-all"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <div className="flex-shrink-0">
-                {<tech.icon className="w-4 h-4 text-stone-800" />}
+                {<tech.icon className="w-4 h-4 text-amber-500" />}
               </div>
-              <span className="font-medium text-stone-800 truncate">{tech.name}</span>
+              <span className="text-xs text-zinc-300">{tech.name}</span>
             </div>
           </motion.div>
         ))}
       </motion.div>
-    </SectionWrapper>
+    </div>
   );
 }

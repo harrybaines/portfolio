@@ -1,4 +1,5 @@
 import { formatDateFriendly } from 'app/blog/utils';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 interface RelatedPost {
@@ -13,38 +14,65 @@ interface RelatedPost {
 
 interface RelatedPostsProps {
   posts: RelatedPost[];
+  currentPostSlug: string;
 }
 
-export default function RelatedPosts({ posts }: RelatedPostsProps) {
+export default function RelatedPosts({ posts, currentPostSlug }: RelatedPostsProps) {
+  // Sort posts by date (latest first)
+  const sortedPosts = [...posts].sort((a, b) =>
+    new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  );
+
+  // Find current post index
+  const currentPostIndex = sortedPosts.findIndex(post => post.slug === currentPostSlug);
+
+  // Get adjacent posts (previous = newer, next = older)
+  const previousPost = currentPostIndex > 0 ? sortedPosts[currentPostIndex - 1] : null;
+  const nextPost = currentPostIndex < sortedPosts.length - 1 ? sortedPosts[currentPostIndex + 1] : null;
+
+  if (!previousPost && !nextPost) return null;
+
   return (
-    <div className="max-w-4xl mx-auto px-6 my-16">
-      <h2 className="text-2xl font-semibold text-stone-900 mb-8">
-        More articles you might enjoy
+    <div className="max-w-4xl mx-auto mt-16 border-t border-zinc-800 pt-12">
+      <h2 className="text-xl font-medium text-zinc-200 mb-8">
+        Other Posts
       </h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`}
-            className="p-6 bg-white hover:bg-amber-50 transition-colors rounded-md border border-amber-100 hover:border-amber-200 shadow-sm hover:shadow">
-            <div className="text-sm text-stone-500 mb-2">{formatDateFriendly(post.metadata.publishedAt)}</div>
-            <h3 className="text-lg font-medium text-stone-900 hover:text-amber-700 transition-colors mb-3">
-              {post.metadata.title}
+      <div className="grid md:grid-cols-2 gap-8">
+        {previousPost && (
+          <Link
+            href={`/blog/${previousPost.slug}`}
+            className="group flex flex-col"
+          >
+            <div className="text-sm text-amber-500 mb-2 flex items-center">
+              <ArrowLeft size={14} className="mr-1" />
+              <span>Newer</span>
+            </div>
+            <h3 className="text-lg font-medium text-zinc-300 group-hover:text-amber-500 transition-colors">
+              {previousPost.metadata.title}
             </h3>
-            <p className="text-stone-600 mb-4 line-clamp-3">
-              {post.metadata.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {Array.isArray(post.metadata.tags)
-                ? post.metadata.tags.map((tag, index) => (
-                  <span key={index} className="text-xs text-amber-600">#{tag}</span>
-                ))
-                : post.metadata.tags && typeof post.metadata.tags === 'string'
-                  ? post.metadata.tags.split(',').map((tag, index) => (
-                    <span key={index} className="text-xs text-amber-600">#{tag.trim()}</span>
-                  ))
-                  : null}
+            <div className="text-sm text-zinc-500 mt-1">
+              {formatDateFriendly(previousPost.metadata.publishedAt)}
             </div>
           </Link>
-        ))}
+        )}
+
+        {nextPost && (
+          <Link
+            href={`/blog/${nextPost.slug}`}
+            className="group flex flex-col text-right"
+          >
+            <div className="text-sm text-amber-500 mb-2 flex items-center justify-end">
+              <span>Older</span>
+              <ArrowRight size={14} className="ml-1" />
+            </div>
+            <h3 className="text-lg font-medium text-zinc-300 group-hover:text-amber-500 transition-colors">
+              {nextPost.metadata.title}
+            </h3>
+            <div className="text-sm text-zinc-500 mt-1">
+              {formatDateFriendly(nextPost.metadata.publishedAt)}
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,100 +1,181 @@
 "use client";
 
-import ProfileBio from "@/app/components/profile-bio";
-import SectionWrapper from "@/app/components/section-wrapper";
-import SocialLinks from "@/app/components/social-links";
 import { profileConfig } from "@/config";
+import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import SocialLinks from "./social-links";
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const fadeInSection = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.7,
+      ease: "easeOut"
+    }
+  })
+};
+
+const profileImageAnimation = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 50,
+      damping: 15,
+      duration: 0.8
+    }
+  },
+};
+
+const staggerItems = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemFade = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
+    }
+  }
+};
 
 export default function AboutHero() {
   return (
-    <SectionWrapper bgColor="bg-white/40">
-      <div className="mb-12">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-amber-700 hover:text-amber-900 transition-all text-sm font-medium"
+    <div className="text-zinc-300">
+      {/* Warm, cozy top banner */}
+      <div className="pt-32 pb-16 border-b border-zinc-800/40 bg-gradient-to-b from-zinc-900/50 to-transparent">
+        <div className="w-full max-w-4xl mx-auto px-6">
+          <div className="flex flex-col gap-10">
+            {/* Back navigation */}
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-zinc-500 hover:text-amber-500 transition-all text-sm w-fit group"
+            >
+              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+              <span>Back to home</span>
+            </Link>
+
+            {/* Warm, cozy header */}
+            <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
+              <motion.div
+                variants={profileImageAnimation}
+                initial="hidden"
+                animate="visible"
+                className="relative w-40 h-40 md:w-56 md:h-56 rounded-2xl overflow-hidden flex-shrink-0 shadow-xl shadow-amber-900/20"
+              >
+                <Image
+                  src={profileConfig.avatar}
+                  alt={profileConfig.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 shadow-inner ring-1 ring-inset ring-white/10"></div>
+              </motion.div>
+
+              <div className="flex flex-col gap-4 flex-1 text-center md:text-left">
+                <motion.h1
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="text-3xl font-bold text-white font-sans"
+                >
+                  Software engineer from the UK <span className="text-amber-500">🇬🇧</span>
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-zinc-400 text-lg leading-relaxed w-full font-normal"
+                >
+                  I build web apps, APIs and dev tooling during the day, and tinker with OS projects at night.
+
+                  I'm currently exploring Vercel's AI SDK to build AI applications. I also enjoy contributing to OS projects and endlessly configuring my dev environment 😄.
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-zinc-400 text-lg leading-relaxed w-full md:pr-6 font-normal"
+                >
+                  Outside of work I enjoy hybrid training, watching LFC, and playing chess.
+
+                  I'm always open to new opportunities, collaborations, or a chat over a coffee! ☕
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="mt-2"
+                >
+                  <SocialLinks className="gap-5 justify-center md:justify-start" />
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Section - Enhanced */}
+      <div className="w-full max-w-4xl mx-auto px-6 py-12">
+        <motion.div
+          custom={1}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInSection}
         >
-          <ArrowLeft size={16} />
-          <span>Back to home</span>
-        </Link>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-        {/* Image column */}
-        <div className="lg:col-span-4 xl:col-span-3 order-2 lg:order-1">
-          <div className="relative aspect-[5/6] w-4/5 sm:w-3/5 md:w-2/5 lg:w-full max-w-xs mx-auto lg:mx-0">
-            {/* Decorative elements */}
-            <div className="absolute -z-10 w-full h-full left-4 top-4 bg-amber-200/70 rounded-2xl opacity-50 blur-sm"></div>
-            <div className="absolute -z-10 w-4/5 h-4/5 -left-3 -bottom-3 bg-gradient-to-br from-amber-500/30 to-amber-200/30 rounded-2xl"></div>
-
-            {/* Main image */}
-            <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-lg border-3 border-amber-100">
-              <Image
-                src={profileConfig.avatar}
-                alt={profileConfig.name}
-                fill
-                sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 25vw"
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-amber-800/20 via-transparent to-amber-50/10"></div>
-
-              {/* Warm overlay */}
-              <div className="absolute inset-0 bg-[#FFA07A]/5 mix-blend-overlay"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Content column */}
-        <div className="lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
-          <div className="space-y-7">
-            <div>
-              <span className="text-sm uppercase tracking-wider text-amber-600 font-medium mb-2 inline-block">
-                Hi there, nice to meet you!
-              </span>
-              <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold text-stone-700">
-                I&apos;m Harry 👋
-              </h1>
+          <h3 className="text-sm uppercase tracking-wider mb-6 flex items-center text-zinc-500 font-medium">
+            Stats
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-zinc-900/30 border border-zinc-800 rounded-sm p-5 hover:border-amber-600/30 transition-colors duration-300">
+              <div className="text-2xl font-mono font-bold text-amber-500">{profileConfig.stats.yearsExperience}</div>
+              <div className="text-xs uppercase tracking-wider text-zinc-500 mt-1">Years<br />experience</div>
             </div>
 
-            <div className="w-24 h-1 bg-gradient-to-r from-amber-300 to-amber-100 rounded-full"></div>
+            <div className="bg-zinc-900/30 border border-zinc-800 rounded-sm p-5 hover:border-amber-600/30 transition-colors duration-300">
+              <div className="text-2xl font-mono font-bold text-amber-500">{profileConfig.stats.typingSpeed}</div>
+              <div className="text-xs uppercase tracking-wider text-zinc-500 mt-1">Typing<br />speed</div>
+            </div>
 
-            <ProfileBio />
+            <div className="bg-zinc-900/30 border border-zinc-800 rounded-sm p-5 hover:border-amber-600/30 transition-colors duration-300">
+              <div className="text-2xl font-mono font-bold text-amber-500">{profileConfig.stats.githubContributions}</div>
+              <div className="text-xs uppercase tracking-wider text-zinc-500 mt-1">GitHub<br />contributions</div>
+            </div>
 
-            <div className="pt-3">
-              <p className="text-amber-700/80 mb-4 text-sm font-medium">Let&apos;s connect:</p>
-              <SocialLinks className="gap-4" />
+            <div className="bg-zinc-900/30 border border-zinc-800 rounded-sm p-5 hover:border-amber-600/30 transition-colors duration-300">
+              <div className="text-2xl font-mono font-bold text-amber-500">{profileConfig.stats.mechanicalKeyboards}</div>
+              <div className="text-xs uppercase tracking-wider text-zinc-500 mt-1">Mechanical<br />keyboards</div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-
-      {/* Stats Section */}
-      <div className="mt-16 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100 transition-all hover:shadow-md hover:border-amber-200">
-            <div className="text-5xl font-mono font-bold text-stone-700 mb-2 text-center">{profileConfig.stats.yearsExperience}</div>
-            <div className="text-xs font-mono uppercase tracking-wider text-stone-600 text-center">Years experience</div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100 transition-all hover:shadow-md hover:border-amber-200">
-            <div className="text-5xl font-mono font-bold text-stone-700 mb-2 text-center">{profileConfig.stats.typingSpeed}</div>
-            <div className="text-xs font-mono uppercase tracking-wider text-stone-600 text-center">Typing speed (WPM)</div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100 transition-all hover:shadow-md hover:border-amber-200">
-            <div className="text-5xl font-mono font-bold text-stone-700 mb-2 text-center">{profileConfig.stats.githubContributions}</div>
-            <div className="text-xs font-mono uppercase tracking-wider text-stone-600 text-center">GitHub contributions</div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-amber-100 transition-all hover:shadow-md hover:border-amber-200">
-            <div className="text-5xl font-mono font-bold text-stone-700 mb-2 text-center">{profileConfig.stats.mechanicalKeyboards}</div>
-            <div className="text-xs font-mono uppercase tracking-wider text-stone-600 text-center">Mechanical keyboards</div>
-          </div>
-        </div>
-      </div>
-    </SectionWrapper>
+    </div>
   );
 }

@@ -1,9 +1,8 @@
 "use client";
 
-import SectionWrapper from "@/app/components/section-wrapper";
 import { experienceConfig } from "@/config";
 import { motion } from "framer-motion";
-import { BriefcaseIcon, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import Image from "next/image";
 
 type Experience = {
@@ -24,9 +23,17 @@ type CombinedExperience =
   | (Experience & { type: 'professional' })
   | (Education & { type: 'education' });
 
-const fadeIn = {
+const fadeInSection = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  })
 };
 
 export default function ExperienceSection() {
@@ -41,68 +48,62 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <SectionWrapper bgColor="bg-white/50">
-      <div className="relative">
-        <motion.div
-          className="mb-10 relative z-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-start gap-4">
-            <div>
-              <div className="inline-flex items-center gap-2 text-amber-600 mb-2">
-                <BriefcaseIcon size={18} strokeWidth={1.5} />
-                <span className="font-mono text-sm">experience.json</span>
-              </div>
-              <h2 className="text-3xl font-semibold text-stone-900 mb-3">
-                Professional Journey
-              </h2>
-              <p className="text-lg text-stone-700 max-w-3xl">
-                A timeline of my professional experience and education. Feel free to check out my full CV <a href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8csQjh97SZY6qKNRiTeyxmBabh2s1nMr98tvg4E" className="text-amber-700 hover:text-amber-900 underline">here</a>.
-              </p>
-            </div>
+    <div className="w-full max-w-4xl mx-auto px-6 text-zinc-300 font-['Geist_Mono']">
+      <motion.div
+        custom={0}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInSection}
+        className="mb-10"
+      >
+        <div className="flex items-start">
+          <div>
+            <h3 className="text-sm uppercase tracking-wider mb-4 flex items-center text-zinc-500 font-medium">
+              Experience
+            </h3>
+            <p className="text-sm text-zinc-400 max-w-3xl">
+              A timeline of my journey. Feel free to check out my CV <a href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8csQjh97SZY6qKNRiTeyxmBabh2s1nMr98tvg4E" className="text-amber-500 hover:text-amber-400">here</a>.
+            </p>
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
 
-        {/* Grid Experience List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-          {allExperiences.map((item, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 group"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeIn}
-            >
-              <div className="p-5 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-white flex items-center justify-center relative">
-                  <Image
-                    src={item.image}
-                    alt={item.type === 'professional' ? item.company : item.institution}
-                    fill
-                    className="object-cover"
-                  />
+      {/* Grid Experience List */}
+      <div className="space-y-4">
+        {allExperiences.map((item, index) => (
+          <motion.div
+            key={index}
+            custom={index + 1}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInSection}
+            className="bg-zinc-900/30 border border-zinc-800/50 rounded-sm p-4 hover:border-amber-600/30 transition-all"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-sm overflow-hidden flex-shrink-0 bg-white flex items-center justify-center relative">
+                <Image
+                  src={item.image}
+                  alt={item.type === 'professional' ? item.company : item.institution}
+                  fill
+                  className="object-cover opacity-80"
+                />
+              </div>
+              <div>
+                <h4 className="text-sm font-medium text-zinc-300">
+                  {item.type === 'professional' ? item.role : item.degree}
+                </h4>
+                <div className="text-amber-500 text-xs mt-1">
+                  {item.type === 'professional' ? item.company : item.institution}
                 </div>
-                <div>
-                  <h4 className="text-lg font-medium text-stone-900">
-                    {item.type === 'professional' ? item.role : item.degree}
-                  </h4>
-                  <div className="text-amber-700 font-medium">
-                    {item.type === 'professional' ? item.company : item.institution}
-                  </div>
-                  <div className="text-sm text-stone-500 flex items-center gap-1.5 mt-1">
-                    <Calendar size={14} strokeWidth={1.5} className="text-amber-600" />
-                    <span>{item.period}</span>
-                  </div>
+                <div className="text-xs text-zinc-500 flex items-center gap-1.5 mt-1">
+                  <Calendar size={12} strokeWidth={1.5} className="text-zinc-500" />
+                  <span>{item.period}</span>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </SectionWrapper>
+    </div>
   );
 }

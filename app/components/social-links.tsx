@@ -19,10 +19,10 @@ export default function SocialLinks({
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`p-2 rounded-full bg-amber-100 text-amber-700 hover:bg-amber-200 transition-colors`}
+            className={`text-zinc-500 hover:text-amber-500 transition-colors`}
             aria-label={link.name}
           >
-            {<link.icon strokeWidth={1.5} className="w-5 h-5" />}
+            {<link.icon strokeWidth={1.5} className="w-4 h-4" />}
           </Link>
         );
       })}

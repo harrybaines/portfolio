@@ -23,13 +23,13 @@ export default function PostHeader({
   author = { name: "Harry Baines", role: "Software Engineer" }
 }: PostHeaderProps) {
   return (
-    <div className="p-8 md:p-12 border-b border-amber-100">
+    <div className="p-8 md:p-12 border-b border-zinc-800">
       <div className="flex flex-wrap gap-2 mb-4">
         {Array.isArray(tags)
           ? tags.map((tag, index) => (
             <span
               key={index}
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-amber-100 text-amber-800 border border-amber-200"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-zinc-800 text-amber-500 border border-zinc-700"
             >
               <TagIcon size={12} />
               {tag}
@@ -39,7 +39,7 @@ export default function PostHeader({
             ? tags.split(',').map((tag, index) => (
               <span
                 key={index}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-amber-100 text-amber-800 border border-amber-200"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs bg-zinc-800 text-amber-500 border border-zinc-700"
               >
                 <TagIcon size={12} />
                 {tag.trim()}
@@ -48,11 +48,11 @@ export default function PostHeader({
             : null}
       </div>
 
-      <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6">
+      <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
         {title}
       </h1>
 
-      <p className="text-lg text-stone-600 mb-8">
+      <p className="text-lg text-zinc-400 mb-8 font-sans">
         {description}
       </p>
 
@@ -68,18 +68,18 @@ export default function PostHeader({
             />
           </div>
           <div>
-            <div className="font-medium text-stone-900">{author.name}</div>
-            <div className="text-sm text-stone-500">{author.role}</div>
+            <div className="font-medium text-zinc-300 font-sans">{author.name}</div>
+            <div className="text-sm text-zinc-500 font-sans">{author.role}</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-4 text-sm text-stone-500">
+        <div className="flex items-center gap-4 text-sm text-zinc-500 font-sans">
           <div className="flex items-center gap-1">
-            <Calendar size={14} className="text-amber-600" />
+            <Calendar size={14} className="text-amber-500" />
             <span>{formatDateFriendly(publishedAt)}</span>
           </div>
           <div className="flex items-center gap-1">
-            <Clock size={14} className="text-amber-600" />
+            <Clock size={14} className="text-amber-500" />
             <span>{readingTime} min read</span>
           </div>
         </div>

@@ -1,15 +1,15 @@
 import AboutHero from "@/app/components/about-hero";
-import Bio from "@/app/components/bio";
+import CollaborationSection from "@/app/components/collaboration-section";
 import ExperienceSection from "@/app/components/experience-section";
 import TechStack from "@/app/components/tech-stack";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-amber-50">
+    <div className="w-full max-w-4xl mx-auto px-6 pt-6 grid grid-cols-1 gap-24">
       <AboutHero />
       <ExperienceSection />
       <TechStack />
-      <Bio />
+      <CollaborationSection />
     </div>
   );
 }

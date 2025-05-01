@@ -1,9 +1,10 @@
-import Footer from '@/app/components/footer'
 import Nav from '@/app/components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { GeistMono } from 'geist/font/mono'
 import type { Metadata } from 'next'
 import { Jost } from 'next/font/google'
+import Footer from './components/footer'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 }
 
 const jost = Jost({
-  variable: "--font-jost",
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
@@ -47,10 +48,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${jost.variable} antialiased`}>
+    <html lang="en" className={`${GeistMono.variable} ${jost.variable}`}>
+      <body className="antialiased px-2">
         <Nav />
-        <main className="min-h-screen bg-amber-50 px-2">
+        <main>
           {children}
         </main>
         <Footer />

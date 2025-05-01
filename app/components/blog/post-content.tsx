@@ -6,11 +6,13 @@ interface PostContentProps {
 
 export default function PostContent({ content }: PostContentProps) {
   return (
-    <div className="p-8 md:px-12 prose prose-stone max-w-none
-      prose-headings:text-stone-900 prose-headings:font-medium
-      prose-p:text-stone-700 prose-a:text-amber-700
-      prose-a:no-underline hover:prose-a:text-amber-800
-      prose-blockquote:border-amber-500 prose-strong:text-stone-800">
+    <div className="prose max-w-none
+      prose-headings:font-medium prose-headings:text-black
+      prose-p:text-gray-700 prose-a:text-gray-900
+      prose-a:underline hover:prose-a:text-gray-600
+      prose-blockquote:border-l-gray-300 prose-blockquote:text-gray-700
+      prose-strong:text-gray-900 prose-code:text-gray-800
+      prose-pre:bg-gray-50 prose-li:text-gray-700">
       <CustomMDX source={content} />
     </div>
   );

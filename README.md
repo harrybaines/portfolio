@@ -1,42 +1,61 @@
-# Portfolio Blog Starter
+# Portfolio Site
 
-This is a porfolio site template complete with a blog. Includes:
+My personal portfolio website built with Next.js, React 19, and Tailwind CSS. Features a modern, minimalist design highlighting my software engineering experience, projects, and technical skills.
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## Tech Stack
 
-## Demo
+- **Framework**: Next.js 15 (App Router)
+- **UI**: React 19, Tailwind CSS 4
+- **Animations**: Framer Motion
+- **Deployment**: Vercel
+- **Analytics**: Vercel Analytics
 
-https://portfolio-blog-starter.vercel.app
+## Features
 
-## How to Use
+- Responsive design
+- Dark mode
+- Portfolio showcases
+- Blog with MDX support
+- Performance optimized
+- Animations & transitions
 
-You can choose from one of the following two methods to use this repository:
+## Getting Started
 
-### One-Click Deploy
+### Prerequisites
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+- Node.js 18+ or Bun
+- pnpm/npm/yarn/bun
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
-
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
-```
-
-Then, run Next.js in development mode:
+### Installation
 
 ```bash
-pnpm dev
+# Clone the repository
+git clone https://github.com/harrybaines/portfolio.git
+cd portfolio
+
+# Install dependencies
+bun install
+
+# Start development server
+bun dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+The site will be available at `http://localhost:3000`.
+
+## Building for Production
+
+```bash
+pnpm build
+# or
+npm run build
+# or
+bun run build
+```
+
+## Project Structure
+
+- `/app` - Next.js App Router pages and layouts
+- `/app/components` - UI components
+- `/lib` - Utility functions and shared code
+- `/public` - Static assets
+- `/config` - Configuration files
