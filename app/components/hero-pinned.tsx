@@ -42,7 +42,7 @@ export default function HeroPinned() {
       <h3 className="text-sm uppercase tracking-wider mb-4 flex items-center text-zinc-400 font-medium">
         Pinned
       </h3>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {pinnedProjects.map((project: any, index: number) => (
           <Link
             key={index}

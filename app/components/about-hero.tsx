@@ -67,7 +67,7 @@ export default function AboutHero() {
     <div className="text-zinc-300">
       {/* Warm, cozy top banner */}
       <div className="pt-32 pb-16 border-b border-zinc-800/40 bg-gradient-to-b from-zinc-900/50 to-transparent">
-        <div className="w-full max-w-4xl mx-auto px-6">
+        <div className="w-full max-w-4xl mx-auto">
           <div className="flex flex-col gap-10">
             {/* Back navigation */}
             <Link
@@ -143,7 +143,7 @@ export default function AboutHero() {
       </div>
 
       {/* Stats Section - Enhanced */}
-      <div className="w-full max-w-4xl mx-auto px-6 py-12">
+      <div className="w-full max-w-4xl mx-auto py-12">
         <motion.div
           custom={1}
           initial="hidden"

@@ -48,7 +48,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-6 text-zinc-300 font-['Geist_Mono']">
+    <div className="w-full max-w-4xl mx-auto text-zinc-300 font-mono">
       <motion.div
         custom={0}
         initial="hidden"

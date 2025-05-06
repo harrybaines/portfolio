@@ -99,7 +99,7 @@ export default function Hero() {
             <div className="relative group">
               {/* Hover prompt text - now static and grey */}
               <motion.div
-                className="absolute -top-6 -right-1 z-20 text-[10px] font-mono text-zinc-400 font-medium pointer-events-none"
+                className="absolute -top-6 -right-1 z-20 text-[10px] font-mono text-zinc-400 font-medium pointer-events-none hidden md:block"
                 variants={hoverTextAnimation}
                 initial="hidden"
                 animate="visible"
@@ -115,7 +115,7 @@ export default function Hero() {
                   src="/images/me.jpeg"
                   alt={profileConfig.name}
                   fill
-                  className="object-cover transition-all duration-300 filter grayscale group-hover:grayscale-0"
+                  className="object-cover transition-all duration-300 filter grayscale-0 md:grayscale group-hover:grayscale-0"
                   priority
                 />
               </motion.div>

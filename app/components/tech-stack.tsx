@@ -44,7 +44,7 @@ export default function TechStack() {
     : techStackConfig.technologies.filter(tech => tech.category === techFilter);
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-6 py-6 text-zinc-300 font-['Geist_Mono']">
+    <div className="w-full max-w-4xl mx-auto py-6 text-zinc-300 font-mono">
       <motion.div
         custom={0}
         initial="hidden"
