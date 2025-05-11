@@ -33,7 +33,7 @@ export default function Home() {
               duration: 0.5
             }}
           >
-            <div className="absolute inset-0 rounded-xl overflow-hidden shadow-xl">
+            <div className="absolute inset-0 rounded-xl overflow-hidden shadow-sm">
               <Image
                 src="/images/profile.jpg"
                 alt="Profile"
@@ -46,8 +46,8 @@ export default function Home() {
 
           {/* Main Headline */}
           <div className="space-y-6 max-w-2xl">
-            <h1 className="text-3xl md:text-4xl font-bold text-center leading-tight">
-              Developer, Founder, Creator.
+            <h1 className="text-3xl md:text-4xl font-extrabold text-center leading-tight">
+              I build high quality software.
             </h1>
             <p className="mx-auto text-center text-gray-500 max-w-lg font-sans leading-normal text-md space-x-1">
               <span className="font-mono">Software Engineer</span>
@@ -59,9 +59,8 @@ export default function Home() {
             <p className="mx-auto text-center text-neutral-500 max-w-xl font-sans leading-8 text-lg">
               I build web apps, AI integrations and automations.
               I'm the founder of <Link href="https://archtms.app" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 transition-colors">archtms</Link>.
-              I mainly write TypeScript, Go and Python.
-              I enjoy hybrid training, drinking coffee and supporting LFC.
-              Always open for work 👨‍💻
+              I mainly code in TypeScript, Go and Python.
+              I enjoy hybrid training, drinking coffee and watching LFC.
             </p>
           </div>
 
