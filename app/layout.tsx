@@ -50,7 +50,7 @@ export default function RootLayout({
     <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${sans.variable}`}>
       <body className="antialiased min-h-screen flex flex-col">
         <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto border-x border-dashed border-gray-200">
-          <main className="flex-1 flex items-center justify-center">
+          <main className="flex-1 flex items-center justify-center py-20 sm:py-0">
             {children}
           </main>
         </div>

@@ -54,7 +54,7 @@ export default function Home() {
               <span className="font-mono">⋅</span>
               <span className="font-mono">6 yrs experience</span>
               <span className="font-mono">⋅</span>
-              <span className="font-mono">UK 🇬🇧</span>
+              <span className="font-mono whitespace-nowrap">UK 🇬🇧</span>
             </p>
             <p className="mx-auto text-center text-neutral-500 max-w-xl font-sans leading-8 text-lg">
               I build web apps, AI integrations and automations.
