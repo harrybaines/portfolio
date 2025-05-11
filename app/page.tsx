@@ -35,7 +35,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/images/me.jpeg"
+                src="/images/profile.jpg"
                 alt="Profile"
                 fill
                 className="object-cover"
@@ -46,8 +46,8 @@ export default function Home() {
 
           {/* Main Headline */}
           <div className="space-y-6 max-w-2xl">
-            <h1 className="text-3xl md:text-4xl font-extrabold text-center leading-tight">
-              Builder, Founder, Creator.
+            <h1 className="text-3xl md:text-4xl font-bold text-center leading-tight">
+              Developer, Founder, Creator.
             </h1>
             <p className="mx-auto text-center text-gray-500 max-w-lg font-sans leading-normal text-md space-x-1">
               <span className="font-mono">Software Engineer</span>
@@ -60,7 +60,7 @@ export default function Home() {
               I build web apps, AI integrations and automations.
               I'm the founder of <Link href="https://archtms.app" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 transition-colors">archtms</Link>.
               I mainly write TypeScript, Go and Python.
-              Coffee lover, hybrid athlete and LFC fan.
+              I enjoy hybrid training, drinking coffee and supporting LFC.
               Always open for work 👨‍💻
             </p>
           </div>
