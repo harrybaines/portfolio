@@ -4,8 +4,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import PostContent from '@/app/components/blog/post-content'
-import RelatedPosts from '@/app/components/blog/related-posts'
 import SEOSchema from '@/app/components/blog/seo-schema'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -73,17 +73,20 @@ export default function Blog({ params }) {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12 mt-32">
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold mb-2">{post.metadata.title}</h1>
-        <time className="text-gray-300 text-sm">{formatDate(post.metadata.publishedAt)}</time>
+    <div className="max-w-3xl mx-auto px-6 my-16 md:my-28">
+      <header className="mb-6">
+        <Link href="/" className="text-gray-500 hover:text-gray-700 transition-colors">
+          ← Back home
+        </Link>
+        <h1 className="text-3xl font-bold mt-6 mb-3 font-mono">{post.metadata.title}</h1>
+        <time className="text-gray-500 text-sm font-mono">{formatDate(post.metadata.publishedAt)}</time>
       </header>
 
       <main className="mb-10">
         <PostContent content={post.content} />
       </main>
 
-      <RelatedPosts posts={getBlogPosts()} currentPostSlug={post.slug} />
+      {/* <RelatedPosts posts={getBlogPosts()} currentPostSlug={post.slug} /> */}
 
       <SEOSchema
         title={post.metadata.title}

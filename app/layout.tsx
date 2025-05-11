@@ -1,10 +1,9 @@
-import Nav from '@/app/components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Jost } from 'next/font/google'
-import Footer from './components/footer'
+import { Nunito_Sans } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -36,10 +35,10 @@ export const metadata: Metadata = {
   },
 }
 
-const jost = Jost({
-  variable: "--font-sans",
+const sans = Nunito_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -48,13 +47,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistMono.variable} ${jost.variable}`}>
-      <body className="antialiased px-2">
-        <Nav />
-        <main>
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${sans.variable}`}>
+      <body className="antialiased min-h-screen flex flex-col">
+        <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto border-x border-dashed border-gray-200">
+          <main className="flex-1 flex items-center justify-center">
+            {children}
+          </main>
+        </div>
         <Analytics />
         <SpeedInsights />
       </body>
