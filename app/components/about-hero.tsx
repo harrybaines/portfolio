@@ -2,9 +2,8 @@
 
 import { profileConfig } from "@/config";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import BackButton from "./back-button";
 import SocialLinks from "./social-links";
 
 const fadeIn = {
@@ -70,13 +69,7 @@ export default function AboutHero() {
         <div className="w-full max-w-4xl mx-auto">
           <div className="flex flex-col gap-10">
             {/* Back navigation */}
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-zinc-500 hover:text-amber-500 transition-all text-sm w-fit group"
-            >
-              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-              <span>Back to home</span>
-            </Link>
+            <BackButton href="/" />
 
             {/* Warm, cozy header */}
             <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">

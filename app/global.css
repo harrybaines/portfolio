@@ -44,7 +44,7 @@ body {
 }
 
 .prose p {
-  @apply text-neutral-600;
+  @apply text-neutral-700;
 }
 
 .prose a {
@@ -84,7 +84,7 @@ body {
 }
 
 .prose h1 {
-  @apply text-5xl font-medium tracking-tight mt-8 mb-4;
+  @apply text-3xl font-medium tracking-tight mt-8 mb-4;
 }
 
 .prose h2 {
@@ -100,23 +100,23 @@ body {
 }
 
 .prose p {
-  @apply my-4 leading-7 text-lg;
+  @apply my-4 leading-7 text-base;
 }
 
 .prose strong {
-  @apply font-medium;
+  @apply font-medium text-neutral-900;
 }
 
 .prose ul {
-  @apply list-disc pl-6 my-5 space-y-2 text-lg;
+  @apply list-disc pl-6 my-5 space-y-1.5 text-base;
 }
 
 .prose ol {
-  @apply list-decimal pl-6 my-5 space-y-2 text-lg;
+  @apply list-decimal pl-6 my-5 space-y-1.5 text-base;
 }
 
 .prose li {
-  @apply leading-7 pb-0.5;
+  @apply leading-7 pb-0.5 text-neutral-700;
 }
 
 .prose li p {

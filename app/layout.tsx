@@ -48,7 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${sans.variable}`}>
-      <body className="antialiased flex flex-col">
+      <body className="antialiased flex flex-col h-screen">
         <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto border-x border-dashed border-gray-300">
           <main className="flex-1 flex items-center justify-center py-10 sm:py-0">
             {children}

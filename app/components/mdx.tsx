@@ -67,7 +67,7 @@ function Code({ children, ...props }) {
           {...props}
         />
       </pre>
-      <div className="absolute top-1.5 right-2">
+      <div className="absolute top-1 right-1">
         <CopyButton content={children.toString()} />
       </div>
     </div>

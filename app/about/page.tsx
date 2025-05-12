@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 import ChatUI from "../components/ChatUI";
+import BackButton from "../components/back-button";
 
 export default function AboutPage() {
   const userMessage = "Tell me more about Harry.";
@@ -24,17 +23,7 @@ He's actively exploring Vercel's AI SDK and loves contributing to open-source pr
       <div className="relative z-10 w-full px-6 py-12">
         <div className="max-w-4xl mx-auto">
           {/* Back link */}
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mb-6"
-          >
-            <Link href="/" className="inline-flex items-center text-gray-500 hover:text-gray-900 transition-colors">
-              <ArrowLeft size={16} className="mr-2" />
-              <span>Back home</span>
-            </Link>
-          </motion.div>
+          <BackButton href="/" label="Back home" />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

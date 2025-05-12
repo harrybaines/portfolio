@@ -3,9 +3,9 @@ import { baseUrl } from 'app/sitemap'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import BackButton from '@/app/components/back-button'
 import PostContent from '@/app/components/blog/post-content'
 import SEOSchema from '@/app/components/blog/seo-schema'
-import Link from 'next/link'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -75,10 +75,8 @@ export default function Blog({ params }) {
   return (
     <div className="max-w-3xl mx-auto px-6 my-16 md:my-28">
       <header className="mb-6">
-        <Link href="/" className="text-gray-500 hover:text-gray-700 transition-colors">
-          ← Back home
-        </Link>
-        <h1 className="text-3xl font-bold mt-6 mb-3 font-mono">{post.metadata.title}</h1>
+        <BackButton href="/" />
+        <h1 className="text-3xl font-bold mt-6 mb-3">{post.metadata.title}</h1>
         <time className="text-gray-500 text-sm font-mono">{formatDate(post.metadata.publishedAt)}</time>
       </header>
 

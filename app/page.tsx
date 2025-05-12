@@ -58,7 +58,7 @@ export default function Home() {
             </p>
             <p className="mx-auto text-center text-neutral-500 max-w-xl font-sans leading-8 text-lg">
               I build web apps, AI integrations and automations.
-              I'm the founder of <Link href="https://archtms.app" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 transition-colors">archtms</Link>.
+              Founder of <Link href="https://archtms.app" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 transition-colors">archtms</Link>.
               I mainly code in TypeScript, Go and Python.
               I enjoy hybrid training, drinking coffee and watching LFC.
             </p>
@@ -71,6 +71,12 @@ export default function Home() {
               className="text-blue-500 hover:text-blue-600 transition-colors shadow-sm font-medium border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50"
             >
               Ask AI About Me
+            </Link>
+            <Link
+              href="/blog"
+              className="text-blue-500 hover:text-blue-600 transition-colors shadow-sm font-medium border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50"
+            >
+              Blog
             </Link>
           </div>
 
