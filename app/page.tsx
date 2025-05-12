@@ -47,7 +47,7 @@ export default function Home() {
           {/* Main Headline */}
           <div className="space-y-6 max-w-2xl">
             <h1 className="text-3xl md:text-4xl font-extrabold text-center leading-tight">
-              I build high quality software.
+              I build quality software.
             </h1>
             <p className="mx-auto text-center text-gray-500 max-w-lg font-sans leading-normal text-md space-x-1">
               <span className="font-mono">Software Engineer</span>

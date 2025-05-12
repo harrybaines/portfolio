@@ -7,13 +7,15 @@ import BackButton from "../components/back-button";
 export default function AboutPage() {
   const userMessage = "Tell me more about Harry.";
   const aiResponse = `
-Harry is a UK-based software engineer with 6 years of experience specializing in web applications, APIs, and developer tools. He's the founder of archtms, an architecture practice management system he built and successfully sold to a large architecture company.
+Harry is a UK-based software engineer with 6 years of experience in web applications, APIs, and developer tools. He created archtms, an architecture practice management system that was later acquired by an architecture firm.
 
-His technical expertise spans TypeScript, Go, Python, and various full-stack frameworks including PERN, Django, and Next.js. Harry works with both SQL and NoSQL databases and is currently exploring Rust for performance-critical applications. His development environment includes Neovim and Warp, reflecting his love for terminal-based workflows and efficiency.
+He's comfortable with full-stack development but particularly enjoys backend work. His tech stack includes TypeScript, Go, Python, and frameworks like PERN, Django, and Next.js. He works with both SQL and NoSQL databases and is currently learning Rust.
 
-Harry worked part-time at Cassidy and Ashton Architects for 2 years building version 1 of the archtms system during his time at University. He then went on to work as a Software Engineer/Data Scientist at Yordas Digital for 2 years. He then went full time at Cassidy and Ashton for 2 years building a version 2 of the archtms system. His academic background includes an MSc in Data Science and a BSc in Computer Science from Lancaster University.
+Harry's work history includes two years part-time at Cassidy and Ashton Architects during university (building archtms v1), two years as a Software Engineer/Data Scientist at Yordas Digital, and then two more years full-time at Cassidy and Ashton developing archtms v2. He has an MSc in Data Science and a BSc in Computer Science from Lancaster University.
 
-He's actively exploring Vercel's AI SDK and loves contributing to open-source projects. Beyond coding, Harry is a hybrid athlete, Liverpool FC supporter, and chess player. With stats including 6K GitHub contributions and a typing speed of 110 WPM, he combines technical skill with practical experience. Harry is always open to new opportunities, collaborations, or just chatting over coffee.
+For his development setup, Harry uses Neovim and Warp terminal, which fits well with his preference for keyboard-centric workflows.
+
+Outside of work, Harry is interested in Vercel's AI SDK and contributes to open-source projects. He's also a hybrid athlete, Liverpool FC fan, and chess player. He has over 6,000 GitHub contributions and a typing speed of 110 WPM. Harry is always open to new opportunities, collaborations, or just having a chat over coffee.
   `.trim();
 
   return (
