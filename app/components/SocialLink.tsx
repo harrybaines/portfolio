@@ -13,11 +13,11 @@ export default function SocialLink({ href, label, icon: Icon }: SocialLinkProps)
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center shadow-xs justify-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-gray-500 bg-white hover:bg-zinc-50 hover:text-zinc-700 transition-colors"
+      className="inline-flex items-center justify-center w-8 h-8 rounded-md bg-white border border-neutral-200 text-neutral-600 hover:text-blue-600 hover:border-blue-200 shadow-sm transition-all duration-200"
       aria-label={label}
     >
-      <Icon strokeWidth={1.5} className="w-4 h-4 mr-2" />
-      <span>{label}</span>
+      <Icon strokeWidth={1.5} className="w-4 h-4" />
+      <span className="sr-only">{label}</span>
     </Link>
   );
 }
