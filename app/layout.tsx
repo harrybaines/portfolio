@@ -3,7 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Noto_Sans } from 'next/font/google'
+import { IBM_Plex_Serif, JetBrains_Mono, Noto_Sans } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -41,13 +41,26 @@ const sans = Noto_Sans({
   display: "swap",
 });
 
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const ibmPlexSerif = IBM_Plex_Serif({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${sans.variable}`}>
+    <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${jetbrains.variable} ${ibmPlexSerif.variable}`}>
       <body className="antialiased flex flex-col h-screen">
         <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto border-x border-dashed border-gray-300">
           <main className="flex-1 flex items-center justify-center py-10 sm:py-0">
