@@ -5,7 +5,7 @@ export default function Blog() {
   return (
     <div className="w-full h-full">
       <div className="flex flex-col items-center justify-center min-h-screen px-8 py-16">
-        <div className="max-w-2xl w-full">
+        <div className="max-w-3xl w-full">
           <div className="mb-8">
             <BackButton href="/" />
           </div>
