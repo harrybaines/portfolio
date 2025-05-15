@@ -5,7 +5,6 @@ import { ChevronRight, Code, ExternalLink, Github, Linkedin, Mail, Twitter } fro
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import SocialLink from "./components/SocialLink";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -38,33 +37,6 @@ export default function Home() {
           >
             <Code size={14} className="mr-1.5 text-blue-500" />
             <span>harrybaines</span>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="flex items-center space-x-2.5"
-          >
-            <SocialLink
-              href="https://github.com/harrybaines"
-              label="GitHub"
-              icon={Github}
-            />
-            <SocialLink
-              href="https://twitter.com/harryiscoding"
-              label="Twitter"
-              icon={Twitter}
-            />
-            <SocialLink
-              href="https://linkedin.com/in/harryb0905"
-              label="LinkedIn"
-              icon={Linkedin}
-            />
-            <SocialLink
-              href="mailto:harryb0905@googlemail.com"
-              label="Email"
-              icon={Mail}
-            />
           </motion.div>
         </div>
       </header>
