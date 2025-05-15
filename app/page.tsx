@@ -169,7 +169,7 @@ export default function Home() {
                     I'm currently exploring AI integration, developer tools, and building my own apps.
                     When I'm not coding, I enjoy hybrid training, drinking coffee and watching LFC.
                     Feel free to check out my{" "}
-                    <Link href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8csFYf74iQetTgjU2srHSFxLoADOE8u4KRmazk1" target="_blank" rel="noopener noreferrer"
+                    <Link href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8cspj5QFJVm4oJvDwtFa8PT9yOZuiWgHzdQeYUS" target="_blank" rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 inline-flex items-center font-medium ml-1">
                       CV <ExternalLink size={14} className="ml-1" />
                     </Link> or ping me an email for a chat! 🤙
