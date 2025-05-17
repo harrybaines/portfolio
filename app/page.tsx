@@ -116,7 +116,7 @@ export default function Home() {
                   Nowadays, I mainly code in TypeScript, Go and Python.
                   When I'm not coding, I enjoy hybrid training, playing chess, drinking coffee and watching LFC.
                   Feel free to check out my{" "}
-                  <Link href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8csVPlBiR9mmJBaNLCIYXwzKdW6gOREAxGUFkZh" target="_blank" rel="noopener noreferrer"
+                  <Link href="https://wwoi1vvxbb.ufs.sh/f/0PyPE3K0Z8csk9YND2vyecZ24lV7XoauDvd0RBqrQI3s6Mfb" target="_blank" rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 inline-flex items-center font-medium ml-1">
                     CV <ExternalLink size={12} className="ml-1" />
                   </Link> or ping me an email for a chat! 🤙
