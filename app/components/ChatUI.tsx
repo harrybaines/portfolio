@@ -57,7 +57,7 @@ export default function ChatUI({ userMessage, aiResponse, userImage }: ChatUIPro
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-10">
+    <div className="w-full max-w-4xl mx-auto mt-3">
       <div className="flex items-start">
         <div className="flex-shrink-0 mr-4 mt-5">
           <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">

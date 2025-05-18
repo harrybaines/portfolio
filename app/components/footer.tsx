@@ -22,7 +22,7 @@ export default function Footer() {
       initial="hidden"
       animate="visible"
       variants={fadeInSection}
-      className="flex items-center justify-center py-20 px-6 mt-20 text-center"
+      className="flex items-center justify-center py-10 px-6 mt-20 text-center"
     >
       <p className="text-sm text-zinc-400">
         Handcrafted with ❤️ by Harry &copy; 2025, with coffee and a sprinkle of Claude 👨‍💻

@@ -35,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 700;
 }
 
 .prose .anchor {

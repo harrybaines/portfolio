@@ -1,6 +1,7 @@
 import { getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 import BackButton from '@/app/components/back-button'
@@ -29,7 +30,7 @@ export function generateMetadata({ params }): Metadata | null {
   } = post.metadata
   let ogImage = image
     ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+    : `${baseUrl}/og?title=${globalThis.encodeURIComponent(title)}`
 
   return {
     title,
@@ -63,8 +64,8 @@ export default function Blog({ params }) {
   }
 
   // Format date to match screenshot format
-  const formatDate = (dateString) => {
-    const date = new Date(dateString)
+  const formatDate = (dateString: string) => {
+    const date = new globalThis.Date(dateString)
     return date.toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
@@ -73,11 +74,23 @@ export default function Blog({ params }) {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 my-16 md:my-28">
-      <header className="mb-6">
+    <div className="my-8 md:my-16 max-w-2xl">
+      <header className="mb-8">
         <BackButton href="/" />
-        <h1 className="text-3xl font-bold mt-6 mb-3">{post.metadata.title}</h1>
-        <time className="text-gray-500 text-sm font-mono">{formatDate(post.metadata.publishedAt)}</time>
+        <h1 className="text-3xl font-extrabold mt-6 mb-4">{post.metadata.title}</h1>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/images/profile.jpg"
+            alt="Author"
+            width={48}
+            height={48}
+            className="rounded-full"
+          />
+          <div className='flex flex-col gap-0.5'>
+            <p className="font-medium">Harry Baines</p>
+            <time className="text-gray-500 text-xs font-mono">{formatDate(post.metadata.publishedAt)}</time>
+          </div>
+        </div>
       </header>
 
       <main className="mb-10">

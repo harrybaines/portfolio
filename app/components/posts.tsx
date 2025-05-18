@@ -22,21 +22,21 @@ export function Posts() {
             className="group"
           >
             <div className="flex flex-col space-y-2">
-              <h3 className="text-base font-medium text-neutral-800 group-hover:text-blue-600 transition-colors">
-                {post.metadata.title}
-              </h3>
-              <p className="text-neutral-500 text-sm">
-                {post.metadata.description}
-              </p>
-              <div className="text-xs text-neutral-500 font-mono">
+              <div className="text-sm text-neutral-500 font-mono">
                 {formatDateFriendly(post.metadata.publishedAt)}
               </div>
+              <h3 className="text-lg font-medium text-neutral-800 group-hover:text-blue-600 transition-colors">
+                {post.metadata.title}
+              </h3>
+              <p className="text-neutral-500 text-base">
+                {post.metadata.description}
+              </p>
               {post.metadata.tags && post.metadata.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {post.metadata.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="text-xs text-blue-500"
+                      className="text-xs text-neutral-600 font-semibold"
                     >
                       #{tag}
                     </span>
