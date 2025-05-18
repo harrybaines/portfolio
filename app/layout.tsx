@@ -44,6 +44,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 const jost = Outfit({
+  subsets: ['latin' as const],
   variable: "--font-sans",
   display: "swap",
 });
