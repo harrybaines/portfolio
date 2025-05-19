@@ -17,11 +17,11 @@ export default function HeroSection() {
       animate="visible"
       variants={fadeIn}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="pt-8 md:pt-16 pb-12 md:pb-20"
+      className="pt-0 md:pt-16 pb-12 md:pb-20"
     >
-      <div className="flex flex-col md:flex-row gap-10 md:gap-16 lg:gap-20 items-start">
-        {/* Left side - profile image */}
-        <div className="w-[60%] sm:w-1/2 md:w-1/3 lg:w-2/5 mx-auto md:mx-0">
+      <div className="flex flex-col-reverse md:flex-row gap-10 md:gap-16 lg:gap-20 items-start">
+        {/* Left side - profile image (appears below content on mobile) */}
+        <div className="w-[60%] sm:w-1/2 md:w-1/3 lg:w-2/5 mx-auto md:mx-0 mt-8 md:mt-0">
           <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-xl">
             <Image
               src="/images/whale.jpg"
@@ -33,26 +33,26 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right side - content */}
-        <div className="w-full md:w-2/3 lg:w-3/5 mt-2 md:mt-0">
-          <div className="space-y-6 md:space-y-8">
+        {/* Right side - content (appears first on mobile) */}
+        <div className="w-full md:w-2/3 lg:w-3/5 mt-0 md:mt-4">
+          <div className="space-y-7 md:space-y-4">
             {/* Intro */}
-            <div>
-              <p className="text-neutral-500 font-mono text-sm mb-3">Hi, I'm Harry 👋</p>
-              <h1 className="font-mono text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 mb-3 md:mb-4 flex items-center">
+            <div className="space-y-3 md:space-y-4">
+              <p className="text-neutral-500 font-mono text-sm md:mb-2">Hi, I'm Harry 👋</p>
+              <h1 className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 mb-4 md:mb-5 flex items-center">
                 Software Engineer
-                <span className="inline-block w-[3px] h-[1em] bg-neutral-900 ml-1 cursor-blink"></span>
+                <span className="inline-block w-[3px] h-[1em] bg-neutral-900 ml-1.5 cursor-blink"></span>
               </h1>
-              <p className="text-lg md:text-xl text-neutral-600 max-w-md">
+              <p className="text-lg md:text-xl text-neutral-600 max-w-xl leading-relaxed">
                 Building full-stack apps, dev tools, AI integrations, and contributing to open source.
               </p>
             </div>
 
             {/* About description */}
-            <div className="text-neutral-600 leading-relaxed text-sm sm:text-base">
+            <div className="text-neutral-600 leading-relaxed text-sm sm:text-base max-w-xl">
               <p>
                 Nowadays, I mainly code in TypeScript, Go and Python.
-                I'm the founder of{" "}
+                I'm also the founder of{" "}
                 <Link href="https://archtms.app" target="_blank" rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 inline-flex items-center font-medium">
                   archtms
@@ -62,9 +62,9 @@ export default function HeroSection() {
             </div>
 
             {/* Connect with me */}
-            <div>
-              <h3 className="font-mono text-sm text-neutral-500 mb-2 md:mb-3">Connect with me</h3>
-              <div className="flex flex-wrap gap-2">
+            <div className="pt-1">
+              <h3 className="font-mono text-sm text-neutral-500 mb-3 md:mb-4">Connect with me</h3>
+              <div className="flex flex-wrap gap-2.5">
                 <Link
                   href="https://github.com/harrybaines"
                   target="_blank"
@@ -108,7 +108,7 @@ export default function HeroSection() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-1 md:pt-2">
+            <div className="flex flex-col sm:flex-row gap-3.5 pt-2 md:pt-3">
               <Link
                 href="/about"
                 className="flex-1 text-center px-4 sm:px-5 py-2.5 sm:py-3 bg-neutral-900 text-white font-medium rounded-lg hover:bg-neutral-800 transition-colors flex items-center justify-center text-sm"
