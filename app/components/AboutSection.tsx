@@ -24,7 +24,7 @@ export default function AboutSection() {
 
         <div className="flex-1">
           <p className="text-neutral-600 leading-relaxed text-base">
-            Hiya! I'm Harry, a developer from the UK. I build web apps, AI integrations, dev tools and automations. I'm the founder of{" "}
+            Hiya! I'm Harry, a developer from the UK. I build web apps, AI integrations, dev tools and automations. I'm also the founder of{" "}
             <Link href="https://archtms.app" target="_blank" rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 inline-flex items-center font-medium">
               archtms

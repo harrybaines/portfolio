@@ -1,4 +1,3 @@
-import AboutSection from "./components/AboutSection";
 import ContentWrapper from "./components/ContentWrapper";
 import HeroSection from "./components/HeroSection";
 import PostsSection from "./components/PostsSection";
@@ -10,7 +9,8 @@ export default function Home() {
         <div className="mx-auto w-full flex-1 flex flex-col">
           <ContentWrapper>
             <HeroSection />
-            <AboutSection />
+            {/* AboutSection component has been removed as per request */}
+            {/* <AboutSection /> */}
             <div className="mt-20 mb-40">
               <PostsSection />
             </div>

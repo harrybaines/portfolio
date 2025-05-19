@@ -2,16 +2,16 @@ import Link from 'next/link'
 
 export default function Navbar() {
   return (
-    <nav className="py-5">
+    <nav className="py-6">
       <div className="flex items-center justify-between">
-        <Link href="/" className="font-semibold hover:text-neutral-600 transition-colors">
-          harrybaines
+        <Link href="/" className="font-mono text-sm hover:text-neutral-600 transition-colors">
+          harrybaines.net
         </Link>
         <div className="flex items-center space-x-6">
-          <Link href="/blog" className="text-sm font-semibold text-neutral-700 hover:text-blue-700 transition-colors">
+          <Link href="/blog" className="font-medium text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
             Blog
           </Link>
-          <Link href="/about" className="text-sm font-semibold text-neutral-700 hover:text-blue-700 transition-colors">
+          <Link href="/about" className="font-medium text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
             About
           </Link>
         </div>

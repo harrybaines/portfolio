@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { JetBrains_Mono, Outfit } from 'next/font/google'
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -37,15 +37,21 @@ export const metadata: Metadata = {
   },
 }
 
-const jetbrains = JetBrains_Mono({
+const monoFont = JetBrains_Mono({
   subsets: ['latin' as const],
   variable: "--font-mono",
   display: "swap",
 });
 
-const jost = Outfit({
+const sansFont = Plus_Jakarta_Sans({
   subsets: ['latin' as const],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const interFont = Inter({
+  subsets: ['latin' as const],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -55,9 +61,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${jetbrains.variable} ${jost.variable}`}>
-      <body className="antialiased flex flex-col h-screen">
-        <div className="flex-1 flex flex-col max-w-5xl w-full mx-auto px-6 md:px-8">
+    <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${monoFont.variable} ${sansFont.variable} ${interFont.variable}`}>
+      <body className="antialiased font-sans flex flex-col h-screen">
+        <div className="flex-1 flex flex-col max-w-5xl w-full mx-auto px-8">
           <Navbar />
           <main className="flex-1 flex items-center justify-center py-10 sm:py-0">
             {children}
