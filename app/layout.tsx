@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, JetBrains_Mono, Jost } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -43,7 +43,7 @@ const monoFont = JetBrains_Mono({
   display: "swap",
 });
 
-const sansFont = Plus_Jakarta_Sans({
+const sansFont = Jost({
   subsets: ['latin' as const],
   variable: "--font-sans",
   display: "swap",

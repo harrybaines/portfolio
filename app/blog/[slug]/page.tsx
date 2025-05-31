@@ -74,7 +74,7 @@ export default function Blog({ params }) {
   }
 
   return (
-    <div className="my-8 md:my-16 max-w-2xl">
+    <div className="my-8 md:my-12 max-w-3xl">
       <header className="mb-8">
         <BackButton href="/" />
         <h1 className="text-3xl font-extrabold mt-6 mb-4">{post.metadata.title}</h1>
