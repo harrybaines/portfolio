@@ -65,9 +65,9 @@ export default function ChatUI({ userMessage, aiResponse, userImage }: ChatUIPro
           </div>
         </div>
         <div className="flex-1">
-          <div className="text-gray-800 prose prose-sm max-w-none">
+          <p className="text-gray-800 prose prose-lg max-w-none text-lg">
             {renderTypedText()}
-          </div>
+          </p>
         </div>
       </div>
     </div>

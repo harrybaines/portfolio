@@ -77,7 +77,7 @@ export default function Blog({ params }) {
     <div className="my-8 md:my-12 max-w-3xl">
       <header className="mb-8">
         <BackButton href="/" />
-        <h1 className="text-3xl font-extrabold mt-6 mb-4">{post.metadata.title}</h1>
+        <h1 className="text-4xl font-extrabold mt-6 mb-6">{post.metadata.title}</h1>
         <div className="flex items-center gap-3">
           <Image
             src="/images/profile.jpg"
@@ -93,9 +93,9 @@ export default function Blog({ params }) {
         </div>
       </header>
 
-      <main className="mb-10">
+      <div className="mb-10">
         <PostContent content={post.content} />
-      </main>
+      </div>
 
       {/* <RelatedPosts posts={getBlogPosts()} currentPostSlug={post.slug} /> */}
 

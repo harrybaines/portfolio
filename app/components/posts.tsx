@@ -25,10 +25,10 @@ export function Posts() {
               <div className="text-sm text-neutral-500 font-mono">
                 {formatDateFriendly(post.metadata.publishedAt)}
               </div>
-              <h3 className="text-lg font-medium text-neutral-800 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-medium text-neutral-800 group-hover:text-blue-600 transition-colors">
                 {post.metadata.title}
               </h3>
-              <p className="text-neutral-500 text-base">
+              <p className="text-neutral-500 text-lg">
                 {post.metadata.description}
               </p>
               {post.metadata.tags && post.metadata.tags.length > 0 && (
@@ -36,7 +36,7 @@ export function Posts() {
                   {post.metadata.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="text-xs text-neutral-600 font-semibold"
+                      className="text-sm text-neutral-600 font-semibold"
                     >
                       #{tag}
                     </span>

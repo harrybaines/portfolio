@@ -63,9 +63,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${monoFont.variable} ${sansFont.variable} ${interFont.variable}`}>
       <body className="antialiased font-sans flex flex-col h-screen">
-        <div className="flex-1 flex flex-col max-w-5xl w-full mx-auto px-8">
+        <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto px-8">
           <Navbar />
-          <main className="flex-1 flex items-center justify-center py-10 sm:py-0">
+          <main className="py-10 sm:py-0">
             {children}
           </main>
         </div>

@@ -36,27 +36,27 @@ export default function HeroSection() {
 
         {/* Right side - content (appears first on mobile) */}
         <div className="w-full md:w-2/3 lg:w-4/6 mt-0 md:mt-4">
-          <div className="space-y-7 md:space-y-6">
+          <div className="space-y-6">
             {/* Intro */}
-            <div className="space-y-3 md:space-y-4">
-              <p className="text-neutral-500 font-mono text-sm md:mb-2">Hi, I'm Harry 👋</p>
-              <h1 className="font-mono text-2xl sm:text-3xl md:text-3xl font-bold tracking-tight text-neutral-900 mb-4 md:mb-5 flex items-center">
-                Software Engineer
+            <div className="space-y-3">
+              <p className="text-neutral-500 font-mono text-lg md:mb-2">Software Engineer</p>
+              <h1 className="font-sans text-3xl md:text-4xl tracking-tight text-neutral-900 mb-4 md:mb-5 flex items-center">
+                Hi, I'm Harry 👋
                 <span className="inline-block w-[3px] h-[1em] bg-neutral-900 ml-1.5 cursor-blink"></span>
               </h1>
             </div>
 
             {/* About description */}
-            <div className="text-neutral-600 leading-relaxed text-sm sm:text-base max-w-xl">
+            <div className="text-neutral-500 leading-relaxed text-md sm:text-lg max-w-xl">
               <p>
                 Developer from the 🇬🇧 UK with {getYearsOfExperience()} years experience.
-                I build full-stack apps, dev tools, AI integrations, and contribute to OS.
-                Nowadays, I mainly code in TypeScript, Python and Go.
-                I'm the founder of{" "}
+                I build full-stack apps, dev tools and contribute to OS.
+                I mainly code in TypeScript, Python and Go.
+                I also built{" "}
                 <Link href="https://archtms.app" target="_blank" rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 inline-flex items-center font-medium">
                   archtms
-                </Link>.
+                </Link> for a large architecture firm.
                 When I'm not coding, I enjoy hybrid training, playing chess, drinking coffee and watching LFC.
               </p>
             </div>

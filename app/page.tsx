@@ -9,8 +9,6 @@ export default function Home() {
         <div className="mx-auto w-full flex-1 flex flex-col">
           <ContentWrapper>
             <HeroSection />
-            {/* AboutSection component has been removed as per request */}
-            {/* <AboutSection /> */}
             <div className="mt-20 mb-40">
               <PostsSection />
             </div>
