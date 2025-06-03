@@ -1,0 +1,51 @@
+---
+title: "'Go Mod File Not Found in Current Directory'"
+description: "A few solutions to solve the issue with running Go files"
+publishedAt: "2025-06-03"
+tags: ["Go", "Terminal", "Software"]
+---
+
+After banging my head against a brick wall for the best part of half an hour, I finally figured out how to solve:
+
+```bash
+go: no modules were found in the current workspace; see 'go help work'
+```
+
+I was trying to run a main.go file using
+
+```bash
+go run .
+```
+
+But couldn't get the issue to go away.
+
+Usually when working with Go projects nowadays you would do something like:
+
+```bash
+mkdir myproject
+cd myproject
+touch main.go
+go mod init github.com/<USERNAME>/myproject
+go mody tidy
+go run .
+```
+
+If any of these errors come up:
+
+```bash
+go: no modules were found in the current workspace; see 'go help work'
+```
+
+or:
+
+```bash
+main.go:7:5: no required module provides package github.com/charmbracelet/bubbletea: go.mod file not found in current directory or any parent directory; see 'go help modules'
+```
+
+Then I would check the following:
+
+- Check go.mod actually exists
+- Try setting the following: export GO111MODULE='auto' (ref: https://janusworx.com/work/quick-fix-go-mod-file-not-found-in-current-directory/)
+- Check if any go.work files exist. This was my issue - I had one in my root directory, which I had to remove. Then running my Go file worked!
+
+Even ChatGPT struggled with this one 😄

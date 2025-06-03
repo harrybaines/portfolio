@@ -146,15 +146,15 @@ button {
 }
 
 .prose ul {
-  @apply list-disc pl-6 my-5 space-y-1.5 text-base;
+  @apply list-disc pl-6 my-5 space-y-1.5 text-lg;
 }
 
 .prose ol {
-  @apply list-decimal pl-6 my-5 space-y-1.5 text-base;
+  @apply list-decimal pl-6 my-5 space-y-1.5 text-lg;
 }
 
 .prose li {
-  @apply leading-7 pb-0.5 text-neutral-700;
+  @apply leading-7.5 pb-0.5 text-neutral-700;
 }
 
 .prose li p {
