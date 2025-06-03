@@ -6,7 +6,7 @@ export const siteConfig = {
     email: "harryb0905@googlemail.com",
   },
   career: {
-    startDate: "2020-06-01",
+    startDate: "2019-06-01",
   },
   keyProjects: [
     {
