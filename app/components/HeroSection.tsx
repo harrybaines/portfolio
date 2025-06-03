@@ -24,7 +24,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="lg:min-h-[70vh] lg:flex lg:items-center py-8 md:py-12">
+    <div className="lg:min-h-[50vh] lg:flex lg:items-center py-8 md:py-12">
       <motion.div
         initial="hidden"
         animate="visible"

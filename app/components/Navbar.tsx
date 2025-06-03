@@ -8,10 +8,10 @@ export default function Navbar() {
           ~/harrybaines
         </Link>
         <div className="flex items-center space-x-6">
-          <Link href="/blog" className="font-medium text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
+          <Link href="/blog" className="font-medium text-md text-neutral-700 hover:text-neutral-900 transition-colors">
             Blog
           </Link>
-          <Link href="/about" className="font-medium text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
+          <Link href="/about" className="font-medium text-md text-neutral-700 hover:text-neutral-900 transition-colors">
             About
           </Link>
         </div>
