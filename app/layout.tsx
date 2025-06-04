@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono, Jost } from 'next/font/google'
+import { Figtree, JetBrains_Mono, Lora } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -43,15 +43,15 @@ const monoFont = JetBrains_Mono({
   display: "swap",
 });
 
-const sansFont = Jost({
+const sansFont = Figtree({
   subsets: ['latin' as const],
   variable: "--font-sans",
   display: "swap",
 });
 
-const interFont = Inter({
+const headingFont = Lora({
   subsets: ['latin' as const],
-  variable: "--font-inter",
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -61,11 +61,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${monoFont.variable} ${sansFont.variable} ${interFont.variable}`}>
-      <body className="antialiased font-sans flex flex-col h-screen">
-        <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto px-8">
+    <html lang="en" className={`light ${GeistMono.variable} ${GeistSans.variable} ${monoFont.variable} ${sansFont.variable} ${headingFont.variable}`}>
+      <body className="antialiased font-sans h-screen">
+        <div className="max-w-7xl w-full mx-auto px-8">
           <Navbar />
-          <main className="py-10 sm:py-0">
+          <main>
             {children}
           </main>
         </div>

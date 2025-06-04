@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="py-6">
       <div className="flex items-center justify-between">
-        <Link href="/" className="font-sans text-md hover:text-neutral-600 transition-colors">
+        <Link href="/" className="font-mono text-md hover:text-neutral-600 transition-colors">
           ~/harrybaines
         </Link>
         <div className="flex items-center space-x-6">

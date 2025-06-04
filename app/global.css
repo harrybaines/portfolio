@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
 }
 
 @theme inline {
@@ -10,15 +10,22 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-inter: var(--font-inter);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #0a0a0a;
   }
-} */
+}
+
+/* Add dark mode media query if you want to support it */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.98 0.01 100);
+    --foreground: #171717;
+  }
+}
 
 html {
   min-width: 360px;
@@ -39,6 +46,7 @@ h5,
 h6 {
   font-weight: 700;
   letter-spacing: -0.025em;
+  font-family: var(--font-heading);
 }
 
 /* Mono styling for code, terminal content etc. */
@@ -82,7 +90,7 @@ button {
 }
 
 .prose p {
-  @apply text-neutral-700;
+  @apply text-black;
 }
 
 .prose a {
@@ -103,7 +111,7 @@ button {
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg bg-red-500 text-stone-800 dark:bg-neutral-800 dark:text-stone-200;
+  @apply px-1.5 py-0.5 rounded-lg bg-red-500 text-stone-800 dark:bg-neutral-800 dark:text-stone-200;
 }
 
 .prose pre code {
@@ -138,7 +146,7 @@ button {
 }
 
 .prose p {
-  @apply my-4 leading-7.5 text-lg;
+  @apply my-6 leading-8 text-lg;
 }
 
 .prose strong {
@@ -154,7 +162,7 @@ button {
 }
 
 .prose li {
-  @apply leading-7.5 pb-0.5 text-neutral-700;
+  @apply leading-7.5 pb-0.5;
 }
 
 .prose li p {

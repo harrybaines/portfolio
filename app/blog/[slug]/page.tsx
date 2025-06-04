@@ -1,10 +1,8 @@
 import { getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 import { Metadata } from 'next'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-import BackButton from '@/app/components/back-button'
 import PostContent from '@/app/components/blog/post-content'
 import SEOSchema from '@/app/components/blog/seo-schema'
 
@@ -75,25 +73,15 @@ export default function Blog({ params }) {
 
   return (
     <div className="my-8 md:my-12 max-w-3xl mx-auto">
-      <header className="mb-8">
-        <BackButton href="/" />
-        <h1 className="text-4xl font-extrabold mt-6 mb-6">{post.metadata.title}</h1>
-        <div className="flex items-center gap-3">
-          <Image
-            src="/images/profile.jpg"
-            alt="Author"
-            width={48}
-            height={48}
-            className="rounded-full"
-          />
-          <div className='flex flex-col gap-0.5'>
-            <p className="font-medium">Harry Baines</p>
-            <time className="text-gray-500 text-xs font-mono">{formatDate(post.metadata.publishedAt)}</time>
-          </div>
+      <header className="mb-16 mt-24">
+        {/* Date */}
+        <div className="flex justify-center">
+          <p className="text-neutral-700 text-sm">{formatDate(post.metadata.publishedAt)} {post.metadata.readingTime ? `— ${post.metadata.readingTime} min read` : ''}</p>
         </div>
+        <h1 className="text-5xl font-extrabold text-center mt-4">{post.metadata.title}</h1>
       </header>
 
-      <div className="mb-10">
+      <div className="mb-60">
         <PostContent content={post.content} />
       </div>
 
