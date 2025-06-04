@@ -11,7 +11,7 @@ After banging my head against a brick wall for the best part of half an hour, I 
 go: no modules were found in the current workspace; see 'go help work'
 ```
 
-I was trying to run a main.go file using
+I was trying to run a `main.go` file using
 
 ```bash
 go run .
@@ -45,7 +45,7 @@ main.go:7:5: no required module provides package github.com/charmbracelet/bubble
 Then I would check the following:
 
 - Check go.mod actually exists
-- Try setting the following: export GO111MODULE='auto' (ref: https://janusworx.com/work/quick-fix-go-mod-file-not-found-in-current-directory/)
+- Try setting the following: export GO111MODULE='auto' (see [ref here](https://janusworx.com/work/quick-fix-go-mod-file-not-found-in-current-directory/))
 - Check if any go.work files exist. This was my issue - I had one in my root directory, which I had to remove. Then running my Go file worked!
 
 Even ChatGPT struggled with this one 😄

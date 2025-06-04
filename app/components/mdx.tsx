@@ -52,10 +52,25 @@ function RoundedImage(props) {
 }
 
 function Code({ children, ...props }) {
+  // Check if this is inline code (no className indicates inline code in MDX)
+  const isInline = !props.className;
+
+  // For inline code, render without pre wrapper and copy button
+  if (isInline) {
+    return (
+      <code
+        className="px-2 py-1 rounded text-sm font-mono"
+        {...props}
+      >
+        {children}
+      </code>
+    );
+  }
+
+  // For code blocks, keep the existing behavior
   // Skip highlighting for blocks with "plain" or "text" language or no language
   const skipHighlight = props.className === 'language-plain' ||
-    props.className === 'language-text' ||
-    !props.className;
+    props.className === 'language-text';
 
   const codeHTML = highlight(children);
 
