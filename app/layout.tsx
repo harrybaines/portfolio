@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Figtree, JetBrains_Mono, Lora } from 'next/font/google'
+import { Figtree, JetBrains_Mono, Jost } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -49,7 +49,8 @@ const sansFont = Figtree({
   display: "swap",
 });
 
-const headingFont = Lora({
+// Lora
+const headingFont = Jost({
   subsets: ['latin' as const],
   variable: "--font-heading",
   display: "swap",

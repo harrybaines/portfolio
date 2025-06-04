@@ -76,7 +76,7 @@ export default function Blog({ params }) {
       <header className="mb-16 mt-24">
         {/* Date */}
         <div className="flex justify-center">
-          <p className="text-neutral-700 text-sm">{formatDate(post.metadata.publishedAt)} {post.metadata.readingTime ? `— ${post.metadata.readingTime} min read` : ''}</p>
+          <p className="text-neutral-700 text-sm">{formatDate(post.metadata.publishedAt)} {post.readingTime ? `— ${post.readingTime} min read` : ''}</p>
         </div>
         <h1 className="text-5xl font-extrabold text-center mt-4">{post.metadata.title}</h1>
       </header>
