@@ -1,5 +1,4 @@
 import AboutMeSection from "./components/AboutMeSection";
-import ContactCtaSection from "./components/ContactCtaSection";
 import ContentWrapper from "./components/ContentWrapper";
 import HeroSection from "./components/HeroSection";
 import PostsSection from "./components/PostsSection";
@@ -15,14 +14,13 @@ export default function Home() {
               <div className="my-20">
                 <AboutMeSection />
               </div>
-              <div className="my-40">
+              <div className="my-64">
                 <PostsSection />
               </div>
             </ContentWrapper>
           </div>
         </div>
       </div>
-      <ContactCtaSection />
     </>
   );
 }
