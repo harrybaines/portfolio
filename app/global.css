@@ -1,41 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: linear-gradient(
+    135deg,
+    #fffcf8 0%,
+    #fef9f5 30%,
+    #fdfaf7 70%,
+    #fffef9 100%
+  );
+  --background-solid: #fffcf8;
   --foreground: #0a0a0a;
+  --font-geist-sans: var(--font-geist-sans);
+  --font-geist-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+}
+
+.dark {
+  --background: linear-gradient(
+    135deg,
+    #020202 0%,
+    #080808 30%,
+    #050505 70%,
+    #010101 100%
+  );
+  --background-solid: #020202;
+  --foreground: #f5f5f5;
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-background: var(--background-solid);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #ffffff;
-    --foreground: #0a0a0a;
-  }
-}
-
-/* Add dark mode media query if you want to support it */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: oklch(0.98 0.01 100);
-    --foreground: #171717;
-  }
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
 }
 
 html {
   min-width: 360px;
 }
 
+p {
+  color: var(--color-neutral-400);
+}
+
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), var(--font-inter), ui-sans-serif, system-ui,
-    sans-serif;
+  background-attachment: fixed;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -44,14 +56,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 /* Mono styling for code, terminal content etc. */
 .font-mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 /* Smooth transitions */
@@ -90,7 +102,7 @@ button {
 }
 
 .prose p {
-  @apply text-black;
+  @apply text-black dark:text-neutral-400;
 }
 
 .prose a {
@@ -107,11 +119,11 @@ button {
 }
 
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-800 py-2 px-3 text-sm;
 }
 
 .prose code {
-  @apply px-1.5 py-0.5 rounded-lg bg-red-500 text-stone-800 dark:bg-neutral-800 dark:text-stone-200;
+  @apply px-1.5 py-0.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-stone-800 dark:text-stone-200;
 }
 
 .prose pre code {
@@ -130,27 +142,27 @@ button {
 }
 
 .prose h1 {
-  @apply text-4xl font-bold tracking-tight mt-8 mb-4;
+  @apply text-4xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white;
 }
 
 .prose h2 {
-  @apply text-3xl font-bold tracking-tight mt-8 mb-3;
+  @apply text-3xl font-bold tracking-tight mt-8 mb-3 text-black dark:text-white;
 }
 
 .prose h3 {
-  @apply text-2xl font-bold tracking-tight mt-7 mb-3;
+  @apply text-2xl font-bold tracking-tight mt-7 mb-3 text-black dark:text-white;
 }
 
 .prose h4 {
-  @apply text-xl font-bold tracking-tight mt-6 mb-2;
+  @apply text-xl font-bold tracking-tight mt-6 mb-2 text-black dark:text-white;
 }
 
 .prose p {
-  @apply my-6 leading-8 text-lg;
+  @apply my-6 leading-8 text-lg text-black dark:text-white;
 }
 
 .prose strong {
-  @apply font-medium text-neutral-900;
+  @apply font-medium text-neutral-900 dark:text-neutral-100;
 }
 
 .prose ul {
@@ -201,4 +213,9 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+/* Display font for name/hero text */
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }

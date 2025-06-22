@@ -1,11 +1,11 @@
 import Footer from '@/app/components/footer'
-import Navbar from '@/app/components/Navbar'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Figtree, JetBrains_Mono, Jost } from 'next/font/google'
+import { ThemeProvider } from 'next-themes'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './global.css'
 import { baseUrl } from './sitemap'
 
@@ -43,16 +43,9 @@ const monoFont = JetBrains_Mono({
   display: "swap",
 });
 
-const sansFont = Figtree({
+const sansFont = Inter({
   subsets: ['latin' as const],
   variable: "--font-sans",
-  display: "swap",
-});
-
-// Lora
-const headingFont = Jost({
-  subsets: ['latin' as const],
-  variable: "--font-heading",
   display: "swap",
 });
 
@@ -62,15 +55,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`light ${GeistMono.variable} ${GeistSans.variable} ${monoFont.variable} ${sansFont.variable} ${headingFont.variable}`}>
+    <html lang="en" className={`${GeistMono.variable} ${GeistSans.variable} ${monoFont.variable} ${sansFont.variable}`} suppressHydrationWarning>
       <body className="antialiased font-sans h-screen">
-        <div className="max-w-7xl w-full mx-auto px-8">
-          <Navbar />
-          <main>
-            {children}
-          </main>
-        </div>
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <div className="max-w-3xl w-full mx-auto px-8">
+            {/* <Navbar /> */}
+            <main>
+              {children}
+            </main>
+          </div>
+          <Footer />
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>

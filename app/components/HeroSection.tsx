@@ -2,11 +2,61 @@
 
 import { getYearsOfExperience } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+
+const pinnedItems = [
+  {
+    title: "Next.js Starter",
+    description: "Production-ready template with TypeScript & Tailwind",
+    url: "https://github.com/harrybaines",
+    category: "projects"
+  },
+  {
+    title: "Wallpaper Pack",
+    description: "Minimal wallpapers for developers",
+    url: "#",
+    category: "misc"
+  },
+  {
+    title: "Dev Tools",
+    description: "Curated development resources",
+    url: "#",
+    category: "pinned"
+  },
+  {
+    title: "UI Components",
+    description: "React components with Tailwind",
+    url: "#",
+    category: "projects"
+  },
+  {
+    title: "Reading List",
+    description: "Technical books and articles I recommend",
+    url: "#",
+    category: "pinned"
+  },
+  {
+    title: "Setup Guide",
+    description: "My development environment configuration",
+    url: "#",
+    category: "misc"
+  }
+];
+
+const filterCategories = [
+  { id: "pinned", label: "Pinned" },
+  { id: "projects", label: "Projects" },
+  { id: "misc", label: "Misc" }
+];
 
 export default function HeroSection() {
+  const [activeFilter, setActiveFilter] = useState("pinned");
+
+  const filteredItems = pinnedItems.filter(item => item.category === activeFilter);
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -24,104 +74,21 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="lg:min-h-[50vh] lg:flex lg:items-center py-8 md:py-12">
+    <div className="py-16 md:py-20">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="w-full mx-auto"
+        className="max-w-2xl mx-auto"
       >
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Main Content */}
-          <motion.div variants={fadeIn} className="lg:col-span-7 space-y-7">
-            {/* Terminal-style intro */}
-            <div className="space-y-4">
-
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-lg md:text-xl text-neutral-600 mt-5">
-                  <span className="font-mono">Software Engineer 👨‍💻</span>
-                </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-neutral-900">
-                  Hi, I'm Harry 👋
-                </h1>
-              </div>
-            </div>
-
-            {/* About */}
-            <div className="space-y-6 max-w-xl">
-              <p className="text-lg md:text-xl leading-relaxed text-neutral-700">
-                Developer from the UK 🇬🇧 with {getYearsOfExperience()} years experience. I build full-stack apps, dev tools and contribute to OS.
-                Feel free to check out my GitHub or ping me for a chat!
-              </p>
-            </div>
-
-            {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-3">
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-neutral-900 text-white font-medium rounded-lg hover:bg-neutral-700 transition-colors text-sm border border-neutral-200"
-              >
-                Ask AI About Me
-              </Link>
-              <Link
-                href="mailto:harryb0905@googlemail.com"
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-neutral-900 font-medium rounded-lg hover:bg-neutral-100 transition-colors text-sm border border-neutral-200"
-              >
-                Contact Me
-              </Link>
-            </div>
-
-            {/* Connect with me */}
-            <div className="pt-2">
-              <h3 className="font-mono text-sm text-neutral-500 mb-4 uppercase tracking-wider">Connect with me</h3>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href="https://github.com/harrybaines"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 transition-colors text-sm"
-                >
-                  <Github size={16} />
-                  <span className="font-medium">GitHub</span>
-                </Link>
-                <Link
-                  href="https://twitter.com/harryiscoding"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 transition-colors text-sm"
-                >
-                  <Twitter size={16} />
-                  <span className="font-medium">Twitter</span>
-                </Link>
-                <Link
-                  href="https://linkedin.com/in/harryb0905"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 transition-colors text-sm"
-                >
-                  <Linkedin size={16} />
-                  <span className="font-medium">LinkedIn</span>
-                </Link>
-                <Link
-                  href="mailto:harryb0905@googlemail.com"
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 transition-colors text-sm"
-                >
-                  <Mail size={16} />
-                  <span className="font-medium">Email</span>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Profile Image */}
-          <motion.div
-            variants={fadeIn}
-            className="lg:col-span-5 flex justify-center lg:justify-end mt-8 lg:mt-0"
-          >
-            <div className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-96 lg:h-[32rem]">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-neutral-200 shadow-xl">
+        {/* Main Profile Card */}
+        <motion.div variants={fadeIn} className="mb-16">
+          <div className="text-center space-y-6">
+            {/* Profile Image */}
+            <div className="relative w-28 h-28 mx-auto">
+              <div className="relative w-full h-full rounded-full overflow-hidden ring-1 ring-neutral-200 dark:ring-neutral-800">
                 <Image
-                  src="/images/whale.jpg"
+                  src="/images/gorilla.jpeg"
                   alt="Harry Baines"
                   fill
                   className="object-cover"
@@ -129,8 +96,141 @@ export default function HeroSection() {
                 />
               </div>
             </div>
-          </motion.div>
-        </div>
+
+            {/* Name & Title */}
+            <div className="space-y-2">
+              <h1 className="text-2xl font-medium text-neutral-900 dark:text-neutral-100">
+                Harry Baines
+              </h1>
+              <p className="text-neutral-600 dark:text-neutral-400 text-sm font-mono">
+                Software Engineer
+              </p>
+            </div>
+
+            {/* Description */}
+            <p className="text-neutral-700 dark:text-neutral-300 text-base leading-relaxed max-w-lg mx-auto">
+              Building digital experiences with {getYearsOfExperience()} years of expertise.
+              Passionate about clean code and thoughtful design.
+            </p>
+
+            {/* Navigation Links */}
+            <div className="flex items-center justify-center gap-8 pt-2">
+              <Link
+                href="/about-me"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+              >
+                About
+              </Link>
+              <Link
+                href="/blog"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+              >
+                Writing
+              </Link>
+              <Link
+                href="mailto:harryb0905@googlemail.com"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+              >
+                Contact
+              </Link>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center gap-5 pt-4">
+              <Link
+                href="https://github.com/harrybaines"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github size={20} />
+              </Link>
+              <Link
+                href="https://linkedin.com/in/harrybaines"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </Link>
+              <Link
+                href="https://twitter.com/harrybaines"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter size={20} />
+              </Link>
+              <Link
+                href="mailto:harryb0905@googlemail.com"
+                className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={20} />
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Filter Tabs */}
+        <motion.div variants={fadeIn} className="mb-8">
+          <div className="flex justify-center">
+            <div className="inline-flex gap-1">
+              {filterCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveFilter(category.id)}
+                  className={`px-3 py-1 text-sm font-medium transition-all relative ${activeFilter === category.id
+                    ? "text-neutral-900 dark:text-neutral-100"
+                    : "text-neutral-500 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300"
+                    }`}
+                >
+                  {category.label}
+                  {activeFilter === category.id && (
+                    <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-neutral-400 dark:bg-neutral-500"></span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Pinned Items */}
+        <motion.div variants={fadeIn} className="space-y-6">
+          <div className="space-y-3">
+            {filteredItems.map((item, index) => (
+              <div key={index} className="group">
+                <Link
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors underline underline-offset-4 decoration-1"
+                >
+                  {item.title}
+                  <ExternalLink className="text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" size={14} />
+                </Link>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mt-1">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center pt-4">
+            <Link
+              href="https://github.com/harrybaines"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+            >
+              View all projects
+              <ExternalLink size={14} />
+            </Link>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );
