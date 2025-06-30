@@ -2,25 +2,23 @@
 
 import { motion } from "framer-motion";
 
-const fadeInSection = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.3,
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
-};
-
 export default function Footer() {
   return (
     <motion.footer
       initial="hidden"
       animate="visible"
-      variants={fadeInSection}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 0.3,
+            duration: 0.8,
+            ease: [0.17, 0.67, 0.83, 0.67]
+          }
+        }
+      }}
       className="relative border-t border-neutral-200/60 dark:border-neutral-800/60 mt-24"
     >
       <div className="max-w-3xl w-full mx-auto px-8">
