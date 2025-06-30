@@ -75,7 +75,7 @@ export default function AboutMe() {
                   <motion.div variants={fadeIn} className="my-12">
                     <div className="relative aspect-[16/10] w-lg mx-auto rounded-lg overflow-hidden bg-black filter grayscale brightness-80">
                       <Image
-                        src="/images/desk.png"
+                        src="/images/desk-2.png"
                         alt="My workspace setup"
                         fill
                         className="object-cover"
