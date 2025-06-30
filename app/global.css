@@ -16,13 +16,7 @@
 }
 
 .dark {
-  --background: linear-gradient(
-    135deg,
-    #020202 0%,
-    #080808 30%,
-    #050505 70%,
-    #010101 100%
-  );
+  --background: #100e0e;
   --background-solid: #020202;
   --foreground: #f5f5f5;
 }
@@ -30,8 +24,8 @@
 @theme inline {
   --color-background: var(--background-solid);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
   --font-display: var(--font-display);
 }
 
@@ -56,7 +50,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
   letter-spacing: -0.02em;
   font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
@@ -101,16 +94,12 @@ button {
   @apply visible;
 }
 
-.prose p {
-  @apply text-black dark:text-neutral-400;
-}
-
 .prose a {
   @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  @apply text-neutral-400 dark:text-neutral-700;
   content: "#";
 }
 
@@ -119,17 +108,13 @@ button {
 }
 
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-800 py-2 px-3 text-sm;
-}
-
-.prose code {
-  @apply px-1.5 py-0.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-stone-800 dark:text-stone-200;
+  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto py-2 px-3 text-sm;
 }
 
 .prose pre code {
-  @apply p-0 bg-transparent text-stone-800 dark:text-stone-200;
+  @apply p-0 bg-transparent text-stone-800 dark:text-neutral-400;
   border: initial;
-  line-height: 1.5;
+  line-height: 1.75;
 }
 
 .prose code span {
@@ -142,35 +127,35 @@ button {
 }
 
 .prose h1 {
-  @apply text-4xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white;
+  @apply text-4xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-neutral-300;
 }
 
 .prose h2 {
-  @apply text-3xl font-bold tracking-tight mt-8 mb-3 text-black dark:text-white;
+  @apply text-3xl font-bold tracking-tight mt-8 mb-3 text-black dark:text-neutral-300;
 }
 
 .prose h3 {
-  @apply text-2xl font-bold tracking-tight mt-7 mb-3 text-black dark:text-white;
+  @apply text-2xl font-bold tracking-tight mt-7 mb-3 text-black dark:text-neutral-300;
 }
 
 .prose h4 {
-  @apply text-xl font-bold tracking-tight mt-6 mb-2 text-black dark:text-white;
+  @apply text-xl font-bold tracking-tight mt-6 mb-2 text-black dark:text-neutral-300;
 }
 
 .prose p {
-  @apply my-6 leading-8 text-lg text-black dark:text-white;
+  @apply my-6 leading-8 text-lg text-black dark:text-neutral-400;
 }
 
 .prose strong {
-  @apply font-medium text-neutral-900 dark:text-neutral-100;
+  @apply font-medium text-neutral-900 dark:text-neutral-300;
 }
 
 .prose ul {
-  @apply list-disc pl-6 my-5 space-y-1.5 text-lg;
+  @apply list-disc pl-6 my-5 space-y-1.5 text-lg text-neutral-900 dark:text-neutral-400;
 }
 
 .prose ol {
-  @apply list-decimal pl-6 my-5 space-y-1.5 text-lg;
+  @apply list-decimal pl-6 my-5 space-y-1.5 text-lg text-neutral-900 dark:text-neutral-400;
 }
 
 .prose li {
@@ -213,9 +198,4 @@ table {
 
 .title {
   text-wrap: balance;
-}
-
-/* Display font for name/hero text */
-.font-display {
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }

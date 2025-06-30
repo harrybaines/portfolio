@@ -59,9 +59,9 @@ export default function ChatUI({ userMessage, aiResponse, userImage }: ChatUIPro
   return (
     <div className="w-full max-w-7xl mt-3">
       <div className="flex items-start">
-        <div className="flex-shrink-0 mr-4 mt-5">
-          <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
-            <Bot size={16} className="text-green-600" />
+        <div className="flex-shrink-0 mr-4 mt-6">
+          <div className="w-8 h-8 rounded-full bg-neutral-800/80 backdrop-blur-sm border border-neutral-700 flex items-center justify-center shadow-sm">
+            <Bot size={16} className="text-neutral-300" />
           </div>
         </div>
         <div className="flex-1">

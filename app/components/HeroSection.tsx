@@ -7,49 +7,82 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+// YT, WPP
 const pinnedItems = [
   {
-    title: "Next.js Starter",
-    description: "Production-ready template with TypeScript & Tailwind",
-    url: "https://github.com/harrybaines",
-    category: "projects"
-  },
-  {
-    title: "Wallpaper Pack",
-    description: "Minimal wallpapers for developers",
-    url: "#",
-    category: "misc"
-  },
-  {
-    title: "Dev Tools",
-    description: "Curated development resources",
-    url: "#",
+    title: "archtms",
+    description: "Practice management system for architecture firms",
+    url: "https://www.archtms.app/",
     category: "pinned"
   },
   {
-    title: "UI Components",
-    description: "React components with Tailwind",
-    url: "#",
-    category: "projects"
-  },
-  {
-    title: "Reading List",
-    description: "Technical books and articles I recommend",
-    url: "#",
+    title: "brewkit",
+    description: "Modern Next.js starter kit",
+    url: "https://github.com/harrybaines/brewkit",
     category: "pinned"
   },
   {
-    title: "Setup Guide",
-    description: "My development environment configuration",
-    url: "#",
-    category: "misc"
+    title: "portfolio",
+    description: "Personal portfolio site",
+    url: "https://github.com/harrybaines/portfolio",
+    category: "pinned"
+  },
+  {
+    title: "dotfiles",
+    description: "My dev setup config",
+    url: "https://github.com/harrybaines/dotfiles",
+    category: "pinned"
+  },
+  {
+    title: "ai-avatar-generator",
+    description: "Dreambooth Stable Diffusion model trained on my face",
+    url: "https://github.com/harrybaines/ai-avatar-generator",
+    category: "pinned"
+  },
+  {
+    title: "torchgpt",
+    description: "PyTorch code generator",
+    url: "https://github.com/harrybaines/torchgpt",
+    category: "pinned"
+  },
+  {
+    title: "YT-to-text",
+    description: "Transcribe a YT video to text using OpenAI Whisper",
+    url: "https://github.com/harrybaines/gradio-whisper",
+    category: "pinned"
+  },
+  {
+    title: "Quark",
+    description: "Programming language for smart contracts built with Go",
+    url: "https://github.com/harrybaines/Quark",
+    category: "pinned"
+  },
+
+  // Contributions
+  {
+    title: "tambo",
+    description: "React package for adding generative components to your AI assistant",
+    url: "https://github.com/tambo-ai/tambo",
+    category: "contributed"
+  },
+  {
+    title: "Ivy",
+    description: "ML framework transpiler and unified framework",
+    url: "https://github.com/unifyai/ivy",
+    category: "contributed"
+  },
+  {
+    title: "Buildspace Projects",
+    description: "AI avatar tutorial project on Buildspace",
+    url: "https://github.com/buildspace/buildspace-projects",
+    category: "contributed"
   }
 ];
 
+
 const filterCategories = [
   { id: "pinned", label: "Pinned" },
-  { id: "projects", label: "Projects" },
-  { id: "misc", label: "Misc" }
+  { id: "projects", label: "Projects" }
 ];
 
 export default function HeroSection() {
@@ -74,17 +107,16 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="py-16 md:py-20">
+    <div className="py-16 md:py-32">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
         className="max-w-2xl mx-auto"
       >
-        {/* Main Profile Card */}
         <motion.div variants={fadeIn} className="mb-16">
           <div className="text-center space-y-6">
-            {/* Profile Image */}
+
             <div className="relative w-28 h-28 mx-auto">
               <div className="relative w-full h-full rounded-full overflow-hidden ring-1 ring-neutral-200 dark:ring-neutral-800">
                 <Image
@@ -97,20 +129,29 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Name & Title */}
-            <div className="space-y-2">
-              <h1 className="text-2xl font-medium text-neutral-900 dark:text-neutral-100">
+            <div className="space-y-1">
+              <h1 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
                 Harry Baines
               </h1>
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm font-mono">
+              <p className="text-neutral-600 dark:text-neutral-400 text-lg font-medium font-mono">
                 Software Engineer
               </p>
             </div>
 
-            {/* Description */}
-            <p className="text-neutral-700 dark:text-neutral-300 text-base leading-relaxed max-w-lg mx-auto">
-              Building digital experiences with {getYearsOfExperience()} years of expertise.
-              Passionate about clean code and thoughtful design.
+            <p className="text-neutral-700 dark:text-neutral-300 text-base leading-relaxed max-w-md mx-auto">
+              Developer with {getYearsOfExperience()} yrs experience from the <strong>UK</strong> 🇬🇧. <br />
+              Passionate about <strong>full-stack dev</strong>, <strong>AI</strong> and <strong>dev tooling</strong>.<br />
+              Read more about me <Link
+                href="/about"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
+              >
+                here
+              </Link> or <Link
+                href="/about-ai"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
+              >
+                ask AI
+              </Link>!
             </p>
 
             {/* Navigation Links */}
@@ -147,7 +188,7 @@ export default function HeroSection() {
                 <Github size={20} />
               </Link>
               <Link
-                href="https://linkedin.com/in/harrybaines"
+                href="https://www.linkedin.com/in/harryb0905/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
@@ -156,7 +197,7 @@ export default function HeroSection() {
                 <Linkedin size={20} />
               </Link>
               <Link
-                href="https://twitter.com/harrybaines"
+                href="https://x.com/HarryIsCoding"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
@@ -172,11 +213,22 @@ export default function HeroSection() {
                 <Mail size={20} />
               </Link>
             </div>
+
+            <div className="pt-8">
+              <Image
+                src="/images/desk-1.png"
+                alt="Warm, cozy workspace with code and ambient lighting"
+                width={500}
+                height={220}
+                className="rounded-xl shadow-lg max-w-full h-auto border border-neutral-200 dark:border-neutral-700 mx-auto filter brightness-70"
+                priority
+              />
+            </div>
           </div>
         </motion.div>
 
         {/* Filter Tabs */}
-        <motion.div variants={fadeIn} className="mb-8">
+        {/* <motion.div variants={fadeIn} className="mb-8">
           <div className="flex justify-center">
             <div className="inline-flex gap-1">
               {filterCategories.map((category) => (
@@ -196,26 +248,27 @@ export default function HeroSection() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Pinned Items */}
         <motion.div variants={fadeIn} className="space-y-6">
-          <div className="space-y-3">
+          <div className="lg:mx-22">
             {filteredItems.map((item, index) => (
-              <div key={index} className="group">
-                <Link
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors underline underline-offset-4 decoration-1"
-                >
+              <Link
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-lg p-4 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group"
+              >
+                <div className="flex items-center gap-1 font-semibold text-neutral-900 dark:text-neutral-200 group-hover:text-neutral-700 dark:group-hover:text-neutral-300">
                   {item.title}
-                  <ExternalLink className="text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" size={14} />
-                </Link>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mt-1">
+                  <ExternalLink className="w-4 h-4 text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300" />
+                </div>
+                <p className="text-md text-neutral-600 dark:text-neutral-400 leading-relaxed mt-0.5">
                   {item.description}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -224,10 +277,9 @@ export default function HeroSection() {
               href="https://github.com/harrybaines"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+              className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-md underline underline-offset-4 decoration-1"
             >
               View all projects
-              <ExternalLink size={14} />
             </Link>
           </div>
         </motion.div>

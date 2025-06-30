@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="py-16">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
             {/* Left side - Name and tagline */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
                 Harry Baines
               </h3>
@@ -37,12 +37,12 @@ export default function Footer() {
             </div>
 
             {/* Right side - Links and location */}
-            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col space-y-3">
               <div className="flex items-center space-x-6">
                 {[
                   { name: "Email", href: "mailto:harryb0905@googlemail.com" },
                   { name: "GitHub", href: "https://github.com/harrybaines" },
-                  { name: "LinkedIn", href: "https://linkedin.com/in/harrybaines" },
+                  { name: "LinkedIn", href: "https://linkedin.com/in/harryb0905" },
                 ].map((link) => (
                   <a
                     key={link.name}
@@ -55,8 +55,8 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-              <div className="text-sm text-neutral-500 dark:text-neutral-400 text-right">
-                📍 Blackpool, UK
+              <div className="mt-3 md:mt-0 text-sm text-neutral-500 dark:text-neutral-400 text-left md:text-right self-start md:self-end">
+                📍 UK
               </div>
             </div>
           </div>

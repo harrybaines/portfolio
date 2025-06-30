@@ -3,6 +3,7 @@ import { baseUrl } from 'app/sitemap'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import BackButton from '@/app/components/back-button'
 import PostContent from '@/app/components/blog/post-content'
 import SEOSchema from '@/app/components/blog/seo-schema'
 
@@ -73,19 +74,19 @@ export default function Blog({ params }) {
 
   return (
     <div className="my-8 md:my-12 max-w-3xl mx-auto">
-      <header className="mb-16 mt-24">
-        {/* Date */}
+      <header className="mb-16 mt-20 relative">
+        <div className="mb-10">
+          <BackButton href="/" />
+        </div>
         <div className="flex justify-center">
           <p className="text-neutral-700 text-sm">{formatDate(post.metadata.publishedAt)} {post.readingTime ? `— ${post.readingTime} min read` : ''}</p>
         </div>
-        <h1 className="text-5xl font-extrabold text-center mt-4">{post.metadata.title}</h1>
+        <h1 className="text-5xl font-extrabold text-center mt-6 text-neutral-900 dark:text-neutral-300">{post.metadata.title}</h1>
       </header>
 
       <div className="mb-60">
         <PostContent content={post.content} />
       </div>
-
-      {/* <RelatedPosts posts={getBlogPosts()} currentPostSlug={post.slug} /> */}
 
       <SEOSchema
         title={post.metadata.title}
