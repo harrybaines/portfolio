@@ -43,7 +43,7 @@ export default function AboutMe() {
                 initial="hidden"
                 animate="visible"
                 variants={staggerContainer}
-                className="max-w-2xl mx-auto"
+                className="max-w-3xl mx-auto"
               >
                 <motion.div variants={fadeIn} className="mb-12 text-center">
                   <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100">
@@ -72,8 +72,8 @@ export default function AboutMe() {
                     I'm available for new opportunities - if you need a full-stack dev, ping me an email and we can build something great!
                   </p>
 
-                  <motion.div variants={fadeIn} className="mb-12">
-                    <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-black filter grayscale brightness-80">
+                  <motion.div variants={fadeIn} className="my-12">
+                    <div className="relative aspect-[16/10] w-lg mx-auto rounded-lg overflow-hidden bg-black filter grayscale brightness-80">
                       <Image
                         src="/images/desk.png"
                         alt="My workspace setup"

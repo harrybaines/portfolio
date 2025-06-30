@@ -112,7 +112,7 @@ export default function HeroSection() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-2xl mx-auto"
+        className="max-w-3xl mx-auto"
       >
         <motion.div variants={fadeIn} className="mb-16">
           <div className="text-center space-y-6">
@@ -157,7 +157,7 @@ export default function HeroSection() {
             {/* Navigation Links */}
             <div className="flex items-center justify-center gap-8 pt-2">
               <Link
-                href="/about-me"
+                href="/about"
                 className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
               >
                 About
@@ -220,7 +220,7 @@ export default function HeroSection() {
                 alt="Warm, cozy workspace with code and ambient lighting"
                 width={500}
                 height={220}
-                className="rounded-xl shadow-lg max-w-full h-auto border border-neutral-200 dark:border-neutral-700 mx-auto filter brightness-70"
+                className="rounded-xl shadow-lg w-lg h-auto border border-neutral-200 dark:border-neutral-700 mx-auto filter brightness-70"
                 priority
               />
             </div>

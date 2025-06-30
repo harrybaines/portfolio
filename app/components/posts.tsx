@@ -5,7 +5,7 @@ export function Posts() {
   let posts = getBlogPosts()
 
   return (
-    <div className="space-y-3 max-w-2xl">
+    <div className="space-y-3">
       {posts
         .sort((a, b) => {
           if (

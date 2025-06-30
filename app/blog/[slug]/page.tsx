@@ -74,14 +74,14 @@ export default function Blog({ params }) {
 
   return (
     <div className="my-8 md:my-12 max-w-3xl mx-auto">
-      <header className="mb-16 mt-20 relative">
+      <header className="mb-16 relative">
         <div className="mb-10">
           <BackButton href="/" />
         </div>
         <div className="flex justify-center">
           <p className="text-neutral-700 text-sm">{formatDate(post.metadata.publishedAt)} {post.readingTime ? `— ${post.readingTime} min read` : ''}</p>
         </div>
-        <h1 className="text-5xl font-extrabold text-center mt-6 text-neutral-900 dark:text-neutral-300">{post.metadata.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-center mt-6 text-neutral-900 dark:text-neutral-300">{post.metadata.title}</h1>
       </header>
 
       <div className="mb-60">
