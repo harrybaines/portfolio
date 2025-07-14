@@ -13,82 +13,90 @@ const pinnedItems = [
     title: "archtms",
     description: "Practice management system for architecture firms",
     url: "https://www.archtms.app/",
-    category: "pinned"
+    category: "pinned",
+  },
+  {
+    title: "lovable-clone",
+    description: "Lovable clone to build websites with AI",
+    url: "https://github.com/harrybaines/lovable-clone",
+    category: "pinned",
   },
   {
     title: "brewkit",
-    description: "Modern Next.js starter kit",
-    url: "https://github.com/harrybaines/brewkit",
-    category: "pinned"
+    description: "AI starter kit template",
+    url: "https://brew-kit.dev",
+    category: "pinned",
   },
   {
     title: "portfolio",
     description: "Personal portfolio site",
     url: "https://github.com/harrybaines/portfolio",
-    category: "pinned"
-  },
-  {
-    title: "dotfiles",
-    description: "My dev setup config",
-    url: "https://github.com/harrybaines/dotfiles",
-    category: "pinned"
-  },
-  {
-    title: "ai-avatar-generator",
-    description: "Dreambooth Stable Diffusion model trained on my face",
-    url: "https://github.com/harrybaines/ai-avatar-generator",
-    category: "pinned"
+    category: "pinned",
   },
   {
     title: "torchgpt",
     description: "PyTorch code generator",
     url: "https://github.com/harrybaines/torchgpt",
-    category: "pinned"
+    category: "pinned",
+  },
+  {
+    title: "ai-avatar-generator",
+    description: "Dreambooth Stable Diffusion model trained on my face",
+    url: "https://github.com/harrybaines/ai-avatar-generator",
+    category: "pinned",
   },
   {
     title: "YT-to-text",
     description: "Transcribe a YT video to text using OpenAI Whisper",
     url: "https://github.com/harrybaines/gradio-whisper",
-    category: "pinned"
+    category: "pinned",
   },
   {
     title: "Quark",
     description: "Programming language for smart contracts built with Go",
     url: "https://github.com/harrybaines/Quark",
-    category: "pinned"
+    category: "pinned",
   },
+  // {
+  //   title: "dotfiles",
+  //   description: "My dev setup config",
+  //   url: "https://github.com/harrybaines/dotfiles",
+  //   category: "pinned",
+  // },
 
   // Contributions
   {
     title: "tambo",
-    description: "React package for adding generative components to your AI assistant",
+    description:
+      "React package for adding generative components to your AI assistant",
     url: "https://github.com/tambo-ai/tambo",
-    category: "contributed"
+    category: "contributed",
   },
   {
     title: "Ivy",
     description: "ML framework transpiler and unified framework",
     url: "https://github.com/unifyai/ivy",
-    category: "contributed"
+    category: "contributed",
   },
   {
     title: "Buildspace Projects",
     description: "AI avatar tutorial project on Buildspace",
     url: "https://github.com/buildspace/buildspace-projects",
-    category: "contributed"
-  }
+    category: "contributed",
+  },
 ];
-
 
 const filterCategories = [
   { id: "pinned", label: "Pinned" },
-  { id: "projects", label: "Projects" }
+  { id: "projects", label: "Projects" },
 ];
 
 export default function HeroSection() {
   const [activeFilter, setActiveFilter] = useState("pinned");
 
-  const filteredItems = pinnedItems.filter(item => item.category === activeFilter);
+  const filteredItems = pinnedItems.filter(
+    (item) => item.category === activeFilter,
+  );
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -116,7 +124,6 @@ export default function HeroSection() {
       >
         <motion.div variants={fadeIn} className="mb-16">
           <div className="text-center space-y-6">
-
             <div className="relative w-28 h-28 mx-auto">
               <div className="relative w-full h-full rounded-full overflow-hidden ring-1 ring-neutral-200 dark:ring-neutral-800">
                 <Image
@@ -138,20 +145,27 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <p className="text-neutral-700 dark:text-neutral-300 text-base leading-relaxed max-w-md mx-auto">
-              Developer with {getYearsOfExperience()} yrs experience from the <strong>UK</strong> 🇬🇧. <br />
-              Passionate about <strong>full-stack dev</strong>, <strong>AI</strong> and <strong>dev tooling</strong>.<br />
-              Read more about me <Link
+            <p className="text-neutral-700 dark:text-neutral-300 text-md leading-relaxed max-w-md mx-auto">
+              Developer with {getYearsOfExperience()} yrs experience from the{" "}
+              <strong>UK</strong> 🇬🇧. <br />
+              Passionate about <strong>AI</strong>,{" "}
+              <strong>full-stack dev</strong>, and <strong>dev tooling</strong>.
+              <br />
+              Read more about me{" "}
+              <Link
                 href="/about"
                 className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
               >
                 here
-              </Link> or <Link
+              </Link>{" "}
+              or{" "}
+              <Link
                 href="/about-ai"
                 className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
               >
                 ask AI
-              </Link>!
+              </Link>
+              !
             </p>
 
             {/* Navigation Links */}
@@ -259,13 +273,13 @@ export default function HeroSection() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block rounded-lg p-4 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group"
+                className="block rounded-lg p-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 group"
               >
-                <div className="flex items-center gap-1 font-semibold text-neutral-900 dark:text-neutral-200 group-hover:text-neutral-700 dark:group-hover:text-neutral-300">
+                <div className="flex items-center gap-1 font-semibold">
                   {item.title}
                   <ExternalLink className="w-4 h-4 text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300" />
                 </div>
-                <p className="text-md text-neutral-600 dark:text-neutral-400 leading-relaxed mt-0.5">
+                <p className="text-md leading-relaxed mt-0.5">
                   {item.description}
                 </p>
               </Link>
