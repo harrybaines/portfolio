@@ -120,7 +120,7 @@ export default function HeroSection() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-3xl mx-auto"
+        className="max-w-5xl mx-auto"
       >
         <motion.div variants={fadeIn} className="mb-20">
 
@@ -146,21 +146,21 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <p className="text-neutral-700 text-lg max-w-lg mx-auto text-center">
-              I love writing code. {getYearsOfExperience()} yrs experience. From the{" "}
-              <strong>UK</strong> 🇬🇧. Founder of <strong>create-ai-stack</strong>. Passionate about <strong>AI</strong>,{" "}
-              <strong>terminals</strong>, <strong>full-stack dev</strong>, and <strong>dev tooling</strong>.
+            <p className="text-neutral-700 text-lg max-w-lg mx-auto text-center !leading-7.5">
+              Developer with {getYearsOfExperience()} yrs experience from the{" "}
+              <strong>UK</strong> 🇬🇧. <br /> Passionate about <strong>AI</strong>,{" "}
+              <strong>terminals</strong>, <strong>full-stack dev</strong>, and <strong>dev tooling</strong>. <br />
               Read more about me{" "}
               <Link
                 href="/about"
-                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
               >
                 here
               </Link>{" "}
               or{" "}
               <Link
                 href="/about-ai"
-                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
               >
                 ask AI
               </Link>
@@ -171,19 +171,19 @@ export default function HeroSection() {
             <div className="flex items-center justify-center gap-8 pt-2">
               <Link
                 href="/about"
-                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-md underline underline-offset-4 decoration-1"
               >
                 About
               </Link>
               <Link
                 href="/blog"
-                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-md underline underline-offset-4 decoration-1"
               >
                 Writing
               </Link>
               <Link
                 href="mailto:harryb0905@googlemail.com"
-                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-md underline underline-offset-4 decoration-1"
               >
                 Contact
               </Link>
