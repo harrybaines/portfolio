@@ -7,7 +7,7 @@ tags: ["Vim", "Terminal"]
 
 Let's say we have the following list of todo items:
 
-```
+```bash
 Set up project repository with initial README and license
 Define project scope and create a feature roadmap
 Implement user authentication and authorization
@@ -18,7 +18,7 @@ Write unit and integration tests for critical components
 
 And we want to convert them all to todo list items in markdown to look like this:
 
-```
+```bash
 - [ ] Set up project repository with initial README and license
 - [ ] Define project scope and create a feature roadmap
 - [ ] Implement user authentication and authorization
@@ -34,7 +34,7 @@ but using Vim macros we can do this much more efficiently.
 
 First, copy the following into a new file and open with vim:
 
-```
+```bash
 Set up project repository with initial README and license
 Define project scope and create a feature roadmap
 Implement user authentication and authorization
@@ -45,7 +45,7 @@ Write unit and integration tests for critical components
 
 Next, move the cursor to the start of the first line, and type:
 
-```
+```bash
 qw
 ```
 
@@ -53,7 +53,7 @@ This will start recording a new macro into the register 'w'.
 
 Then go into insert mode and type:
 
-```
+```bash
 - [ ]
 ```
 
@@ -61,19 +61,19 @@ This will be the series of characters we will apply to the start of every line.
 
 Go back to normal mode, and go to the start of the line below:
 
-```
+```bash
 j0 (or shift+)
 ```
 
 Then, stop recording with
 
-```
+```bash
 q
 ```
 
 Finally, we can do:
 
-```
+```bash
 5@w
 ```
 

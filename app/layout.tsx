@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Figtree, Inter, JetBrains_Mono } from "next/font/google";
 import "./global.css";
 import { baseUrl } from "./sitemap";
 
@@ -41,7 +41,7 @@ const monoFont = JetBrains_Mono({
   display: "swap",
 });
 
-const sansFont = Inter({
+const sansFont = Figtree({
   subsets: ["latin" as const],
   variable: "--font-sans",
   display: "swap",

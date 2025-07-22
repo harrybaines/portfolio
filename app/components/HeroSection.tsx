@@ -16,9 +16,9 @@ const pinnedItems = [
     category: "pinned",
   },
   {
-    title: "lovable-clone",
-    description: "Lovable clone to build websites with AI",
-    url: "https://github.com/harrybaines/lovable-clone",
+    title: "create-ai-stack",
+    description: "CLI tool to create a full-stack AI app",
+    url: "https://create-ai-stack.dev",
     category: "pinned",
   },
   {
@@ -28,9 +28,9 @@ const pinnedItems = [
     category: "pinned",
   },
   {
-    title: "portfolio",
-    description: "Personal portfolio site",
-    url: "https://github.com/harrybaines/portfolio",
+    title: "lovable-clone",
+    description: "Lovable clone to build websites with AI",
+    url: "https://github.com/harrybaines/lovable-clone",
     category: "pinned",
   },
   {
@@ -122,9 +122,10 @@ export default function HeroSection() {
         variants={staggerContainer}
         className="max-w-3xl mx-auto"
       >
-        <motion.div variants={fadeIn} className="mb-16">
+        <motion.div variants={fadeIn} className="mb-20">
+
           <div className="text-center space-y-6">
-            <div className="relative w-28 h-28 mx-auto">
+            <div className="relative w-30 h-30 mx-auto">
               <div className="relative w-full h-full rounded-full overflow-hidden ring-1 ring-neutral-200 dark:ring-neutral-800">
                 <Image
                   src="/images/gorilla.jpeg"
@@ -136,32 +137,30 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="space-y-1">
-              <h1 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+            <div className="space-y-1.5">
+              <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
                 Harry Baines
               </h1>
               <p className="text-neutral-600 dark:text-neutral-400 text-lg font-medium font-mono">
-                Software Engineer
+                Software Engineer 👨‍💻
               </p>
             </div>
 
-            <p className="text-neutral-700 dark:text-neutral-300 text-md leading-relaxed max-w-md mx-auto">
-              Developer with {getYearsOfExperience()} yrs experience from the{" "}
-              <strong>UK</strong> 🇬🇧. <br />
-              Passionate about <strong>AI</strong>,{" "}
-              <strong>full-stack dev</strong>, and <strong>dev tooling</strong>.
-              <br />
+            <p className="text-neutral-700 text-lg max-w-lg mx-auto text-center">
+              I love writing code. {getYearsOfExperience()} yrs experience. From the{" "}
+              <strong>UK</strong> 🇬🇧. Founder of <strong>create-ai-stack</strong>. Passionate about <strong>AI</strong>,{" "}
+              <strong>terminals</strong>, <strong>full-stack dev</strong>, and <strong>dev tooling</strong>.
               Read more about me{" "}
               <Link
                 href="/about"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
               >
                 here
               </Link>{" "}
               or{" "}
               <Link
                 href="/about-ai"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors underline underline-offset-4 decoration-1"
               >
                 ask AI
               </Link>
@@ -172,19 +171,19 @@ export default function HeroSection() {
             <div className="flex items-center justify-center gap-8 pt-2">
               <Link
                 href="/about"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
               >
                 About
               </Link>
               <Link
                 href="/blog"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
               >
                 Writing
               </Link>
               <Link
                 href="mailto:harryb0905@googlemail.com"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
+                className="text-neutral-600 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors text-sm underline underline-offset-4 decoration-1"
               >
                 Contact
               </Link>
@@ -228,7 +227,7 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            <div className="pt-8">
+            <div className="pt-10">
               <Image
                 src="/images/desk-1.png"
                 alt="Warm, cozy workspace with code and ambient lighting"
@@ -266,14 +265,14 @@ export default function HeroSection() {
 
         {/* Pinned Items */}
         <motion.div variants={fadeIn} className="space-y-6">
-          <div className="lg:mx-22">
+          <div className="lg:mx-22 space-y-0.5">
             {filteredItems.map((item, index) => (
               <Link
                 key={index}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block rounded-lg p-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 group"
+                className="block rounded-lg p-3 hover:bg-neutral-100 dark:hover:bg-neutral-900 group"
               >
                 <div className="flex items-center gap-1 font-semibold">
                   {item.title}
@@ -298,6 +297,6 @@ export default function HeroSection() {
           </div>
         </motion.div>
       </motion.div>
-    </div>
+    </div >
   );
 }

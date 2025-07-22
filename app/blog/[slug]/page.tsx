@@ -74,12 +74,12 @@ export default function Blog({ params }) {
           <BackButton href="/" />
         </div>
         <div className="flex justify-center">
-          <p className="text-neutral-700 text-sm">
+          <p className="text-sm">
             {formatDate(post.metadata.publishedAt)}{" "}
             {post.readingTime ? `— ${post.readingTime} min read` : ""}
           </p>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-center mt-6 text-neutral-900 dark:text-neutral-300">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-center mt-3 text-neutral-900 dark:text-neutral-300">
           {post.metadata.title}
         </h1>
       </header>

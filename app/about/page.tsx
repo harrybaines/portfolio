@@ -24,7 +24,7 @@ export default function AboutMe() {
   };
 
   return (
-    <div className="min-h-screen w-full text-neutral-900 dark:text-neutral-100 overflow-hidden">
+    <div className="max-w-2xl mx-auto min-h-screen w-full text-neutral-900 dark:text-neutral-100 overflow-hidden">
       <div className="relative z-10 min-h-screen pt-12 md:pt-10 pb-10 flex flex-col">
         <div className="mx-auto w-full flex-1 flex flex-col">
           <ContentWrapper>
@@ -52,7 +52,6 @@ export default function AboutMe() {
                 </motion.div>
 
                 <motion.div variants={fadeIn} className="space-y-6 text-lg">
-                  <h3 className="font-bold my-3 text-neutral-300">ABOUT</h3>
                   <p>
                     I've always been fascinated by technology, in particular
                     computer software. In my eyes, code is the mechanism one can
@@ -78,8 +77,11 @@ export default function AboutMe() {
                   </p>
                   <p>
                     When I'm not writing code I enjoy hybrid training, watching
-                    LFC, and working on side projects. I'm available for new
-                    opportunities - if you need a full-stack dev, ping me an
+                    LFC, playing chess, and working on side projects.
+                  </p>
+                  <p>
+                    I'm available for new
+                    opportunities, feel free to ping me an
                     email and we can build something great!
                   </p>
 
@@ -96,7 +98,7 @@ export default function AboutMe() {
                     </div>
                   </motion.div>
 
-                  <h3 className="font-bold my-3 text-neutral-300">
+                  <h3 className="font-bold mb-4 mt-10 text-neutral-300">
                     TECH STACK
                   </h3>
                   <p>
@@ -135,7 +137,7 @@ export default function AboutMe() {
                     contributed to open source.
                   </p>
 
-                  <h3 className="font-bold my-3 text-neutral-300">
+                  <h3 className="font-bold mb-4 mt-10 text-neutral-300">
                     SIDE PROJECTS
                   </h3>
                   <p>
@@ -163,7 +165,7 @@ export default function AboutMe() {
                     for more details.
                   </p>
 
-                  <h3 className="font-bold my-3 text-neutral-300">CONNECT</h3>
+                  <h3 className="font-bold mb-4 mt-10 text-neutral-300">CONNECT</h3>
                   <p>
                     Ping me an email if you'd like to chat. I'm always open to
                     new project ideas!

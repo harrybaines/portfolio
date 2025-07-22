@@ -7,8 +7,8 @@ export default function Blog() {
       <div className="my-10">
         <BackButton href="/" />
       </div>
-      <div className="flex flex-col items-center justify-center py-16">
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-16">Posts</h1>
+      <div className="mt-16">
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-16 text-center">Posts</h1>
         <Posts />
       </div>
     </div>
