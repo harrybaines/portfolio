@@ -1,25 +1,24 @@
-import Footer from "@/app/components/footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
-import { Figtree, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./global.css";
 import { baseUrl } from "./sitemap";
+import Navigation from "./components/Navigation";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Harry Baines Portfolio",
-    template: "%s | Harry Baines Portfolio",
+    default: "Harry Baines - Software Engineer",
+    template: "%s | Harry Baines",
   },
-  description: "Welcome to my portfolio.",
+  description: "Software Engineer based in the UK, specializing in AI integration, LLMs, and full-stack development.",
   openGraph: {
-    title: "Harry Baines Portfolio",
-    description: "Welcome to my portfolio.",
+    title: "Harry Baines - Software Engineer",
+    description: "Software Engineer based in the UK, specializing in AI integration, LLMs, and full-stack development.",
     url: baseUrl,
     siteName: "Harry Baines Portfolio",
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   robots: {
@@ -36,15 +35,17 @@ export const metadata: Metadata = {
 };
 
 const monoFont = JetBrains_Mono({
-  subsets: ["latin" as const],
+  subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const sansFont = Figtree({
-  subsets: ["latin" as const],
+const sansFont = Inter({
+  subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 export default function RootLayout({
@@ -53,22 +54,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${monoFont.variable} ${sansFont.variable}`}
-      suppressHydrationWarning
-    >
-      <body className="antialiased font-sans h-screen">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-        >
-          <div className="max-w-3xl w-full mx-auto px-8">
-            <main>{children}</main>
-          </div>
-          <Footer />
-        </ThemeProvider>
+    <html lang="en" className={`${monoFont.variable} ${sansFont.variable}`}>
+      <body className="antialiased font-sans min-h-screen">
+        <Navigation />
+        <main>{children}</main>
         <Analytics />
         <SpeedInsights />
       </body>
