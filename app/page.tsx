@@ -1,61 +1,78 @@
-import TypeWriter from "./components/TypeWriter";
-import KonamiCode from "./components/KonamiCode";
-import { ArrowRight } from "lucide-react";
+"use client";
+
 import Link from "next/link";
+import { Code2, Database, Brain, Globe, Server, Layers } from "lucide-react";
+import { useState } from "react";
+import MatrixRain from "./components/MatrixRain";
 
 export default function Home() {
+  const [showMatrix, setShowMatrix] = useState(false);
+
   const skills = [
-    "AI Integration",
-    "LLM Development",
-    "Web Development",
-    "Full Stack Engineering",
-    "Machine Learning",
-    "API Design",
+    { icon: Brain, title: "AI Integration", description: "LLMs & ML pipelines" },
+    { icon: Code2, title: "Full Stack", description: "React, Next.js, Node" },
+    { icon: Database, title: "Database Design", description: "PostgreSQL, Redis" },
+    { icon: Globe, title: "Web Development", description: "Modern web apps" },
+    { icon: Server, title: "Backend APIs", description: "REST & GraphQL" },
+    { icon: Layers, title: "System Design", description: "Scalable architecture" },
   ];
 
   return (
     <>
-      <KonamiCode />
-      <div className="min-h-screen w-full flex items-center pt-16">
-        <div className="max-w-6xl mx-auto px-8 w-full">
-          <div className="space-y-8">
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none">
-              Harry
+      {showMatrix && <MatrixRain />}
+      <div className="min-h-screen w-full pt-32 pb-16">
+        <div className="max-w-7xl mx-auto px-8">
+          {/* Hero Section */}
+          <div className="mb-20">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+              Building the
               <br />
-              Baines
+              <span
+                className="cursor-pointer hover:text-neutral-500 transition-colors"
+                onClick={() => {
+                  setShowMatrix(true);
+                  setTimeout(() => setShowMatrix(false), 5000);
+                }}
+              >
+                future of AI
+              </span>
             </h1>
-
-            <div className="text-2xl md:text-3xl text-neutral-600 h-12">
-              <TypeWriter texts={skills} speed={80} deleteSpeed={40} pauseDuration={2000} />
-            </div>
-
-            <p className="text-lg text-neutral-500 max-w-2xl font-sans">
-              Software engineer based in the UK. I build intelligent systems that bridge the gap
-              between cutting-edge AI and practical web applications.
+            <p className="text-xl text-neutral-600 max-w-2xl">
+              Harry Baines. Software engineer from the UK specializing in intelligent systems and
+              modern web applications.
             </p>
-
-            <div className="flex gap-4 pt-4">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-mono text-sm hover:bg-neutral-800 transition-colors"
-              >
-                View my work <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-neutral-300 font-mono text-sm hover:border-black transition-colors"
-              >
-                Read my blog
-              </Link>
-            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Secret scroll indicator - Easter egg #2 */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-30 hover:opacity-100 transition-opacity cursor-default">
-        <div className="w-6 h-10 border-2 border-neutral-300 rounded-full flex justify-center">
-          <div className="w-1 h-2 bg-neutral-400 rounded-full mt-2 animate-pulse" />
+          {/* Skills Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {skills.map((skill, index) => (
+              <div
+                key={skill.title}
+                className="group p-8 border-2 border-neutral-200 hover:border-black transition-all duration-300 hover:shadow-lg"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <skill.icon className="w-8 h-8 mb-4 text-neutral-400 group-hover:text-black transition-colors" />
+                <h3 className="text-xl font-mono font-semibold mb-2">{skill.title}</h3>
+                <p className="text-neutral-600 text-sm">{skill.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+            <Link
+              href="/about"
+              className="px-8 py-4 bg-black text-white font-mono text-center hover:bg-neutral-800 transition-colors"
+            >
+              About Me
+            </Link>
+            <Link
+              href="/blog"
+              className="px-8 py-4 border-2 border-neutral-300 font-mono text-center hover:border-black transition-colors"
+            >
+              View Blog
+            </Link>
+          </div>
         </div>
       </div>
     </>
