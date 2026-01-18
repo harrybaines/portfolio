@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./global.css";
 import { baseUrl } from "./sitemap";
 import Navigation from "./components/Navigation";
@@ -34,18 +34,11 @@ export const metadata: Metadata = {
   },
 };
 
-const monoFont = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const sansFont = Inter({
+const sansFont = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export default function RootLayout({
@@ -54,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${monoFont.variable} ${sansFont.variable}`}>
+    <html lang="en" className={sansFont.variable}>
       <body className="antialiased font-sans min-h-screen">
         <Navigation />
         <main>{children}</main>
