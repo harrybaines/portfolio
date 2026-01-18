@@ -1,63 +1,110 @@
-import TypeWriter from "./components/TypeWriter";
-import KonamiCode from "./components/KonamiCode";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
-  const skills = [
-    "AI Integration",
-    "LLM Development",
-    "Web Development",
-    "Full Stack Engineering",
-    "Machine Learning",
-    "API Design",
-  ];
-
   return (
-    <>
-      <KonamiCode />
-      <div className="min-h-screen w-full flex items-center pt-16">
-        <div className="max-w-6xl mx-auto px-8 w-full">
-          <div className="space-y-8">
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none">
-              Harry
-              <br />
-              Baines
-            </h1>
+    <div className="min-h-screen w-full pt-32 pb-16">
+      <div className="max-w-7xl mx-auto px-8">
+        {/* Asymmetric Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {/* Main Content - Offset Column */}
+          <div className="md:col-start-2 md:col-span-7 space-y-12">
+            <div>
+              <h1 className="text-8xl md:text-9xl font-light leading-none mb-8">
+                Harry
+                <br />
+                Baines
+              </h1>
 
-            <div className="text-2xl md:text-3xl text-neutral-600 h-12">
-              <TypeWriter texts={skills} speed={80} deleteSpeed={40} pauseDuration={2000} />
+              <div className="space-y-4 text-xl leading-relaxed max-w-xl">
+                <p>
+                  AI Integration · LLMs · Full Stack Development
+                </p>
+                <p className="text-base">
+                  Software engineer based in the UK. I build intelligent systems that bridge
+                  cutting-edge AI with practical web applications.
+                </p>
+              </div>
             </div>
 
-            <p className="text-lg text-neutral-500 max-w-2xl font-sans">
-              Software engineer based in the UK. I build intelligent systems that bridge the gap
-              between cutting-edge AI and practical web applications.
-            </p>
+            {/* Work Section */}
+            <div className="space-y-6">
+              <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-400">
+                Selected Work
+              </h2>
+              <div className="space-y-4">
+                <Link
+                  href="/blog"
+                  className="block group py-3 border-b border-neutral-200 hover:border-black transition-all"
+                >
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-lg group-hover:translate-x-1 transition-transform">
+                      Technical writing & insights
+                    </span>
+                    <span className="text-sm font-mono text-neutral-400">→</span>
+                  </div>
+                </Link>
+                <Link
+                  href="/about"
+                  className="block group py-3 border-b border-neutral-200 hover:border-black transition-all"
+                >
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-lg group-hover:translate-x-1 transition-transform">
+                      About & experience
+                    </span>
+                    <span className="text-sm font-mono text-neutral-400">→</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
 
-            <div className="flex gap-4 pt-4">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-mono text-sm hover:bg-neutral-800 transition-colors"
-              >
-                View my work <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-neutral-300 font-mono text-sm hover:border-black transition-colors"
-              >
-                Read my blog
-              </Link>
+            {/* Now Section with Blur Effect - Easter Egg */}
+            <div className="space-y-4 pt-8">
+              <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-400">
+                Now
+              </h2>
+              <p tabIndex={0} className="blur-text text-base max-w-xl cursor-pointer">
+                Currently exploring the intersection of AI and developer tooling, building with
+                Next.js and TypeScript, one small win at a time.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column - Meta Info */}
+          <div className="md:col-start-10 md:col-span-3 space-y-8">
+            <div className="space-y-2">
+              <p className="text-sm font-mono text-neutral-400">Location</p>
+              <p>United Kingdom</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm font-mono text-neutral-400">Connect</p>
+              <div className="space-y-1">
+                <a
+                  href="https://github.com/harrybaines"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm hover:translate-x-1 transition-transform"
+                >
+                  GitHub ↗
+                </a>
+                <a
+                  href="https://linkedin.com/in/harrybaines"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm hover:translate-x-1 transition-transform"
+                >
+                  LinkedIn ↗
+                </a>
+                <a
+                  href="mailto:harry@example.com"
+                  className="block text-sm hover:translate-x-1 transition-transform"
+                >
+                  Email ↗
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Secret scroll indicator - Easter egg #2 */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-30 hover:opacity-100 transition-opacity cursor-default">
-        <div className="w-6 h-10 border-2 border-neutral-300 rounded-full flex justify-center">
-          <div className="w-1 h-2 bg-neutral-400 rounded-full mt-2 animate-pulse" />
-        </div>
-      </div>
-    </>
+    </div>
   );
 }

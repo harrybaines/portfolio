@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./global.css";
 import { baseUrl } from "./sitemap";
 import Navigation from "./components/Navigation";
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
   },
 };
 
-const monoFont = JetBrains_Mono({
+const serifFont = IBM_Plex_Serif({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-serif",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
-const sansFont = Inter({
+const monoFont = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-mono",
   display: "swap",
   weight: ["400", "500", "600"],
 });
@@ -54,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${monoFont.variable} ${sansFont.variable}`}>
-      <body className="antialiased font-sans min-h-screen">
+    <html lang="en" className={`${serifFont.variable} ${monoFont.variable}`}>
+      <body className="antialiased font-serif min-h-screen">
         <Navigation />
         <main>{children}</main>
         <Analytics />
