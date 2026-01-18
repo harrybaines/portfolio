@@ -2,8 +2,23 @@
 
 :root {
   --background: #ffffff;
+  --gradient-start: #f0f9ff;
+  --gradient-end: #fef3f9;
   --foreground: #0a0a0a;
   --text-secondary: #666666;
+  --accent: #3b82f6;
+}
+
+:root.teal-theme {
+  --gradient-start: #f0fdfa;
+  --gradient-end: #fef3c7;
+  --accent: #14b8a6;
+}
+
+:root.purple-theme {
+  --gradient-start: #faf5ff;
+  --gradient-end: #fef3f9;
+  --accent: #a855f7;
 }
 
 @theme inline {
@@ -19,9 +34,11 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background 0.5s ease;
 }
 
 h1,
@@ -38,6 +55,13 @@ h6 {
 p {
   line-height: 1.8;
   color: var(--text-secondary);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Mono styling for code, terminal content etc. */
