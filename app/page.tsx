@@ -1,63 +1,106 @@
-import TypeWriter from "./components/TypeWriter";
-import KonamiCode from "./components/KonamiCode";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-
 export default function Home() {
-  const skills = [
-    "AI Integration",
-    "LLM Development",
-    "Web Development",
-    "Full Stack Engineering",
-    "Machine Learning",
-    "API Design",
-  ];
-
   return (
-    <>
-      <KonamiCode />
-      <div className="min-h-screen w-full flex items-center pt-16">
-        <div className="max-w-6xl mx-auto px-8 w-full">
-          <div className="space-y-8">
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none">
-              Harry
-              <br />
-              Baines
-            </h1>
-
-            <div className="text-2xl md:text-3xl text-neutral-600 h-12">
-              <TypeWriter texts={skills} speed={80} deleteSpeed={40} pauseDuration={2000} />
-            </div>
-
-            <p className="text-lg text-neutral-500 max-w-2xl font-sans">
-              Software engineer based in the UK. I build intelligent systems that bridge the gap
-              between cutting-edge AI and practical web applications.
-            </p>
-
-            <div className="flex gap-4 pt-4">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-mono text-sm hover:bg-neutral-800 transition-colors"
-              >
-                View my work <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-neutral-300 font-mono text-sm hover:border-black transition-colors"
-              >
-                Read my blog
-              </Link>
-            </div>
+    <div className="min-h-screen w-full px-4 py-16">
+      <div className="max-w-4xl mx-auto">
+        {/* API-style Header */}
+        <div className="mb-16 border-b border-neutral-200 pb-8">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xs font-mono px-2 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200">
+              v1.0
+            </span>
+            <span className="text-xs font-mono text-neutral-400">ACTIVE</span>
           </div>
+          <h1 className="text-6xl font-semibold tracking-tight mb-4">
+            HARRY BAINES
+          </h1>
+          <p className="text-lg text-neutral-600">
+            Software Engineer · UK
+          </p>
         </div>
-      </div>
 
-      {/* Secret scroll indicator - Easter egg #2 */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-30 hover:opacity-100 transition-opacity cursor-default">
-        <div className="w-6 h-10 border-2 border-neutral-300 rounded-full flex justify-center">
-          <div className="w-1 h-2 bg-neutral-400 rounded-full mt-2 animate-pulse" />
+        {/* API Endpoints Style */}
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-400 mb-6">
+              CAPABILITIES
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border border-neutral-200 p-6">
+                <h3 className="font-mono text-sm mb-2 text-emerald-600">AI_INTEGRATION</h3>
+                <p className="text-sm text-neutral-600">
+                  Building intelligent systems with LLMs and machine learning pipelines
+                </p>
+              </div>
+              <div className="border border-neutral-200 p-6">
+                <h3 className="font-mono text-sm mb-2 text-blue-600">FULL_STACK</h3>
+                <p className="text-sm text-neutral-600">
+                  End-to-end development with React, Next.js, Node, and PostgreSQL
+                </p>
+              </div>
+              <div className="border border-neutral-200 p-6">
+                <h3 className="font-mono text-sm mb-2 text-purple-600">WEB_DEV</h3>
+                <p className="text-sm text-neutral-600">
+                  Modern web applications with focus on performance and UX
+                </p>
+              </div>
+              <div className="border border-neutral-200 p-6">
+                <h3 className="font-mono text-sm mb-2 text-orange-600">ARCHITECTURE</h3>
+                <p className="text-sm text-neutral-600">
+                  Scalable system design and technical decision making
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-400 mb-6">
+              ENDPOINTS
+            </h2>
+            <div className="space-y-3">
+              <a
+                href="https://github.com/harrybaines"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block border border-neutral-200 p-4 hover:border-neutral-400 transition-colors group"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono text-emerald-600">GET</span>
+                    <span className="font-mono text-sm">/github</span>
+                  </div>
+                  <span className="text-neutral-400 group-hover:text-neutral-600">→</span>
+                </div>
+              </a>
+              <a
+                href="https://linkedin.com/in/harrybaines"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block border border-neutral-200 p-4 hover:border-neutral-400 transition-colors group"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono text-emerald-600">GET</span>
+                    <span className="font-mono text-sm">/linkedin</span>
+                  </div>
+                  <span className="text-neutral-400 group-hover:text-neutral-600">→</span>
+                </div>
+              </a>
+              <a
+                href="mailto:harry@example.com"
+                className="block border border-neutral-200 p-4 hover:border-neutral-400 transition-colors group"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono text-blue-600">POST</span>
+                    <span className="font-mono text-sm">/contact</span>
+                  </div>
+                  <span className="text-neutral-400 group-hover:text-neutral-600">→</span>
+                </div>
+              </a>
+            </div>
+          </section>
         </div>
       </div>
-    </>
+    </div>
   );
 }
