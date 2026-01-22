@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
+// Sort posts by date (newest first)
+const sortedPosts = posts.sort((a, b) => {
+  return new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime();
+});
+
+// Format date function
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return date.toISOString().split('T')[0]; // YYYY-MM-DD format
+};
+---
+
+<Layout title="Blog | Harry Baines" description="Thoughts on code, AI, and building things.">
+  <div class="min-h-screen pt-32 pb-16">
+    <div class="max-w-5xl mx-auto px-8">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Blog</h1>
+      <p class="!text-[#a3a3a3] mb-16">Thoughts on code, AI, and building things.</p>
+
+      <div class="space-y-1">
+        {sortedPosts.map((post) => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="block group"
+          >
+            <article class="py-3 flex items-baseline justify-between gap-4 border-b border-[var(--gray-200)] hover:border-[#a3a3a3] transition-colors">
+              <h2 class="text-base group-hover:!text-[var(--foreground)] transition-colors">
+                {post.data.title}
+              </h2>
+              <time class="text-sm !text-[#a3a3a3] font-mono flex-shrink-0">{formatDate(post.data.publishedAt)}</time>
+            </article>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

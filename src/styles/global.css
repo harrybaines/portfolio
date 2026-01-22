@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --text-secondary: #5a5a5a;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --overlay-color: rgba(0, 0, 0, 0.03);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --text-secondary: #a3a3a3;
+  --gray-100: #171717;
+  --gray-200: #262626;
+  --overlay-color: rgba(255, 255, 255, 0.02);
+}
+
+html {
+  min-width: 360px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'IBM Plex Serif', ui-serif, Georgia, serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, var(--overlay-color) 100%);
+  pointer-events: none;
+  z-index: 50;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.04em;
+  font-family: 'IBM Plex Serif', ui-serif, Georgia, serif;
+  color: var(--foreground);
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Mono styling for code, terminal content etc. */
+.font-mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* Blur text effect */
+.blur-text {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+.blur-text:hover,
+.blur-text:focus {
+  filter: blur(0);
+}
+
+/* Smooth transitions */
+a,
+button {
+  transition: all 0.2s ease;
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Prose styling for blog posts */
+.prose .anchor {
+  @apply absolute invisible no-underline;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply underline transition-all underline-offset-2;
+  text-decoration-color: #a3a3a3;
+  text-decoration-thickness: 0.1em;
+}
+
+.dark .prose a {
+  text-decoration-color: #525252;
+}
+
+.prose .anchor:after {
+  content: "#";
+  color: #a3a3a3;
+}
+
+.dark .prose .anchor:after {
+  color: #404040;
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply rounded-lg overflow-x-auto py-2 px-3 text-sm;
+  background-color: #fafafa;
+}
+
+.dark .prose pre {
+  background-color: #171717;
+}
+
+.prose pre code {
+  @apply p-0 bg-transparent;
+  color: #292524;
+  border: initial;
+  line-height: 1.75;
+}
+
+.dark .prose pre code {
+  color: #a3a3a3;
+}
+
+.prose code span {
+  @apply font-medium;
+}
+
+.prose img {
+  @apply m-0;
+}
+
+.prose h1 {
+  @apply text-4xl font-bold tracking-tight mt-8 mb-4;
+  color: #0a0a0a;
+}
+
+.dark .prose h1 {
+  color: #a3a3a3;
+}
+
+.prose h2 {
+  @apply text-3xl font-bold tracking-tight mt-8 mb-3;
+  color: #0a0a0a;
+}
+
+.dark .prose h2 {
+  color: #a3a3a3;
+}
+
+.prose h3 {
+  @apply text-2xl font-bold tracking-tight mt-7 mb-3;
+  color: #0a0a0a;
+}
+
+.dark .prose h3 {
+  color: #a3a3a3;
+}
+
+.prose h4 {
+  @apply text-xl font-bold tracking-tight mt-6 mb-2;
+  color: #0a0a0a;
+}
+
+.dark .prose h4 {
+  color: #a3a3a3;
+}
+
+.prose p {
+  @apply my-6 leading-8 text-lg;
+  color: #0a0a0a;
+}
+
+.dark .prose p {
+  color: #a3a3a3;
+}
+
+.prose strong {
+  @apply font-medium;
+  color: #171717;
+}
+
+.dark .prose strong {
+  color: #e5e5e5;
+}
+
+.prose ul {
+  @apply list-disc pl-6 my-5 space-y-1.5 text-lg;
+  color: #171717;
+}
+
+.dark .prose ul {
+  color: #a3a3a3;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 my-5 space-y-1.5 text-lg;
+  color: #171717;
+}
+
+.dark .prose ol {
+  color: #a3a3a3;
+}
+
+.prose li {
+  @apply pb-0.5;
+  line-height: 1.875;
+}
+
+.prose li p {
+  @apply my-1;
+}
+
+.prose > :first-child {
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.title {
+  text-wrap: balance;
+}

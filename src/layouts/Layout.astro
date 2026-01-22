@@ -1,0 +1,69 @@
+---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Harry Baines - Software Engineer',
+  description = 'Software Engineer based in the UK, specializing in AI integration, LLMs, and full-stack development.'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Harry Baines Portfolio" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Google Fonts - IBM Plex Serif, IBM Plex Mono & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Theme initialization script - runs before page renders to prevent flash -->
+    <script is:inline>
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return 'light';
+      };
+      const theme = getThemePreference();
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script>
+  </head>
+  <body class="antialiased font-serif min-h-screen">
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

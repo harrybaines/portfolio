@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const skills = [
+  'TypeScript',
+  'React',
+  'Next.js',
+  'Node.js',
+  'Python',
+  'LLMs',
+  'OpenAI API',
+  'PostgreSQL',
+  'Tailwind CSS',
+  'Git',
+];
+---
+
+<Layout title="About | Harry Baines" description="Learn more about Harry Baines, a software engineer based in the UK specializing in AI integration and full-stack development.">
+  <div class="min-h-screen pt-32 pb-16">
+    <div class="max-w-5xl mx-auto px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <!-- Profile Image -->
+        <div class="space-y-4">
+          <div class="aspect-square w-full max-w-md mx-auto md:mx-0 bg-[var(--gray-100)] rounded-none overflow-hidden">
+            <div class="w-full h-full flex items-center justify-center text-neutral-400 dark:text-neutral-500">
+              <svg
+                class="w-32 h-32"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Content -->
+        <div class="space-y-6">
+          <h1 class="text-5xl font-bold mb-8">About</h1>
+
+          <p class="text-lg leading-relaxed">
+            Hey! I'm a software engineer based in the UK who loves building things with code.
+            I spend most of my time working with AI and LLMs, figuring out how to make them
+            genuinely useful in real applications.
+          </p>
+
+          <p class="text-lg leading-relaxed">
+            Outside of work, I'm usually tinkering with side projects, reading about new tech,
+            or going for walks to think through problems. Always happy to chat—feel free to
+            reach out anytime.
+          </p>
+
+          <div class="pt-6">
+            <h2 class="text-xl font-mono font-semibold mb-4">Skills</h2>
+            <div class="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span class="px-3 py-1 bg-[var(--gray-100)] !text-[#525252] dark:!text-[#a3a3a3] text-sm font-mono">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
