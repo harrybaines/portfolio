@@ -1,14 +1,17 @@
 ---
 import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  hideNav?: boolean;
 }
 
 const {
   title = 'Harry Baines - Software Engineer',
-  description = 'Software Engineer based in the UK, specializing in AI integration, LLMs, and full-stack development.'
+  description = 'Software Engineer based in the UK, specializing in AI integration, LLMs, and full-stack development.',
+  hideNav = false
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -60,8 +63,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
   </head>
   <body class="antialiased font-serif min-h-screen">
+    {!hideNav && <Navigation />}
     <main>
       <slot />
     </main>
+
+    <!-- Theme Toggle Button (fixed bottom right) -->
+    <button
+      id="theme-toggle"
+      class="fixed bottom-6 right-6 w-10 h-10 bg-white dark:bg-neutral-800 border border-[var(--border-color)] rounded-full hover:opacity-80 transition-opacity flex items-center justify-center shadow-sm"
+      aria-label="Toggle theme"
+    >
+      <span class="dark:hidden">
+        <svg class="w-4 h-4 text-[var(--foreground)]" fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+      </span>
+      <span class="hidden dark:inline">
+        <svg class="w-4 h-4 text-[var(--foreground)]" fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Astro/N Logo (fixed bottom left) -->
+    <div class="fixed bottom-6 left-6 w-8 h-8 bg-[var(--foreground)] rounded-full flex items-center justify-center">
+      <span class="text-[var(--background)] text-sm font-medium">N</span>
+    </div>
+
+    <script>
+      const themeToggle = document.getElementById('theme-toggle');
+
+      themeToggle?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    </script>
   </body>
 </html>

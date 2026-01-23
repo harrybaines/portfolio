@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
+// Sort posts by date (newest first)
+const sortedPosts = posts.sort((a, b) => {
+  return new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime();
+});
+
+// Format date function
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return date.toISOString().split('T')[0]; // YYYY-MM-DD format
+};
+---
+
+<Layout title="Writing | Harry Baines" description="Thoughts on code, AI, and building things.">
+  <div class="min-h-screen pt-16 md:pt-24 pb-16">
+    <div class="max-w-6xl mx-auto px-8 lg:px-16">
+      <!-- Header -->
+      <div class="mb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+          Writing
+        </span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-[var(--foreground)] mt-2">
+          Thoughts on code, AI, and building things
+        </h1>
+      </div>
+
+      <!-- Posts List -->
+      <div class="max-w-3xl">
+        <div class="border-t border-[var(--border-color)]">
+          {sortedPosts.map((post) => (
+            <a
+              href={`/writing/${post.slug}`}
+              class="group block py-4 border-b border-[var(--border-color)] hover:bg-[var(--gray-100)] transition-colors -mx-2 px-2"
+            >
+              <article class="flex items-baseline justify-between gap-8">
+                <h2 class="text-base text-[var(--foreground)] group-hover:text-[var(--foreground)] transition-colors">
+                  {post.data.title}
+                </h2>
+                <time class="text-sm text-[var(--text-secondary)] font-mono flex-shrink-0">
+                  {formatDate(post.data.publishedAt)}
+                </time>
+              </article>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --text-secondary: #5a5a5a;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  min-width: 360px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.03) 100%);
+  pointer-events: none;
+  z-index: 50;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.04em;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  color: var(--foreground);
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Mono styling for code, terminal content etc. */
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+/* Blur text effect */
+.blur-text {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+.blur-text:hover,
+.blur-text:focus {
+  filter: blur(0);
+}
+
+/* Smooth transitions */
+a,
+button {
+  transition: all 0.2s ease;
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+}
+
+.prose .anchor:after {
+  @apply text-neutral-400 dark:text-neutral-700;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto py-2 px-3 text-sm;
+}
+
+.prose pre code {
+  @apply p-0 bg-transparent text-stone-800 dark:text-neutral-400;
+  border: initial;
+  line-height: 1.75;
+}
+
+.prose code span {
+  @apply font-medium;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0;
+}
+
+.prose h1 {
+  @apply text-4xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-neutral-400;
+}
+
+.prose h2 {
+  @apply text-3xl font-bold tracking-tight mt-8 mb-3 text-black dark:text-neutral-400;
+}
+
+.prose h3 {
+  @apply text-2xl font-bold tracking-tight mt-7 mb-3 text-black dark:text-neutral-400;
+}
+
+.prose h4 {
+  @apply text-xl font-bold tracking-tight mt-6 mb-2 text-black dark:text-neutral-400;
+}
+
+.prose p {
+  @apply my-6 leading-8 text-lg text-black dark:text-neutral-400;
+}
+
+.prose strong {
+  @apply font-medium text-neutral-900 dark:text-neutral-200;
+}
+
+.prose ul {
+  @apply list-disc pl-6 my-5 space-y-1.5 text-lg text-neutral-900 dark:text-neutral-400;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 my-5 space-y-1.5 text-lg text-neutral-900 dark:text-neutral-400;
+}
+
+.prose li {
+  @apply leading-7.5 pb-0.5;
+}
+
+.prose li p {
+  @apply my-1;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.title {
+  text-wrap: balance;
+}

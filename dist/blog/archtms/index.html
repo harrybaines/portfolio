@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://harrybaines.net/blog/archtms/"><meta name="generator" content="Astro v5.16.15"><!-- Primary Meta Tags --><title>Introducing archtms | Harry Baines</title><meta name="title" content="Introducing archtms | Harry Baines"><meta name="description" content="A brief introduction to archtms, my architecture practice management system."><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://harrybaines.net/blog/archtms/"><meta property="og:title" content="Introducing archtms | Harry Baines"><meta property="og:description" content="A brief introduction to archtms, my architecture practice management system."><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="Harry Baines Portfolio"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://harrybaines.net/blog/archtms/"><meta property="twitter:title" content="Introducing archtms | Harry Baines"><meta property="twitter:description" content="A brief introduction to archtms, my architecture practice management system."><!-- Google Fonts - IBM Plex Serif, IBM Plex Mono & Inter --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><!-- Theme initialization script - runs before page renders to prevent flash --><script>
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return 'light';
+      };
+      const theme = getThemePreference();
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/_astro/about.DDbU9w1P.css"></head> <body class="antialiased font-serif min-h-screen"> <nav class="w-full border-b border-[var(--border-color)]"> <div class="max-w-6xl mx-auto px-8 lg:px-16 py-6"> <div class="flex gap-8 items-center"> <a href="/" class="text-xs tracking-[0.2em] transition-colors text-[var(--text-secondary)] hover:text-[var(--foreground)]"> INDEX </a><a href="/about" class="text-xs tracking-[0.2em] transition-colors text-[var(--text-secondary)] hover:text-[var(--foreground)]"> ABOUT </a><a href="/writing" class="text-xs tracking-[0.2em] transition-colors text-[var(--text-secondary)] hover:text-[var(--foreground)]"> WRITING </a> </div> </div> </nav> <main>  <div class="pt-32 pb-12 max-w-3xl mx-auto px-8"> <header class="mb-16 relative"> <div class="mb-12"> <a href="/blog" class="inline-flex items-center gap-2 text-sm !text-[#a3a3a3] hover:!text-[var(--foreground)] transition-colors"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back
+</a> </div> <div class="flex justify-center"> <p class="text-sm"> January 1, 2025 — 6 min read
+</p> </div> <h1 class="text-3xl md:text-4xl font-extrabold text-center mt-3 text-neutral-900 dark:text-neutral-300"> Introducing archtms </h1> </header> <div class="mb-60 prose"> <p>archtms is a centralised hub for architects, building surveyors and town planners to manage their projects, clients, fees, staff and cashflow. View the landing page <a href="https://www.archtms.app">here</a>.</p>
+<p><img src="/images/projects/archtms/tms-landing.png" alt="TMS Landing Screenshot"/></p>
+<h3 id="the-beginning">The Beginning</h3>
+<p>The journey began in 2018 during my internship as an accounts assistant at <a href="https://www.cassidyashton.co.uk/">Cassidy and Ashton</a>. I was responsible for managing employee timesheets—paper-based documents that were submitted to the accounts department each week and manually entered into Excel spreadsheets. This inefficient process quickly revealed an opportunity for improvement.</p>
+<h3 id="the-problem">The Problem</h3>
+<p>The existing paper-based system had numerous shortcomings:</p>
+<ul>
+<li><strong>Manual data entry</strong>: Accounts staff spent considerable time inputting data from paper timesheets into Excel, diverting attention from more critical business functions</li>
+<li><strong>Data duplication and inconsistency</strong>: The manual process was prone to errors, with different employees potentially recording the same job with slight variations in descriptions</li>
+<li><strong>Limited scalability</strong>: Excel’s constraints (maximum of 1 million rows) and performance issues with large datasets were becoming apparent</li>
+<li><strong>Collaboration difficulties</strong>: Simultaneous editing could lead to overwritten changes</li>
+<li><strong>Lack of validation</strong>: No mechanism existed to verify the accuracy of entered data</li>
+</ul>
+<p>The company had researched third-party solutions, but these came with significant costs—ranging from £20,000 to £40,000—and substantial training expenses. This indicated to me that these systems weren’t affordable or intuitive enough for users to quickly adopt.</p>
+<h3 id="version-1">Version 1</h3>
+<p>With my background in web development I proposed creating a bespoke full-stack web application that would be tailored to the firm’s specific needs. The company welcomed this initiative, giving me the opportunity to design and develop a solution from scratch.</p>
+<p>For version 1, I implemented a complete PERN stack architecture:</p>
+<ul>
+<li><strong>Frontend</strong>: React.js with Redux for state management and Ant Design for the UI components</li>
+<li><strong>Backend</strong>: Node.js with Express.js framework serving as an API layer</li>
+<li><strong>Database</strong>: PostgreSQL for robust data storage</li>
+<li><strong>Authentication</strong>: Firebase Authentication for secure user management</li>
+<li><strong>Deployment</strong>: Heroku for hosting</li>
+</ul>
+<p>This architecture created a centralized platform accessible from any device with an internet connection, optimized primarily for desktop use given the nature of timesheet entry.</p>
+<h3 id="core-features">Core Features</h3>
+<p>The initial version focused on streamlining the timesheet process:</p>
+<ul>
+<li><strong>Digital Timesheet Entry</strong>: Intuitive interface for recording time spent on jobs</li>
+<li><strong>Job Autocomplete</strong>: Smart filtering as users typed job numbers or descriptions</li>
+<li><strong>Fee Indicators</strong>: Color-coded job numbers (red for jobs without fees, green for those with fees)</li>
+<li><strong>Staged Submission</strong>: Options to save timesheets in progress or submit completed ones</li>
+<li><strong>Admin Dashboard</strong>: Oversight capabilities for directors to monitor staff timesheet status</li>
+<li><strong>Data Export</strong>: CSV export functionality for both time records and expenses</li>
+</ul>
+<h3 id="implementation-challenges">Implementation Challenges</h3>
+<p>Developing this system presented several challenges:</p>
+<ul>
+<li>Creating appropriate authorization rules to control access across the application</li>
+<li>Implementing complex timesheet restoration functionality for administrators</li>
+<li>Managing application state across a complex, multi-user platform</li>
+<li>Resolving numerous CSS and UI consistency issues</li>
+<li>Determining the optimal deployment strategy</li>
+</ul>
+<p>Despite these challenges, the system was successfully deployed and adopted by the practice.</p>
+<h3 id="version-2">Version 2</h3>
+<p>Building on the success of the initial timesheet system, I recognized opportunities to address broader needs within architectural practices. This led to the development of version 2—a comprehensive practice management solution.</p>
+<h4 id="enhanced-features">Enhanced Features</h4>
+<p>The new system retained all the functionality of version 1 while introducing significant new capabilities:</p>
+<h4 id="timesheet-enhancements">Timesheet Enhancements</h4>
+<p>The core timesheet functionality was enhanced with improved usability, faster data entry, and better validation. The interface was redesigned to be more intuitive, with streamlined workflows and keyboard shortcuts for power users. Historical data access and editing capabilities were expanded for administrators.</p>
+<h4 id="clients">Clients</h4>
+<p>A dedicated client portal centralizes all client information in one place. This includes contact details, project history and logs. The system maintains relationships between clients and their projects, providing a complete view of client engagement across the practice.</p>
+<h4 id="project-dashboards">Project Dashboards</h4>
+<p>Each project now has its own comprehensive dashboard showing real-time metrics like budget utilization, time allocation across RIBA stages, and team member contributions. These dashboards provide project leads with at-a-glance visibility into project health and progress.</p>
+<h4 id="fees">Fees</h4>
+<p>The system now supports sophisticated fee structures. Fees can be allocated across RIBA stages and tracked against actual time spent, providing critical insights into project profitability.</p>
+<h4 id="cashflow-and-fee-forecasting">Cashflow and Fee Forecasting</h4>
+<p>One of the most valuable additions, the cashlow feature allows directors to manage and visualise allocations of fees across months and years, along with a master cashflow dashboard to view all directors cashflows over time.</p>
+<h4 id="holiday-management">Holiday Management</h4>
+<p>A complete leave management system allows staff to request time off, with automated approval workflows for directors. The global company calendar displays team availability and public holidays, helping with resource planning and workload distribution.</p>
+<h4 id="employee-reviews">Employee Reviews</h4>
+<p>The performance management module facilitates structured employee evaluations, goal setting, and professional development tracking. Customizable review templates support different review types (annual, quarterly, probation), with historical performance data accessible to authorized managers.</p>
+<p>The system also includes other improvements like:</p>
+<ul>
+<li><strong>Expense Management</strong>: Digital receipt uploads and tracking</li>
+<li><strong>Personalized Dashboards</strong>: Role-specific views presenting relevant information</li>
+<li><strong>Automated Workflows</strong>: Email notifications and approval processes</li>
+<li><strong>Enhanced Reporting</strong>: Customized insights for directors including sector analysis, top projects, and project progression</li>
+</ul>
+<h3 id="modernized-tech-stack">Modernized Tech Stack</h3>
+<p>For version 2, I rebuilt the system with an updated technology stack:</p>
+<ul>
+<li><strong>Frontend</strong>: React, Vite, TypeScript, RTK Query</li>
+<li><strong>Backend</strong>: Express, TypeScript, Prisma, Zod</li>
+<li><strong>UI</strong>: Chakra UI, react-table, Apexcharts, framer-motion, Mapbox</li>
+<li><strong>Database</strong>: Supabase w/PostgreSQL</li>
+<li><strong>Emails</strong>: Resend w/react-email</li>
+<li><strong>Authentication</strong>: Supabase auth</li>
+<li><strong>Storage</strong>: Supabase storage for file uploads</li>
+<li><strong>Deployment</strong>: GitHub actions CI/CD to Fly.io via Docker containers</li>
+</ul>
+<h3 id="impact-and-feedback">Impact and Feedback</h3>
+<p>The system has been used by over 100 staff and is now used daily by around 60 employees. Leadership and staff alike have provided positive feedback:</p>
+<div><blockquote class="border-l-4 border-[var(--gray-200)] pl-6 my-8"> <p class="text-lg italic !text-[var(--text-secondary)] mb-4">"Since the new time management system has been up and running not only have I been able to produce my own weekly time sheets &amp; expenses much easier but I have been able to assess staff time and book costs against fee levels for individual jobs. As a Director this is invaluable in helping to run an efficient business, particularly as an architectural practice. This automated process whilst helping solve a problem also adds to our environmental credentials with a paperless system now in place. A very professional tool that we can easily evolve over time as the business needs change"</p> <footer class="flex items-center gap-4"> <img src="/images/projects/archtms/lawrence.png" alt="Lawrence McBurney" class="w-12 h-12 rounded-full object-cover"> <div> <cite class="not-italic font-semibold !text-[var(--foreground)]">Lawrence McBurney</cite> <p class="text-sm !text-[#a3a3a3]">Board Director, Cassidy + Ashton</p> </div> </footer> </blockquote><blockquote class="border-l-4 border-[var(--gray-200)] pl-6 my-8"> <p class="text-lg italic !text-[var(--text-secondary)] mb-4">"The TMS system installed here at C+A has automated a procedure that previously relied upon searching elsewhere for job numbers, photocopying numerous copies, wasted paper, and took a long time to complete. Harry listened to our comments on the initial version and then made further improvements to create a system that is clear, reliable, quick and user friendly. Harry&#39;s software saves paper and time and makes it far easier for the staff to record their time spent on each project"</p> <footer class="flex items-center gap-4"> <img src="/images/projects/archtms/carl.png" alt="Carl Myerscough" class="w-12 h-12 rounded-full object-cover"> <div> <cite class="not-italic font-semibold !text-[var(--foreground)]">Carl Myerscough</cite> <p class="text-sm !text-[#a3a3a3]">Architect, Cassidy + Ashton</p> </div> </footer> </blockquote></div>
+<h3 id="conclusion">Conclusion</h3>
+<p>What began as a solution to a specific problem-inefficient timesheet management - has evolved into a comprehensive practice management system that delivers significant value to the entire organization.</p>
+<p>The success of archtms highlights the advantages of bespoke software development: tailored functionality, seamless integration with existing workflows, and the ability to evolve with the organization’s needs-all at a fraction of the cost of off-the-shelf alternatives.</p>
+<h3 id="interested">Interested?</h3>
+<p>If you’re looking to modernize your architectural practice or want to learn more about archtms, I’d love to chat. Feel free to contact me!</p> </div> </div>  </main> <!-- Theme Toggle Button (fixed bottom right) --> <button id="theme-toggle" class="fixed bottom-6 right-6 w-10 h-10 bg-white dark:bg-neutral-800 border border-[var(--border-color)] rounded-full hover:opacity-80 transition-opacity flex items-center justify-center shadow-sm" aria-label="Toggle theme"> <span class="dark:hidden"> <svg class="w-4 h-4 text-[var(--foreground)]" fill="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="4"></circle> </svg> </span> <span class="hidden dark:inline"> <svg class="w-4 h-4 text-[var(--foreground)]" fill="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="4"></circle> </svg> </span> </button> <!-- Astro/N Logo (fixed bottom left) --> <div class="fixed bottom-6 left-6 w-8 h-8 bg-[var(--foreground)] rounded-full flex items-center justify-center"> <span class="text-[var(--background)] text-sm font-medium">N</span> </div> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.classList.toggle("dark");localStorage.setItem("theme",e?"dark":"light")});</script> </body> </html>

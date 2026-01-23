@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import Testimonial from '../../components/Testimonial.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Components available in MDX
+const components = { Testimonial };
+
+// Calculate reading time
+const wordsPerMinute = 225;
+const wordCount = post.body.trim().split(/\s+/).length;
+const readingTime = Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+
+// Format date
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return date.toISOString().split('T')[0]; // YYYY-MM-DD format
+};
+---
+
+<Layout title={`${post.data.title} | Harry Baines`} description={post.data.description}>
+  <div class="min-h-screen pt-16 md:pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-8 lg:px-16">
+      <!-- Back Link -->
+      <div class="mb-12">
+        <a
+          href="/writing"
+          class="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m12 19-7-7 7-7"></path>
+            <path d="M19 12H5"></path>
+          </svg>
+          Back to writing
+        </a>
+      </div>
+
+      <!-- Header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-4 text-sm text-[var(--text-secondary)] font-mono mb-4">
+          <time>{formatDate(post.data.publishedAt)}</time>
+          <span>·</span>
+          <span>{readingTime} min read</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-normal leading-[1.1] tracking-tight text-[var(--foreground)]">
+          {post.data.title}
+        </h1>
+      </header>
+
+      <!-- Content -->
+      <div class="prose">
+        <Content components={components} />
+      </div>
+    </div>
+  </div>
+</Layout>
