@@ -1,0 +1,30 @@
+---
+interface Props {
+  quote: string;
+  author: {
+    name: string;
+    role: string;
+    company: string;
+    image?: string;
+  };
+}
+
+const { quote, author } = Astro.props;
+---
+
+<blockquote class="border-l-4 border-[var(--gray-200)] pl-6 my-8">
+  <p class="text-lg italic !text-[var(--text-secondary)] mb-4">"{quote}"</p>
+  <footer class="flex items-center gap-4">
+    {author.image && (
+      <img
+        src={author.image}
+        alt={author.name}
+        class="w-12 h-12 rounded-full object-cover"
+      />
+    )}
+    <div>
+      <cite class="not-italic font-semibold !text-[var(--foreground)]">{author.name}</cite>
+      <p class="text-sm !text-[#a3a3a3]">{author.role}, {author.company}</p>
+    </div>
+  </footer>
+</blockquote>

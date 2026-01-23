@@ -16,12 +16,10 @@ export default function Home() {
               </h1>
 
               <div className="space-y-4 text-xl leading-relaxed max-w-xl">
-                <p>
-                  AI Integration · LLMs · Full Stack Development
-                </p>
+                <p>AI Integration · LLMs · Full Stack Development!</p>
                 <p className="text-base">
-                  Software engineer based in the UK. I build intelligent systems that bridge
-                  cutting-edge AI with practical web applications.
+                  Software engineer based in the UK. I build intelligent systems
+                  that bridge cutting-edge AI with practical web applications.
                 </p>
               </div>
             </div>
@@ -40,7 +38,9 @@ export default function Home() {
                     <span className="text-lg group-hover:translate-x-1 transition-transform">
                       Technical writing & insights
                     </span>
-                    <span className="text-sm font-mono text-neutral-400">→</span>
+                    <span className="text-sm font-mono text-neutral-400">
+                      →
+                    </span>
                   </div>
                 </Link>
                 <Link
@@ -51,7 +51,9 @@ export default function Home() {
                     <span className="text-lg group-hover:translate-x-1 transition-transform">
                       About & experience
                     </span>
-                    <span className="text-sm font-mono text-neutral-400">→</span>
+                    <span className="text-sm font-mono text-neutral-400">
+                      →
+                    </span>
                   </div>
                 </Link>
               </div>
@@ -62,9 +64,13 @@ export default function Home() {
               <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-400">
                 Now
               </h2>
-              <p tabIndex={0} className="blur-text text-base max-w-xl cursor-pointer">
-                Currently exploring the intersection of AI and developer tooling, building with
-                Next.js and TypeScript, one small win at a time.
+              <p
+                tabIndex={0}
+                className="blur-text text-base max-w-xl cursor-pointer"
+              >
+                Currently exploring the intersection of AI and developer
+                tooling, building with Next.js and TypeScript, one small win at
+                a time.
               </p>
             </div>
           </div>
@@ -108,3 +114,4 @@ export default function Home() {
     </div>
   );
 }
+

@@ -1,5 +1,4 @@
 ---
-import Navigation from '../components/Navigation.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -61,7 +60,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
   </head>
   <body class="antialiased font-serif min-h-screen">
-    <Navigation />
     <main>
       <slot />
     </main>
