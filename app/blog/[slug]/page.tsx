@@ -1,35 +1,34 @@
-import { getBlogPosts } from 'app/blog/utils'
-import { baseUrl } from 'app/sitemap'
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-
-import BackButton from '@/app/components/back-button'
-import PostContent from '@/app/components/blog/post-content'
-import SEOSchema from '@/app/components/blog/seo-schema'
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { getBlogPosts } from "app/blog/utils";
+import { baseUrl } from "app/sitemap";
+import PostContent from "@/app/components/blog/post-content";
+import SEOSchema from "@/app/components/blog/seo-schema";
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts()
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
 export function generateMetadata({ params }): Metadata | null {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
-    return null
+    return null;
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     description,
     image,
-  } = post.metadata
-  let ogImage = image
+  } = post.metadata;
+  const ogImage = image
     ? image
-    : `${baseUrl}/og?title=${globalThis.encodeURIComponent(title)}`
+    : `${baseUrl}/og?title=${globalThis.encodeURIComponent(title)}`;
 
   return {
     title,
@@ -37,7 +36,7 @@ export function generateMetadata({ params }): Metadata | null {
     openGraph: {
       title,
       description,
-      type: 'article',
+      type: "article",
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
       images: [
@@ -47,55 +46,79 @@ export function generateMetadata({ params }): Metadata | null {
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export default function BlogPost({ params }) {
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
-  // Format date to match screenshot format
-  const formatDate = (dateString: string) => {
-    const date = new globalThis.Date(dateString)
-    return date.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric'
-    })
-  }
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toISOString().split("T")[0];
+  };
+
+  const wordsPerMinute = 225;
+  const wordCount = post.content.trim().split(/\s+/).length;
+  const readingTime = Math.max(1, Math.ceil(wordCount / wordsPerMinute));
 
   return (
-    <div className="my-8 md:my-12 max-w-3xl mx-auto">
-      <header className="mb-16 mt-20 relative">
-        <div className="mb-10">
-          <BackButton href="/" />
-        </div>
-        <div className="flex justify-center">
-          <p className="text-neutral-700 text-sm">{formatDate(post.metadata.publishedAt)} {post.readingTime ? `— ${post.readingTime} min read` : ''}</p>
-        </div>
-        <h1 className="text-5xl font-extrabold text-center mt-6 text-neutral-900 dark:text-neutral-300">{post.metadata.title}</h1>
-      </header>
+    <div className="min-h-screen py-16 md:py-24 px-8">
+      <div className="max-w-xl mx-auto">
+        {/* Header */}
+        <header className="mb-12">
+          <Link
+            href="/"
+            className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors"
+          >
+            Harry Baines
+          </Link>
+        </header>
 
-      <div className="mb-60">
-        <PostContent content={post.content} />
+        {/* Article Header */}
+        <div className="mb-12">
+          <div className="flex items-center gap-4 text-sm text-[var(--text-tertiary)] font-mono mb-4">
+            <time>{formatDate(post.metadata.publishedAt)}</time>
+            <span>·</span>
+            <span>{readingTime} min read</span>
+          </div>
+          <h1 className="text-2xl md:text-3xl font-normal leading-tight tracking-tight text-[var(--foreground)]">
+            {post.metadata.title}
+          </h1>
+        </div>
+
+        {/* Content */}
+        <div className="prose">
+          <PostContent content={post.content} />
+        </div>
+
+        {/* Back Link */}
+        <div className="mt-16 pt-8 border-t border-[var(--border-color)]">
+          <Link
+            href="/blog"
+            className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors"
+          >
+            Back to writing
+          </Link>
+        </div>
+
+        <SEOSchema
+          title={post.metadata.title}
+          publishedAt={post.metadata.publishedAt}
+          description={post.metadata.description}
+          image={post.metadata.image}
+          slug={post.slug}
+          baseUrl={baseUrl}
+        />
       </div>
-
-      <SEOSchema
-        title={post.metadata.title}
-        publishedAt={post.metadata.publishedAt}
-        description={post.metadata.description}
-        image={post.metadata.image}
-        slug={post.slug}
-        baseUrl={baseUrl}
-      />
     </div>
-  )
+  );
 }

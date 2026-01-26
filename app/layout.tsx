@@ -1,25 +1,23 @@
-import Footer from "@/app/components/footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Serif } from "next/font/google";
 import "./global.css";
 import { baseUrl } from "./sitemap";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Harry Baines Portfolio",
-    template: "%s | Harry Baines Portfolio",
+    default: "Harry Baines",
+    template: "%s | Harry Baines",
   },
-  description: "Welcome to my portfolio.",
+  description: "Software engineer building with AI.",
   openGraph: {
-    title: "Harry Baines Portfolio",
-    description: "Welcome to my portfolio.",
+    title: "Harry Baines",
+    description: "Software engineer building with AI.",
     url: baseUrl,
-    siteName: "Harry Baines Portfolio",
-    locale: "en_US",
+    siteName: "Harry Baines",
+    locale: "en_GB",
     type: "website",
   },
   robots: {
@@ -35,15 +33,17 @@ export const metadata: Metadata = {
   },
 };
 
-const monoFont = JetBrains_Mono({
-  subsets: ["latin" as const],
-  variable: "--font-mono",
+const serifFont = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-serif",
   display: "swap",
 });
 
-const sansFont = Inter({
-  subsets: ["latin" as const],
-  variable: "--font-sans",
+const monoFont = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -55,20 +55,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${monoFont.variable} ${sansFont.variable}`}
-      suppressHydrationWarning
+      className={`${serifFont.variable} ${monoFont.variable}`}
     >
-      <body className="antialiased font-sans h-screen">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-        >
-          <div className="max-w-3xl w-full mx-auto px-8">
-            <main>{children}</main>
-          </div>
-          <Footer />
-        </ThemeProvider>
+      <body className="antialiased font-serif min-h-screen">
+        <main>{children}</main>
         <Analytics />
         <SpeedInsights />
       </body>

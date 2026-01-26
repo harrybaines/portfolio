@@ -1,16 +1,55 @@
-import BackButton from "@/app/components/back-button";
-import { Posts } from "@/app/components/posts";
+import Link from "next/link";
+import { getBlogPosts } from "./utils";
 
-export default function Blog() {
+export default function BlogPage() {
+  const posts = getBlogPosts().sort((a, b) => {
+    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+  });
+
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toISOString().split('T')[0];
+  };
+
   return (
-    <div className="h-full min-h-screen">
-      <div className="my-10">
-        <BackButton href="/" />
-      </div>
-      <div className="flex flex-col items-center justify-center py-16">
-        <h1 className="text-xl md:text-4xl font-extrabold mb-16">Posts</h1>
-        <Posts />
+    <div className="min-h-screen py-16 md:py-24 px-8">
+      <div className="max-w-xl mx-auto">
+        {/* Header */}
+        <header className="mb-12">
+          <Link
+            href="/"
+            className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors"
+          >
+            Harry Baines
+          </Link>
+        </header>
+
+        {/* Writing Section */}
+        <section>
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[var(--text-tertiary)] block mb-6">
+            Writing
+          </span>
+
+          <div className="space-y-6">
+            {posts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block group"
+              >
+                <article>
+                  <h2 className="text-base text-[var(--foreground)] group-hover:text-[var(--text-secondary)] transition-colors">
+                    {post.metadata.title}
+                  </h2>
+                  <time className="text-sm text-[var(--text-tertiary)] font-mono mt-1 block">
+                    {formatDate(post.metadata.publishedAt)}
+                  </time>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
-  )
+  );
 }
