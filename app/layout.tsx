@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { fontVariables } from "./fonts";
 import "./global.css";
 import { baseUrl } from "./sitemap";
 import Navigation from "./components/Navigation";
@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     default: "Harry Baines - Software Engineer",
     template: "%s | Harry Baines",
   },
-  description: "Software Engineer based in the UK, specializing in AI integration, LLMs, and full-stack development.",
+  description: "Applied AI engineer based in the UK, building LLM-powered products and full-stack systems.",
   openGraph: {
     title: "Harry Baines - Software Engineer",
-    description: "Software Engineer based in the UK, specializing in AI integration, LLMs, and full-stack development.",
+    description: "Applied AI engineer based in the UK, building LLM-powered products and full-stack systems.",
     url: baseUrl,
     siteName: "Harry Baines Portfolio",
     locale: "en_GB",
@@ -34,27 +34,13 @@ export const metadata: Metadata = {
   },
 };
 
-const monoFont = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const sansFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${monoFont.variable} ${sansFont.variable}`}>
+    <html lang="en" className={fontVariables}>
       <body className="antialiased font-sans min-h-screen">
         <Navigation />
         <main>{children}</main>

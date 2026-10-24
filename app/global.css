@@ -6,49 +6,60 @@
   --text-secondary: #666666;
 }
 
+/* next/font exposes each family as a --nf-* variable (see app/fonts.ts). */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --font-sans: var(--nf-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--nf-jetbrains), ui-monospace, monospace;
+  --font-geist: var(--nf-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: var(--nf-geist-mono), ui-monospace, monospace;
+  --font-plex: var(--nf-plex-mono), ui-monospace, monospace;
+  --font-serif: var(--nf-instrument-serif), Georgia, serif;
+  --font-news: var(--nf-newsreader), Georgia, serif;
 }
 
-html {
-  min-width: 360px;
-  scroll-behavior: smooth;
-}
+/* Base styles live in a layer so Tailwind utilities can override them. */
+@layer base {
+  html {
+    min-width: 360px;
+    scroll-behavior: smooth;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-}
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: -0.03em;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  color: var(--foreground);
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.03em;
+    font-family: var(--font-mono);
+    color: var(--foreground);
+  }
 
-p {
-  line-height: 1.8;
-  color: var(--text-secondary);
-}
+  /* Landing variations own their typography — opt out of the heading defaults above. */
+  [data-variation] :is(h1, h2, h3, h4, h5, h6) {
+    font-family: inherit;
+    letter-spacing: normal;
+    color: inherit;
+  }
 
-/* Mono styling for code, terminal content etc. */
-.font-mono {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-}
+  p {
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
 
-/* Smooth transitions */
-a,
-button {
-  transition: all 0.2s ease;
+  /* Smooth transitions */
+  a,
+  button {
+    transition: all 0.2s ease;
+  }
 }
 
 /* Blinking cursor animation */

@@ -7,6 +7,9 @@ import { Github, Linkedin, Mail } from "lucide-react";
 export default function Navigation() {
   const pathname = usePathname();
 
+  // Landing page variations render their own header.
+  if (pathname === "/" || pathname.startsWith("/v/")) return null;
+
   const links = [
     { href: "/", label: "home" },
     { href: "/about", label: "about" },
