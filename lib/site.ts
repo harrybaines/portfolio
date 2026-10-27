@@ -42,12 +42,12 @@ export const bio: string[] = [
 export type Link = { label: string; href: string; note: string }
 
 /**
- * The four outbound links. GitHub and archtms.com are verified; the Instagram
+ * The four outbound links. GitHub and archtms are verified; the Instagram
  * handle and the Gumroad store URL are best guesses — check them.
  */
 export const links: Link[] = [
   { label: "GitHub", href: "https://github.com/harrybaines", note: "Code" },
-  { label: "archtms", href: "https://archtms.com", note: "My project" },
+  { label: "archtms", href: "https://archtms.vercel.app/", note: "My project" },
   {
     label: "Instagram",
     href: "https://instagram.com/harrybaines",
@@ -73,7 +73,7 @@ export const projects: Project[] = [
   {
     name: "archtms",
     blurb: "Practice management software for architects.",
-    href: "https://archtms.com",
+    href: "https://archtms.vercel.app/",
     tag: "Product",
     year: "2021",
   },
