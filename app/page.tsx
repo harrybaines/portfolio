@@ -9,9 +9,6 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { links, projects, site, work } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
-/** How many Pinned rows count towards centring the page on large screens. */
-const PINNED_ROWS_CENTRED = 3
-
 export default function Home() {
   // Type his name and the portrait flips.
   const [flipped, setFlipped] = React.useState(false)
@@ -29,12 +26,13 @@ export default function Home() {
           <div className={flip}>
             <Portrait size={176} priority />
           </div>
-          <p className="mt-8 label">SWE @ ConnexAI ✌️</p>
+          <p className="mt-8 label">{site.caption}</p>
         </div>
       </aside>
 
       <main className="px-6 sm:px-12 lg:px-20">
-        <div className="flex min-h-dvh flex-col justify-center py-14 sm:py-20 lg:py-12">
+        {/* A fixed offset from the top, so the name never moves as content changes. */}
+        <div className="pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-40 lg:pb-24">
           <div
             className="flex animate-rise items-center justify-between gap-6 stagger"
             style={{ ["--i" as string]: 0 }}
@@ -107,13 +105,8 @@ export default function Home() {
             ))}
           </ul>
 
-          {/*
-           * On large screens only the label and first three rows count towards
-           * centring, so adding projects doesn't push the name up the page. The
-           * rest overflow below, and the spacer after this block makes room.
-           */}
           <div
-            className="mt-14 animate-rise stagger sm:mt-16 lg:h-[10.5rem]"
+            className="mt-14 animate-rise stagger sm:mt-16"
             style={{ ["--i" as string]: 5 }}
           >
             <p className="label">Pinned</p>
@@ -142,15 +135,6 @@ export default function Home() {
             </ul>
           </div>
         </div>
-
-        {/* Room for the rows past the third (each row is 2.71875rem). */}
-        <div
-          aria-hidden
-          className="hidden lg:block"
-          style={{
-            height: `${Math.max(0, projects.length - PINNED_ROWS_CENTRED) * 2.71875}rem`,
-          }}
-        />
       </main>
     </div>
   )

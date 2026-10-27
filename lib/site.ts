@@ -11,13 +11,16 @@ export const site = {
   location: "United Kingdom",
   since: 2018,
 
+  // Under the portrait on the home and about pages.
+  caption: "SWE @ ConnexAI ✌️",
+
   // One-liner for the tighter layouts.
   short: "Software engineer, freelancer and creator. UK.",
 
   // Sits under the name on the home page.
   about: [
-    "I'm a full stack software engineer working at the intersection of software and AI. Day to day I build product end to end, from the interface down to the AI and LLM integrations that sit behind it.",
-    "Outside of work I take on freelance projects, build side projects like droplet, and spend a lot of time learning whatever has caught my interest that month.",
+    "I'm a full stack software engineer with 6+ years of experience, working at the intersection of software and AI. Day to day I build product end to end in TypeScript and Python, from the interface down to the AI and LLM integrations that sit behind it.",
+    "Outside of work I take on freelance projects, build side projects, and spend a lot of time learning whatever has caught my interest that month.",
   ],
 
   email: "hello@harrybaines.com",
@@ -67,7 +70,7 @@ export type Project = {
 }
 
 /**
- * The "Pinned" list. Dates on the GitHub projects are the month of the repo's
+ * The "Pinned" list. Years on the GitHub projects are the year of the repo's
  * last push.
  */
 export const projects: Project[] = [
@@ -75,30 +78,30 @@ export const projects: Project[] = [
     name: "archtms",
     blurb: "Practice management software for architects.",
     href: "https://archtms.vercel.app/",
-    year: "2020 – 2025",
+    year: "2018 – 2025",
   },
   {
     name: "droplet",
-    blurb: "A productivity dashboard for my life.",
+    blurb: "An AI-based productivity control panel for my life.",
     year: "Now",
   },
   {
     name: "lovable-clone",
     blurb: "A Lovable clone to build websites with AI.",
     href: "https://github.com/harrybaines/lovable-clone",
-    year: "Jul 2025",
-  },
-  {
-    name: "YT-to-text",
-    blurb: "Transcribe a YouTube video to text with OpenAI Whisper.",
-    href: "https://github.com/harrybaines/gradio-whisper",
-    year: "Apr 2023",
+    year: "2025",
   },
   {
     name: "ai-avatar-generator",
     blurb: "Dreambooth Stable Diffusion model trained on my face.",
     href: "https://github.com/harrybaines/ai-avatar-generator",
-    year: "Jan 2023",
+    year: "2023",
+  },
+  {
+    name: "YT-to-text",
+    blurb: "Transcribe a YouTube video to text with OpenAI Whisper.",
+    href: "https://github.com/harrybaines/gradio-whisper",
+    year: "2023",
   },
 ]
 
@@ -122,9 +125,9 @@ export const aboutPage = {
 
 /** Everything on /about. */
 export const profile = {
-  lead: "Full stack engineer, working where software meets AI.",
+  lead: "Full stack engineer, focused on applied AI.",
   intro: [
-    "I'm Harry, a 29-year-old software engineer based in the UK. I've been building for the web since 2018, mostly end to end: the interface, the API, the database and, more and more, the AI and LLM integrations that tie them together.",
+    "I'm Harry, a 29-year-old full stack software engineer based in the UK. I've been building for the web since 2018, and these days my focus is applied AI: integrating LLMs into real systems, and building the APIs, interfaces and orchestration that make them reliable enough for people to use every day.",
     "I like small, fast software that does one thing well, and I care more about shipping something people actually use than about what it's built with. Outside of work I freelance, build side projects, and keep a long list of things I want to learn next.",
   ],
   currently: [
@@ -181,6 +184,6 @@ export const profile = {
   outside: [
     "Most weeks revolve around training. I'm a hybrid athlete, so that means a mix of running and lifting, and I enjoy having something to work towards that has nothing to do with a screen.",
     "I'm a lifelong Liverpool FC fan, through the good seasons and the other ones, and I play a fair bit of chess, slowly getting better.",
-    "The rest of the time I'm tinkering: with the desk setup, with Neovim and the terminal, or with whatever side project has caught my attention that month.",
+    "The rest of the time I'm building things in my office: tweaking the desk setup, living in Neovim and the terminal, or chasing whatever side project has caught my attention that month. I'm planning to start sharing it on Instagram soon.",
   ],
 } as const
