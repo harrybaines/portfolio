@@ -32,7 +32,7 @@ export default function About() {
     <div className="font-[family-name:var(--font-newsreader)] lg:grid lg:grid-cols-[30%_1fr]">
       <aside className="hidden bg-muted/45 lg:sticky lg:top-0 lg:flex lg:h-dvh lg:items-center lg:justify-center">
         <div className="animate-rise text-center">
-          <Portrait size={200} priority />
+          <Portrait size={176} priority />
           <p className="mt-8 label">{site.name}</p>
         </div>
       </aside>
@@ -60,7 +60,7 @@ export default function About() {
           />
         </div>
 
-        <div className="mt-10 max-w-xl animate-rise space-y-5 text-[1.0625rem] leading-[1.8] text-muted-foreground sm:mt-12">
+        <div className="mt-10 max-w-xl animate-rise space-y-5 text-[1.0625rem] leading-[1.6] text-muted-foreground sm:mt-12">
           {profile.intro.map((p) => (
             <p key={p.slice(0, 20)}>{p}</p>
           ))}
@@ -98,13 +98,13 @@ export default function About() {
             {profile.experience.map((e) => (
               <li key={e.org + e.when} className={row}>
                 <div className="flex items-baseline justify-between gap-6">
-                  <p className="text-[1.0625rem]">
+                  <p className="text-base">
                     {e.role}
                     <span className="text-muted-foreground">, {e.org}</span>
                   </p>
                   <span className="shrink-0 label">{e.when}</span>
                 </div>
-                <p className="mt-1.5 max-w-xl text-[0.9375rem] leading-relaxed text-muted-foreground">
+                <p className="mt-1 max-w-xl text-[0.875rem] leading-relaxed text-muted-foreground">
                   {e.note}
                 </p>
               </li>
@@ -119,7 +119,7 @@ export default function About() {
                 key={e.what}
                 className={cn(row, "flex items-baseline justify-between gap-6")}
               >
-                <p className="text-[1.0625rem]">
+                <p className="text-base">
                   {e.what}
                   <span className="text-muted-foreground">, {e.where}</span>
                 </p>
@@ -130,11 +130,11 @@ export default function About() {
         </Section>
 
         <Section label="Outside of work">
-          <ul className="max-w-xl space-y-2.5 text-[1.0625rem] leading-[1.7] text-muted-foreground">
+          <div className="max-w-xl space-y-5 text-[1.0625rem] leading-[1.6] text-muted-foreground">
             {profile.outside.map((o) => (
-              <li key={o}>{o}</li>
+              <p key={o.slice(0, 20)}>{o}</p>
             ))}
-          </ul>
+          </div>
         </Section>
 
         <Section label="Elsewhere">

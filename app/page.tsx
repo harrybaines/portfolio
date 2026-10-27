@@ -3,7 +3,7 @@
 import Link from "next/link"
 import * as React from "react"
 
-import { Caption, useSecretWord } from "@/components/easter-eggs"
+import { useSecretWord } from "@/components/easter-eggs"
 import { Portrait } from "@/components/portrait"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { links, projects, site, work } from "@/lib/site"
@@ -24,16 +24,9 @@ export default function Home() {
       <aside className="hidden bg-muted/45 lg:sticky lg:top-0 lg:flex lg:h-dvh lg:items-center lg:justify-center">
         <div className="animate-rise text-center">
           <div className={flip}>
-            <Portrait size={200} priority />
+            <Portrait size={176} priority />
           </div>
-          <Caption
-            className="mt-8 block w-full cursor-pointer label transition-colors hover:text-foreground"
-            lines={[
-              "Harry, mid-thought",
-              "Drawn, not photographed",
-              "He is looking at the deploy logs",
-            ]}
-          />
+          <p className="mt-8 label">SWE @ ConnexAI ✌️</p>
         </div>
       </aside>
 
@@ -79,7 +72,7 @@ export default function Home() {
               {work.company}
             </a>
           </p>
-          <div className="mt-5 max-w-xl space-y-4 text-[1.0625rem] leading-[1.8] text-muted-foreground">
+          <div className="mt-5 max-w-xl space-y-4 text-[1.0625rem] leading-[1.6] text-muted-foreground">
             {site.about.map((p) => (
               <p key={p.slice(0, 20)}>{p}</p>
             ))}
@@ -118,11 +111,12 @@ export default function Home() {
           <ul className="mt-5 max-w-2xl border-t border-border/50">
             {projects.map((p) => (
               <li key={p.name}>
-                <a
+                <Row
                   href={p.href}
-                  target={p.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
-                  className="group flex items-baseline gap-4 border-b border-border/50 py-3 text-[0.9375rem]"
+                  className={cn(
+                    "flex items-baseline gap-4 border-b border-border/50 py-2.5 text-[0.9375rem]",
+                    p.href && "group"
+                  )}
                 >
                   <span className="transition-colors group-hover:text-muted-foreground">
                     {p.name}
@@ -130,13 +124,33 @@ export default function Home() {
                   <span className="flex-1 text-muted-foreground">
                     {p.blurb}
                   </span>
-                  <span className="shrink-0 label">{p.year}</span>
-                </a>
+                  {p.year ? (
+                    <span className="shrink-0 label">{p.year}</span>
+                  ) : null}
+                </Row>
               </li>
             ))}
           </ul>
         </div>
       </main>
     </div>
+  )
+}
+
+/** A project row: a link when there's somewhere to go, plain text when not. */
+function Row({
+  href,
+  className,
+  children,
+}: {
+  href?: string
+  className?: string
+  children: React.ReactNode
+}) {
+  if (!href) return <div className={className}>{children}</div>
+  return (
+    <a href={href} target="_blank" rel="noreferrer" className={className}>
+      {children}
+    </a>
   )
 }

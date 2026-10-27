@@ -38,10 +38,9 @@ aren't routed or deployed.
 Everything lives in `lib/site.ts`:
 
 - `site.about` — the two paragraphs under the name on the home page.
-- `links` — the four outbound links. **GitHub and archtms are verified; the
-  Instagram handle and the Gumroad store URL are guesses. Check them.**
-- `projects` — the "Also built" list. archtms is real; the other two are
-  placeholders.
+- `links` — GitHub, X, Instagram and LinkedIn.
+- `projects` — the "Also built" list. `href` and `year` are optional; a
+  project without `href` shows as plain text.
 - `profile` — everything on `/about`: intro, currently, experience, education
   and outside of work.
 - `work` — the day job.

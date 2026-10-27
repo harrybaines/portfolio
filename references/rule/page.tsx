@@ -107,7 +107,7 @@ export default function Rule() {
                 <li key={p.name}>
                   <a
                     href={p.href}
-                    target={p.href.startsWith("http") ? "_blank" : undefined}
+                    target={p.href?.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
                     className="group flex items-baseline gap-4 border-b border-border/50 py-3"
                   >
