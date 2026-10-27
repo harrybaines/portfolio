@@ -34,7 +34,7 @@ export function Portrait({
         unoptimized
         priority={priority}
         draggable={false}
-        className="h-full w-full select-none object-cover saturate-[0.65] transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.06] group-hover:saturate-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        className="h-full w-full select-none object-cover saturate-[0.65] transition-[filter] duration-700 ease-out group-hover:saturate-100 motion-reduce:transition-none"
       />
     </span>
   )

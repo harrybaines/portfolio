@@ -6,7 +6,7 @@ export const site = {
   first: "Harry",
   last: "Baines",
   initials: "HB",
-  age: 28,
+  age: 29,
   role: "Full stack engineer",
   location: "United Kingdom",
   since: 2018,
@@ -17,7 +17,7 @@ export const site = {
   // Sits under the name on the home page.
   about: [
     "I'm a full stack software engineer working at the intersection of software and AI. Day to day I build product end to end, from the interface down to the AI and LLM integrations that sit behind it.",
-    "Outside of work I take on freelance projects, build side projects like Droplet, and spend a lot of time learning whatever has caught my interest that month.",
+    "Outside of work I take on freelance projects, build side projects like droplet, and spend a lot of time learning whatever has caught my interest that month.",
   ],
 
   email: "hello@harrybaines.com",
@@ -44,17 +44,17 @@ export type Link = { label: string; href: string; note: string }
 /** The four outbound links. */
 export const links: Link[] = [
   { label: "GitHub", href: "https://github.com/harrybaines", note: "Code" },
-  { label: "X", href: "https://x.com/harrybainsey", note: "Posts" },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/harryiscoding_/",
-    note: "Desk & setup",
-  },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/harryb0905/",
     note: "Work",
   },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/harryiscoding_/",
+    note: "Desk & setup",
+  },
+  { label: "X", href: "https://x.com/harrybainsey", note: "Posts" },
 ]
 
 export type Project = {
@@ -66,7 +66,10 @@ export type Project = {
   year?: string
 }
 
-/** The "Also built" list, from the pinned projects on the old site. */
+/**
+ * The "Pinned" list. Dates on the GitHub projects are the month of the repo's
+ * last push.
+ */
 export const projects: Project[] = [
   {
     name: "archtms",
@@ -75,44 +78,27 @@ export const projects: Project[] = [
     year: "2020 – 2025",
   },
   {
-    name: "Droplet",
+    name: "droplet",
     blurb: "A productivity dashboard for my life.",
     year: "Now",
-  },
-  {
-    name: "create-ai-stack",
-    blurb: "CLI tool to create a full stack AI app.",
-    href: "https://create-ai-stack.dev",
-  },
-  {
-    name: "brewkit",
-    blurb: "AI starter kit template.",
-    href: "https://brew-kit.dev",
   },
   {
     name: "lovable-clone",
     blurb: "A Lovable clone to build websites with AI.",
     href: "https://github.com/harrybaines/lovable-clone",
-  },
-  {
-    name: "torchgpt",
-    blurb: "PyTorch code generator.",
-    href: "https://github.com/harrybaines/torchgpt",
-  },
-  {
-    name: "ai-avatar-generator",
-    blurb: "Dreambooth Stable Diffusion model trained on my face.",
-    href: "https://github.com/harrybaines/ai-avatar-generator",
+    year: "Jul 2025",
   },
   {
     name: "YT-to-text",
     blurb: "Transcribe a YouTube video to text with OpenAI Whisper.",
     href: "https://github.com/harrybaines/gradio-whisper",
+    year: "Apr 2023",
   },
   {
-    name: "Quark",
-    blurb: "Programming language for smart contracts, built with Go.",
-    href: "https://github.com/harrybaines/Quark",
+    name: "ai-avatar-generator",
+    blurb: "Dreambooth Stable Diffusion model trained on my face.",
+    href: "https://github.com/harrybaines/ai-avatar-generator",
+    year: "Jan 2023",
   },
 ]
 
@@ -120,7 +106,7 @@ export const projects: Project[] = [
 export const aboutPage = {
   lead: "I build small, fast software and I'm fairly quiet about it.",
   paragraphs: [
-    "I'm Harry — 28, a software engineer, and based in the UK. I've spent the last few years building web products end to end: data-heavy dashboards, internal tooling, and a fair few weekend apps that got out of hand.",
+    "I'm Harry — 29, a software engineer, and based in the UK. I've spent the last few years building web products end to end: data-heavy dashboards, internal tooling, and a fair few weekend apps that got out of hand.",
     "Right now I'm a Software Engineer at ConnexAI. It's the kind of work I like — real users, real constraints, and enough surface area that you never quite run out of things to fix.",
     "Outside of that I build my own things. archtms is the one I keep coming back to. The rest are smaller: tools I wanted to exist, shipped quickly, kept small on purpose.",
     "I'm also mildly preoccupied with the desk everything gets made at. I post the setup on Instagram, and the wallpapers I make for it end up on Gumroad.",
@@ -138,7 +124,7 @@ export const aboutPage = {
 export const profile = {
   lead: "Full stack engineer, working where software meets AI.",
   intro: [
-    "I'm Harry, a 28-year-old software engineer based in the UK. I've been building for the web since 2018, mostly end to end: the interface, the API, the database and, more and more, the AI and LLM integrations that tie them together.",
+    "I'm Harry, a 29-year-old software engineer based in the UK. I've been building for the web since 2018, mostly end to end: the interface, the API, the database and, more and more, the AI and LLM integrations that tie them together.",
     "I like small, fast software that does one thing well, and I care more about shipping something people actually use than about what it's built with. Outside of work I freelance, build side projects, and keep a long list of things I want to learn next.",
   ],
   currently: [
