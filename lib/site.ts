@@ -133,39 +133,49 @@ export const profile = {
     ["Based", "United Kingdom"],
     ["Open to", "Freelance work"],
   ],
-  // Start years only. Add end years if you want ranges.
+  // From the CV. Dates are year ranges; "Now" for the current role.
   experience: [
     {
       role: "Software Engineer",
       org: "ConnexAI",
-      when: "Now",
-      note: "Full stack product work and the AI and LLM integrations behind it.",
+      when: "2025 – Now",
+      note: "Building and maintaining the LLM integrations behind Athena, ConnexAI's AI customer journey platform. Built Clara end to end, an AI analytics assistant that answers questions in natural language and generates charts and tables on demand.",
     },
     {
       role: "Software Engineer",
       org: "Cassidy and Ashton Architects",
-      when: "2022",
-      note: "Built archtms v2, a PERN practice management system used by 70+ staff across 13,000+ projects. Moved hosting from Heroku to Docker and cut costs by over 90%.",
+      when: "2022 – 2025",
+      note: "Designed and built archtms, a PERN practice management system covering timesheets, resourcing, cash flow forecasting and client portals for 80+ staff. Added dashboards across 13,000+ projects and cut hosting costs by 90% by moving from Heroku to Docker on Fly.",
     },
     {
       role: "Software Engineer / Data Scientist",
       org: "Yordas Digital",
+      when: "2020 – 2022",
+      note: "Built a Django app that cut safety data sheet authoring time by over 50%, and automated regulatory data checks with Selenium, Celery and ML forecasting models. Led code reviews, mentored junior developers and supervised two intern projects.",
+    },
+    {
+      role: "Data Scientist Intern",
+      org: "Yordas Digital",
       when: "2020",
-      note: "Led a Django app that halved safety data sheet authoring time, built NLP search over 20,000+ chemical phrases, and mentored two interns.",
+      note: "Built NLP search over 20,000+ chemical phrases for a live safety data sheet authoring app, and tuned queries and indexes to make search 60% faster.",
     },
     {
       role: "Software Engineer, part time",
       org: "Cassidy and Ashton Architects",
-      when: "2018",
-      note: "Built the first version of archtms alongside university.",
+      when: "2018 – 2020",
+      note: "Built the first version of archtms alongside university: a React, Node.js and PostgreSQL timesheet system with its own REST API, shipped in six months.",
     },
   ],
   education: [
-    { what: "MSc Data Science", where: "Lancaster University", when: "2020" },
     {
-      what: "BSc Computer Science",
+      what: "MSc Data Science (Distinction)",
       where: "Lancaster University",
-      when: "2019",
+      when: "2019 – 2020",
+    },
+    {
+      what: "BSc Computer Science (First Class)",
+      where: "Lancaster University",
+      when: "2016 – 2019",
     },
   ],
   outside: [
