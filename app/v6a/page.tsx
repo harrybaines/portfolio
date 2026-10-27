@@ -24,7 +24,12 @@ export default function Ledger() {
               flipped && "-scale-x-100"
             )}
           >
-            <Portrait size={220} className="max-w-[56vw]" priority />
+            <Portrait
+              size={340}
+              frame="square"
+              className="max-w-[72vw] rounded-sm"
+              priority
+            />
           </div>
           <Caption
             className="mt-7 block w-full cursor-pointer label transition-colors hover:text-foreground"
@@ -37,8 +42,8 @@ export default function Ledger() {
         </div>
       </aside>
 
-      <main className="px-6 sm:px-12 lg:px-20">
-        <section className="flex min-h-dvh flex-col justify-center pt-16 pb-28">
+      <main className="flex min-h-dvh flex-col px-6 sm:px-12 lg:px-20">
+        <section className="flex flex-1 flex-col justify-center pt-16 pb-14">
           {/* Theme icon sits at the head of the content column. */}
           <div className="flex items-start justify-between gap-6">
             <p
@@ -125,25 +130,25 @@ export default function Ledger() {
               ))}
             </ul>
           </div>
-
-          <footer
-            className="mt-14 flex animate-rise flex-wrap items-baseline justify-between gap-4 stagger"
-            style={{ ["--i" as string]: 5 }}
-          >
-            <p className="label">© 2026 {site.name}</p>
-            <p className="label">
-              {work.title} at{" "}
-              <a
-                href={work.href}
-                target="_blank"
-                rel="noreferrer"
-                className="text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
-              >
-                {work.company}
-              </a>
-            </p>
-          </footer>
         </section>
+
+        <footer
+          className="flex animate-rise flex-wrap items-baseline justify-between gap-4 pb-28 stagger"
+          style={{ ["--i" as string]: 5 }}
+        >
+          <p className="label">© 2026 {site.name}</p>
+          <p className="label">
+            {work.title} at{" "}
+            <a
+              href={work.href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
+            >
+              {work.company}
+            </a>
+          </p>
+        </footer>
       </main>
 
       <VariationNav slug="v6a" showTheme={false} />
