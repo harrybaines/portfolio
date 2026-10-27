@@ -1,191 +1,160 @@
-"use client";
+import type { Metadata } from "next"
+import Link from "next/link"
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import ContentWrapper from "../components/ContentWrapper";
-import BackButton from "../components/back-button";
+import { Portrait } from "@/components/portrait"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { links, profile, site, work } from "@/lib/site"
+import { cn } from "@/lib/utils"
 
-export default function AboutMe() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+export const metadata: Metadata = { title: "About — Harry Baines" }
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
+const row = "border-b border-border/50 py-3.5"
 
+function Section({
+  label,
+  className,
+  children,
+}: {
+  label: string
+  className?: string
+  children: React.ReactNode
+}) {
   return (
-    <div className="max-w-2xl mx-auto min-h-screen w-full text-neutral-900 dark:text-neutral-100 overflow-hidden">
-      <div className="relative z-10 min-h-screen pt-12 md:pt-10 pb-10 flex flex-col">
-        <div className="mx-auto w-full flex-1 flex flex-col">
-          <ContentWrapper>
-            {/* Back Button */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mb-8"
-            >
-              <BackButton href="/" />
-            </motion.div>
+    <section className={cn("mt-16 sm:mt-20", className)}>
+      <h2 className="label">{label}</h2>
+      <div className="mt-5">{children}</div>
+    </section>
+  )
+}
 
-            <div className="py-12 md:py-16">
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={staggerContainer}
-                className="max-w-3xl mx-auto"
-              >
-                <motion.div variants={fadeIn} className="mb-12 text-center">
-                  <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-neutral-100">
-                    About Me
-                  </h1>
-                </motion.div>
-
-                <motion.div variants={fadeIn} className="space-y-6 text-lg">
-                  <p>
-                    I've always been fascinated by technology, in particular
-                    computer software. In my eyes, code is the mechanism one can
-                    use to turn ideas into reality. I love tinkering, hacking
-                    around, and building things that provide real value to
-                    people. My focus is on writing clean code and building
-                    scalable and maintainable software.
-                  </p>
-                  <p>
-                    During the summer of my second year at university, I
-                    developed an MVP for a{" "}
-                    <Link
-                      href="https://www.archtms.app"
-                      className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors font-geist-sans text-lg underline underline-offset-4 decoration-1"
-                    >
-                      full-stack time management platform
-                    </Link>{" "}
-                    for a leading architecture firm. Since then, I've added
-                    project management features including project fee
-                    dashboards, cashflow forecasting and staff performance
-                    records. Today, the software is used daily by 60+ staff
-                    members.
-                  </p>
-                  <p>
-                    When I'm not writing code I enjoy hybrid training, watching
-                    LFC, playing chess, and working on side projects.
-                  </p>
-                  <p>
-                    I'm available for new
-                    opportunities, feel free to ping me an
-                    email and we can build something great!
-                  </p>
-
-                  <motion.div variants={fadeIn} className="my-16">
-                    <div className="relative aspect-[16/10] w-md mx-auto rounded-lg overflow-hidden bg-black filter grayscale brightness-80">
-                      <Image
-                        src="/images/desk-2.png"
-                        alt="My workspace setup"
-                        fill
-                        className="object-cover"
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-black/20" />
-                    </div>
-                  </motion.div>
-
-                  <h3 className="font-bold mb-4 mt-10 text-neutral-300">
-                    TECH STACK
-                  </h3>
-                  <p>
-                    Nowadays I mainly code in <strong>TypeScript</strong>,{" "}
-                    <strong>Python</strong>, <strong>SQL</strong>, and{" "}
-                    <strong>Golang</strong>. I tend to work across the full
-                    stack using tools like <strong>React</strong>,{" "}
-                    <strong>Next.js</strong>, <strong>Node.js</strong>, and{" "}
-                    <strong>FastAPI</strong> or <strong>Hono</strong>, and I
-                    enjoy using both REST and tRPC-based architectures. My go-to
-                    database would be <strong>PostgreSQL</strong> (with{" "}
-                    <strong>Prisma</strong> or <strong>SQLAlchemy</strong>) and{" "}
-                    <strong>Redis</strong> for caching.
-                  </p>
-
-                  <p>
-                    On the DevOps side, I’ve deployed projects to{" "}
-                    <strong>Fly.io</strong>, <strong>AWS</strong>,{" "}
-                    <strong>Vercel</strong>, and <strong>Heroku</strong>, and
-                    use <strong>GitHub Actions</strong> to automate CI/CD
-                    workflows. I love exploring AI integrations using the{" "}
-                    <strong>OpenAI API</strong>, <strong>e2b</strong>, and{" "}
-                    <strong>Vercel AI SDK</strong> to automate tasks and enhance
-                    productivity. I've also been exploring{" "}
-                    <strong>Inngest</strong> for task orchetration and{" "}
-                    <strong>Tambo</strong> for building dynamic software.
-                  </p>
-
-                  <p>
-                    I always test the software I build. I mainly use{" "}
-                    <strong>Jest</strong> and <strong>pytest</strong>, and I
-                    often rely on <strong>Celery</strong> and{" "}
-                    <strong>RabbitMQ</strong> for background job processing. I
-                    work well in agile environments using <strong>Scrum</strong>
-                    , and I’ve mentored junior devs, led code reviews, and
-                    contributed to open source.
-                  </p>
-
-                  <h3 className="font-bold mb-4 mt-10 text-neutral-300">
-                    SIDE PROJECTS
-                  </h3>
-                  <p>
-                    Given the recent developments in AI it's never been easier
-                    to develop software. 'Ship fast' is the phrase used
-                    nowadays. However, the amount of scrappy, messy and
-                    unorganised code is growing. AI is not a panacea - it's
-                    great for basic boilerplate, but not for building the entire
-                    solution. In addition, many projects will make use of a
-                    similar base. That's why I'm building brewkit, an
-                    opinionated starter kit with a strong, well-written
-                    foundation for developers to build apps with.
-                  </p>
-                  <p>
-                    I enjoy posting my learnings on this site and I love
-                    learning new technologies. I'm currently learning how to
-                    build full-stack AI chat apps and enhancing my programming
-                    skills. Feel free to check out my{" "}
-                    <Link
-                      href="https://www.github.com/harrybaines"
-                      className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors font-geist-sans text-lg underline underline-offset-4 decoration-1"
-                    >
-                      GitHub
-                    </Link>{" "}
-                    for more details.
-                  </p>
-
-                  <h3 className="font-bold mb-4 mt-10 text-neutral-300">CONNECT</h3>
-                  <p>
-                    Ping me an email if you'd like to chat. I'm always open to
-                    new project ideas!
-                  </p>
-                </motion.div>
-
-                {/* Contact Link */}
-                <motion.div variants={fadeIn} className="mt-12 text-center">
-                  <Link
-                    href="mailto:harryb0905@googlemail.com"
-                    className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors font-geist-sans text-lg underline underline-offset-4 decoration-1"
-                  >
-                    Get in touch
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </div>
-          </ContentWrapper>
+export default function About() {
+  return (
+    <div className="font-[family-name:var(--font-newsreader)] lg:grid lg:grid-cols-[30%_1fr]">
+      <aside className="hidden bg-muted/45 lg:sticky lg:top-0 lg:flex lg:h-dvh lg:items-center lg:justify-center">
+        <div className="animate-rise text-center">
+          <Portrait size={200} priority />
+          <p className="mt-8 label">{site.name}</p>
         </div>
-      </div>
+      </aside>
+
+      <main className="px-6 pt-14 pb-24 sm:px-12 sm:pt-20 lg:px-20 lg:pt-24">
+        <div className="flex animate-rise items-center justify-between gap-6">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 label transition-colors hover:text-foreground"
+          >
+            <span aria-hidden>←</span>
+            {site.name}
+          </Link>
+          <ThemeToggle size="sm" className="-mr-1.5" />
+        </div>
+
+        <div className="mt-8 flex items-center justify-between gap-5 sm:mt-10">
+          <h1 className="max-w-2xl animate-veil text-[clamp(2rem,5vw,3.5rem)] leading-[1.1] font-normal tracking-[-0.03em]">
+            {profile.lead}
+          </h1>
+          <Portrait
+            size={64}
+            className="shrink-0 animate-rise sm:size-20! lg:hidden"
+            priority
+          />
+        </div>
+
+        <div className="mt-10 max-w-xl animate-rise space-y-5 text-[1.0625rem] leading-[1.8] text-muted-foreground sm:mt-12">
+          {profile.intro.map((p) => (
+            <p key={p.slice(0, 20)}>{p}</p>
+          ))}
+        </div>
+
+        <Section label="Currently">
+          <dl className="max-w-xl border-t border-border/50">
+            {profile.currently.map(([k, v]) => (
+              <div
+                key={k}
+                className={cn(row, "flex items-baseline justify-between gap-6")}
+              >
+                <dt className="label">{k}</dt>
+                <dd className="text-right text-[0.9375rem]">
+                  {k === "Role" ? (
+                    <a
+                      href={work.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
+                    >
+                      {v}
+                    </a>
+                  ) : (
+                    v
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+
+        <Section label="Experience">
+          <ul className="max-w-2xl border-t border-border/50">
+            {profile.experience.map((e) => (
+              <li key={e.org + e.when} className={row}>
+                <div className="flex items-baseline justify-between gap-6">
+                  <p className="text-[1.0625rem]">
+                    {e.role}
+                    <span className="text-muted-foreground">, {e.org}</span>
+                  </p>
+                  <span className="shrink-0 label">{e.when}</span>
+                </div>
+                <p className="mt-1.5 max-w-xl text-[0.9375rem] leading-relaxed text-muted-foreground">
+                  {e.note}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section label="Education">
+          <ul className="max-w-2xl border-t border-border/50">
+            {profile.education.map((e) => (
+              <li
+                key={e.what}
+                className={cn(row, "flex items-baseline justify-between gap-6")}
+              >
+                <p className="text-[1.0625rem]">
+                  {e.what}
+                  <span className="text-muted-foreground">, {e.where}</span>
+                </p>
+                <span className="shrink-0 label">{e.when}</span>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section label="Outside of work">
+          <ul className="max-w-xl space-y-2.5 text-[1.0625rem] leading-[1.7] text-muted-foreground">
+            {profile.outside.map((o) => (
+              <li key={o}>{o}</li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section label="Elsewhere">
+          <ul className="flex flex-wrap gap-x-7 gap-y-3">
+            {links.map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={l.note}
+                  className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase underline decoration-muted-foreground/40 underline-offset-[6px] transition-colors hover:text-foreground hover:decoration-foreground"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      </main>
     </div>
-  );
+  )
 }

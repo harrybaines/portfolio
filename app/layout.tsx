@@ -1,77 +1,47 @@
-import Footer from "@/app/components/footer";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
-import { Figtree, Inter, JetBrains_Mono } from "next/font/google";
-import "./global.css";
-import { baseUrl } from "./sitemap";
+import type { Metadata } from "next"
+import { Geist, Geist_Mono, Newsreader } from "next/font/google"
+
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Console } from "@/components/easter-eggs"
+import { cn } from "@/lib/utils"
+
+const sans = Geist({ subsets: ["latin"], variable: "--font-sans" })
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
+
+// Display face for the site. The references in /references used Fraunces
+// too; add it back here if you bring one of them back into app/.
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
-  title: {
-    default: "Harry Baines Portfolio",
-    template: "%s | Harry Baines Portfolio",
-  },
-  description: "Welcome to my portfolio.",
-  openGraph: {
-    title: "Harry Baines Portfolio",
-    description: "Welcome to my portfolio.",
-    url: baseUrl,
-    siteName: "Harry Baines Portfolio",
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+  title: "Harry Baines — Full stack engineer",
+  description:
+    "Harry Baines is a full stack software engineer in the UK, working at the intersection of software and AI.",
+}
 
-const monoFont = JetBrains_Mono({
-  subsets: ["latin" as const],
-  variable: "--font-mono",
-  display: "swap",
-});
-
-const sansFont = Figtree({
-  subsets: ["latin" as const],
-  variable: "--font-sans",
-  display: "swap",
-});
+const fontVars = [sans.variable, mono.variable, newsreader.variable]
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html
       lang="en"
-      className={`${monoFont.variable} ${sansFont.variable}`}
       suppressHydrationWarning
+      className={cn("font-sans antialiased", ...fontVars)}
     >
-      <body className="antialiased font-sans h-screen">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-        >
-          <div className="max-w-3xl w-full mx-auto px-8">
-            <main>{children}</main>
-          </div>
-          <Footer />
+      <body>
+        <ThemeProvider>
+          <Console />
+          {children}
         </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
-  );
+  )
 }
