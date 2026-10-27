@@ -19,7 +19,7 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <section className={cn("mt-16 sm:mt-20", className)}>
+    <section className={cn("mt-12 sm:mt-14", className)}>
       <h2 className="label">{label}</h2>
       <div className="mt-5">{children}</div>
     </section>

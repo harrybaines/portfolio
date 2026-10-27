@@ -19,7 +19,7 @@ export const site = {
 
   // Sits under the name on the home page.
   about: [
-    "I'm a full stack software engineer with 6+ years of experience, working at the intersection of software and AI. Day to day I build product end to end in TypeScript and Python, from the interface down to the AI and LLM integrations that sit behind it.",
+    "I'm a full stack software engineer with 6+ years of experience, working at the intersection of software and AI. I specialise in full stack web development and AI integration, mostly in TypeScript and Python.",
     "Outside of work I take on freelance projects, build side projects, and spend a lot of time learning whatever has caught my interest that month.",
   ],
 

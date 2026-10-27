@@ -32,9 +32,9 @@ export default function Home() {
       <main className="px-6 sm:px-12 lg:px-20">
         {/*
          * On large screens the offset tracks the viewport height, so the name
-         * sits just above the middle whatever the content below it does.
+         * sits in the upper part of the page whatever the content below it does.
          */}
-        <div className="pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-[max(6rem,calc(44dvh-6rem))] lg:pb-24">
+        <div className="pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-[max(6rem,calc(36dvh-6rem))] lg:pb-24">
           <p
             className="animate-rise pr-10 label stagger sm:pr-0"
             style={{ ["--i" as string]: 0 }}
