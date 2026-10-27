@@ -41,16 +41,13 @@ export const bio: string[] = [
 
 export type Link = { label: string; href: string; note: string }
 
-/**
- * The four outbound links. GitHub, X and LinkedIn come from the old site; the
- * Instagram handle is a best guess, so check it.
- */
+/** The four outbound links. */
 export const links: Link[] = [
   { label: "GitHub", href: "https://github.com/harrybaines", note: "Code" },
-  { label: "X", href: "https://x.com/HarryIsCoding", note: "Posts" },
+  { label: "X", href: "https://x.com/harrybainsey", note: "Posts" },
   {
     label: "Instagram",
-    href: "https://instagram.com/harrybaines",
+    href: "https://www.instagram.com/harryiscoding_/",
     note: "Desk & setup",
   },
   {

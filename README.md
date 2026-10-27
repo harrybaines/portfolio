@@ -38,8 +38,7 @@ aren't routed or deployed.
 Everything lives in `lib/site.ts`:
 
 - `site.about` — the two paragraphs under the name on the home page.
-- `links` — GitHub, X, Instagram and LinkedIn. **The Instagram handle is a
-  guess. Check it.**
+- `links` — GitHub, X, Instagram and LinkedIn.
 - `projects` — the "Also built" list. `href` and `year` are optional; a
   project without `href` shows as plain text.
 - `profile` — everything on `/about`: intro, currently, experience, education
