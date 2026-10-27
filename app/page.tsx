@@ -9,6 +9,9 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { links, projects, site, work } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
+/** How many Pinned rows count towards centring the page on large screens. */
+const PINNED_ROWS_CENTRED = 3
+
 export default function Home() {
   // Type his name and the portrait flips.
   const [flipped, setFlipped] = React.useState(false)
@@ -30,108 +33,124 @@ export default function Home() {
         </div>
       </aside>
 
-      <main className="flex min-h-dvh flex-col justify-center px-6 py-14 sm:px-12 sm:py-20 lg:px-20 lg:py-12">
-        <div
-          className="flex animate-rise items-center justify-between gap-6 stagger"
-          style={{ ["--i" as string]: 0 }}
-        >
-          <p className="label">
-            {site.role} — {site.location} 🇬🇧
-          </p>
-          <ThemeToggle size="sm" className="-mr-1.5" />
-        </div>
-
-        {/* Below lg the portrait shrinks to sit beside the name. */}
-        <div className="mt-6 flex items-center justify-between gap-5 sm:mt-7">
-          <h1
-            className="animate-veil text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.95] font-normal tracking-[-0.035em] stagger lg:whitespace-nowrap"
-            style={{ ["--i" as string]: 1 }}
+      <main className="px-6 sm:px-12 lg:px-20">
+        <div className="flex min-h-dvh flex-col justify-center py-14 sm:py-20 lg:py-12">
+          <div
+            className="flex animate-rise items-center justify-between gap-6 stagger"
+            style={{ ["--i" as string]: 0 }}
           >
-            {site.first}{" "}
-            <em className="font-normal text-muted-foreground italic">
-              {site.last}
-            </em>
-          </h1>
-          <div className={cn(flip, "shrink-0 animate-rise lg:hidden")}>
-            <Portrait size={64} className="sm:size-20!" priority />
+            <p className="label">
+              {site.role} — {site.location} 🇬🇧
+            </p>
+            <ThemeToggle size="sm" className="-mr-1.5" />
           </div>
-        </div>
 
-        <div
-          className="mt-10 animate-rise stagger sm:mt-12"
-          style={{ ["--i" as string]: 3 }}
-        >
-          <p className="text-[1.0625rem]">
-            {work.title} at{" "}
-            <a
-              href={work.href}
-              target="_blank"
-              rel="noreferrer"
-              className="underline decoration-foreground/30 underline-offset-[5px] transition-colors hover:decoration-foreground"
+          {/* Below lg the portrait shrinks to sit beside the name. */}
+          <div className="mt-6 flex items-center justify-between gap-5 sm:mt-7">
+            <h1
+              className="animate-veil text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.95] font-normal tracking-[-0.035em] stagger lg:whitespace-nowrap"
+              style={{ ["--i" as string]: 1 }}
             >
-              {work.company}
-            </a>
-          </p>
-          <div className="mt-5 max-w-xl space-y-4 text-[1.0625rem] leading-[1.6] text-muted-foreground">
-            {site.about.map((p) => (
-              <p key={p.slice(0, 20)}>{p}</p>
-            ))}
+              {site.first}{" "}
+              <em className="font-normal text-muted-foreground italic">
+                {site.last}
+              </em>
+            </h1>
+            <div className={cn(flip, "shrink-0 animate-rise lg:hidden")}>
+              <Portrait size={64} className="sm:size-20!" priority />
+            </div>
           </div>
-          <Link
-            href="/about"
-            className="mt-6 inline-flex items-center gap-2 label transition-colors hover:text-foreground"
-          >
-            More about me <span aria-hidden>→</span>
-          </Link>
-        </div>
 
-        <ul
-          className="mt-10 flex animate-rise flex-wrap gap-x-7 gap-y-3 stagger"
-          style={{ ["--i" as string]: 4 }}
-        >
-          {links.map((l) => (
-            <li key={l.label}>
+          <div
+            className="mt-10 animate-rise stagger sm:mt-12"
+            style={{ ["--i" as string]: 3 }}
+          >
+            <p className="text-[1.0625rem]">
+              {work.title} at{" "}
               <a
-                href={l.href}
+                href={work.href}
                 target="_blank"
                 rel="noreferrer"
-                className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase underline decoration-muted-foreground/40 underline-offset-[6px] transition-colors hover:text-foreground hover:decoration-foreground"
+                className="underline decoration-foreground/30 underline-offset-[5px] transition-colors hover:decoration-foreground"
               >
-                {l.label}
+                {work.company}
               </a>
-            </li>
-          ))}
-        </ul>
+            </p>
+            <div className="mt-5 max-w-xl space-y-4 text-[1.0625rem] leading-[1.6] text-muted-foreground">
+              {site.about.map((p) => (
+                <p key={p.slice(0, 20)}>{p}</p>
+              ))}
+            </div>
+            <Link
+              href="/about"
+              className="mt-6 inline-flex items-center gap-2 label transition-colors hover:text-foreground"
+            >
+              More about me <span aria-hidden>→</span>
+            </Link>
+          </div>
 
-        <div
-          className="mt-14 animate-rise stagger sm:mt-16"
-          style={{ ["--i" as string]: 5 }}
-        >
-          <p className="label">Also built</p>
-          <ul className="mt-5 max-w-2xl border-t border-border/50">
-            {projects.map((p) => (
-              <li key={p.name}>
-                <Row
-                  href={p.href}
-                  className={cn(
-                    "flex items-baseline gap-4 border-b border-border/50 py-2.5 text-[0.9375rem]",
-                    p.href && "group"
-                  )}
+          <ul
+            className="mt-10 flex animate-rise flex-wrap gap-x-7 gap-y-3 stagger"
+            style={{ ["--i" as string]: 4 }}
+          >
+            {links.map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase underline decoration-muted-foreground/40 underline-offset-[6px] transition-colors hover:text-foreground hover:decoration-foreground"
                 >
-                  <span className="transition-colors group-hover:text-muted-foreground">
-                    {p.name}
-                  </span>
-                  <span className="flex-1 text-muted-foreground">
-                    {p.blurb}
-                  </span>
-                  {p.year ? (
-                    <span className="shrink-0 label">{p.year}</span>
-                  ) : null}
-                </Row>
+                  {l.label}
+                </a>
               </li>
             ))}
           </ul>
+
+          {/*
+           * On large screens only the label and first three rows count towards
+           * centring, so adding projects doesn't push the name up the page. The
+           * rest overflow below, and the spacer after this block makes room.
+           */}
+          <div
+            className="mt-14 animate-rise stagger sm:mt-16 lg:h-[10.5rem]"
+            style={{ ["--i" as string]: 5 }}
+          >
+            <p className="label">Pinned</p>
+            <ul className="mt-5 max-w-2xl border-t border-border/50">
+              {projects.map((p) => (
+                <li key={p.name}>
+                  <Row
+                    href={p.href}
+                    className={cn(
+                      "flex items-baseline gap-4 border-b border-border/50 py-2.5 text-[0.9375rem]",
+                      p.href && "group"
+                    )}
+                  >
+                    <span className="transition-colors group-hover:text-muted-foreground">
+                      {p.name}
+                    </span>
+                    <span className="flex-1 text-muted-foreground">
+                      {p.blurb}
+                    </span>
+                    {p.year ? (
+                      <span className="shrink-0 label">{p.year}</span>
+                    ) : null}
+                  </Row>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
+        {/* Room for the rows past the third (each row is 2.71875rem). */}
+        <div
+          aria-hidden
+          className="hidden lg:block"
+          style={{
+            height: `${Math.max(0, projects.length - PINNED_ROWS_CENTRED) * 2.71875}rem`,
+          }}
+        />
       </main>
     </div>
   )
