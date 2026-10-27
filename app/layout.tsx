@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Newsreader } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Console } from "@/components/easter-eggs"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { cn } from "@/lib/utils"
 
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans" })
@@ -39,6 +40,11 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <Console />
+          {/* One light switch for every page, floating in the top-right corner. */}
+          <ThemeToggle
+            size="sm"
+            className="fixed top-4 right-4 z-50 rounded-full border border-border/60 bg-background/80 backdrop-blur sm:top-6 sm:right-6 lg:top-8 lg:right-8"
+          />
           {children}
         </ThemeProvider>
       </body>
