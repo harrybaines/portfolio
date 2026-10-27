@@ -9,10 +9,10 @@ export const metadata: Metadata = { title: "About — Harry Baines" }
 
 export default function AboutLedger() {
   return (
-    <div className="font-[family-name:var(--font-v6a)] lg:grid lg:grid-cols-[21rem_1fr]">
+    <div className="font-[family-name:var(--font-v6a)] lg:grid lg:grid-cols-[32%_1fr]">
       <aside className="flex items-center justify-center bg-muted/45 px-6 py-20 lg:sticky lg:top-0 lg:h-dvh lg:py-0">
         <div className="animate-rise text-center">
-          <Portrait size={196} className="max-w-[56vw]" priority />
+          <Portrait size={220} className="max-w-[56vw]" priority />
           <p className="label mt-7">{site.name}</p>
         </div>
       </aside>

@@ -12,10 +12,10 @@ const rail = "grid gap-3 sm:grid-cols-[6.5rem_minmax(0,1fr)] sm:gap-8"
 
 export default function AboutRule() {
   return (
-    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[35%_1fr]">
+    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[25%_1fr]">
       <aside className="flex items-center justify-center bg-muted/45 px-6 py-20 lg:sticky lg:top-0 lg:h-dvh lg:py-0">
         <div className="animate-rise text-center">
-          <Portrait size={220} className="max-w-[50vw]" priority />
+          <Portrait size={180} className="max-w-[50vw]" priority />
           <p className="mt-7 label">{site.name}</p>
         </div>
       </aside>

@@ -11,16 +11,12 @@ export const site = {
   location: "United Kingdom",
   since: 2018,
 
-  // The hero paragraph on the split layouts.
-  intro:
-    "I'm a 28-year-old software engineer and freelancer in the UK. By day I'm at ConnexAI; the rest of the time I build small, fast digital products and make things on the internet. I've been shipping web software end to end since 2018 — from data-heavy dashboards to archtms, the practice management system I built for architects. I like taking a rough idea, finding the simplest version of it worth using, and getting it in front of people quickly.",
-
   // One-liner for the tighter layouts.
   short: "Software engineer, freelancer and creator. UK.",
 
-  // Longer paragraph, used by the Split variations.
+  // Sits under the name on the Split variation. Short on purpose.
   about:
-    "I've spent the last few years building web products end to end — data-heavy dashboards, developer tooling, and the occasional weekend app that got out of hand. Outside the day job I freelance with small teams who need someone who can take a rough idea and ship it, and I spend the rest of my time making my own things.",
+    "I build web products end to end, from data-heavy dashboards to archtms, a practice management system for architects. Outside the day job I freelance with small teams and make my own things.",
 
   email: "hello@harrybaines.com",
 } as const
@@ -74,8 +70,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "archtms",
-    blurb:
-      "Practice management for architects — projects, clients, fees, staff and cashflow in one place.",
+    blurb: "Practice management software for architects.",
     href: "https://archtms.com",
     tag: "Product",
     year: "2021",

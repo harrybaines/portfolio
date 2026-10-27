@@ -18,34 +18,18 @@ export const variations: Variation[] = [
     face: "Newsreader",
   },
   {
-    slug: "v6n",
-    n: "02",
-    title: "Split, narrow",
-    note: "The same split, with the portrait panel cut to 30%.",
-    face: "Newsreader",
-  },
-  {
-    slug: "v6b",
-    n: "03",
-    title: "Card",
-    note: "The portrait sits in a frame instead of a panel.",
-    face: "Fraunces",
-  },
-  {
     slug: "v6h",
-    n: "04",
+    n: "02",
     title: "Rule",
     note: "A mono label hangs in the gutter beside every block.",
     face: "Fraunces",
   },
-  // Parked at the end of the list until there's a reason to revisit them.
   {
     slug: "v6a",
-    n: "05",
+    n: "03",
     title: "Ledger",
     note: "Links ruled off in a column beside the writing.",
     face: "Newsreader",
-    shelved: true,
   },
 ]
 

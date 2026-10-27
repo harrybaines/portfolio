@@ -1,6 +1,6 @@
 # Harry Baines — portfolio
 
-One set of content, five typographic takes on how a personal site could look.
+One set of content, three typographic takes on how a personal site could look.
 Next.js 16 + Tailwind v4 + shadcn (base preset).
 
 ```bash
@@ -9,26 +9,23 @@ npm run build
 npm run lint
 ```
 
-## The five
+## The three
 
-`/v6` is the original split layout. `/v6n` is the same page with the portrait
-panel cut to 30% (both render `components/split-page.tsx`). `/v6b` and `/v6h`
-rearrange the same bones; `/v6a` is parked at the end of the list and flagged
-"Not considered for now" (`shelved: true` in `lib/variations.ts`).
+All three are takes on the same split layout: a portrait panel on the left,
+the writing on the right. A variation can be flagged "Not considered for now"
+with `shelved: true` in `lib/variations.ts`.
 
 | #   | Route  | Idea                                                | Display face |
 | --- | ------ | --------------------------------------------------- | ------------ |
 | 01  | `/v6`  | Portrait holds still, the writing scrolls past      | Newsreader   |
-| 02  | `/v6n` | The same split, with the portrait panel cut to 30%  | Newsreader   |
-| 03  | `/v6b` | The portrait sits in a frame instead of a panel     | Fraunces     |
-| 04  | `/v6h` | A mono label hangs in the gutter beside every block | Fraunces     |
-| 05  | `/v6a` | Links ruled off in a column beside the writing      | Newsreader   |
+| 02  | `/v6h` | A mono label hangs in the gutter beside every block | Fraunces     |
+| 03  | `/v6a` | Links ruled off in a column beside the writing      | Newsreader   |
 
 Slugs keep their original numbers so old links still work; the counter in the
 corner shows position.
 
-`/v6a`, `/v6b` and `/v6h` each have their own about page at `/v6a/about`, `/v6b/about` and so
-on — same visual language as its front page, with a link back.
+`/v6a` and `/v6h` each have their own about page at `/v6a/about` and
+`/v6h/about`, in the same visual language as the front page, with a link back.
 
 ### Where the theme icon lives
 
@@ -38,7 +35,6 @@ off (`<VariationNav showTheme={false} />`).
 | Route  | Position                                   |
 | ------ | ------------------------------------------ |
 | `/v6a` | Top right of the content column            |
-| `/v6b` | Top of the left column, above the frame    |
 | `/v6h` | In the label gutter, above everything else |
 
 ## Where things are

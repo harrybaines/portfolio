@@ -8,7 +8,7 @@ export default function IndexPage() {
   return (
     <main className="mx-auto flex min-h-dvh max-w-3xl flex-col px-6 py-20 sm:px-10 sm:py-28">
       <header className="animate-rise">
-        <p className="label">Five portfolios, one person</p>
+        <p className="label">Three portfolios, one person</p>
         <h1 className="mt-6 font-[family-name:var(--font-instrument)] text-5xl leading-[0.95] tracking-[-0.02em] sm:text-6xl">
           {site.first}{" "}
           <span className="text-muted-foreground italic">{site.last}</span>
@@ -16,8 +16,8 @@ export default function IndexPage() {
         <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground">
           The same words, the same portrait, a few different arguments about how
           a personal site should look. All of them are takes on the same split
-          layout; the last one is parked for now. Pick one, then use the button
-          in the corner to walk through the rest.
+          layout. Pick one, then use the button in the corner to walk through
+          the rest.
         </p>
       </header>
 

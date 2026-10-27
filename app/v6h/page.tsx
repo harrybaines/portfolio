@@ -18,7 +18,7 @@ export default function Rule() {
   useSecretWord("harry", () => setFlipped((f) => !f))
 
   return (
-    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[35%_1fr]">
+    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[25%_1fr]">
       <aside className="flex items-center justify-center bg-muted/45 px-6 py-24 lg:sticky lg:top-0 lg:h-dvh lg:py-0">
         <div className="animate-rise text-center">
           <div
@@ -27,7 +27,7 @@ export default function Rule() {
               flipped && "-scale-x-100"
             )}
           >
-            <Portrait size={220} className="max-w-[50vw]" priority />
+            <Portrait size={180} className="max-w-[50vw]" priority />
           </div>
           <Caption
             className="mt-7 block w-full cursor-pointer label transition-colors hover:text-foreground"
@@ -41,7 +41,7 @@ export default function Rule() {
       </aside>
 
       <main className="px-6 sm:px-12 lg:px-16">
-        <section className="flex min-h-dvh flex-col justify-center pt-20 pb-32">
+        <section className="flex min-h-dvh flex-col justify-center pt-12 pb-36">
           {/* The light switch lives in the gutter, above the labels. */}
           <div className={cn(rail, "animate-rise")}>
             <ThemeToggle size="sm" className="-ml-1.5 justify-self-start" />
@@ -49,16 +49,14 @@ export default function Rule() {
               <p className="label">
                 {site.role} — {site.location} 🇬🇧
               </p>
-              <h1 className="mt-5 animate-veil text-[clamp(2.5rem,7vw,4.75rem)] leading-[0.95] font-medium tracking-[-0.04em]">
-                {site.first}
-                <br />
-                {site.last}
+              <h1 className="mt-5 animate-veil text-[clamp(2.5rem,6vw,4.5rem)] leading-[0.95] font-normal tracking-[-0.04em] lg:whitespace-nowrap">
+                {site.name}
               </h1>
             </div>
           </div>
 
           <div
-            className={cn(rail, "mt-10 animate-rise stagger")}
+            className={cn(rail, "mt-12 animate-rise stagger")}
             style={{ ["--i" as string]: 3 }}
           >
             <p className="label sm:pt-2">About</p>
@@ -78,7 +76,7 @@ export default function Rule() {
           </div>
 
           <div
-            className={cn(rail, "mt-9 animate-rise stagger")}
+            className={cn(rail, "mt-12 animate-rise stagger")}
             style={{ ["--i" as string]: 4 }}
           >
             <p className="label sm:pt-2">Elsewhere</p>
@@ -99,12 +97,12 @@ export default function Rule() {
             </ul>
           </div>
 
-          {/* Always on the first screen — no scrolling to find it. */}
+          {/* Always on the first screen, no scrolling to find it. */}
           <div
-            className={cn(rail, "mt-9 animate-rise stagger")}
+            className={cn(rail, "mt-12 animate-rise stagger")}
             style={{ ["--i" as string]: 5 }}
           >
-            <p className="label sm:pt-1">Also built</p>
+            <p className="label sm:pt-3 sm:leading-6">Also built</p>
             <ul className="max-w-2xl">
               {projects.map((p) => (
                 <li key={p.name}>
@@ -112,7 +110,7 @@ export default function Rule() {
                     href={p.href}
                     target={p.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="group flex items-baseline gap-4 border-b border-border py-3"
+                    className="group flex items-baseline gap-4 border-b border-border/50 py-3"
                   >
                     <span className="transition-opacity group-hover:opacity-60">
                       {p.name}
@@ -126,22 +124,25 @@ export default function Rule() {
               ))}
             </ul>
           </div>
-        </section>
 
-        <footer className={cn(rail, "border-t border-border py-10 pb-28")}>
-          <p className="label">© 2026</p>
-          <p className="label">
-            {site.name} — {work.title} at{" "}
-            <a
-              href={work.href}
-              target="_blank"
-              rel="noreferrer"
-              className="text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
-            >
-              {work.company}
-            </a>
-          </p>
-        </footer>
+          <footer
+            className={cn(rail, "mt-12 animate-rise stagger")}
+            style={{ ["--i" as string]: 6 }}
+          >
+            <p className="label">© 2026</p>
+            <p className="label">
+              {site.name} — {work.title} at{" "}
+              <a
+                href={work.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
+              >
+                {work.company}
+              </a>
+            </p>
+          </footer>
+        </section>
       </main>
 
       <VariationNav slug="v6h" showTheme={false} />
