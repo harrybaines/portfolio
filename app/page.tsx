@@ -3,7 +3,7 @@
 import Link from "next/link"
 import * as React from "react"
 
-import { Caption, useSecretWord } from "@/components/easter-eggs"
+import { useSecretWord } from "@/components/easter-eggs"
 import { Portrait } from "@/components/portrait"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { links, projects, site, work } from "@/lib/site"
@@ -26,17 +26,7 @@ export default function Home() {
           <div className={flip}>
             <Portrait size={176} priority />
           </div>
-          <Caption
-            className="mt-8 block w-full cursor-pointer label transition-colors hover:text-foreground"
-            lines={[
-              "SWE @ ConnexAI ✌️",
-              "Shipping software × AI ✌️",
-              "Probably prompting something ✌️",
-              "Building at ConnexAI ✌️",
-              "Full stack, AI curious ✌️",
-              "Currently: shipping ✌️",
-            ]}
-          />
+          <p className="mt-8 label">SWE @ ConnexAI ✌️</p>
         </div>
       </aside>
 
