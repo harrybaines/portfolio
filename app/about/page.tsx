@@ -34,7 +34,7 @@ export default function About() {
         {/* No entrance animation: the portrait has already appeared on the home page. */}
         <div className="text-center">
           <Portrait size={176} priority />
-          <p className="mt-8 label">{site.name}</p>
+          <p className="mt-8 label">{site.caption}</p>
         </div>
       </aside>
 
@@ -51,7 +51,7 @@ export default function About() {
         </div>
 
         <div className="mt-8 flex items-center justify-between gap-5 sm:mt-10">
-          <h1 className="max-w-2xl animate-veil text-[clamp(2rem,5vw,3.5rem)] leading-[1.1] font-normal tracking-[-0.03em]">
+          <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] leading-[1.1] font-normal tracking-[-0.03em]">
             {profile.lead}
           </h1>
           <Portrait
