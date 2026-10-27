@@ -27,7 +27,7 @@ export function Currently({ className }: { className?: string }) {
           <dd className="label text-foreground">
             {k === "Building" ? (
               <a
-                href="https://archtms.com"
+                href="https://archtms.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
                 className="underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
