@@ -9,8 +9,7 @@
     --font-sans: var(--font-sans);
     --font-mono: var(--font-mono);
 
-    /* One display face per variation route. */
-    --font-v6: var(--font-newsreader);
+    /* Display faces for the designs kept in /references. */
     --font-v6a: var(--font-newsreader);
     --font-v6h: var(--font-fraunces);
 

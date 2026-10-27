@@ -1,7 +1,6 @@
 # Harry Baines — portfolio
 
-One set of content, three typographic takes on how a personal site could look.
-Next.js 16 + Tailwind v4 + shadcn (base preset).
+Personal site. Next.js 16 + Tailwind v4 + shadcn (base preset).
 
 ```bash
 npm run dev     # http://localhost:3000
@@ -9,61 +8,44 @@ npm run build
 npm run lint
 ```
 
-## The three
+## Pages
 
-All three are takes on the same split layout: a portrait panel on the left,
-the writing on the right. A variation can be flagged "Not considered for now"
-with `shelved: true` in `lib/variations.ts`.
+| Route    | What it is                                                       |
+| -------- | ---------------------------------------------------------------- |
+| `/`      | Name, about, links and side projects, all on one screen.         |
+| `/about` | Longer about: what I'm doing now, experience, education, hobbies |
 
-| #   | Route  | Idea                                                | Display face |
-| --- | ------ | --------------------------------------------------- | ------------ |
-| 01  | `/v6`  | Portrait holds still, the writing scrolls past      | Newsreader   |
-| 02  | `/v6h` | A mono label hangs in the gutter beside every block | Fraunces     |
-| 03  | `/v6a` | Links ruled off in a column beside the writing      | Newsreader   |
-
-Slugs keep their original numbers so old links still work; the counter in the
-corner shows position.
-
-`/v6a` and `/v6h` each have their own about page at `/v6a/about` and
-`/v6h/about`, in the same visual language as the front page, with a link back.
-
-### Where the theme icon lives
-
-Each variation puts it somewhere different, and turns the one in the bottom bar
-off (`<VariationNav showTheme={false} />`).
-
-| Route  | Position                                   |
-| ------ | ------------------------------------------ |
-| `/v6a` | Top right of the content column            |
-| `/v6h` | In the label gutter, above everything else |
+Two earlier designs are kept in [`references/`](references/README.md). They
+aren't routed or deployed.
 
 ## Where things are
 
-| Path                           | What it is                                             |
-| ------------------------------ | ------------------------------------------------------ |
-| `lib/site.ts`                  | All copy: name, bio, links, projects, about page.      |
-| `lib/variations.ts`            | The routes and the order the Next button walks.        |
-| `app/page.tsx`                 | Index — pick a variation.                              |
-| `app/v6`, `app/v6a`…           | The variations, one folder each (`/about` inside).     |
-| `components/variation-nav.tsx` | Bottom bar: index, prev, next, optional lights.        |
-| `components/theme-toggle.tsx`  | The theme icon each variation places itself.           |
-| `components/portrait.tsx`      | `Portrait` (circular) and `Snapshot` (the desk image). |
-| `components/about-parts.tsx`   | Shared about-page copy blocks and the back link.       |
-| `components/scroll-cue.tsx`    | The "more below" indicator at the foot of each hero.   |
-| `components/easter-eggs.tsx`   | Hidden bits, shared across pages.                      |
-| `public/harry.svg`             | Placeholder portrait, hand-drawn as plain SVG shapes.  |
-| `public/harry-desk.svg`        | Placeholder desk scene for the about pages.            |
+| Path                          | What it is                                             |
+| ----------------------------- | ------------------------------------------------------ |
+| `lib/site.ts`                 | All copy: name, about, links, projects, `/about`.      |
+| `app/page.tsx`                | The home page.                                         |
+| `app/about/page.tsx`          | The about page.                                        |
+| `components/theme-toggle.tsx` | The light/dark icon.                                   |
+| `components/portrait.tsx`     | `Portrait` (circular) and `Snapshot` (the desk image). |
+| `components/easter-eggs.tsx`  | Hidden bits, shared across pages.                      |
+| `components/about-parts.tsx`  | About-page blocks used by the references.              |
+| `public/harry.svg`            | Placeholder portrait, hand-drawn as plain SVG shapes.  |
+| `public/harry-desk.svg`       | Placeholder desk scene.                                |
+| `references/`                 | Earlier designs, not deployed.                         |
 
 ## Swapping in your own content
 
 Everything lives in `lib/site.ts`:
 
-- `bio` — the two paragraphs under the name.
+- `site.about` — the two paragraphs under the name on the home page.
 - `links` — the four outbound links. **GitHub and archtms.com are verified; the
   Instagram handle and the Gumroad store URL are guesses. Check them.**
-- `projects` — side projects, deliberately understated. Placeholder names.
-- `aboutPage` — paragraphs and the "currently" table on the about pages.
-- `work` — the day job, linked from every about block.
+- `projects` — the "Also built" list. archtms is real; the other two are
+  placeholders.
+- `profile` — everything on `/about`: intro, currently, experience, education
+  and outside of work.
+- `work` — the day job.
+- `bio` and `aboutPage` — only used by the designs in `references/`.
 
 Images: drop `public/harry.jpg` and `public/harry-desk.jpg` in and change the
 two `src` values in `components/portrait.tsx`.
@@ -72,7 +54,7 @@ two `src` values in `components/portrait.tsx`.
 
 - `d` anywhere toggles light and dark.
 - Typing `harry` flips the portrait so he looks the other way.
-- Click the caption under any portrait.
+- Click the caption under the portrait.
 - Open the console.
 
 ## Notes

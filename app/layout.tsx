@@ -1,11 +1,5 @@
 import type { Metadata } from "next"
-import {
-  Fraunces,
-  Geist,
-  Geist_Mono,
-  Instrument_Serif,
-  Newsreader,
-} from "next/font/google"
+import { Geist, Geist_Mono, Newsreader } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -15,33 +9,21 @@ import { cn } from "@/lib/utils"
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans" })
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
-// Display faces. Each variation picks one; several share.
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
-})
+// Display face for the site. The references in /references used Fraunces
+// too; add it back here if you bring one of them back into app/.
 const newsreader = Newsreader({
   subsets: ["latin"],
   style: ["normal", "italic"],
   variable: "--font-newsreader",
 })
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces" })
 
 export const metadata: Metadata = {
-  title: "Harry Baines — Software engineer",
+  title: "Harry Baines — Full stack engineer",
   description:
-    "Harry Baines is a software engineer at ConnexAI, based in the UK. He builds small, fast digital products.",
+    "Harry Baines is a full stack software engineer in the UK, working at the intersection of software and AI.",
 }
 
-const fontVars = [
-  sans.variable,
-  mono.variable,
-  instrument.variable,
-  newsreader.variable,
-  fraunces.variable,
-]
+const fontVars = [sans.variable, mono.variable, newsreader.variable]
 
 export default function RootLayout({
   children,

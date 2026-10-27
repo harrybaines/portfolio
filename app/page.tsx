@@ -1,83 +1,143 @@
+"use client"
+
 import Link from "next/link"
+import * as React from "react"
 
+import { Caption, useSecretWord } from "@/components/easter-eggs"
 import { Portrait } from "@/components/portrait"
-import { site } from "@/lib/site"
-import { variations } from "@/lib/variations"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { links, projects, site, work } from "@/lib/site"
+import { cn } from "@/lib/utils"
 
-export default function IndexPage() {
+export default function Home() {
+  // He's looking off to the left. Ask nicely and he'll look the other way.
+  const [flipped, setFlipped] = React.useState(false)
+  useSecretWord("harry", () => setFlipped((f) => !f))
+  const flip = cn(
+    "transition-transform duration-700 ease-out motion-reduce:transition-none",
+    flipped && "-scale-x-100"
+  )
+
   return (
-    <main className="mx-auto flex min-h-dvh max-w-3xl flex-col px-6 py-20 sm:px-10 sm:py-28">
-      <header className="animate-rise">
-        <p className="label">Three portfolios, one person</p>
-        <h1 className="mt-6 font-[family-name:var(--font-instrument)] text-5xl leading-[0.95] tracking-[-0.02em] sm:text-6xl">
-          {site.first}{" "}
-          <span className="text-muted-foreground italic">{site.last}</span>
-        </h1>
-        <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground">
-          The same words, the same portrait, a few different arguments about how
-          a personal site should look. All of them are takes on the same split
-          layout. Pick one, then use the button in the corner to walk through
-          the rest.
-        </p>
-      </header>
+    <div className="font-[family-name:var(--font-newsreader)] lg:grid lg:grid-cols-[30%_1fr]">
+      {/* Large screens: the portrait holds still in its own panel. */}
+      <aside className="hidden bg-muted/45 lg:sticky lg:top-0 lg:flex lg:h-dvh lg:items-center lg:justify-center">
+        <div className="animate-rise text-center">
+          <div className={flip}>
+            <Portrait size={200} priority />
+          </div>
+          <Caption
+            className="mt-8 block w-full cursor-pointer label transition-colors hover:text-foreground"
+            lines={[
+              "Harry, mid-thought",
+              "The cap is not negotiable",
+              "Placeholder, real photo pending",
+              "He is looking at the deploy logs",
+            ]}
+          />
+        </div>
+      </aside>
 
-      <ol className="mt-16 border-t border-border">
-        {variations.map((v, i) => (
-          <li
-            key={v.slug}
-            className="animate-rise border-b border-border stagger"
-            style={{ ["--i" as string]: i + 2 }}
+      <main className="flex min-h-dvh flex-col justify-center px-6 py-14 sm:px-12 sm:py-20 lg:px-20 lg:py-12">
+        <div
+          className="flex animate-rise items-center justify-between gap-6 stagger"
+          style={{ ["--i" as string]: 0 }}
+        >
+          <p className="label">
+            {site.role} — {site.location} 🇬🇧
+          </p>
+          <ThemeToggle size="sm" className="-mr-1.5" />
+        </div>
+
+        {/* Below lg the portrait shrinks to sit beside the name. */}
+        <div className="mt-6 flex items-center justify-between gap-5 sm:mt-7">
+          <h1
+            className="animate-veil text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.95] font-normal tracking-[-0.035em] stagger lg:whitespace-nowrap"
+            style={{ ["--i" as string]: 1 }}
           >
-            <Link
-              href={`/${v.slug}`}
-              className="group flex items-baseline gap-5 py-5 sm:gap-8"
-            >
-              <span className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground tabular-nums">
-                {v.n}
-              </span>
-              <span className="flex-1">
-                <span className="block text-lg tracking-tight transition-transform duration-300 ease-out group-hover:translate-x-1">
-                  {v.title}
-                  {v.shelved ? (
-                    <span className="ml-3 align-middle font-mono text-[0.625rem] tracking-[0.16em] text-muted-foreground/70 uppercase">
-                      Not considered for now
-                    </span>
-                  ) : null}
-                </span>
-                <span className="mt-1 block text-sm text-muted-foreground">
-                  {v.note}
-                </span>
-              </span>
-              <span className="hidden font-mono text-[0.6875rem] tracking-[0.14em] text-muted-foreground/70 uppercase sm:block">
-                {v.face}
-              </span>
-              <span className="font-mono text-xs text-muted-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                →
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ol>
+            {site.first}{" "}
+            <em className="font-normal text-muted-foreground italic">
+              {site.last}
+            </em>
+          </h1>
+          <div className={cn(flip, "shrink-0 animate-rise lg:hidden")}>
+            <Portrait size={64} className="sm:size-20!" priority />
+          </div>
+        </div>
 
-      <footer className="mt-auto flex items-end justify-between gap-6 pt-20">
-        <div>
-          <p className="label">Hidden things</p>
-          <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-            <li>
-              Press <kbd className="font-mono text-foreground">d</kbd> anywhere
-              to change the lights.
+        <div
+          className="mt-10 animate-rise stagger sm:mt-12"
+          style={{ ["--i" as string]: 3 }}
+        >
+          <p className="text-[1.0625rem]">
+            {work.title} at{" "}
+            <a
+              href={work.href}
+              target="_blank"
+              rel="noreferrer"
+              className="underline decoration-foreground/30 underline-offset-[5px] transition-colors hover:decoration-foreground"
+            >
+              {work.company}
+            </a>
+          </p>
+          <div className="mt-5 max-w-xl space-y-4 text-[1.0625rem] leading-[1.8] text-muted-foreground">
+            {site.about.map((p) => (
+              <p key={p.slice(0, 20)}>{p}</p>
+            ))}
+          </div>
+          <Link
+            href="/about"
+            className="mt-6 inline-flex items-center gap-2 label transition-colors hover:text-foreground"
+          >
+            More about me <span aria-hidden>→</span>
+          </Link>
+        </div>
+
+        <ul
+          className="mt-10 flex animate-rise flex-wrap gap-x-7 gap-y-3 stagger"
+          style={{ ["--i" as string]: 4 }}
+        >
+          {links.map((l) => (
+            <li key={l.label}>
+              <a
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground uppercase underline decoration-muted-foreground/40 underline-offset-[6px] transition-colors hover:text-foreground hover:decoration-foreground"
+              >
+                {l.label}
+              </a>
             </li>
-            <li>
-              Type <kbd className="font-mono text-foreground">harry</kbd> on any
-              variation.
-            </li>
-            <li>
-              Some things react to a click that looks like it does nothing.
-            </li>
+          ))}
+        </ul>
+
+        <div
+          className="mt-14 animate-rise stagger sm:mt-16"
+          style={{ ["--i" as string]: 5 }}
+        >
+          <p className="label">Also built</p>
+          <ul className="mt-5 max-w-2xl border-t border-border/50">
+            {projects.map((p) => (
+              <li key={p.name}>
+                <a
+                  href={p.href}
+                  target={p.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                  className="group flex items-baseline gap-4 border-b border-border/50 py-3 text-[0.9375rem]"
+                >
+                  <span className="transition-colors group-hover:text-muted-foreground">
+                    {p.name}
+                  </span>
+                  <span className="flex-1 text-muted-foreground">
+                    {p.blurb}
+                  </span>
+                  <span className="shrink-0 label">{p.year}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
-        <Portrait size={56} priority />
-      </footer>
-    </main>
+      </main>
+    </div>
   )
 }

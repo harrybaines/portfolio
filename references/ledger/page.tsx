@@ -6,7 +6,6 @@ import * as React from "react"
 import { Caption, useSecretWord } from "@/components/easter-eggs"
 import { Portrait } from "@/components/portrait"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { VariationNav } from "@/components/variation-nav"
 import { bio, links, projects, site, work } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -150,8 +149,6 @@ export default function Ledger() {
           </p>
         </footer>
       </main>
-
-      <VariationNav slug="v6a" showTheme={false} />
     </div>
   )
 }

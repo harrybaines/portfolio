@@ -1,5 +1,5 @@
-// Single source of truth for every variation.
-// Swap the placeholder URLs for real ones and all routes update at once.
+// Single source of truth for the site (and the reference designs in
+// /references). Swap the placeholder URLs for real ones and everything updates.
 
 export const site = {
   name: "Harry Baines",
@@ -7,16 +7,18 @@ export const site = {
   last: "Baines",
   initials: "HB",
   age: 28,
-  role: "Software engineer",
+  role: "Full stack engineer",
   location: "United Kingdom",
   since: 2018,
 
   // One-liner for the tighter layouts.
   short: "Software engineer, freelancer and creator. UK.",
 
-  // Sits under the name on the Split variation. Short on purpose.
-  about:
-    "I build web products end to end, from data-heavy dashboards to archtms, a practice management system for architects. Outside the day job I freelance with small teams and make my own things.",
+  // Sits under the name on the home page.
+  about: [
+    "I'm a full stack software engineer working at the intersection of software and AI. Day to day I build product end to end, from the interface down to the AI and LLM integrations that sit behind it.",
+    "Outside of work I take on freelance projects, build side projects like archtms, and spend a lot of time learning whatever has caught my interest that month.",
+  ],
 
   email: "hello@harrybaines.com",
 } as const
@@ -29,7 +31,7 @@ export const work = {
 } as const
 
 /**
- * The short about that sits under the name on the v6* variations. Two
+ * The short about used by the reference designs in /references. Two
  * paragraphs, deliberately — any more and the hero stops being a hero.
  */
 export const bio: string[] = [
@@ -91,7 +93,7 @@ export const projects: Project[] = [
   },
 ]
 
-/** Copy for the per-variation about pages. Edit freely — it's placeholder. */
+/** Copy for the reference designs' about pages. */
 export const aboutPage = {
   lead: "I build small, fast software and I'm fairly quiet about it.",
   paragraphs: [
@@ -106,5 +108,62 @@ export const aboutPage = {
     ["Based", "United Kingdom"],
     ["Building", "archtms"],
     ["Open to", "Freelance work"],
+  ],
+} as const
+
+/** Everything on /about. */
+export const profile = {
+  lead: "Full stack engineer, working where software meets AI.",
+  intro: [
+    "I'm Harry, a 28-year-old software engineer based in the UK. I've been building for the web since 2018, mostly end to end: the interface, the API, the database and, more and more, the AI and LLM integrations that tie them together.",
+    "I like small, fast software that does one thing well, and I care more about shipping something people actually use than about what it's built with. Outside of work I freelance, build side projects, and keep a long list of things I want to learn next.",
+  ],
+  currently: [
+    ["Role", "Software Engineer, ConnexAI"],
+    ["Focus", "AI and LLM integrations"],
+    ["Building", "archtms"],
+    ["Based", "United Kingdom"],
+    ["Open to", "Freelance work"],
+  ],
+  // Start years only. Add end years if you want ranges.
+  experience: [
+    {
+      role: "Software Engineer",
+      org: "ConnexAI",
+      when: "Now",
+      note: "Full stack product work and the AI and LLM integrations behind it.",
+    },
+    {
+      role: "Software Engineer",
+      org: "Cassidy and Ashton Architects",
+      when: "2022",
+      note: "Built archtms v2, a PERN practice management system used by 70+ staff across 13,000+ projects. Moved hosting from Heroku to Docker and cut costs by over 90%.",
+    },
+    {
+      role: "Software Engineer / Data Scientist",
+      org: "Yordas Digital",
+      when: "2020",
+      note: "Led a Django app that halved safety data sheet authoring time, built NLP search over 20,000+ chemical phrases, and mentored two interns.",
+    },
+    {
+      role: "Software Engineer, part time",
+      org: "Cassidy and Ashton Architects",
+      when: "2018",
+      note: "Built the first version of archtms alongside university.",
+    },
+  ],
+  education: [
+    { what: "MSc Data Science", where: "Lancaster University", when: "2020" },
+    {
+      what: "BSc Computer Science",
+      where: "Lancaster University",
+      when: "2019",
+    },
+  ],
+  outside: [
+    "Training as a hybrid athlete, mixing running with the gym.",
+    "Liverpool FC, through the good seasons and the other ones.",
+    "Chess, slowly getting better.",
+    "Tinkering with the desk setup, Neovim and the terminal more than is strictly necessary.",
   ],
 } as const
