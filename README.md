@@ -29,7 +29,7 @@ aren't routed or deployed.
 | `components/portrait.tsx`     | `Portrait` (circular) and `Snapshot` (the desk image). |
 | `components/easter-eggs.tsx`  | Hidden bits, shared across pages.                      |
 | `components/about-parts.tsx`  | About-page blocks used by the references.              |
-| `public/harry.svg`            | Placeholder portrait, hand-drawn as plain SVG shapes.  |
+| `public/harry.jpg`            | The portrait.                                          |
 | `public/harry-desk.svg`       | Placeholder desk scene.                                |
 | `references/`                 | Earlier designs, not deployed.                         |
 
@@ -47,8 +47,8 @@ Everything lives in `lib/site.ts`:
 - `work` — the day job.
 - `bio` and `aboutPage` — only used by the designs in `references/`.
 
-Images: drop `public/harry.jpg` and `public/harry-desk.jpg` in and change the
-two `src` values in `components/portrait.tsx`.
+Images: the portrait is `public/harry.jpg`. The desk scene used by the
+references is still a placeholder at `public/harry-desk.svg`.
 
 ## Hidden things
 

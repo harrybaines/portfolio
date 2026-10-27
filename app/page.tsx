@@ -10,7 +10,7 @@ import { links, projects, site, work } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 export default function Home() {
-  // He's looking off to the left. Ask nicely and he'll look the other way.
+  // Type his name and the portrait flips.
   const [flipped, setFlipped] = React.useState(false)
   useSecretWord("harry", () => setFlipped((f) => !f))
   const flip = cn(
@@ -30,8 +30,7 @@ export default function Home() {
             className="mt-8 block w-full cursor-pointer label transition-colors hover:text-foreground"
             lines={[
               "Harry, mid-thought",
-              "The cap is not negotiable",
-              "Placeholder, real photo pending",
+              "Drawn, not photographed",
               "He is looking at the deploy logs",
             ]}
           />

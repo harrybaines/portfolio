@@ -5,10 +5,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-/**
- * Placeholder portrait. Drop a real photo at /public/harry.jpg and change
- * `src` below — every variation picks it up.
- */
+/** The portrait, from /public/harry.jpg. */
 export function Portrait({
   size = 120,
   className,
@@ -30,7 +27,7 @@ export function Portrait({
       style={{ width: size, height: size }}
     >
       <Image
-        src="/harry.svg"
+        src="/harry.jpg"
         alt="Harry Baines"
         width={size}
         height={size}
