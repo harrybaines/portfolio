@@ -31,13 +31,14 @@ export default function About() {
   return (
     <div className="font-[family-name:var(--font-newsreader)] lg:grid lg:grid-cols-[30%_1fr]">
       <aside className="hidden bg-muted/45 lg:sticky lg:top-0 lg:flex lg:h-dvh lg:items-center lg:justify-center">
-        <div className="animate-rise text-center">
+        {/* No entrance animation: the portrait has already appeared on the home page. */}
+        <div className="text-center">
           <Portrait size={176} priority />
           <p className="mt-8 label">{site.name}</p>
         </div>
       </aside>
 
-      <main className="px-6 pt-14 pb-24 sm:px-12 sm:pt-20 lg:px-20 lg:pt-24">
+      <main className="px-6 pt-14 pb-32 sm:px-12 sm:pt-20 sm:pb-40 lg:px-20 lg:pt-24">
         <div className="flex animate-rise items-center justify-between gap-6">
           <Link
             href="/"
@@ -55,7 +56,7 @@ export default function About() {
           </h1>
           <Portrait
             size={64}
-            className="shrink-0 animate-rise sm:size-20! lg:hidden"
+            className="shrink-0 sm:size-20! lg:hidden"
             priority
           />
         </div>
