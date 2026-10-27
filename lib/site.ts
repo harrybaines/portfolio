@@ -17,7 +17,7 @@ export const site = {
   // Sits under the name on the home page.
   about: [
     "I'm a full stack software engineer working at the intersection of software and AI. Day to day I build product end to end, from the interface down to the AI and LLM integrations that sit behind it.",
-    "Outside of work I take on freelance projects, build side projects like archtms, and spend a lot of time learning whatever has caught my interest that month.",
+    "Outside of work I take on freelance projects, build side projects like Droplet, and spend a lot of time learning whatever has caught my interest that month.",
   ],
 
   email: "hello@harrybaines.com",
@@ -42,54 +42,80 @@ export const bio: string[] = [
 export type Link = { label: string; href: string; note: string }
 
 /**
- * The four outbound links. GitHub and archtms are verified; the Instagram
- * handle and the Gumroad store URL are best guesses — check them.
+ * The four outbound links. GitHub, X and LinkedIn come from the old site; the
+ * Instagram handle is a best guess, so check it.
  */
 export const links: Link[] = [
   { label: "GitHub", href: "https://github.com/harrybaines", note: "Code" },
-  { label: "archtms", href: "https://archtms.vercel.app/", note: "My project" },
+  { label: "X", href: "https://x.com/HarryIsCoding", note: "Posts" },
   {
     label: "Instagram",
     href: "https://instagram.com/harrybaines",
     note: "Desk & setup",
   },
   {
-    label: "Gumroad",
-    href: "https://harrybaines.gumroad.com",
-    note: "Wallpaper packs",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/harryb0905/",
+    note: "Work",
   },
 ]
 
 export type Project = {
   name: string
   blurb: string
-  href: string
-  tag: string
-  year: string
+  /** Leave out when there's nothing to link to yet. */
+  href?: string
+  /** A year or a range. Leave out if it doesn't matter. */
+  year?: string
 }
 
-/** Side projects. archtms leads; the rest are kept short on purpose. */
+/** The "Also built" list, from the pinned projects on the old site. */
 export const projects: Project[] = [
   {
     name: "archtms",
     blurb: "Practice management software for architects.",
     href: "https://archtms.vercel.app/",
-    tag: "Product",
-    year: "2021",
+    year: "2020 – 2025",
   },
   {
-    name: "Fieldnote",
-    blurb: "Notes that link themselves.",
-    href: "#",
-    tag: "Product",
-    year: "2025",
+    name: "Droplet",
+    blurb: "A productivity dashboard for my life.",
+    year: "Now",
   },
   {
-    name: "Tinystack",
-    blurb: "Deploy a side project in one command.",
-    href: "#",
-    tag: "Developer tool",
-    year: "2024",
+    name: "create-ai-stack",
+    blurb: "CLI tool to create a full stack AI app.",
+    href: "https://create-ai-stack.dev",
+  },
+  {
+    name: "brewkit",
+    blurb: "AI starter kit template.",
+    href: "https://brew-kit.dev",
+  },
+  {
+    name: "lovable-clone",
+    blurb: "A Lovable clone to build websites with AI.",
+    href: "https://github.com/harrybaines/lovable-clone",
+  },
+  {
+    name: "torchgpt",
+    blurb: "PyTorch code generator.",
+    href: "https://github.com/harrybaines/torchgpt",
+  },
+  {
+    name: "ai-avatar-generator",
+    blurb: "Dreambooth Stable Diffusion model trained on my face.",
+    href: "https://github.com/harrybaines/ai-avatar-generator",
+  },
+  {
+    name: "YT-to-text",
+    blurb: "Transcribe a YouTube video to text with OpenAI Whisper.",
+    href: "https://github.com/harrybaines/gradio-whisper",
+  },
+  {
+    name: "Quark",
+    blurb: "Programming language for smart contracts, built with Go.",
+    href: "https://github.com/harrybaines/Quark",
   },
 ]
 
@@ -121,7 +147,6 @@ export const profile = {
   currently: [
     ["Role", "Software Engineer, ConnexAI"],
     ["Focus", "AI and LLM integrations"],
-    ["Building", "archtms"],
     ["Based", "United Kingdom"],
     ["Open to", "Freelance work"],
   ],
@@ -161,9 +186,8 @@ export const profile = {
     },
   ],
   outside: [
-    "Training as a hybrid athlete, mixing running with the gym.",
-    "Liverpool FC, through the good seasons and the other ones.",
-    "Chess, slowly getting better.",
-    "Tinkering with the desk setup, Neovim and the terminal more than is strictly necessary.",
+    "Most weeks revolve around training. I'm a hybrid athlete, so that means a mix of running and lifting, and I enjoy having something to work towards that has nothing to do with a screen.",
+    "I'm a lifelong Liverpool FC fan, through the good seasons and the other ones, and I play a fair bit of chess, slowly getting better.",
+    "The rest of the time I'm tinkering: with the desk setup, with Neovim and the terminal, or with whatever side project has caught my attention that month.",
   ],
 } as const
