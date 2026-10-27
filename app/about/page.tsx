@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 import { Portrait } from "@/components/portrait"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { links, profile, site, work } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -39,16 +38,13 @@ export default function About() {
       </aside>
 
       <main className="px-6 pt-14 pb-32 sm:px-12 sm:pt-20 sm:pb-40 lg:px-20 lg:pt-24">
-        <div className="flex animate-rise items-center justify-between gap-6">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 label transition-colors hover:text-foreground"
-          >
-            <span aria-hidden>←</span>
-            {site.name}
-          </Link>
-          <ThemeToggle size="sm" className="-mr-1.5" />
-        </div>
+        <Link
+          href="/"
+          className="inline-flex animate-rise items-center gap-2 label transition-colors hover:text-foreground"
+        >
+          <span aria-hidden>←</span>
+          {site.name}
+        </Link>
 
         <div className="mt-8 flex items-center justify-between gap-5 sm:mt-10">
           <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] leading-[1.1] font-normal tracking-[-0.03em]">

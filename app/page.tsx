@@ -5,7 +5,6 @@ import * as React from "react"
 
 import { useSecretWord } from "@/components/easter-eggs"
 import { Portrait } from "@/components/portrait"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { links, projects, site, work } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -31,17 +30,17 @@ export default function Home() {
       </aside>
 
       <main className="px-6 sm:px-12 lg:px-20">
-        {/* A fixed offset from the top, so the name never moves as content changes. */}
-        <div className="pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-40 lg:pb-24">
-          <div
-            className="flex animate-rise items-center justify-between gap-6 stagger"
+        {/*
+         * On large screens the offset tracks the viewport height, so the name
+         * sits just above the middle whatever the content below it does.
+         */}
+        <div className="pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-[max(6rem,calc(44dvh-6rem))] lg:pb-24">
+          <p
+            className="animate-rise pr-10 label stagger sm:pr-0"
             style={{ ["--i" as string]: 0 }}
           >
-            <p className="label">
-              {site.role} — {site.location} 🇬🇧
-            </p>
-            <ThemeToggle size="sm" className="-mr-1.5" />
-          </div>
+            {site.role} — {site.location} 🇬🇧
+          </p>
 
           {/* Below lg the portrait shrinks to sit beside the name. */}
           <div className="mt-6 flex items-center justify-between gap-5 sm:mt-7">
