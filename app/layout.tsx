@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import {
-  EB_Garamond,
   Fraunces,
   Geist,
   Geist_Mono,
@@ -29,11 +28,6 @@ const newsreader = Newsreader({
   variable: "--font-newsreader",
 })
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces" })
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-eb-garamond",
-})
 
 export const metadata: Metadata = {
   title: "Harry Baines — Software engineer",
@@ -47,7 +41,6 @@ const fontVars = [
   instrument.variable,
   newsreader.variable,
   fraunces.variable,
-  ebGaramond.variable,
 ]
 
 export default function RootLayout({
@@ -59,7 +52,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased font-sans", ...fontVars)}
+      className={cn("font-sans antialiased", ...fontVars)}
     >
       <body>
         <ThemeProvider>

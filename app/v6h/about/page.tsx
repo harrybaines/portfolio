@@ -12,20 +12,20 @@ const rail = "grid gap-3 sm:grid-cols-[6.5rem_minmax(0,1fr)] sm:gap-8"
 
 export default function AboutRule() {
   return (
-    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[20rem_1fr]">
+    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[35%_1fr]">
       <aside className="flex items-center justify-center bg-muted/45 px-6 py-20 lg:sticky lg:top-0 lg:h-dvh lg:py-0">
         <div className="animate-rise text-center">
-          <Portrait size={172} className="max-w-[50vw]" priority />
-          <p className="label mt-7">{site.name}</p>
+          <Portrait size={220} className="max-w-[50vw]" priority />
+          <p className="mt-7 label">{site.name}</p>
         </div>
       </aside>
 
-      <main className="px-6 pb-28 pt-16 sm:px-12 lg:px-16 lg:pt-24">
+      <main className="px-6 pt-16 pb-28 sm:px-12 lg:px-16 lg:pt-24">
         <div className={cn(rail, "animate-rise")}>
           <ThemeToggle size="sm" className="-ml-1.5 justify-self-start" />
           <div>
             <BackLink slug="v6h" label="Harry Baines" />
-            <h1 className="animate-veil mt-5 max-w-2xl text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.15] tracking-[-0.035em]">
+            <h1 className="mt-5 max-w-2xl animate-veil text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.15] font-light tracking-[-0.035em]">
               {aboutPage.lead}
             </h1>
           </div>
@@ -38,7 +38,10 @@ export default function AboutRule() {
 
         <div className={cn(rail, "mt-14")}>
           <p className="label sm:pt-2">The desk</p>
-          <Snapshot className="max-w-md" caption="Most days it looks like this" />
+          <Snapshot
+            className="max-w-md"
+            caption="Most days it looks like this"
+          />
         </div>
 
         <div className={cn(rail, "mt-14")}>

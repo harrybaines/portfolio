@@ -5,8 +5,6 @@ import * as React from "react"
 
 import { Caption, useSecretWord } from "@/components/easter-eggs"
 import { Portrait } from "@/components/portrait"
-import { Reveal } from "@/components/reveal"
-import { ScrollCue } from "@/components/scroll-cue"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { VariationNav } from "@/components/variation-nav"
 import { bio, links, projects, site, work } from "@/lib/site"
@@ -20,7 +18,7 @@ export default function Rule() {
   useSecretWord("harry", () => setFlipped((f) => !f))
 
   return (
-    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[20rem_1fr]">
+    <div className="font-[family-name:var(--font-v6h)] lg:grid lg:grid-cols-[35%_1fr]">
       <aside className="flex items-center justify-center bg-muted/45 px-6 py-24 lg:sticky lg:top-0 lg:h-dvh lg:py-0">
         <div className="animate-rise text-center">
           <div
@@ -29,10 +27,10 @@ export default function Rule() {
               flipped && "-scale-x-100"
             )}
           >
-            <Portrait size={172} className="max-w-[50vw]" priority />
+            <Portrait size={220} className="max-w-[50vw]" priority />
           </div>
           <Caption
-            className="label mt-7 block w-full cursor-pointer transition-colors hover:text-foreground"
+            className="mt-7 block w-full cursor-pointer label transition-colors hover:text-foreground"
             lines={[
               "Harry, mid-thought",
               "Placeholder — real photo pending",
@@ -43,15 +41,15 @@ export default function Rule() {
       </aside>
 
       <main className="px-6 sm:px-12 lg:px-16">
-        <section className="relative flex min-h-dvh flex-col justify-center py-32">
+        <section className="flex min-h-dvh flex-col justify-center pt-20 pb-32">
           {/* The light switch lives in the gutter, above the labels. */}
           <div className={cn(rail, "animate-rise")}>
             <ThemeToggle size="sm" className="-ml-1.5 justify-self-start" />
             <div>
               <p className="label">
-                {site.role} — {site.location}
+                {site.role} — {site.location} 🇬🇧
               </p>
-              <h1 className="animate-veil mt-5 text-[clamp(2.5rem,7vw,4.75rem)] font-light leading-[0.95] tracking-[-0.04em]">
+              <h1 className="mt-5 animate-veil text-[clamp(2.5rem,7vw,4.75rem)] leading-[0.95] font-medium tracking-[-0.04em]">
                 {site.first}
                 <br />
                 {site.last}
@@ -59,7 +57,10 @@ export default function Rule() {
             </div>
           </div>
 
-          <div className={cn(rail, "animate-rise stagger mt-14")} style={{ ["--i" as string]: 3 }}>
+          <div
+            className={cn(rail, "mt-10 animate-rise stagger")}
+            style={{ ["--i" as string]: 3 }}
+          >
             <p className="label sm:pt-2">About</p>
             <div>
               <div className="max-w-lg space-y-5 text-[1.0625rem] leading-[1.85] text-muted-foreground">
@@ -69,14 +70,17 @@ export default function Rule() {
               </div>
               <Link
                 href="/v6h/about"
-                className="label mt-7 inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                className="mt-7 inline-flex items-center gap-2 label transition-colors hover:text-foreground"
               >
                 More about me <span aria-hidden>→</span>
               </Link>
             </div>
           </div>
 
-          <div className={cn(rail, "animate-rise stagger mt-12")} style={{ ["--i" as string]: 4 }}>
+          <div
+            className={cn(rail, "mt-9 animate-rise stagger")}
+            style={{ ["--i" as string]: 4 }}
+          >
             <p className="label sm:pt-2">Elsewhere</p>
             <ul className="flex flex-wrap gap-x-7 gap-y-3">
               {links.map((l) => (
@@ -86,7 +90,7 @@ export default function Rule() {
                     target="_blank"
                     rel="noreferrer"
                     title={l.note}
-                    className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] underline decoration-muted-foreground/40 underline-offset-[6px] transition-colors hover:decoration-foreground"
+                    className="font-mono text-[0.6875rem] tracking-[0.16em] uppercase underline decoration-muted-foreground/40 underline-offset-[6px] transition-colors hover:decoration-foreground"
                   >
                     {l.label}
                   </a>
@@ -95,20 +99,20 @@ export default function Rule() {
             </ul>
           </div>
 
-          <ScrollCue className="absolute bottom-24 left-0" />
-        </section>
-
-        <section className="border-t border-border py-20">
-          <div className={rail}>
-            <Reveal as="p" className="label sm:pt-1">
-              Also built
-            </Reveal>
+          {/* Always on the first screen — no scrolling to find it. */}
+          <div
+            className={cn(rail, "mt-9 animate-rise stagger")}
+            style={{ ["--i" as string]: 5 }}
+          >
+            <p className="label sm:pt-1">Also built</p>
             <ul className="max-w-2xl">
-              {projects.map((p, i) => (
-                <Reveal as="li" key={p.name} delay={i * 50}>
+              {projects.map((p) => (
+                <li key={p.name}>
                   <a
                     href={p.href}
-                    className="group flex items-baseline gap-4 border-b border-border py-3.5"
+                    target={p.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noreferrer"
+                    className="group flex items-baseline gap-4 border-b border-border py-3"
                   >
                     <span className="transition-opacity group-hover:opacity-60">
                       {p.name}
@@ -116,9 +120,9 @@ export default function Rule() {
                     <span className="flex-1 text-sm text-muted-foreground">
                       {p.blurb}
                     </span>
-                    <span className="label shrink-0">{p.year}</span>
+                    <span className="shrink-0 label">{p.year}</span>
                   </a>
-                </Reveal>
+                </li>
               ))}
             </ul>
           </div>

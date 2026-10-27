@@ -10,11 +10,9 @@
     --font-mono: var(--font-mono);
 
     /* One display face per variation route. */
-    --font-v1: var(--font-instrument);
     --font-v6: var(--font-newsreader);
     --font-v6a: var(--font-newsreader);
     --font-v6b: var(--font-fraunces);
-    --font-v6f: var(--font-eb-garamond);
     --font-v6h: var(--font-fraunces);
 
     --animate-rise: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;

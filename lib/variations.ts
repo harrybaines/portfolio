@@ -4,53 +4,48 @@ export type Variation = {
   title: string
   note: string
   face: string
+  /** Kept around but not in the running; flagged on the page and index. */
+  shelved?: boolean
 }
 
 // Slugs keep their original numbers so the URLs you bookmarked still work.
 export const variations: Variation[] = [
   {
-    slug: "v1",
-    n: "01",
-    title: "Centre",
-    note: "Everything on one axis. Portrait, name, breath.",
-    face: "Instrument Serif",
-  },
-  {
     slug: "v6",
-    n: "02",
+    n: "01",
     title: "Split",
     note: "Portrait holds still, the writing scrolls past it.",
     face: "Newsreader",
   },
-  // Eight takes on the split layout. About sits under the name; links sit
-  // beside it; side projects are a mention rather than the main event.
   {
-    slug: "v6a",
-    n: "03",
-    title: "Ledger",
-    note: "Links ruled off in a column beside the writing.",
+    slug: "v6n",
+    n: "02",
+    title: "Split, narrow",
+    note: "The same split, with the portrait panel cut to 30%.",
     face: "Newsreader",
   },
   {
     slug: "v6b",
-    n: "04",
+    n: "03",
     title: "Card",
     note: "The portrait sits in a frame instead of a panel.",
     face: "Fraunces",
   },
   {
-    slug: "v6f",
-    n: "05",
-    title: "Bare",
-    note: "No panel at all. One column, a lot of air.",
-    face: "EB Garamond",
-  },
-  {
     slug: "v6h",
-    n: "06",
+    n: "04",
     title: "Rule",
     note: "A mono label hangs in the gutter beside every block.",
     face: "Fraunces",
+  },
+  // Parked at the end of the list until there's a reason to revisit them.
+  {
+    slug: "v6a",
+    n: "05",
+    title: "Ledger",
+    note: "Links ruled off in a column beside the writing.",
+    face: "Newsreader",
+    shelved: true,
   },
 ]
 

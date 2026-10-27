@@ -11,14 +11,14 @@ export const site = {
   location: "United Kingdom",
   since: 2018,
 
-  // Two-sentence version used in most heroes.
+  // The hero paragraph on the split layouts.
   intro:
-    "I'm a 28-year-old software engineer and freelancer in the UK. I build small, fast digital products — and I make things on the internet.",
+    "I'm a 28-year-old software engineer and freelancer in the UK. By day I'm at ConnexAI; the rest of the time I build small, fast digital products and make things on the internet. I've been shipping web software end to end since 2018 — from data-heavy dashboards to archtms, the practice management system I built for architects. I like taking a rough idea, finding the simplest version of it worth using, and getting it in front of people quickly.",
 
   // One-liner for the tighter layouts.
   short: "Software engineer, freelancer and creator. UK.",
 
-  // Longer paragraph, used by v1 and v6.
+  // Longer paragraph, used by the Split variations.
   about:
     "I've spent the last few years building web products end to end — data-heavy dashboards, developer tooling, and the occasional weekend app that got out of hand. Outside the day job I freelance with small teams who need someone who can take a rough idea and ship it, and I spend the rest of my time making my own things.",
 
@@ -70,8 +70,16 @@ export type Project = {
   year: string
 }
 
-/** Side projects. Kept short on purpose — they're a mention, not the point. */
+/** Side projects. archtms leads; the rest are kept short on purpose. */
 export const projects: Project[] = [
+  {
+    name: "archtms",
+    blurb:
+      "Practice management for architects — projects, clients, fees, staff and cashflow in one place.",
+    href: "https://archtms.com",
+    tag: "Product",
+    year: "2021",
+  },
   {
     name: "Fieldnote",
     blurb: "Notes that link themselves.",
@@ -84,13 +92,6 @@ export const projects: Project[] = [
     blurb: "Deploy a side project in one command.",
     href: "#",
     tag: "Developer tool",
-    year: "2024",
-  },
-  {
-    name: "Slowmail",
-    blurb: "Email that arrives once a day.",
-    href: "#",
-    tag: "Product",
     year: "2024",
   },
 ]
