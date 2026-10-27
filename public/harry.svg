@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Illustrated portrait of Harry Baines: black flat-peak cap, brown top, smiling and looking away">
+  <defs>
+    <clipPath id="disc"><circle cx="200" cy="200" r="200"/></clipPath>
+  </defs>
+  <g clip-path="url(#disc)">
+    <rect width="400" height="400" fill="#E9E4DA"/>
+
+    <!-- shoulders -->
+    <path d="M-10 400 C -10 322 70 286 150 282 L 258 282 C 336 288 412 324 412 400 Z" fill="#6E4B34"/>
+    <path d="M150 282 L 258 282 C 250 322 214 336 196 336 C 176 336 156 320 150 282 Z" fill="#5B3C29"/>
+
+    <!-- neck -->
+    <path d="M170 226 L 246 226 L 246 292 C 220 306 190 302 170 288 Z" fill="#B87D55"/>
+
+    <!-- head -->
+    <ellipse cx="204" cy="184" rx="78" ry="90" fill="#CB9165"/>
+    <!-- ear on the far side -->
+    <ellipse cx="278" cy="192" rx="15" ry="21" fill="#B87D55"/>
+
+    <!-- hair at the nape -->
+    <path d="M254 126 C 284 140 288 190 278 224 C 292 190 296 142 272 120 Z" fill="#3A2618"/>
+
+    <!-- flat peak, pointing the way he's looking. Drawn first so the crown
+         covers where it joins. -->
+    <path d="M150 130 L 46 138 L 44 158 L 152 166 Z" fill="#1E1E1E" stroke-linejoin="round"/>
+    <path d="M46 150 L 44 158 L 152 166 L 152 157 Z" fill="#0B0B0B"/>
+
+    <!-- cap crown -->
+    <path d="M128 148 C 128 96 166 68 206 68 C 248 68 282 98 282 148 C 240 158 172 158 128 148 Z" fill="#141414"/>
+    <path d="M206 69 C 199 97 197 123 199 152" stroke="#2C2C2C" stroke-width="2.5" fill="none"/>
+    <circle cx="206" cy="71" r="5" fill="#2A2A2A"/>
+    <!-- cap band -->
+    <path d="M128 148 C 172 158 240 158 282 148 L 281 159 C 238 169 172 169 129 159 Z" fill="#000000" opacity="0.4"/>
+
+    <!-- brows -->
+    <path d="M118 176 C 128 168 142 168 151 173" stroke="#3A2618" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M182 172 C 194 165 210 166 219 172" stroke="#3A2618" stroke-width="7" stroke-linecap="round" fill="none"/>
+
+    <!-- eyes, looking off to the left -->
+    <ellipse cx="134" cy="196" rx="7" ry="8" fill="#231A12"/>
+    <ellipse cx="199" cy="194" rx="7.5" ry="8.5" fill="#231A12"/>
+
+    <!-- nose -->
+    <path d="M148 200 C 138 216 132 226 136 232 C 140 237 148 237 154 234" stroke="#A96B45" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- smile, teeth showing -->
+    <path d="M140 258 C 158 254 186 254 206 260 C 198 282 160 286 148 272 Z" fill="#4A2A1C"/>
+    <path d="M143 259 C 160 255 186 255 203 260 C 190 268 158 269 143 259 Z" fill="#FFFFFF"/>
+    <path d="M136 254 C 152 246 190 246 210 254" stroke="#A96B45" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

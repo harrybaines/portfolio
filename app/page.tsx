@@ -1,18 +1,76 @@
-import ContentWrapper from "./components/ContentWrapper";
-import HeroSection from "./components/HeroSection";
+import Link from "next/link"
 
-export default function Home() {
+import { Portrait } from "@/components/portrait"
+import { site } from "@/lib/site"
+import { variations } from "@/lib/variations"
+
+export default function IndexPage() {
   return (
-    <>
-      <div className="min-h-screen w-full text-neutral-900 dark:text-neutral-100 overflow-hidden">
-        <div className="relative z-10 min-h-screen pt-12 md:pt-10 flex flex-col">
-          <div className="mx-auto w-full flex-1 flex flex-col">
-            <ContentWrapper>
-              <HeroSection />
-            </ContentWrapper>
-          </div>
+    <main className="mx-auto flex min-h-dvh max-w-3xl flex-col px-6 py-20 sm:px-10 sm:py-28">
+      <header className="animate-rise">
+        <p className="label">Six portfolios, one person</p>
+        <h1 className="mt-6 font-[family-name:var(--font-v1)] text-5xl leading-[0.95] tracking-[-0.02em] sm:text-6xl">
+          {site.first}{" "}
+          <span className="italic text-muted-foreground">{site.last}</span>
+        </h1>
+        <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground">
+          The same words, the same portrait, six different arguments about how a
+          personal site should look. Numbers 03 to 06 are all takes on the same
+          split layout. Pick one, then use the button in the corner to walk
+          through the rest.
+        </p>
+      </header>
+
+      <ol className="mt-16 border-t border-border">
+        {variations.map((v, i) => (
+          <li
+            key={v.slug}
+            className="animate-rise stagger border-b border-border"
+            style={{ ["--i" as string]: i + 2 }}
+          >
+            <Link
+              href={`/${v.slug}`}
+              className="group flex items-baseline gap-5 py-5 sm:gap-8"
+            >
+              <span className="font-mono text-[0.6875rem] tracking-[0.16em] text-muted-foreground tabular-nums">
+                {v.n}
+              </span>
+              <span className="flex-1">
+                <span className="block text-lg tracking-tight transition-transform duration-300 ease-out group-hover:translate-x-1">
+                  {v.title}
+                </span>
+                <span className="mt-1 block text-sm text-muted-foreground">
+                  {v.note}
+                </span>
+              </span>
+              <span className="hidden font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground/70 sm:block">
+                {v.face}
+              </span>
+              <span className="font-mono text-xs text-muted-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                →
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ol>
+
+      <footer className="mt-auto flex items-end justify-between gap-6 pt-20">
+        <div>
+          <p className="label">Hidden things</p>
+          <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
+            <li>
+              Press <kbd className="font-mono text-foreground">d</kbd> anywhere
+              to change the lights.
+            </li>
+            <li>
+              Type <kbd className="font-mono text-foreground">harry</kbd> on any
+              variation.
+            </li>
+            <li>Some things react to a click that looks like it does nothing.</li>
+          </ul>
         </div>
-      </div>
-    </>
-  );
+        <Portrait size={56} priority />
+      </footer>
+    </main>
+  )
 }
