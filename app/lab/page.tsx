@@ -43,9 +43,9 @@ export default function LabIndex() {
         Design lab
       </h1>
       <p className="mt-5 max-w-md text-[1.0625rem] leading-[1.6] text-muted-foreground">
-        Six takes on the home page and three on the about page, all built on the
-        live design. Use the pill in the bottom-right corner to step through
-        them.
+        Twelve takes on the home page and three on the about page. 01 to 06
+        build on the live design; 07 to 12 overhaul the layout. Use the pill in
+        the bottom-right corner to step through them.
       </p>
       <List label="Home" pages={labHomes} />
       <List label="About" pages={labAbouts} />

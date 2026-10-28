@@ -53,6 +53,49 @@ export const labHomes: LabPage[] = [
     note: "Written like a short note, signed off at the bottom.",
     about: "about-c",
   },
+  // 07 onwards: full layout overhauls, same content, a few new faces.
+  {
+    slug: "7",
+    n: "07",
+    title: "Masthead",
+    note: "No side panel. A huge name across the top, newspaper columns below.",
+    about: "about-b",
+  },
+  {
+    slug: "8",
+    n: "08",
+    title: "Centre stage",
+    note: "One centred column in Fraunces, portrait on top, very calm.",
+    about: "about-c",
+  },
+  {
+    slug: "9",
+    n: "09",
+    title: "Banner",
+    note: "A grey band across the top with the portrait and name, columns under it.",
+    about: "about-a",
+  },
+  {
+    slug: "10",
+    n: "10",
+    title: "Mono sidebar",
+    note: "A narrow mono sidebar, a big statement, and projects up front.",
+    about: "about-b",
+  },
+  {
+    slug: "11",
+    n: "11",
+    title: "Bento",
+    note: "Everything in hairline tiles: portrait, name, clock, links, projects.",
+    about: "about-a",
+  },
+  {
+    slug: "12",
+    n: "12",
+    title: "Sentence",
+    note: "One big sentence in Instrument Serif with the portrait set inline.",
+    about: "about-c",
+  },
 ]
 
 export const labAbouts: LabPage[] = [
@@ -80,6 +123,7 @@ export const labAbouts: LabPage[] = [
 export const lab = {
   oneLiner:
     "Full stack engineer working on applied AI. 6+ years, mostly TypeScript and Python.",
+  statement: "I build software with AI inside it.",
   intro:
     "I specialise in full stack web development and AI integration: building products end to end and wiring LLMs into them so they're genuinely useful.",
   outside:
